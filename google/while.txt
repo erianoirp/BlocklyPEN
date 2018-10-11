@@ -1,0 +1,101 @@
+langage
+js
+
+Blockly.Blocks['block_type'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("Boolean")
+        .appendField("");
+    this.appendDummyInput()
+        .appendField("‚ÌŠÔ");
+    this.appendStatementInput("‚Š‚Š‚Š")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("‚ðŒJ‚è•Ô‚·");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+json
+
+{
+  "type": "block_type",
+  "message0": " %1 ‚ÌŠÔ %2 %3 ‚ðŒJ‚è•Ô‚·",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "Boolean"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "‚Š‚Š‚Š"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 120,
+  "tooltip": "",
+  "helpUrl": "http://www.example.com/"
+}
+
+
+generator stub
+js
+
+Blockly.JavaScript['block_type'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var statements____ = Blockly.JavaScript.statementToCode(block, '‚Š‚Š‚Š');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+paison
+
+Blockly.Python['block_type'] = function(block) {
+  var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
+  var statements____ = Blockly.Python.statementToCode(block, '‚Š‚Š‚Š');
+  // TODO: Assemble Python into code variable.
+  var code = '...\n';
+  return code;
+};
+
+php
+
+Blockly.PHP['block_type'] = function(block) {
+  var value_name = Blockly.PHP.valueToCode(block, 'NAME', Blockly.PHP.ORDER_ATOMIC);
+  var statements____ = Blockly.PHP.statementToCode(block, '‚Š‚Š‚Š');
+  // TODO: Assemble PHP into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+lua
+
+Blockly.Lua['block_type'] = function(block) {
+  var value_name = Blockly.Lua.valueToCode(block, 'NAME', Blockly.Lua.ORDER_ATOMIC);
+  var statements____ = Blockly.Lua.statementToCode(block, '‚Š‚Š‚Š');
+  // TODO: Assemble Lua into code variable.
+  var code = '...\n';
+  return code;
+};
+
+dart
+
+Blockly.Dart['block_type'] = function(block) {
+  var value_name = Blockly.Dart.valueToCode(block, 'NAME', Blockly.Dart.ORDER_ATOMIC);
+  var statements____ = Blockly.Dart.statementToCode(block, '‚Š‚Š‚Š');
+  // TODO: Assemble Dart into code variable.
+  var code = '...;\n';
+  return code;
+};
