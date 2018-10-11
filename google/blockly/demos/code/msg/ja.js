@@ -17,6 +17,7 @@ var MSG = {
   catgset: "描画設定",
   catgdraw: "描画",
   catfile: "ファイル",
+  catFunctions: "関数",
   listVariable: "リスト",
   textVariable: "テキスト",
   // httpRequestError: "ネットワーク接続のエラーです。",
