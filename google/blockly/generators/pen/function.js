@@ -1,4 +1,4 @@
-Blockly.JavaScript['function_block'] = function(block) {
+Blockly.Pen['function_block'] = function(block) {
   /*
   var dropdown_return_value = block.getFieldValue('return_value');
   var text_func_name = block.getFieldValue('func_name');
@@ -10,42 +10,53 @@ Blockly.JavaScript['function_block'] = function(block) {
   */
   const return_value = block.getFieldValue('return_value');
   const func_name = block.getFieldValue('func_name');
-  let args = block.getFieldValue('arg');
-  if (args == undefined) {
-    args = '';
+  let params = block.getFieldValue('parameter');
+  console.log(`params: ${params}`);
+  if (params == undefined) {
+    params = '';
   }
-  var statements_statements = Blockly.Pen.statementToCode(block, 'statements');
+  const params_end = Blockly.Pen.valueToCode(block, 'params_end', Blockly.Pen.ORDER_ATOMIC);
+  const statements = Blockly.Pen.statementToCode(block, 'statements');
   // TODO: Assemble JavaScript into code variable.
-  const code = '関数 '+return_value+' '+func_name+' ('         '...;\n';
+  const code = '関数 '+return_value+' '+func_name+' ('+params+params_end+'\n  '+statements+'関数終了\n';
   return code;
 };
 
-Blockly.JavaScript['args_end'] = function(block) {
-  /*
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
+Blockly.Pen['step_block'] = function(block) {
+  const step_name = block.getFieldValue('step_name');
+  let params = block.getFieldValue('parameter');
+  console.log(`params: ${params}`);
+  if (params == undefined) {
+    params = '';
+  }
+  const params_end = Blockly.Pen.valueToCode(block, 'params_end', Blockly.Pen.ORDER_ATOMIC);
+  const statements = Blockly.Pen.statementToCode(block, 'statements');
+  const code = '手続き '+func_name+' ('+params+params_end+'\n  '+statements+'手続き終了\n';
+  return code;
+};
+
+Blockly.Pen['return_block'] = function(block) {
+  const return_value = Blockly.Pen.valueToCode(block, 'return_value', Blockly.Pen.ORDER_ATOMIC);
+  const code = return_value+'を返す\n'
+  return code;
+};
+
+Blockly.Pen['return_void_block'] = function(block) {
+  const code = '手続きを抜ける\n'
+  return code;
+};
+
+Blockly.Pen['param_block'] = function(block) {
+  const datatype = block.getFieldValue('datatype');
+  const variable = block.getFieldValue('variable');
+  const parameter = Blockly.Pen.valueToCode(block, 'parameter', Blockly.Pen.ORDER_ATOMIC);
+  const code = datatype+' '+variable+', '+parameter;
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
-  */
+};
+
+Blockly.Pen['params_end_block'] = function(block) {
   const code = ')';
   return [code, Blockly.Pen.ORDER_NONE];
-};
-
-Blockly.JavaScript['arg'] = function(block) {
-  var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
-  var text_name = block.getFieldValue('NAME');
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
-};
-
-Blockly.JavaScript['step_block'] = function(block) {
-  var text_step_name = block.getFieldValue('step_name');
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  var statements_statements = Blockly.JavaScript.statementToCode(block, 'statements');
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...;\n';
-  return code;
+  //return code;
 };
