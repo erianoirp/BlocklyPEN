@@ -1,6 +1,6 @@
 Blockly.Blocks['function_block'] = {
   init: function() {
-    this.appendValueInput("function_decleration")
+    this.appendValueInput("parameters")
         .setCheck(["parameter", "params_end"])
         .appendField("関数")
         .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "return_value")
@@ -19,7 +19,7 @@ Blockly.Blocks['function_block'] = {
 
 Blockly.Blocks['step_block'] = {
   init: function() {
-    this.appendValueInput("NAME")
+    this.appendValueInput("parameters")
         .setCheck(["parameter", "params_end"])
         .appendField("手続き")
         .appendField(new Blockly.FieldTextInput("≪手続き≫"), "step_name")
