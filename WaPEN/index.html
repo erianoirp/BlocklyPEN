@@ -213,7 +213,7 @@
 		<!--値-->
 		<category name="{catnum}" colour="230">
 			<block type="num"></block>
-			<block type="val"></block>
+			<block type="variable"></block>
 		</category>
 
 		<!--計算-->
@@ -230,18 +230,11 @@
 					</shadow> -->
 				</value>
 			</block>
-			<block type="substitution">
-				<value name="val1">
-					<shadow type="val">
-						<field name="val">≪変数≫</field>
-					</shadow>
-				</value>
-				<value name="val2">
-					<!-- <shadow type="num">
-						<field name="num">≪数字≫</field>
-					</shadow> -->
-				</value>
-			</block>
+      <block type="assign">
+        <value name="to">
+          <block type="variable"></block>
+        </value>
+      </block>
 			<block type="random">
 				<value name="val">
 					<shadow type="num">

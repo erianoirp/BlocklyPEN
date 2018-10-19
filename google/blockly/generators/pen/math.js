@@ -15,17 +15,15 @@ Blockly.Pen['calculation'] = function(block) {
   // return code;
 };
 
-Blockly.Pen['substitution'] = function(block) {
-  var value_val1 = Blockly.Pen.valueToCode(block, 'val1', Blockly.Pen.ORDER_ATOMIC);
-  var value_val2 = Blockly.Pen.valueToCode(block, 'val2', Blockly.Pen.ORDER_ATOMIC);
-  // TODO: Assemble Pen into code variable.
+Blockly.Pen['assign'] = function(block) {
+  let to = Blockly.Pen.valueToCode(block, 'to', Blockly.Pen.ORDER_ATOMIC);
   // 括弧を取り除く
-  value_val1 = value_val1.substr(1);
-  value_val1 = value_val1.substr(0,value_val1.length-1);
-  value_val2 = value_val2.substr(1);
-  value_val2 = value_val2.substr(0,value_val2.length-1);
-  var code = value_val1 + ' ← ' + value_val2 + '\n';
-  //return [code, Blockly.Pen.ORDER_NONE];
+  to = to.substr(1);
+  to = to.substr(0, to.length-1);
+  let from = Blockly.Pen.valueToCode(block, 'from', Blockly.Pen.ORDER_ATOMIC);
+  from = from.substr(1);
+  from = from.substr(0, from.length-1);
+  const code = to + ' ← ' + from + '\n';
   return code;
 };
 

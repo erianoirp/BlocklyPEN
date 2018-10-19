@@ -13,20 +13,19 @@ Blockly.Blocks['calculation'] = {
   }
 };
 
-Blockly.Blocks['substitution'] = {
+Blockly.Blocks['assign'] = {
   init: function() {
-    this.appendValueInput("val1")
-        .setCheck(null);
+    this.appendValueInput("to")
+        .setCheck("variable");
     this.appendDummyInput()
-        .appendField("に");
-    this.appendValueInput("val2")
+        .appendField(" ← ");
+    this.appendValueInput("from")
         .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を代入");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
-    this.setTooltip('');
+ this.setTooltip("左辺の変数に右辺の値を代入する");
+ this.setHelpUrl("");
   }
 };
 

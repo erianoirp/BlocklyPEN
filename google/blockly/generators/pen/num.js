@@ -15,10 +15,8 @@ Blockly.Pen['cnum'] = function(block) {
   return [code, Blockly.Pen.ORDER_NONE];
 };
 
-Blockly.Pen['val'] = function(block) {
-  var text_val = block.getFieldValue('val');
-  // TODO: Assemble Pen into code variable.
-  var code = text_val;
-  // TODO: Change ORDER_NONE to the correct strength.
+Blockly.Pen['variable'] = function(block) {
+  const name = block.getFieldValue('name');
+  const code = name;
   return [code, Blockly.Pen.ORDER_NONE];
 };

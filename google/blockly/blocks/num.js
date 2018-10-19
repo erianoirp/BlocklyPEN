@@ -19,6 +19,7 @@ Blockly.Blocks['cnum'] = {
   }
 };
 
+/*
 Blockly.Blocks['val'] = {
   init: function() {
     this.appendDummyInput()
@@ -26,5 +27,16 @@ Blockly.Blocks['val'] = {
     this.setOutput(true, null);
     this.setColour(230);
     this.setTooltip('');
+  }
+};
+*/
+Blockly.Blocks['variable'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput("≪変数≫"), "name");
+    this.setOutput(true, "variable");
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
   }
 };
