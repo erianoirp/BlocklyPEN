@@ -1,13 +1,4 @@
-Blockly.Pen['function_block'] = function(block) {
-  /*
-  var dropdown_return_value = block.getFieldValue('return_value');
-  var text_func_name = block.getFieldValue('func_name');
-  var value_function_decleration = Blockly.JavaScript.valueToCode(block, 'function_decleration', Blockly.JavaScript.ORDER_ATOMIC);
-  var statements_statements = Blockly.JavaScript.statementToCode(block, 'statements');
-  // TODO: Assemble JavaScript into code variable.
-  var code = '...;\n';
-  return code;
-  */
+Blockly.Pen['define_function'] = function(block) {
   const return_value = block.getFieldValue('return_value');
   const func_name = block.getFieldValue('func_name');
   const params = Blockly.Pen.valueToCode(block, 'parameters', Blockly.Pen.ORDER_ATOMIC);
@@ -17,7 +8,7 @@ Blockly.Pen['function_block'] = function(block) {
   return code;
 };
 
-Blockly.Pen['step_block'] = function(block) {
+Blockly.Pen['define_step'] = function(block) {
   const step_name = block.getFieldValue('step_name');
   const params = Blockly.Pen.valueToCode(block, 'parameters', Blockly.Pen.ORDER_ATOMIC);
   const statements = Blockly.Pen.statementToCode(block, 'statements');
@@ -50,8 +41,35 @@ Blockly.Pen['param_block'] = function(block) {
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
-Blockly.Pen['params_end_block'] = function(block) {
+Blockly.Pen['call_step'] = function(block) {
+  const step_name = block.getFieldValue('step_name');
+  const _arguments = Blockly.Pen.valueToCode(block, 'arguments', Blockly.Pen.ORDER_ATOMIC);
+  const code = step_name + '(' + _arguments + '\n';
+  return code;
+};
+
+Blockly.Pen['call_function'] = function(block) {
+  const func_name = block.getFieldValue('func_name');
+  const _arguments = Blockly.Pen.valueToCode(block, 'arguments', Blockly.Pen.ORDER_ATOMIC);
+  const code = func_name + '('+ _arguments + '\n';
+  return [code, Blockly.Pen.ORDER_NONE];
+};
+
+Blockly.Pen['argument'] = function(block) {
+  const value = block.getFieldValue('value');
+  const arg_or_cp = Blockly.Pen.valueToCode(block, 'arg_or_cp', Blockly.Pen.ORDER_ATOMIC);
+  let code;
+  if (arg_or_cp==='' || arg_or_cp===')') {
+    code = value + arg_or_cp;
+  } else {
+    code = value + ', ' + arg_or_cp;
+  }
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
+Blockly.Pen['close_parenthesis'] = function(block) {
   const code = ')';
   //return [code, Blockly.Pen.ORDER_NONE];
   return code;
 };
+

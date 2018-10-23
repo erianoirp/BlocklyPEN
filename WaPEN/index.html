@@ -1019,12 +1019,31 @@
 
 		<!--関数-->
 		<category name="{catFunctions}" colour="160">
-			<block type="function_block"></block>
-			<block type="step_block"></block>
+			<block type="define_function">
+        <value name="parameters">
+          <block type="close_parenthesis"></block>
+        </value>
+      </block>
+			<block type="define_step">
+        <value name="parameters">
+          <block type="close_parenthesis"></block>
+        </value>
+      </block>
+			<block type="param_block"></block>
 			<block type="return_block"></block>
 			<block type="return_void_block"></block>
-			<block type="param_block"></block>
-			<block type="params_end_block"></block>
+			<block type="call_step">
+        <value name="arguments">
+          <block type="close_parenthesis"></block>
+        </value>
+      </block>
+			<block type="call_function">
+        <value name="arguments">
+          <block type="close_parenthesis"></block>
+        </value>
+      </block>
+			<block type="argument"></block>
+			<block type="close_parenthesis"></block>
 		</category>
 	</xml>
 
