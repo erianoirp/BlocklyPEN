@@ -10,8 +10,9 @@
 	<link href="./jquery/jquery.contextMenu.min.css" type="text/css" rel="stylesheet"/>
 	<link href="./dncl.css" type="text/css" rel="stylesheet"/>
 
-	<link rel="stylesheet" href="css/pure-min.css">
+  <!--<link rel="stylesheet" href="css/pure-min.css">-->
 	<link rel="stylesheet" href="../google/blockly/demos/code/style.css">
+	<link href="./bPEN.css" rel="stylesheet">
 
 	<link rel="shortcut icon" href="../google/suzu.gif">
 
@@ -73,82 +74,69 @@
 
 </head>
 <body>
-  <br>
-  <div class ="pure-g">
-    <div class="pure-u-1-2">
-      <table width="100%" height="100%">
-        <tr>
-          <td>
-            <h1>
-              <span id="title">読み込み失敗</span>
-            </h1>
-          </td>
-          <td class="farSide">
-            <select id="languageMenu"></select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan=2>
-            <table width="100%">
-              <tr id="tabRow" height="1em">
-                <td id="tab_blocks" class="tabon">...</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_javascript" class="taboff">JavaScript</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_python" class="taboff">Python</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_php" class="taboff">PHP</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_lua" class="taboff">Lua</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_dart" class="taboff">Dart</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_xml" class="taboff">XML</td>
-                <td class="tabmin">&nbsp;</td>
-                <td id="tab_pen" class="taboff">PEN</td>
-                <td class="tabmax">
-                  <button id="runButton" class="notext primary" title="...">
-                    <img src='../google/blockly/media/1x1.gif' class="run icon21">
-                  </button>
-                  <button id="linkButton" class="notext" title="...">
-                    <img src='../google/blockly/media/1x1.gif' class="link icon21">
-                  </button>
-                  <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
-                    <img src='../google/blockly/media/export.gif' class="newicon">
-                  </button>
-                  <button id="loadButton" class="notext" title="ブロックを外部から読み込みます。">
-                    <img src='../google/blockly/media/import.gif' class="newicon">
-                  </button>
-                  <button id="trashButton" class="notext" title="...">
-                    <img src='../google/blockly/media/1x1.gif' class="trash icon21">
-                  </button>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td height="99%" colspan=2 id="content_area">
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class="pure-u-1-3">
-      <br><br><br>
-      　実行結果
-      <button id="resetButton" class="notext" title="実行結果をリセットします。">
-        <img src='../google/blockly/media/reset.gif' class="newicon">
-      </button>
-      <br>
-      <textarea id="resultTextarea" rows="20" cols="50" readonly></textarea>
-      <canvas id="canvas"></canvas>
-    </div>
-  </div>
-
-	<div id="input" style="display: none;"><p>入力してください</p><input type="text" id="inputarea" onkeydown="keydown(event);"></div>
-	<div id="input-overlay" style="display: none;"></div>
-
-	<div id="content_blocks" class="content"></div>
+<!--
+  <table width="100%" height="100%">
+-->
+  <table>
+    <tr>
+      <td>
+        <h1>
+          <span id="title">読み込み失敗</span>
+        </h1>
+      </td>
+      <td class="farSide">
+        <select id="languageMenu"></select>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=2>
+        <table width="100%">
+          <tr id="tabRow" height="1em">
+            <td id="tab_blocks" class="tabon">...</td>
+            <!--<td class="tabmin">&nbsp;</td>-->
+            <td id="tab_javascript" class="taboff">JavaScript</td>
+            <!--<td class="tabmin">&nbsp;</td>-->
+            <td id="tab_python" class="taboff">Python</td>
+            <!--<td class="tabmin">&nbsp;</td>-->
+            <td id="tab_php" class="taboff">PHP</td>
+            <!--<td class="tabmin">&nbsp;</td>-->
+            <td id="tab_lua" class="taboff">Lua</td>
+            <!--<td class="tabmin">&nbsp;</td>-->
+            <td id="tab_dart" class="taboff">Dart</td>
+            <!--<td class="tabmin">&nbsp;</td>-->
+            <td id="tab_xml" class="taboff">XML</td>
+            <td class="tabmin">&nbsp;</td>
+            <td id="tab_pen" class="taboff">PEN</td>
+            <td class="tabmax">
+              <button id="runButton" class="notext primary" title="...">
+                <img src='../google/blockly/media/1x1.gif' class="run icon21">
+              </button>
+              <button id="linkButton" class="notext" title="...">
+                <img src='../google/blockly/media/1x1.gif' class="link icon21">
+              </button>
+              <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
+                <img src='../google/blockly/media/export.gif' class="newicon">
+              </button>
+              <button id="loadButton" class="notext" title="ブロックを外部から読み込みます。">
+                <img src='../google/blockly/media/import.gif' class="newicon">
+              </button>
+              <button id="trashButton" class="notext" title="...">
+                <img src='../google/blockly/media/1x1.gif' class="trash icon21">
+              </button>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+<!--
+    <tr>
+      <td height="99%" colspan=2 id="content_area">
+      </td>
+    </tr>
+-->
+  </table>
+  <div id="blocklyArea"></div>
+	<div id="blocklyDiv" class="content" style="position: absolute"></div>
 	<pre id="content_javascript" class="content"></pre>
 	<pre id="content_python" class="content"></pre>
 	<pre id="content_php" class="content"></pre>
@@ -156,6 +144,24 @@
 	<pre id="content_dart" class="content"></pre>
 	<pre id="content_pen" class="content"></pre>
 	<textarea id="content_xml" class="content" wrap="off"></textarea>
+<!--
+  <div class="pure-u-1-3">
+    <br><br><br>
+-->
+  <div id="resultArea">
+    実行結果
+    <button id="resetButton" class="notext" title="実行結果をリセットします。">
+      <img src='../google/blockly/media/reset.gif' class="newicon">
+    </button>
+    <textarea id="result" rows="20" cols="50" readonly></textarea>
+    <canvas id="canvas"></canvas>
+  </div>
+
+	<div id="input" style="display: none;"><p>入力してください</p><input type="text" id="inputarea" onkeydown="keydown(event);"></div>
+	<div id="input-overlay" style="display: none;"></div>
+<!--
+	<div id="content_blocks" class="content"></div>
+-->
 
 	<!--block内容-->
 	<xml id="toolbox" style="display: none">
@@ -1005,7 +1011,34 @@
 	</xml>
 
 	<!--追加-->
+<!--
 	<script src="../google/blockly/demos/code/my.js"></script>
-
+-->
+  <script>
+var blocklyArea = document.getElementById('blocklyArea');
+var blocklyDiv = document.getElementById('blocklyDiv');
+var workspace = Blockly.inject(blocklyDiv,
+    {toolbox: document.getElementById('toolbox')});
+var onresize = function(e) {
+  // Compute the absolute coordinates and dimensions of blocklyArea.
+  var element = blocklyArea;
+  var x = 0;
+  var y = 0;
+  do {
+    x += element.offsetLeft;
+    y += element.offsetTop;
+    element = element.offsetParent;
+  } while (element);
+  // Position blocklyDiv over blocklyArea.
+  blocklyDiv.style.left = x + 'px';
+  blocklyDiv.style.top = y + 'px';
+  blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+  blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+  Blockly.svgResize(workspace);
+};
+window.addEventListener('resize', onresize, false);
+onresize();
+Blockly.svgResize(workspace);
+  </script>
 	</body>
 	</html>
