@@ -1,5 +1,5 @@
 var MSG = {
-  title: "トランスレータ",
+  title: "BlocklyPEN",
   blocks: "ブロック",
   linkTooltip: "ブロックの状態を保存してリンクを取得します。",
   runTooltip: "ブロックで作成したプログラムを実行します。",
