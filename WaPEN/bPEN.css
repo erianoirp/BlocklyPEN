@@ -7,20 +7,14 @@ body {
   margin: 0;
 }
 
-#blocklyArea {
+#test {
   float: left;
-  width: 100%;
+  width: -webkit-calc(100% - 300px);
+  width: calc(100% - 300px);
   height: 60%;
-  margin-right: -300px;
-  padding-right: 300px;
-  box-sizing: border-box;
 }
 
-#blocklyDiv {
-  padding: 0;
-}
-
-#resultArea {
+#result {
   float: right;
   width: 300px;
 }
