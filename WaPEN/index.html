@@ -82,64 +82,72 @@
       <span id="title">読み込み失敗</span>
     </h1>
   </div>
-  <table id="test">
-    <tr>
-      <td class="farSide">
-        <select id="languageMenu"></select>
-      </td>
-    </tr>
-    <tr>
-      <td colspan=2>
-        <table width="100%">
-          <tr id="tabRow" height="1em">
-            <td id="tab_blocks" class="tabon">...</td>
-            <!--<td class="tabmin">&nbsp;</td>-->
-            <td id="tab_javascript" class="taboff">JavaScript</td>
-            <!--<td class="tabmin">&nbsp;</td>-->
-            <td id="tab_python" class="taboff">Python</td>
-            <!--<td class="tabmin">&nbsp;</td>-->
-            <td id="tab_php" class="taboff">PHP</td>
-            <!--<td class="tabmin">&nbsp;</td>-->
-            <td id="tab_lua" class="taboff">Lua</td>
-            <!--<td class="tabmin">&nbsp;</td>-->
-            <td id="tab_dart" class="taboff">Dart</td>
-            <!--<td class="tabmin">&nbsp;</td>-->
-            <td id="tab_xml" class="taboff">XML</td>
-            <td class="tabmin">&nbsp;</td>
-            <td id="tab_pen" class="taboff">PEN</td>
-            <td class="tabmax">
-              <button id="runButton" class="notext primary" title="...">
-                <img src='../google/blockly/media/1x1.gif' class="run icon21">
-              </button>
-              <button id="linkButton" class="notext" title="...">
-                <img src='../google/blockly/media/1x1.gif' class="link icon21">
-              </button>
-              <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
-                <img src='../google/blockly/media/export.gif' class="newicon">
-              </button>
-              <button id="loadButton" class="notext" title="ブロックを外部から読み込みます。">
-                <img src='../google/blockly/media/import.gif' class="newicon">
-              </button>
-              <button id="trashButton" class="notext" title="...">
-                <img src='../google/blockly/media/1x1.gif' class="trash icon21">
-              </button>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td height="99%" colspan=2 id="content_area">
-      </td>
-    </tr>
-  </table>
-  <div id="result">
-    実行結果
-    <button id="resetButton" class="notext" title="実行結果をリセットします。">
-      <img src='../google/blockly/media/reset.gif' class="newicon">
-    </button>
-    <br>
-    <textarea id="resultTextarea" rows="20" cols="50" readonly></textarea>
+  <div id="IDE">
+    <div id="editor">
+      <table id="tabtable">
+        <tr>
+          <td class="farSide">
+            <select id="languageMenu"></select>
+          </td>
+        </tr>
+        <tr>
+          <td colspan=2>
+            <table width="100%">
+              <tr id="tabRow" height="1em">
+                <td id="tab_blocks" class="tabon">...</td>
+                <!--<td class="tabmin">&nbsp;</td>-->
+                <td id="tab_javascript" class="taboff">JavaScript</td>
+                <!--<td class="tabmin">&nbsp;</td>-->
+                <td id="tab_python" class="taboff">Python</td>
+                <!--<td class="tabmin">&nbsp;</td>-->
+                <td id="tab_php" class="taboff">PHP</td>
+                <!--<td class="tabmin">&nbsp;</td>-->
+                <td id="tab_lua" class="taboff">Lua</td>
+                <!--<td class="tabmin">&nbsp;</td>-->
+                <td id="tab_dart" class="taboff">Dart</td>
+                <!--<td class="tabmin">&nbsp;</td>-->
+                <td id="tab_xml" class="taboff">XML</td>
+                <td class="tabmin">&nbsp;</td>
+                <td id="tab_pen" class="taboff">PEN</td>
+                <td class="tabmax">
+                  <button id="runButton" class="notext primary" title="...">
+                    <img src='../google/blockly/media/1x1.gif' class="run icon21">
+                  </button>
+                  <button id="linkButton" class="notext" title="...">
+                    <img src='../google/blockly/media/1x1.gif' class="link icon21">
+                  </button>
+                  <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
+                    <img src='../google/blockly/media/export.gif' class="newicon">
+                  </button>
+                  <button id="loadButton" class="notext" title="ブロックを外部から読み込みます。">
+                    <img src='../google/blockly/media/import.gif' class="newicon">
+                  </button>
+                  <button id="trashButton" class="notext" title="...">
+                    <img src='../google/blockly/media/1x1.gif' class="trash icon21">
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+  <!--
+        <tr>
+          <td id="content_area" colspan=2>
+          </td>
+        </tr>
+  -->
+      </table>
+      <div id="content_area"></div>
+    </div>
+    <div id="result">
+      <div id="resultTitle">
+        実行結果
+        <button id="resetButton" class="notext" title="実行結果をリセットします。">
+          <img src='../google/blockly/media/reset.gif' class="newicon">
+        </button>
+      </div>
+      <textarea id="resultTextarea" rows="20" cols="50" readonly></textarea>
+    </div>
   </div>
   <canvas id="canvas"></canvas>
   </div>

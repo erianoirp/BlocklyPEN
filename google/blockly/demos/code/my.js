@@ -1,7 +1,6 @@
 /*selectbox非表示*/
 document.getElementById('languageMenu').setAttribute("style", "display:none");
-//var container = document.getElementById('content_area');
-var container = document.getElementById('blocklyArea');
+var container = document.getElementById('content_area');
 var margin_off = function(e) {
 var bBox = Code.getBBox_(container);
 
