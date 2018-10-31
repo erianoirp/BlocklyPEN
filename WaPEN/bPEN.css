@@ -41,6 +41,10 @@ h1 {
   height: 95%;
 }
 
+#lineF2F {
+  position: absolute;
+}
+
 #result {
   float: right;
   width: 300px;

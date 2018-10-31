@@ -137,7 +137,9 @@
         </tr>
   -->
       </table>
-      <div id="content_area"></div>
+      <div id="content_area">
+        <canvas id="line4F2FCanvas"></canvas>
+      </div>
     </div>
     <div id="result">
       <div id="resultTitle">
@@ -1011,6 +1013,15 @@
 
 	<!--追加-->
 	<script src="../google/blockly/demos/code/my.js"></script>
+  <script type="text/javascript">
+let onResizeCanvas = function(e) {
+  let canvas = document.getElementById("line4F2FCanvas");
+  canvas.width = document.getElementById("content_area").clientWidth;
+  canvas.height = document.getElementById("content_area").clientHeight;
+}
+window.addEventListener('resize', onResizeCanvas, false);
+onResizeCanvas();
+  </script>
 
 </body>
 </html>
