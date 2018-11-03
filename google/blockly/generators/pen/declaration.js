@@ -1,3 +1,10 @@
+Blockly.Pen['declare_variable'] = function(block) {
+  const datatype = block.getFieldValue('datatype');
+  const name = block.getFieldValue('name');
+  const code = datatype + ' ' + name + '\n';
+  return code;
+};
+
 //WaPENで使用できる
 Blockly.Pen['int'] = function(block) {
   var text_val = block.getFieldValue('val');
