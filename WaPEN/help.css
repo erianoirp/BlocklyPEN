@@ -1,0 +1,22 @@
+article {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+section:after { /* 横並びを解除 IE8以上 */
+  clear: both;
+  content: '';
+  display: block;
+}
+
+.sampleBlock {
+  width: 220px;
+  height: 120px;
+  float: left;
+}
+
+.blockDescription {
+  float: left;
+}
+
