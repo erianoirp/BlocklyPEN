@@ -204,10 +204,10 @@ Code.importPrettify = function() {
   //<script src="../prettify.js"></script>
   var link = document.createElement('link');
   link.setAttribute('rel', 'stylesheet');
-  link.setAttribute('href', '../google/blockly/demos/prettify.css');
+  link.setAttribute('href', './google/blockly/demos/prettify.css');
   document.head.appendChild(link);
   var script = document.createElement('script');
-  script.setAttribute('src', '../google/blockly/demos/prettify.js');
+  script.setAttribute('src', './google/blockly/demos/prettify.js');
   document.head.appendChild(script);
 };
 
@@ -416,7 +416,7 @@ Code.init = function() {
            length: 3,
            colour: '#ccc',
            snap: true},
-       media: '../google/blockly/media/',
+       media: './google/blockly/media/',
        rtl: rtl,
        toolbox: toolboxXml,
        zoom:
@@ -546,8 +546,8 @@ Code.discard = function() {
 };
 
 // Load the Code demo's language strings.
-document.write('<script src="../google/blockly/demos/code/msg/' + Code.LANG + '.js"></script>\n');
+document.write('<script src="./google/blockly/demos/code/msg/' + Code.LANG + '.js"></script>\n');
 // Load Blockly's language strings.
-document.write('<script src="../google/blockly/msg/js/' + Code.LANG + '.js"></script>\n');
+document.write('<script src="./google/blockly/msg/js/' + Code.LANG + '.js"></script>\n');
 
 window.addEventListener('load', Code.init);
