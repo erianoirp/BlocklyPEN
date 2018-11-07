@@ -26,18 +26,24 @@
 	background: rgba(0,0,0,0.4);
 }
 
-#EditButtons{
-	clear: both;
-}
-.editButton{
-	margin:2px 0;
-}
-
-#SampleButtons{
-	margin-top: 1em;
+#sourceTextarea{
+	float: left;
 }
 
 #canvas{
 	display: none;
 	border: solid 1px rgb(128,128,128);
 }
+
+#sourceTextarea:read-only{
+	background-color: lightgrey;
+}
+
+#sourceTextarea:-moz-read-only{ /* for firefox */
+	background-color: lightgrey;
+}
+
+#input button{
+	margin:10px 2px;
+}
+
