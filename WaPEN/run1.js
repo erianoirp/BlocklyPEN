@@ -2363,15 +2363,18 @@ function reset() {
 
 function setRunflag(b) {
 	run_flag = b;
-	document.getElementById("sourceTextarea").readOnly = b;
-	document.getElementById("runButton").innerHTML = b & !step_flag ? "中断" : "実行";
+	/*
+ 	document.getElementById("sourceTextarea").readOnly = b;
+ 	document.getElementById("runButton").innerHTML = b & !step_flag ? "中断" : "実行";
+ */
 }
 
 function run() {
 	if (parse == null) {
 		try {
 			reset();
-			var source = document.getElementById("sourceTextarea").value + "\n";
+			//			var source = document.getElementById("sourceTextarea").value+"\n";
+			var source = Blockly.Pen.workspaceToCode(Code.workspace);
 			parse = dncl.parse(source);
 			stack.push({ statementlist: parse, index: 0 });
 		} catch (e) {
@@ -4795,25 +4798,58 @@ function keydownModalforMisc(e) {
 		closeModalWindowforMisc(true);
 }
 
-onload = function onload() {
-	var sourceTextArea = document.getElementById("sourceTextarea");
+//ブロックを保存する
+function save() {
+	var fileName = 'myprogram.xml';
+	var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+	var xmltext = Blockly.Xml.domToPrettyText(xml);
+	var blob = new Blob([xmltext], {
+		type: 'text/xml'
+	});
+	var a = document.createElement('a');
+	a.download = fileName;
+	if (window.navigator.msSaveBlob) {
+		// for IE and Edge
+		window.navigator.msSaveBlob(blob, fileName);
+	} else if (window.URL && window.URL.createObjectURL) {
+		// for Firefox and Chrome
+		a.href = window.URL.createObjectURL(blob);
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		window.URL.revokeObjectURL(a.href);
+	} else {
+		// for Safari (未検証)
+		window.open('data:' + mimeType + ';base64,' + window.Base64.encode(content), '_blank');
+	}
+}
+
+window.onload = function () {
+	//	var sourceTextArea = document.getElementById("sourceTextarea");
 	var resultTextArea = document.getElementById("resultTextarea");
-	var newButton = document.getElementById("newButton");
+	//	var newButton     = document.getElementById("newButton");
 	var runButton = document.getElementById("runButton");
+	var saveButton = document.getElementById("saveButton");
 	var flowchartButton = document.getElementById("flowchartButton");
 	var resetButton = document.getElementById("resetButton");
-	var stepButton = document.getElementById("stepButton");
+	//	var stepButton    = document.getElementById("stepButton");
 	var loadButton = document.getElementById("loadButton");
 	var file_prefix = document.getElementById("file_prefix");
 	var flowchart_canvas = document.getElementById("flowchart");
+	var start = '<xml><block type="start" deletable="false"></block></xml>';
+	Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(start), Blockly.mainWorkspace);
+	Blockly.mainWorkspace.addChangeListener(Blockly.Events.disableOrphans);
 	$("#sourceTextarea").linedtextarea();
-	sourceTextArea.onchange = function () {
-		makeDirty(true);
-	};
-	makeDirty(false);
+	/*
+ 	sourceTextArea.onchange = function(){
+ 		makeDirty(true);
+ 	}
+ */
+	//	makeDirty(false);
 	textarea = resultTextArea;
 	runButton.onclick = function () {
 		if (run_flag && !step_flag) {
+			console.log("if");
 			setRunflag(false);
 			document.getElementById("sourceTextarea").readOnly = true;
 		} else {
@@ -4821,21 +4857,30 @@ onload = function onload() {
 			run();
 		}
 	};
-	stepButton.onclick = function () {
-		step_flag = true;
-		run();
+	saveButton.onclick = function () {
+		save();
 	};
-	newButton.onclick = function () {
-		if (dirty && !window.confirm("プログラムを削除していいですか？")) return;
-		sourceTextArea.value = "";
-		parse = null;
-		reset();
-		if (flowchart) {
-			flowchart.makeEmpty();
-			flowchart.paint();
-		}
-		makeDirty(false);
-	};
+	/*
+ 	stepButton.onclick = function()
+ 	{
+ 		step_flag = true;
+ 		run();
+ 	}
+ */
+	/*
+ 	newButton.onclick = function(){
+ 		if(dirty && !window.confirm("プログラムを削除していいですか？")) return;
+ 		sourceTextArea.value = "";
+ 		parse = null;
+ 		reset();
+ 		if(flowchart)
+ 		{
+ 			flowchart.makeEmpty();
+ 			flowchart.paint();
+ 		}
+ 		makeDirty(false);
+ 	}
+ */
 	resetButton.onclick = function () {
 		reset();
 	};
@@ -4849,61 +4894,84 @@ onload = function onload() {
 			if (flowchart) codeChange();
 		};
 	}, false);
-	downloadLink.onclick = function () {
-		var now = new Date();
-		var filename = file_prefix.value.trim();
-		if (filename.length < 1) filename = now.getFullYear() + ('0' + (now.getMonth() + 1)).slice(-2) + ('0' + now.getDate()).slice(-2) + '_' + ('0' + now.getHours()).slice(-2) + ('0' + now.getMinutes()).slice(-2) + ('0' + now.getSeconds()).slice(-2);
-		filename += '.PEN';
-		var blob = new Blob([sourceTextArea.value], { type: "text/plain" });
-		if (window.navigator.msSaveBlob) {
-			window.navigator.msSaveBlob(blob, filename);
-		} else {
-			window.URL = window.URL || window.webkitURL;
-			downloadLink.setAttribute("href", window.URL.createObjectURL(blob));
-			downloadLink.setAttribute("download", filename);
-		}
-		makeDirty(false);
-	};
-	flowchartButton.onchange = function () {
-		flowchart_display = this.checked;
-		var flowchart_area = document.getElementById("Flowchart_area");
-		var drawButton = document.getElementById("drawButton");
-		if (flowchart_display) {
-			flowchart_area.style.display = "block";
-			drawButton.style.display = "inline";
-			flowchart = new Flowchart();
-			codeChange();
-			//			flowchart.paint();
-		} else {
-			flowchart_area.style.display = "none";
-			drawButton.style.display = "none";
-			flowchart = null;
-		}
-	};
-	sourceTextArea.ondrop = function (e) {
-		var filelist = e.dataTransfer.files;
-		if (!filelist) return;
-		for (var i = 0; i < filelist.length; i++) {
-			if (!/\.pen$/i.exec(filelist[i].name)) continue;
-			if (window.FileReader) {
-				try {
-					var reader = new FileReader();
-					var text = reader.readAsText(filelist[i]);
-					reader.onload = function (event) {
-						sourceTextArea.value = event.target.result;
-						codeChange();
-					};
-					break;
-				} catch (e) {}
-			}
-		}
-		return false;
-	};
-	registerEvent(sourceTextArea, "keyup", keyUp);
-	registerEvent(flowchart_canvas, "mousedown", mouseDown);
-	registerEvent(flowchart_canvas, "mouseup", mouseUp);
-	registerEvent(flowchart_canvas, "mousemove", mouseMove);
-	registerEvent(flowchart_canvas, "dblclick", doubleclick_Flowchart);
+	/*
+ 	downloadLink.onclick = function()
+ 	{
+ 		var now = new Date();
+ 		var filename = file_prefix.value.trim();
+ 		if(filename.length < 1)
+ 			filename = now.getFullYear() + ('0' + (now.getMonth() + 1)).slice(-2) +
+ 			('0' + now.getDate()).slice(-2) + '_' + ('0' + now.getHours()).slice(-2) +
+ 			('0' + now.getMinutes()).slice(-2) + ('0' + now.getSeconds()).slice(-2);
+ 		filename +=	'.PEN';
+ 		var blob = new Blob([sourceTextArea.value], {type:"text/plain"});
+ 		if(window.navigator.msSaveBlob)
+ 		{
+ 			window.navigator.msSaveBlob(blob, filename);
+ 		}
+ 		else
+ 		{
+ 			window.URL = window.URL || window.webkitURL;
+ 			downloadLink.setAttribute("href", window.URL.createObjectURL(blob));
+ 			downloadLink.setAttribute("download", filename);
+ 		}
+ 		makeDirty(false);
+ 	};
+ */
+	/*
+ 	flowchartButton.onchange = function(){
+ 		flowchart_display = this.checked;
+ 		var flowchart_area = document.getElementById("Flowchart_area");
+ 		var drawButton = document.getElementById("drawButton");
+ 		if(flowchart_display)
+ 		{
+ 			flowchart_area.style.display = "block";
+ 			drawButton.style.display = "inline";
+ 			flowchart = new Flowchart();
+ 			codeChange();
+ //			flowchart.paint();
+ 		}
+ 		else
+ 		{
+ 			flowchart_area.style.display = "none";
+ 			drawButton.style.display = "none";
+ 			flowchart = null;
+ 		}
+ 	}
+ */
+	/*
+ 	sourceTextArea.ondrop = function(e)
+ 	{
+ 		var filelist = e.dataTransfer.files;
+ 		if(!filelist) return;
+ 		for(var i = 0; i < filelist.length; i++)
+ 		{
+ 			if(!/\.pen$/i.exec(filelist[i].name)) continue;
+ 			if(window.FileReader)
+ 			{
+ 				try{
+ 					var reader = new FileReader();
+ 					var text = reader.readAsText(filelist[i]);
+ 					reader.onload = function(event)
+ 					{
+ 						sourceTextArea.value = event.target.result;
+ 						codeChange();
+ 					}
+ 					break;
+ 				}
+ 				catch(e){}
+ 			}
+ 		}
+ 		return false;
+ 	}
+ */
+	//	registerEvent(sourceTextArea, "keyup", keyUp);
+	/*
+ 	registerEvent(flowchart_canvas, "mousedown", mouseDown);
+ 	registerEvent(flowchart_canvas, "mouseup", mouseUp);
+ 	registerEvent(flowchart_canvas, "mousemove", mouseMove);
+ 	registerEvent(flowchart_canvas, "dblclick", doubleclick_Flowchart);
+ */
 
 	$.contextMenu({
 		selector: "#sourceTextarea",

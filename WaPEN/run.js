@@ -4034,11 +4034,38 @@ function keydownModalforMisc(e)
 		closeModalWindowforMisc(true);
 }
 
+//ブロックを保存する
+function save(){
+  const fileName = 'myprogram.xml';
+  var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+  var xmltext = Blockly.Xml.domToPrettyText(xml);
+  var blob = new Blob([xmltext],{
+    type: 'text/xml'
+  });
+  let a = document.createElement('a');
+  a.download = fileName;
+  if (window.navigator.msSaveBlob) {
+    // for IE and Edge
+    window.navigator.msSaveBlob(blob, fileName);
+  } else if (window.URL && window.URL.createObjectURL) {
+    // for Firefox and Chrome
+    a.href = window.URL.createObjectURL(blob);
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(a.href);
+  } else {
+    // for Safari (未検証)
+    window.open('data:' + mimeType + ';base64,' + window.Base64.encode(content), '_blank');
+  }
+}
+
 window.onload = function(){
 //	var sourceTextArea = document.getElementById("sourceTextarea");
 	var resultTextArea = document.getElementById("resultTextarea");
 //	var newButton     = document.getElementById("newButton");
 	var runButton     = document.getElementById("runButton");
+  const saveButton = document.getElementById("saveButton");
 	var flowchartButton = document.getElementById("flowchartButton");
 	var resetButton   = document.getElementById("resetButton");
 //	var stepButton    = document.getElementById("stepButton");
@@ -4069,6 +4096,9 @@ window.onload = function(){
 			run();
 		}
 	};
+  saveButton.onclick = function() {
+    save();
+  }
 /*
 	stepButton.onclick = function()
 	{
