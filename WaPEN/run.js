@@ -4060,6 +4060,33 @@ function save(){
   }
 }
 
+//ブロックを読みだす
+function load() {
+  var input = document.createElement("input");
+  input.type = "file";
+  input.id = "loadFile";
+  input.accept = "text/xml";
+
+  input.addEventListener("change", function(event) {
+    var file = event.target.files[0]; // inputから取得したFileListオブジェクトから読み込んだFileオブジェクトを取得
+    var reader = new FileReader(); // Fileオブジェクトの情報を読み込むためにFileReaderオブジェクトを生成する
+    reader.readAsText(file); // FileReaderオブジェクトにFileオブジェクトのテキスト情報を読み込む
+    reader.onload = function() {
+      var xml = Blockly.Xml.textToDom(reader.result); // readAsTextで読み込んだ情報はreader.resultで取得できる
+      Blockly.mainWorkspace.clear();
+      Blockly.Xml.domToWorkspace(xml,Blockly.mainWorkspace);
+    };
+    // たまにファイル読み込みに失敗するが原因不明
+    // reader.onerror = function() {
+    //   console.log("readError")
+    // };
+    // reader.onabort = function() {
+    //   console.log("readError")
+    // };
+  }, false);
+  input.click();
+};
+
 window.onload = function(){
 //	var sourceTextArea = document.getElementById("sourceTextarea");
 	var resultTextArea = document.getElementById("resultTextarea");
@@ -4069,7 +4096,7 @@ window.onload = function(){
 	var flowchartButton = document.getElementById("flowchartButton");
 	var resetButton   = document.getElementById("resetButton");
 //	var stepButton    = document.getElementById("stepButton");
-	var loadButton    = document.getElementById("loadButton");
+	const loadButton    = document.getElementById("loadButton");
 	var file_prefix   = document.getElementById("file_prefix");
 	var flowchart_canvas = document.getElementById("flowchart");
   const start = '<xml><block type="start" deletable="false"></block></xml>';
@@ -4123,19 +4150,9 @@ window.onload = function(){
 	resetButton.onclick = function() {
 		reset();
 	};
-	loadButton.addEventListener("change", function(ev)
-	{
-		var file = ev.target.files;
-		var reader = new FileReader();
-		reader.readAsText(file[0], "UTF-8");
-		reader.onload = function(ev)
-		{
-			sourceTextArea.value = reader.result;
-			reset();
-			if(flowchart) codeChange();
-		}
-	}
-	,false);
+  loadButton.onclick = function() {
+    load();
+  }
 /*
 	downloadLink.onclick = function()
 	{
