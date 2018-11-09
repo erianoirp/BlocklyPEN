@@ -1,0 +1,16 @@
+{
+  "name": "wapen",
+  "version": "1.0.0",
+  "description": "使用しているプラグイン： jQuery jQuery LinedTextArea jQuery contextMenu jQuery ui.position",
+  "main": "disp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel run.js -o run1.js",
+    "jison": "jison dncl.jison"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
