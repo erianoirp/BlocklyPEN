@@ -7,9 +7,9 @@ var setting =
 
     array_origin: 1,
     // a[n]と宣言した配列の添字の範囲
-    // 0 a[0]～a[n]
-    // 1 a[0]～a[n-1]
-    // 2 a[1]～a[n]
+    // 0 a[0]〜a[n]
+    // 1 a[0]〜a[n-1]
+    // 2 a[1]〜a[n]
 
     div_mode: 0,
     // /と÷の区別
