@@ -117,6 +117,9 @@
                   <button id="runButton" class="notext primary" title="...">
                     <img src='./google/blockly/media/1x1.gif' class="run icon21">
                   </button>
+                  <button id="stepButton">
+                    ステップ実行
+                  </button>
                   <button id="linkButton" class="notext" title="...">
                     <img src='./google/blockly/media/1x1.gif' class="link icon21">
                   </button>
@@ -1017,5 +1020,7 @@ let onResizeCanvas = function(e) {
 window.addEventListener('resize', onResizeCanvas, false);
 onResizeCanvas();
   </script>
+  <script src="./JS-Interpreter/acorn_interpreter.js"></script>
+  <script src="./step.js"></script>
 </body>
 </html>
