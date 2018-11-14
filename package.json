@@ -1,0 +1,25 @@
+{
+  "name": "blocklypen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildRun": "babel WaPEN/run.js -o WaPEN/run1.js",
+    "buildIndex": "babel index.js -o index_es5.js",
+    "jison": "jison dncl.jison"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omotonama/BlocklyPEN.git"
+  },
+  "author": "omotonama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omotonama/BlocklyPEN/issues"
+  },
+  "homepage": "https://github.com/omotonama/BlocklyPEN#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  }
+}

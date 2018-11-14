@@ -1,5 +1,11 @@
+const workspace = Blockly.inject('content_block',
+  {toolbox: document.getElementById('toolbox')}
+);
+let interpreter = null;
+
 function initApi(_interpreter, _scope) {
-  let wrapper = function(_id) {
+  let wrapper;
+  wrapper = function(_id) {
     _id = _id ? _id.toString() : '';
     return _interpreter.createPrimitive(highlightBlock(_id));
   };
@@ -12,7 +18,7 @@ let highlightPause = false;
 let latestCode = '';
 
 function highlightBlock(_id) {
-  ----------.highlightBlock(_id);
+  workspace.highlightBlock(_id);
   highlightPause = true;
 }
 
@@ -22,19 +28,19 @@ function generateCodeAndLoadIntoInterpreter() {
   latestCode = Blockly.Pen.workspaceToCode(--------);
 }
 
-let stepButton = document.getElementById("stepButton");
+const stepButton = document.getElementById("stepButton");
 stepButton.onclick = function() {
-  if (!myInterpreter) {
-    myInterpreter = new Interpreter(latestCode, initApi);
+  if (!interpreter) {
+    interpreter = new Interpreter(latestCode, initApi);
   }
   highlightPause = false;
   let hasMoreCode;
   do {
     try {
-      hasMoreCode = myInterpreter.step();
+      hasMoreCode = interpreter.step();
     } finally {
       if (!hasMoreCode) {
-        myInterpreter = null;
+        interpreter = null;
         return;
       }
     }
@@ -42,7 +48,7 @@ stepButton.onclick = function() {
 };
 
 generateCodeAndLoadIntoInterpreter();
---------.addChangeListener(function(event) {
+workspace.addChangeListener(function(event) {
   if (!(event instanceof Blockly.Events.Ui)) {
     generateCodeAndLoadIntoInterpreter();
   }

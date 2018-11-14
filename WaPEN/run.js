@@ -4034,74 +4034,16 @@ function keydownModalforMisc(e)
 		closeModalWindowforMisc(true);
 }
 
-//ブロックを保存する
-function save(){
-  const fileName = 'myprogram.xml';
-  var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
-  var xmltext = Blockly.Xml.domToPrettyText(xml);
-  var blob = new Blob([xmltext],{
-    type: 'text/xml'
-  });
-  let a = document.createElement('a');
-  a.download = fileName;
-  if (window.navigator.msSaveBlob) {
-    // for IE and Edge
-    window.navigator.msSaveBlob(blob, fileName);
-  } else if (window.URL && window.URL.createObjectURL) {
-    // for Firefox and Chrome
-    a.href = window.URL.createObjectURL(blob);
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    window.URL.revokeObjectURL(a.href);
-  } else {
-    // for Safari (未検証)
-    window.open('data:' + mimeType + ';base64,' + window.Base64.encode(content), '_blank');
-  }
-}
-
-//ブロックを読みだす
-function load() {
-  var input = document.createElement("input");
-  input.type = "file";
-  input.id = "loadFile";
-  input.accept = "text/xml";
-
-  input.addEventListener("change", function(event) {
-    var file = event.target.files[0]; // inputから取得したFileListオブジェクトから読み込んだFileオブジェクトを取得
-    var reader = new FileReader(); // Fileオブジェクトの情報を読み込むためにFileReaderオブジェクトを生成する
-    reader.readAsText(file); // FileReaderオブジェクトにFileオブジェクトのテキスト情報を読み込む
-    reader.onload = function() {
-      var xml = Blockly.Xml.textToDom(reader.result); // readAsTextで読み込んだ情報はreader.resultで取得できる
-      Blockly.mainWorkspace.clear();
-      Blockly.Xml.domToWorkspace(xml,Blockly.mainWorkspace);
-    };
-    // たまにファイル読み込みに失敗するが原因不明
-    // reader.onerror = function() {
-    //   console.log("readError")
-    // };
-    // reader.onabort = function() {
-    //   console.log("readError")
-    // };
-  }, false);
-  input.click();
-};
-
 window.onload = function(){
 //	var sourceTextArea = document.getElementById("sourceTextarea");
 	var resultTextArea = document.getElementById("resultTextarea");
 //	var newButton     = document.getElementById("newButton");
 	var runButton     = document.getElementById("runButton");
-  const saveButton = document.getElementById("saveButton");
 	var flowchartButton = document.getElementById("flowchartButton");
-	var resetButton   = document.getElementById("resetButton");
 //	var stepButton    = document.getElementById("stepButton");
-	const loadButton    = document.getElementById("loadButton");
 	var file_prefix   = document.getElementById("file_prefix");
 	var flowchart_canvas = document.getElementById("flowchart");
-  const start = '<xml><block type="start" deletable="false"></block></xml>';
-  Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(start), Blockly.mainWorkspace);
-  Blockly.mainWorkspace.addChangeListener(Blockly.Events.disableOrphans);
+  initWorkspace();
 	$("#sourceTextarea").linedtextarea();
 /*
 	sourceTextArea.onchange = function(){
@@ -4123,9 +4065,6 @@ window.onload = function(){
 			run();
 		}
 	};
-  saveButton.onclick = function() {
-    save();
-  }
 /*
 	stepButton.onclick = function()
 	{
@@ -4147,12 +4086,6 @@ window.onload = function(){
 		makeDirty(false);
 	}
 */
-	resetButton.onclick = function() {
-		reset();
-	};
-  loadButton.onclick = function() {
-    load();
-  }
 /*
 	downloadLink.onclick = function()
 	{
