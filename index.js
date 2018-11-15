@@ -1,17 +1,76 @@
-const saveButton = document.getElementById('saveButton');
-const loadButton = document.getElementById('loadButton');
-const resetButton = document.getElementById('resetButton');
-const trashButton = document.getElementById('trashButton');
+/***** ↓ 初期化するモジュール ↓ *****/
 const startBlock = '<xml><block type="start" deletable="false"></block></xml>';
-
 const initWorkspace = function() {
   // firefoxではなぜか動かない
   Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(startBlock), Blockly.mainWorkspace);
   Blockly.mainWorkspace.addChangeListener(Blockly.Events.disableOrphans);
 };
 //initBlocks();
-//ブロックを保存する
-function save(){
+/***** ↑ 初期化するモジュール ↑ *****/
+
+/***** ↓ ステップ実行するモジュール ↓ *****/
+const stepButton = document.getElementById('stepButton');
+/*
+const workspace = Blockly.inject('content_block',
+  {toolbox: document.getElementById('toolbox')}
+);
+let interpreter = null;
+
+function initApi(_interpreter, _scope) {
+  let wrapper;
+  wrapper = function(_id) {
+    _id = _id ? _id.toString() : '';
+    return _interpreter.createPrimitive(highlightBlock(_id));
+  };
+  _interpreter.setProperty(_scope, 'highlightBlock',
+    _interpreter.createNativeFunction(wapper)
+  );
+}
+
+let highlightPause = false;
+let latestCode = '';
+
+function highlightBlock(_id) {
+  workspace.highlightBlock(_id);
+  highlightPause = true;
+}
+
+function generateCodeAndLoadIntoInterpreter() {
+  Blockly.Pen.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
+  Blockly.Pen.addReservedWords('highlightBlock');
+  latestCode = Blockly.Pen.workspaceToCode(--------);
+}
+
+stepButton.onclick = function() {
+  if (!interpreter) {
+    interpreter = new Interpreter(latestCode, initApi);
+  }
+  highlightPause = false;
+  let hasMoreCode;
+  do {
+    try {
+      hasMoreCode = interpreter.step();
+    } finally {
+      if (!hasMoreCode) {
+        interpreter = null;
+        return;
+      }
+    }
+  } while (hasMoreCode && !highlightPause);
+};
+
+generateCodeAndLoadIntoInterpreter();
+workspace.addChangeListener(function(event) {
+  if (!(event instanceof Blockly.Events.Ui)) {
+    generateCodeAndLoadIntoInterpreter();
+  }
+};
+*/
+/***** ↑ ステップ実行するモジュール ↑ *****/
+
+/***** ↓ ブロックを保存するモジュール ↓ *****/
+const saveButton = document.getElementById('saveButton');
+const saveBlocks = function() {
   const fileName = 'myprogram.xml';
   var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
   var xmltext = Blockly.Xml.domToPrettyText(xml);
@@ -34,10 +93,15 @@ function save(){
     // for Safari (未検証)
     window.open('data:' + mimeType + ';base64,' + window.Base64.encode(content), '_blank');
   }
-}
+};
+saveButton.onclick = function() {
+  saveBlocks();
+};
+/***** ↑ ブロックを保存するモジュール ↑ *****/
 
-//ブロックを読みだす
-function load() {
+/***** ↓ ブロックを読み込むモジュール ↓ *****/
+const loadButton = document.getElementById('loadButton');
+const loadBlocks = function() {
   var input = document.createElement("input");
   input.type = "file";
   input.id = "loadFile";
@@ -62,24 +126,27 @@ function load() {
   }, false);
   input.click();
 };
+loadButton.onclick = function() {
+  loadBlocks();
+};
+/***** ↑ ブロックを読み込むモジュール ↑ *****/
 
+/***** ↓ 実行結果をリセットするモジュール ↓ *****/
+
+const resetButton = document.getElementById('resetButton');
+resetButton.onclick = function() {
+  reset();
+};
+/***** ↑ 実行結果をリセットするモジュール ↑ *****/
+
+/***** ↓ ブロックをリセットするモジュール ↓ *****/
+const resetBlocksButton = document.getElementById('trashButton');
 const resetBlocks = function() {
   Blockly.mainWorkspace.clear();
   initWorkspace();
 };
-
-//ブロックを保存する
-saveButton.onclick = function() {
-  save();
-};
-//ブロックを読みだす　load()未実装
-loadButton.onclick = function() {
-  load();
-};
-resetButton.onclick = function() {
-  reset();
-};
-trashButton.onclick = function() {
+resetBlocksButton.onclick = function() {
   resetBlocks();
   reset();
 };
+/***** ↑ ブロックをリセットするモジュール ↑ *****/
