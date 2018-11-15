@@ -1,8 +1,15 @@
-all: WaPEN/dncl.js WaPEN/run1.js index_es5.js
+JISONS := WaPEN/dncl.js
+JSS := WaPEN/run_es5.js index_es5.js
 
-WaPEN/dncl.js: WaPEN/dncl.jison
-	jison WaPEN/dncl.jison
-WaPEN/run1.js: WaPEN/run.js
-	npm run buildRun
-index_es5.js: index.js
-	npm run buildIndex
+.PHONY: all
+all: $(JISONS) $(JSS)
+
+$(JISONS):
+	jison $(patsubst %.js,%.jison,$@) -o $@
+
+$(JSS):
+	babel $(patsubst %_es5.js,%.js,$@) -o $@
+
+.PHONY: clean
+clean:
+	-rm -f $(JISONS) $(JSS)

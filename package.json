@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "buildRun": "babel WaPEN/run.js -o WaPEN/run1.js",
-    "buildIndex": "babel index.js -o index_es5.js",
-    "jison": "jison dncl.jison"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
