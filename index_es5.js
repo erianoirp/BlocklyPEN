@@ -11,8 +11,8 @@ var initWorkspace = function initWorkspace() {
 /***** ↑ 初期化するモジュール ↑ *****/
 
 /***** ↓ ステップ実行するモジュール ↓ *****/
-var stepButton = document.getElementById('stepButton');
 /*
+const stepButton = document.getElementById('stepButton');
 const workspace = Blockly.inject('content_block',
   {toolbox: document.getElementById('toolbox')}
 );
@@ -37,13 +37,20 @@ function highlightBlock(_id) {
   highlightPause = true;
 }
 
+let resetStepUi = function() {
+  workspace.highlightBlock(null);
+  highlightPause = false;
+}
+
 function generateCodeAndLoadIntoInterpreter() {
   Blockly.Pen.STATEMENT_PREFIX = 'highlightBlock(%1);\n';
   Blockly.Pen.addReservedWords('highlightBlock');
-  latestCode = Blockly.Pen.workspaceToCode(--------);
+  latestCode = Blockly.Pen.workspaceToCode(workspace);
+//        const source = Blockly.Pen.workspaceToCode(Code.workspace);
+//  resetStepUi(true);
 }
 
-stepButton.onclick = function() {
+let stepCode = function() {
   if (!interpreter) {
     interpreter = new Interpreter(latestCode, initApi);
   }
@@ -55,10 +62,19 @@ stepButton.onclick = function() {
     } finally {
       if (!hasMoreCode) {
         interpreter = null;
+        resetStepUi();
+        stepButton.disabled = 'disabled';
+        setTimeout(function() {
+          stepButton.disabled = '';
+        }, 2000);
         return;
       }
     }
   } while (hasMoreCode && !highlightPause);
+};
+
+stepButton.onclick = function() {
+  stepCode();
 };
 
 generateCodeAndLoadIntoInterpreter();
@@ -66,7 +82,7 @@ workspace.addChangeListener(function(event) {
   if (!(event instanceof Blockly.Events.Ui)) {
     generateCodeAndLoadIntoInterpreter();
   }
-};
+});
 */
 /***** ↑ ステップ実行するモジュール ↑ *****/
 
