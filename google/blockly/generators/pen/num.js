@@ -20,3 +20,9 @@ Blockly.Pen['variable'] = function(block) {
   const code = name;
   return [code, Blockly.Pen.ORDER_NONE];
 };
+
+Blockly.Pen['variable2'] = function(block) {
+  const name = Blockly.Pen.variableDB_.getName(block.getFieldValue('namae'), Blockly.Variables.NAME_TYPE);
+  const code = name;
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};

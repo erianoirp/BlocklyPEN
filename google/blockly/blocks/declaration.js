@@ -13,6 +13,23 @@ Blockly.Blocks['declare_variable'] = {
   }
 };
 
+Blockly.Blocks['declare_variable2'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "datatype");
+    this.appendValueInput("name")
+        .setCheck("variable");
+    this.appendDummyInput()
+        .appendField("を宣言");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 //WaPENで使用できる
 Blockly.Blocks['int'] = {
   init: function() {

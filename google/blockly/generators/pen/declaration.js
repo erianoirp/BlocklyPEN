@@ -5,6 +5,13 @@ Blockly.Pen['declare_variable'] = function(block) {
   return code;
 };
 
+Blockly.Pen['declare_variable2'] = function(block) {
+  const datatype = block.getFieldValue('datatype');
+  const name = Blockly.Pen.valueToCode(block, 'name', Blockly.Pen.ORDER_ATOMIC);
+  const code = datatype + ' ' + name + '\n';
+  return code;
+};
+
 //WaPENで使用できる
 Blockly.Pen['int'] = function(block) {
   var text_val = block.getFieldValue('val');

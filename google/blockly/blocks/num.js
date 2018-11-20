@@ -40,3 +40,15 @@ Blockly.Blocks['variable'] = {
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['variable2'] = {
+  init: function() {
+    this.appendDummyInput()
+//        .appendField(new Blockly.FieldVariable("≪変数≫"), "namae");
+        .appendField(new Blockly.FieldVariable("hensuu"), "namae");
+    this.setOutput(true, "variable");
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};

@@ -179,7 +179,14 @@
 
 		<!--宣言-->
 		<category name="{catdeclaratation}" colour="330">
+      <label text="label"></label>
+      <button text="variable" callbackKey="declareVariable"></button>
       <block type="declare_variable"></block>
+      <block type="declare_variable2">
+        <value name="name">
+          <block type="variable2"></block>
+        </value>
+      </block>
 <!--
 			<block type="int"></block>
 			<block type="real"></block>
@@ -195,6 +202,8 @@
 
 		<!--計算-->
 		<category name="{catMath}" colour="230">
+			<block type="num"></block>
+			<block type="variable2"></block>
 			<block type="calculation">
 				<value name="val1">
 					<!-- <shadow type="num">
