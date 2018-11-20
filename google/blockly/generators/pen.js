@@ -165,8 +165,10 @@ Blockly.Pen.init = function(workspace) {
       defvars[i] = Blockly.Pen.variableDB_.getName(variables[i],
           Blockly.Variables.NAME_TYPE);
     }
+    /*
     Blockly.Pen.definitions_['variables'] =
         'var ' + defvars.join(', ') + ';';
+    */
   }
 };
 
