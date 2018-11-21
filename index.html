@@ -19,54 +19,53 @@
 
 	<link rel="stylesheet" href="./bPEN.css">
 
-	<link rel="shortcut icon" href="./google/suzu.gif">
+	<link rel="shortcut icon" href="./suzu.gif">
 
 	<!--closure library-->
   <script src="./google/closure-library/closure/goog/base.js"></script>
   <script src="./google/closure-library/closure/goog/storage/storage.js"></script>
 
 	<!--本体モジュール-->
-  <script src="./google/blockly/blockly_compressed.js"></script>
+  <script src="./blockly/blockly_compressed.js"></script>
 
 	<!--Blockモジュール-->
   <!-- <script src="../google/blockly/blocks_compressed.js"></script> -->
-	<script src="./google/blockly/blocks/declaration.js"></script>
-	<script src="./google/blockly/blocks/file.js"></script>
-  <script src="./google/blockly/blocks/function.js"></script>
-	<script src="./google/blockly/blocks/gdraw.js"></script>
-	<script src="./google/blockly/blocks/gset.js"></script>
-	<script src="./google/blockly/blocks/gwindow.js"></script>
-	<script src="./google/blockly/blocks/inoutput.js"></script>
-	<script src="./google/blockly/blocks/logic.js"></script>
-	<script src="./google/blockly/blocks/loop.js"></script>
-	<script src="./google/blockly/blocks/math.js"></script>
-	<script src="./google/blockly/blocks/num.js"></script>
-	<script src="./google/blockly/blocks/str.js"></script>
-	<script src="./google/blockly/blocks/start.js"></script>
+	<script src="./blocks/declaration.js"></script>
+	<script src="./blocks/file.js"></script>
+  <script src="./blocks/function.js"></script>
+	<script src="./blocks/gdraw.js"></script>
+	<script src="./blocks/gset.js"></script>
+	<script src="./blocks/gwindow.js"></script>
+	<script src="./blocks/inoutput.js"></script>
+	<script src="./blocks/logic.js"></script>
+	<script src="./blocks/loop.js"></script>
+	<script src="./blocks/math.js"></script>
+	<script src="./blocks/num.js"></script>
+	<script src="./blocks/str.js"></script>
+	<script src="./blocks/start.js"></script>
 
 	<!--翻訳モジュール-->
-	<script src="./google/blockly/javascript_compressed.js"></script>
-	<script src="./google/blockly/python_compressed.js"></script>
-	<script src="./google/blockly/php_compressed.js"></script>
-	<script src="./google/blockly/lua_compressed.js"></script>
-	<script src="./google/blockly/dart_compressed.js"></script>
-	<!-- <script src="../google/blockly/pen_compressed.js"></script> -->
-	<script src="./google/blockly/demos/code/code.js"></script>
+	<script src="./blockly/javascript_compressed.js"></script>
+	<script src="./blockly/python_compressed.js"></script>
+	<script src="./blockly/php_compressed.js"></script>
+	<script src="./blockly/lua_compressed.js"></script>
+	<script src="./blockly/dart_compressed.js"></script>
+	<script src="./code/code.js"></script>
 
-	<script src="./google/blockly/generators/pen.js"></script>
-	<script src="./google/blockly/generators/pen/declaration.js"></script>
-	<script src="./google/blockly/generators/pen/file.js"></script>
-  <script src="./google/blockly/generators/pen/function.js"></script>
-	<script src="./google/blockly/generators/pen/gdraw.js"></script>
-	<script src="./google/blockly/generators/pen/gset.js"></script>
-	<script src="./google/blockly/generators/pen/gwindow.js"></script>
-	<script src="./google/blockly/generators/pen/inoutput.js"></script>
-	<script src="./google/blockly/generators/pen/logic.js"></script>
-	<script src="./google/blockly/generators/pen/loop.js"></script>
-	<script src="./google/blockly/generators/pen/math.js"></script>
-	<script src="./google/blockly/generators/pen/num.js"></script>
-	<script src="./google/blockly/generators/pen/str.js"></script>
-	<script src="./google/blockly/generators/pen/start.js"></script>
+	<script src="./generator/pen.js"></script>
+	<script src="./generator/declaration.js"></script>
+	<script src="./generator/file.js"></script>
+  <script src="./generator/function.js"></script>
+	<script src="./generator/gdraw.js"></script>
+	<script src="./generator/gset.js"></script>
+	<script src="./generator/gwindow.js"></script>
+	<script src="./generator/inoutput.js"></script>
+	<script src="./generator/logic.js"></script>
+	<script src="./generator/loop.js"></script>
+	<script src="./generator/math.js"></script>
+	<script src="./generator/num.js"></script>
+	<script src="./generator/str.js"></script>
+	<script src="./generator/start.js"></script>
 
   <!-- WaPENモジュール -->
 	<script src="./WaPEN/jquery/jquery-3.1.1.min.js" type="text/javascript"></script>
@@ -352,26 +351,24 @@
 			<block type="penvar"></block>-->
 			<block type="input">
 				<value name="val">
-					<shadow type="val">
-						<field name="val">≪変数≫</field>
+					<shadow type="variable">
+						<field name="name">≪変数≫</field>
 					</shadow>
 				</value>
 			</block>
-			<block type="output">
-			</block>
-			<block type="outputno">
-			</block>
+			<block type="output"></block>
+			<block type="outputno"></block>
 			<block type="valoutput">
 				<value name="val">
-					<shadow type="val">
-						<field name="val">≪変数≫</field>
+					<shadow type="variable">
+						<field name="name">≪変数≫</field>
 					</shadow>
 				</value>
 			</block>
 			<block type="valoutputno">
 				<value name="val">
-					<shadow type="val">
-						<field name="val">≪変数≫</field>
+					<shadow type="variable">
+						<field name="name">≪変数≫</field>
 					</shadow>
 				</value>
 			</block>
@@ -406,8 +403,8 @@
 			<block type="while"></block>
 			<block type="forplus">
 				<value name="conditions1">
-					<shadow type="val">
-						<field name="val">≪変数≫</field>
+					<shadow type="variable">
+						<field name="name">≪変数≫</field>
 					</shadow>
 				</value>
 				<value name="conditions2">
@@ -428,8 +425,8 @@
 			</block>
 			<block type="forminus">
 				<value name="conditions1">
-					<shadow type="val">
-						<field name="val">≪変数≫</field>
+					<shadow type="variable">
+						<field name="name">≪変数≫</field>
 					</shadow>
 				</value>
 				<value name="conditions2">
@@ -482,21 +479,27 @@
 
 		<!--文字-->
 		<category name="{catText}" colour="160">
-		 <block type="str">
-			 <value name="str">
-           <shadow type="val">
-             <field name="val">文字列</field>
-           </shadow>
-         </value>
-		 </block>
-		 <!-- <block type="strsubstitution">
+      <block type="str"></block>
+<!--
+      <block type="str">
+        <value name="str">
+          <shadow type="val">
+            <field name="val">文字列</field>
+          </shadow>
+        </value>
+      </block>
+-->
+<!--
+     <block type="strsubstitution">
 			<value name="val">
 					<shadow type="num">
 						<field name="num">≪変数≫</field>
 					</shadow>
 				</value>
-		 </block> -->
-		 <!-- <block type="str1">
+		 </block>
+-->
+<!--
+    <block type="str1">
 			<value name="str">
 					<shadow type="num">
 						<field name="num">≪文字列≫</field>
@@ -618,11 +621,13 @@
 					<field name="num">≪文字列≫</field>
 				</shadow>
 			</value>
-		 </block> -->
+    </block>
+-->
 			<!--<block type="text"></block>-->
 			<!--<block type="text_join"></block>-->
 			<!--<block type="text_append">-->
-				<!--<value name="TEXT">
+<!--
+    <value name="TEXT">
 					<shadow type="text"></shadow>
 				</value>
 			</block>
@@ -632,16 +637,19 @@
 						<field name="TEXT">abc</field>
 					</shadow>
 				</value>
-			</block>-->
-			<!--
+			</block>
+-->
+<!--
 				<block type="text_isEmpty">
 				<value name="VALUE">
 					<shadow type="text">
 						<field name="TEXT"></field>
 					</shadow>
 				</value>
-			</block>-->
-			<!--<block type="text_indexOf">
+			</block>
+-->
+<!--
+      <block type="text_indexOf">
 				<value name="VALUE">
 					<block type="variables_get">
 						<field name="VAR">{textVariable}</field>
@@ -681,8 +689,9 @@
 					</shadow>
 				</value>
 			</block>
-			-->
-			<!--<block type="text_print">
+-->
+<!--
+      <block type="text_print">
 				<value name="TEXT">
 					<shadow type="text">
 						<field name="TEXT">abc</field>
@@ -704,7 +713,8 @@
 						<field name="TEXT">abc</field>
 					</shadow>
 				</value>
-			</block>-->
+			</block>
+-->
 		</category>
 
 		<!--窓操作-->
@@ -1021,7 +1031,7 @@
 	</xml>
 
 	<!--追加-->
-	<script src="./google/blockly/demos/code/my.js"></script>
+	<script src="./code/my.js"></script>
   <script type="text/javascript">
 let onResizeCanvas = function(e) {
   let canvas = document.getElementById("line4F2FCanvas");
