@@ -30,25 +30,4 @@ Blockly.Blocks['val'] = {
   }
 };
 */
-Blockly.Blocks['variable'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("≪変数≫"), "name");
-    this.setOutput(true, "variable");
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
 
-Blockly.Blocks['variable2'] = {
-  init: function() {
-    this.appendDummyInput()
-//        .appendField(new Blockly.FieldVariable("≪変数≫"), "namae");
-        .appendField(new Blockly.FieldVariable("hensuu"), "namae");
-    this.setOutput(true, "variable");
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};

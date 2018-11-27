@@ -10,6 +10,7 @@ var MSG = {
   catLoops: "繰り返し",
   catinoutput: "入出力",
   catdeclaratation: "宣言",
+  catVariable: "変数",
   catnum: "値",
   catMath: "計算",
   catText: "文字",
