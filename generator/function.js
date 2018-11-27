@@ -69,7 +69,6 @@ Blockly.Pen['argument'] = function(block) {
 
 Blockly.Pen['close_parenthesis'] = function(block) {
   const code = ')';
-  //return [code, Blockly.Pen.ORDER_NONE];
-  return code;
+  return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
