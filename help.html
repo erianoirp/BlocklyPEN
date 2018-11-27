@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <title>BlocklyPENの使い方</title>
-  <script src="./google/blockly/blockly_compressed.js"></script>
-  <script src="./google/blockly/blocks/declaration.js"></script>
-  <script src="./google/blockly/blocks/file.js"></script>
-  <script src="./google/blockly/blocks/function.js"></script>
-  <script src="./google/blockly/blocks/gdraw.js"></script>
-  <script src="./google/blockly/blocks/gset.js"></script>
-  <script src="./google/blockly/blocks/gwindow.js"></script>
-  <script src="./google/blockly/blocks/inoutput.js"></script>
-  <script src="./google/blockly/blocks/logic.js"></script>
-  <script src="./google/blockly/blocks/loop.js"></script>
-  <script src="./google/blockly/blocks/math.js"></script>
-  <script src="./google/blockly/blocks/num.js"></script>
-  <script src="./google/blockly/blocks/str.js"></script>
-  <script src="./google/blockly/blocks/start.js"></script>
+  <script src="./blockly/blockly_compressed.js"></script>
+  <script src="./blocks/file.js"></script>
+  <script src="./blocks/function.js"></script>
+  <script src="./blocks/gdraw.js"></script>
+  <script src="./blocks/gset.js"></script>
+  <script src="./blocks/gwindow.js"></script>
+  <script src="./blocks/inoutput.js"></script>
+  <script src="./blocks/logic.js"></script>
+  <script src="./blocks/loop.js"></script>
+  <script src="./blocks/math.js"></script>
+  <script src="./blocks/num.js"></script>
+  <script src="./blocks/str.js"></script>
+  <script src="./blocks/start.js"></script>
+  <script src="./blocks/variable.js"></script>
   <link href="./help.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
@@ -32,8 +32,8 @@
   <article>
     <h2>ブロックの種類</h2>
     <section>
-      <h3>宣言</h3>
-      <section>
+      <h3>変数</h3>
+      <section class="blockSection">
         <div id="declareBlockDiv" class="sampleBlock"></div>
         <xml id="declareBlockXml" style="display: none">
           <block type="declare_variable" x="3"></block>
@@ -60,12 +60,30 @@
 }
         </script>
         <div class="blockDescription">
-          変数を宣言するためのブロック。
+          <p>変数を宣言する「変数宣言ブロック」。<br>
+          プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」に書かれた名前の変数を宣言する。</p>
+        </div>
+      </section>
+      <section>
+        <div id="variableBlockDiv" class="sampleBlock"></div>
+        <xml id="variableBlockXml" style="display: none">
+          <block type="variable"></block>
+        </xml>
+        <script>
+          {
+            let workspace = Blockly.inject('variableBlockDiv', 
+              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+            );
+            Blockly.Xml.domToWorkspace(document.getElementById('variableBlockXml'), workspace);
+          }
+        </script>
+        <div class="blockDescription">
+          変数を参照する「変数ブロック」。
         </div>
       </section>
     </section>
     <section>
-      <h3>値</h3>
+      <h3>計算</h3>
       <section>
         <div id="numBlockDiv" class="sampleBlock"></div>
         <xml id="numBlockXml" style="display: none">
@@ -83,26 +101,6 @@
           数字を入力するためのブロック。
         </div>
       </section>
-      <section>
-        <div id="variableBlockDiv" class="sampleBlock"></div>
-        <xml id="variableBlockXml" style="display: none">
-          <block type="variable"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('variableBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('variableBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          数字を入力するためのブロック。
-        </div>
-      </section>
-    </section>
-    <section>
-      <h3>計算</h3>
       <section>
         <div id="calculationBlockDiv" class="sampleBlock"></div>
         <xml id="calculationBlockXml" style="display: none">
