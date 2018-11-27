@@ -1,5 +1,4 @@
 Blockly.Pen['start'] = function(block) {
-  // TODO: Assemble IchigoJamBASIC into code variable.
-  var code = '\n';
+  const code = Blockly.Pen.statementToCode(block, 'main') + '\n';
   return code;
 };
