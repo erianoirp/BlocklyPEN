@@ -21,707 +21,733 @@
 </head>
 <body>
   <header>
-    <h1>BlocklyPENの使い方</h1>
+    BlocklyPEN
   </header>
-  <article>
-    <h2>BlocklyPENとは</h2>
-  </article>
-  <article>
-    <h2>基本的な使い方</h2>
-  </article>
-  <article>
-    <h2>ブロックの種類</h2>
-    <section>
-      <h3>変数</h3>
-      <section class="blockSection">
-        <div id="declareBlockDiv" class="sampleBlock"></div>
-        <xml id="declareBlockXml" style="display: none">
-          <block type="declare_variable" x="3"></block>
-        </xml>
-        <script>
-{
-  /* ブロックの幅が取得できない てかgetElementsByClassNameでブロックが取得できない
-  let div = document.getElementById('declareBlockDiv');
-  //let block = div.getElementsByClassName('blocklyDraggable');
-  let blocks = document.getElementsByClassName('blocklyDraggable');
-  console.log(`blocks.length: ${blocks.length}`);
-  console.log(`w: ${blocks[1].style.width}, h: ${blocks[1].style.height}`);
-  //let test = block.getBBox();
-  //console.log(`x: ${test.width}, y: ${test.y}`);
-  let startX = (div.clientWidth - block.clientWidth) / 2;
-  let startY = (div.clientHeight - block.clientHeight) / 2;
-  let translate = 'translate(' + startX + ',' + startY + ')';
-  //block.style.transform = translate;
-  */
-  let workspace = Blockly.inject('declareBlockDiv', 
-    {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-  );
-  Blockly.Xml.domToWorkspace(document.getElementById('declareBlockXml'), workspace);
-}
-        </script>
-        <div class="blockDescription">
-          <p>変数を宣言する「変数宣言ブロック」。<br>
-          プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」に書かれた名前の変数を宣言する。</p>
-        </div>
+  <div id="mainContent">
+    <h1>BlocklyPENの使い方</h1>
+    <article>
+      <h2>BlocklyPENとは</h2>
+      <p>
+BlocklyPENとは、名古屋高等学校で教師をしていらっしゃる「中西 渉 (なかにし わたる)」先生が
+作成している「<a href="https://watayan.net/index.html">WaPEN</a>」と、Googleが提供しているライブラリ
+「<a href="https://developers.google.com/blockly/">Blockly</a>」を組み合わせた、センター試験用手順記述標準言語(DNCL)の勉強用教材です。
+      </p>
+      <p>
+BlocklyPENでは、ブロックを組み合わせてプログラミングを行うことができます。これは、
+「文字入力の手間が減り、誤字や脱字を減らすことができる」、
+「ブロックが色分けされており、構文の種類や位置関係を明確にすることができる」
+といった、ブロックプログラミングならではのメリットをもたらします。
+      </p>
+    </article>
+    <article>
+      <h2>基本的な使い方</h2>
+    </article>
+    <article>
+      <h2>ブロックの種類</h2>
+      <section>
+        <h3>変数</h3>
+        <section class="blockSection">
+          <div id="declareBlockDiv" class="sampleBlock"></div>
+          <xml id="declareBlockXml" style="display: none">
+            <block type="declare_variable" x="3"></block>
+          </xml>
+          <script>
+  {
+    /* ブロックの幅が取得できない てかgetElementsByClassNameでブロックが取得できない
+    let div = document.getElementById('declareBlockDiv');
+    //let block = div.getElementsByClassName('blocklyDraggable');
+    let blocks = document.getElementsByClassName('blocklyDraggable');
+    console.log(`blocks.length: ${blocks.length}`);
+    console.log(`w: ${blocks[1].style.width}, h: ${blocks[1].style.height}`);
+    //let test = block.getBBox();
+    //console.log(`x: ${test.width}, y: ${test.y}`);
+    let startX = (div.clientWidth - block.clientWidth) / 2;
+    let startY = (div.clientHeight - block.clientHeight) / 2;
+    let translate = 'translate(' + startX + ',' + startY + ')';
+    //block.style.transform = translate;
+    */
+    let workspace = Blockly.inject('declareBlockDiv', 
+      {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+    );
+    Blockly.Xml.domToWorkspace(document.getElementById('declareBlockXml'), workspace);
+  }
+          </script>
+          <p class="blockDescription">
+変数を宣言する「変数宣言ブロック」。<br>
+プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」に書かれた名前の変数を宣言する。
+          </p>
+        </section>
+        <section class="blockSection">
+          <div id="variableBlockDiv" class="sampleBlock"></div>
+          <xml id="variableBlockXml" style="display: none">
+            <block type="variable"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('variableBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('variableBlockXml'), workspace);
+            }
+          </script>
+          <p class="blockDescription">
+変数を参照する「変数ブロック」。<br>
+プルダウンメニューをクリックすることで、「既存の変数を選択」、「選択中の変数名を変更」、
+「選択中の変数を削除」することができる。<br>
+「選択中の変数を削除」すると、エディタ上にある同名の変数ブロックも削除される。<br>
+2つ以上エディタに存在の変数ブロックのうちの1つを削除したい場合（変数を削除するのではなく
+ブロックを削除したい場合）は、右クリックからブロックを削除する。
+          </p>
+        </section>
       </section>
       <section>
-        <div id="variableBlockDiv" class="sampleBlock"></div>
-        <xml id="variableBlockXml" style="display: none">
-          <block type="variable"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('variableBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('variableBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          変数を参照する「変数ブロック」。
-        </div>
-      </section>
-    </section>
-    <section>
-      <h3>計算</h3>
-      <section>
-        <div id="numBlockDiv" class="sampleBlock"></div>
-        <xml id="numBlockXml" style="display: none">
-          <block type="num"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('numBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('numBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          数字を入力するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="calculationBlockDiv" class="sampleBlock"></div>
-        <xml id="calculationBlockXml" style="display: none">
-          <block type="calculation"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('calculationBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('calculationBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          計算するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="assignBlockDiv" class="sampleBlock"></div>
-        <xml id="assignBlockXml" style="display: none">
-          <block type="assign"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('assignBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('assignBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          代入するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="randomBlockDiv" class="sampleBlock"></div>
-        <xml id="randomBlockXml" style="display: none">
-          <block type="random"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('randomBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('randomBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-    </section>
-    <section>
-      <h3>入出力</h3>
-      <section>
-        <div id="inputBlockDiv" class="sampleBlock"></div>
-        <xml id="inputBlockXml" style="display: none">
-          <block type="input"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('inputBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('inputBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
+        <h3>計算</h3>
+        <section class="blockSection">
+          <div id="numBlockDiv" class="sampleBlock"></div>
+          <xml id="numBlockXml" style="display: none">
+            <block type="num"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('numBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('numBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            数字を入力するためのブロック。
+            -9007199254740991
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="calculationBlockDiv" class="sampleBlock"></div>
+          <xml id="calculationBlockXml" style="display: none">
+            <block type="calculation"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('calculationBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('calculationBlockXml'), workspace);
+            }
+          </script>
+          <p class="blockDescription">
+演算する「演算ブロック」<br>。
+プルダウンメニューから演算子を指定し、演算子の左右のブロックの演算を行う。
+演算結果を代入ブロックの右辺として利用したり、演算ブロックの中に演算ブロックを入れて
+利用する（入れ子）。
+          </p>
+        </section>
+        <section class="blockSection">
+          <div id="assignBlockDiv" class="sampleBlock"></div>
+          <xml id="assignBlockXml" style="display: none">
+            <block type="assign"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('assignBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('assignBlockXml'), workspace);
+            }
+          </script>
+          <p class="blockDescription">
+変数に値を代入する「代入ブロック」。<br>
+左辺に変数ブロックを置き、右辺に変数ブロックや値ブロックを置くことで、
+左辺の変数に右辺値を代入することができる。<br>
+左辺には変数ブロックしか置くことができない。
+          </p>
+        </section>
+        <section class="blockSection">
+          <div id="randomBlockDiv" class="sampleBlock"></div>
+          <xml id="randomBlockXml" style="display: none">
+            <block type="random"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('randomBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('randomBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
       </section>
       <section>
-        <div id="outputBlockDiv" class="sampleBlock"></div>
-        <xml id="outputBlockXml" style="display: none">
-          <block type="output"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('outputBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('outputBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
+        <h3>入出力</h3>
+        <section class="blockSection">
+          <div id="inputBlockDiv" class="sampleBlock"></div>
+          <xml id="inputBlockXml" style="display: none">
+            <block type="input"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('inputBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('inputBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="outputBlockDiv" class="sampleBlock"></div>
+          <xml id="outputBlockXml" style="display: none">
+            <block type="output"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('outputBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('outputBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="outputnoBlockDiv" class="sampleBlock"></div>
+          <xml id="outputnoBlockXml" style="display: none">
+            <block type="outputno"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('outputnoBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('outputnoBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="valoutputBlockDiv" class="sampleBlock"></div>
+          <xml id="valoutputBlockXml" style="display: none">
+            <block type="valoutput"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('valoutputBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('valoutputBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="valoutputnoBlockDiv" class="sampleBlock"></div>
+          <xml id="valoutputnoBlockXml" style="display: none">
+            <block type="valoutputno"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('valoutputnoBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('valoutputnoBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
       </section>
       <section>
-        <div id="outputnoBlockDiv" class="sampleBlock"></div>
-        <xml id="outputnoBlockXml" style="display: none">
-          <block type="outputno"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('outputnoBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('outputnoBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
+        <h3>条件分岐</h3>
+        <section class="blockSection">
+          <div id="conditionsBlockDiv" class="sampleBlock"></div>
+          <xml id="conditionsBlockXml" style="display: none">
+            <block type="conditions"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('conditionsBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('conditionsBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="ifBlockDiv" class="sampleBlock"></div>
+          <xml id="ifBlockXml" style="display: none">
+            <block type="if"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('ifBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('ifBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="ifelseBlockDiv" class="sampleBlock"></div>
+          <xml id="ifelseBlockXml" style="display: none">
+            <block type="ifelse"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('ifelseBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('ifelseBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
       </section>
       <section>
-        <div id="valoutputBlockDiv" class="sampleBlock"></div>
-        <xml id="valoutputBlockXml" style="display: none">
-          <block type="valoutput"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('valoutputBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('valoutputBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
+        <h3>繰り返し</h3>
+        <section class="blockSection">
+          <div id="whileBlockDiv" class="sampleBlock"></div>
+          <xml id="whileBlockXml" style="display: none">
+            <block type="while"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('whileBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('whileBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="forplusBlockDiv" class="sampleBlock"></div>
+          <xml id="forplusBlockXml" style="display: none">
+            <block type="forplus"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('forplusBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('forplusBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="forminusBlockDiv" class="sampleBlock"></div>
+          <xml id="forminusBlockXml" style="display: none">
+            <block type="forminus"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('forminusBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('forminusBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
       </section>
       <section>
-        <div id="valoutputnoBlockDiv" class="sampleBlock"></div>
-        <xml id="valoutputnoBlockXml" style="display: none">
-          <block type="valoutputno"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('valoutputnoBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('valoutputnoBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-    </section>
-    <section>
-      <h3>条件分岐</h3>
-      <section>
-        <div id="conditionsBlockDiv" class="sampleBlock"></div>
-        <xml id="conditionsBlockXml" style="display: none">
-          <block type="conditions"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('conditionsBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('conditionsBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
+        <h3>文字</h3>
+        <section class="blockSection">
+          <div id="strBlockDiv" class="sampleBlock"></div>
+          <xml id="strBlockXml" style="display: none">
+            <block type="str"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('strBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('strBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
       </section>
       <section>
-        <div id="ifBlockDiv" class="sampleBlock"></div>
-        <xml id="ifBlockXml" style="display: none">
-          <block type="if"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('ifBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('ifBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
+        <h3>窓操作</h3>
+        <section class="blockSection">
+          <div id="gopenwBlockDiv" class="sampleBlock"></div>
+          <xml id="gopenwBlockXml" style="display: none">
+            <block type="gopenw"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gopenwBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gopenwBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="gclosewBlockDiv" class="sampleBlock"></div>
+          <xml id="gclosewBlockXml" style="display: none">
+            <block type="gclosew"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gclosewBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gclosewBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="gclearwBlockDiv" class="sampleBlock"></div>
+          <xml id="gclearwBlockXml" style="display: none">
+            <block type="gclearw"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gclearwBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gclearwBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
       </section>
       <section>
-        <div id="ifelseBlockDiv" class="sampleBlock"></div>
-        <xml id="ifelseBlockXml" style="display: none">
-          <block type="ifelse"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('ifelseBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('ifelseBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-    </section>
-    <section>
-      <h3>繰り返し</h3>
-      <section>
-        <div id="whileBlockDiv" class="sampleBlock"></div>
-        <xml id="whileBlockXml" style="display: none">
-          <block type="while"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('whileBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('whileBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="forplusBlockDiv" class="sampleBlock"></div>
-        <xml id="forplusBlockXml" style="display: none">
-          <block type="forplus"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('forplusBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('forplusBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
+        <h3>描画設定</h3>
+        <section class="blockSection">
+          <div id="gscolorBlockDiv" class="sampleBlock"></div>
+          <xml id="gscolorBlockXml" style="display: none">
+            <block type="gscolor"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gscolorBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gscolorBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="gsstyleBlockDiv" class="sampleBlock"></div>
+          <xml id="gsstyleBlockXml" style="display: none">
+            <block type="gsstyle"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gsstyleBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gsstyleBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
       </section>
       <section>
-        <div id="forminusBlockDiv" class="sampleBlock"></div>
-        <xml id="forminusBlockXml" style="display: none">
-          <block type="forminus"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('forminusBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('forminusBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-    </section>
-    <section>
-      <h3>文字</h3>
-      <section>
-        <div id="strBlockDiv" class="sampleBlock"></div>
-        <xml id="strBlockXml" style="display: none">
-          <block type="str"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('strBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('strBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-    </section>
-    <section>
-      <h3>窓操作</h3>
-      <section>
-        <div id="gopenwBlockDiv" class="sampleBlock"></div>
-        <xml id="gopenwBlockXml" style="display: none">
-          <block type="gopenw"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gopenwBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gopenwBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="gclosewBlockDiv" class="sampleBlock"></div>
-        <xml id="gclosewBlockXml" style="display: none">
-          <block type="gclosew"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gclosewBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gclosewBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="gclearwBlockDiv" class="sampleBlock"></div>
-        <xml id="gclearwBlockXml" style="display: none">
-          <block type="gclearw"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gclearwBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gclearwBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-    </section>
-    <section>
-      <h3>描画設定</h3>
-      <section>
-        <div id="gscolorBlockDiv" class="sampleBlock"></div>
-        <xml id="gscolorBlockXml" style="display: none">
-          <block type="gscolor"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gscolorBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gscolorBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
+        <h3>描画</h3>
+        <section class="blockSection">
+          <div id="gdtextBlockDiv" class="sampleBlock"></div>
+          <xml id="gdtextBlockXml" style="display: none">
+            <block type="gdtext"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gdtextBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gdtextBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="gdlineBlockDiv" class="sampleBlock"></div>
+          <xml id="gdlineBlockXml" style="display: none">
+            <block type="gdline"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gdlineBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gdlineBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="gdboxBlockDiv" class="sampleBlock"></div>
+          <xml id="gdboxBlockXml" style="display: none">
+            <block type="gdbox"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gdboxBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gdboxBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="gfboxBlockDiv" class="sampleBlock"></div>
+          <xml id="gfboxBlockXml" style="display: none">
+            <block type="gfbox"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gfboxBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gfboxBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="gdcircleBlockDiv" class="sampleBlock"></div>
+          <xml id="gdcircleBlockXml" style="display: none">
+            <block type="gdcircle"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gdcircleBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gdcircleBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="gfcircleBlockDiv" class="sampleBlock"></div>
+          <xml id="gfcircleBlockXml" style="display: none">
+            <block type="gfcircle"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('gfcircleBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('gfcircleBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
       </section>
       <section>
-        <div id="gsstyleBlockDiv" class="sampleBlock"></div>
-        <xml id="gsstyleBlockXml" style="display: none">
-          <block type="gsstyle"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gsstyleBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gsstyleBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
+        <h3>関数</h3>
+        <section class="blockSection">
+          <div id="define_functionBlockDiv" class="sampleBlock"></div>
+          <xml id="define_functionBlockXml" style="display: none">
+            <block type="define_function"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('define_functionBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('define_functionBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="define_stepBlockDiv" class="sampleBlock"></div>
+          <xml id="define_stepBlockXml" style="display: none">
+            <block type="define_step"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('define_stepBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('define_stepBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="param_blockBlockDiv" class="sampleBlock"></div>
+          <xml id="param_blockBlockXml" style="display: none">
+            <block type="param_block"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('param_blockBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('param_blockBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="return_blockBlockDiv" class="sampleBlock"></div>
+          <xml id="return_blockBlockXml" style="display: none">
+            <block type="return_block"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('return_blockBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('return_blockBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="return_void_blockBlockDiv" class="sampleBlock"></div>
+          <xml id="return_void_blockBlockXml" style="display: none">
+            <block type="return_void_block"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('return_void_blockBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('return_void_blockBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="call_stepBlockDiv" class="sampleBlock"></div>
+          <xml id="call_stepBlockXml" style="display: none">
+            <block type="call_step"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('call_stepBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('call_stepBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="call_functionBlockDiv" class="sampleBlock"></div>
+          <xml id="call_functionBlockXml" style="display: none">
+            <block type="call_function"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('call_functionBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('call_functionBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="argumentBlockDiv" class="sampleBlock"></div>
+          <xml id="argumentBlockXml" style="display: none">
+            <block type="argument"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('argumentBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('argumentBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
+        <section class="blockSection">
+          <div id="close_parenthesisBlockDiv" class="sampleBlock"></div>
+          <xml id="close_parenthesisBlockXml" style="display: none">
+            <block type="close_parenthesis"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('close_parenthesisBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('close_parenthesisBlockXml'), workspace);
+            }
+          </script>
+          <div class="blockDescription">
+            ランダムな数値を取得するためのブロック。
+          </div>
+        </section>
       </section>
-    </section>
-    <section>
-      <h3>描画</h3>
-      <section>
-        <div id="gdtextBlockDiv" class="sampleBlock"></div>
-        <xml id="gdtextBlockXml" style="display: none">
-          <block type="gdtext"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gdtextBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gdtextBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="gdlineBlockDiv" class="sampleBlock"></div>
-        <xml id="gdlineBlockXml" style="display: none">
-          <block type="gdline"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gdlineBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gdlineBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="gdboxBlockDiv" class="sampleBlock"></div>
-        <xml id="gdboxBlockXml" style="display: none">
-          <block type="gdbox"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gdboxBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gdboxBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="gfboxBlockDiv" class="sampleBlock"></div>
-        <xml id="gfboxBlockXml" style="display: none">
-          <block type="gfbox"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gfboxBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gfboxBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="gdcircleBlockDiv" class="sampleBlock"></div>
-        <xml id="gdcircleBlockXml" style="display: none">
-          <block type="gdcircle"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gdcircleBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gdcircleBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="gfcircleBlockDiv" class="sampleBlock"></div>
-        <xml id="gfcircleBlockXml" style="display: none">
-          <block type="gfcircle"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('gfcircleBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('gfcircleBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-    </section>
-    <section>
-      <h3>関数</h3>
-      <section>
-        <div id="define_functionBlockDiv" class="sampleBlock"></div>
-        <xml id="define_functionBlockXml" style="display: none">
-          <block type="define_function"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('define_functionBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('define_functionBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="define_stepBlockDiv" class="sampleBlock"></div>
-        <xml id="define_stepBlockXml" style="display: none">
-          <block type="define_step"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('define_stepBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('define_stepBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="param_blockBlockDiv" class="sampleBlock"></div>
-        <xml id="param_blockBlockXml" style="display: none">
-          <block type="param_block"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('param_blockBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('param_blockBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="return_blockBlockDiv" class="sampleBlock"></div>
-        <xml id="return_blockBlockXml" style="display: none">
-          <block type="return_block"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('return_blockBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('return_blockBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="return_void_blockBlockDiv" class="sampleBlock"></div>
-        <xml id="return_void_blockBlockXml" style="display: none">
-          <block type="return_void_block"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('return_void_blockBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('return_void_blockBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="call_stepBlockDiv" class="sampleBlock"></div>
-        <xml id="call_stepBlockXml" style="display: none">
-          <block type="call_step"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('call_stepBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('call_stepBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="call_functionBlockDiv" class="sampleBlock"></div>
-        <xml id="call_functionBlockXml" style="display: none">
-          <block type="call_function"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('call_functionBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('call_functionBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="argumentBlockDiv" class="sampleBlock"></div>
-        <xml id="argumentBlockXml" style="display: none">
-          <block type="argument"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('argumentBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('argumentBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-      <section>
-        <div id="close_parenthesisBlockDiv" class="sampleBlock"></div>
-        <xml id="close_parenthesisBlockXml" style="display: none">
-          <block type="close_parenthesis"></block>
-        </xml>
-        <script>
-          {
-            let workspace = Blockly.inject('close_parenthesisBlockDiv', 
-              {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-            );
-            Blockly.Xml.domToWorkspace(document.getElementById('close_parenthesisBlockXml'), workspace);
-          }
-        </script>
-        <div class="blockDescription">
-          ランダムな数値を取得するためのブロック。
-        </div>
-      </section>
-    </section>
-  </article>
+    </article>
+  </div>
   <footer>
   </footer>
 </body>
