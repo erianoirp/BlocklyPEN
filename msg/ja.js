@@ -8,7 +8,7 @@ var MSG = {
   trashTooltip: "すべてのブロックを消します。",
   catLogic: "条件分岐",
   catLoops: "繰り返し",
-  catinoutput: "入出力",
+  catInoutput: "入出力",
   catdeclaratation: "宣言",
   catValue: "値",
   catVariable: "変数",

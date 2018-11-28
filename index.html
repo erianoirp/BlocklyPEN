@@ -342,38 +342,16 @@
 		</category>
 
 		<!--入出力-->
-		<category name="{catinoutput}" colour="65">
+		<category name="{catInoutput}" colour="65">
 			<!--<block type="math_number"></block>
 			<block type="penvar"></block>-->
-			<block type="input">
-				<value name="val">
-<!--
-					<shadow type="variable">
-						<field name="name">≪変数≫</field>
-					</shadow>
--->
-				</value>
-			</block>
-			<block type="output"></block>
-			<block type="outputno"></block>
-			<block type="valoutput">
-				<value name="val">
-<!--
-					<shadow type="variable">
-						<field name="name">≪変数≫</field>
-					</shadow>
--->
-				</value>
-			</block>
-			<block type="valoutputno">
-				<value name="val">
-<!--
-					<shadow type="variable">
-						<field name="name">≪変数≫</field>
-					</shadow>
--->
-				</value>
-			</block>
+      <block type="input">
+        <value name="variable">
+          <block type="variable"></block>
+        </value>
+      </block>
+      <block type="print_string"></block>
+      <block type="print_v"></block>
 		</category>
 
 		<!--条件分岐-->
