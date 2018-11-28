@@ -16,6 +16,7 @@
   <script src="./blocks/num.js"></script>
   <script src="./blocks/str.js"></script>
   <script src="./blocks/start.js"></script>
+  <script src="./blocks/value.js"></script>
   <script src="./blocks/variable.js"></script>
   <link href="./help.css" type="text/css" rel="stylesheet"/>
 </head>
@@ -46,6 +47,7 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
       <h2>ブロックの種類</h2>
       <section>
         <h3>変数</h3>
+        <!-- 変数宣言ブロック -->
         <section class="blockSection">
           <div id="declareBlockDiv" class="sampleBlock"></div>
           <xml id="declareBlockXml" style="display: none">
@@ -77,6 +79,28 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
 プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」に書かれた名前の変数を宣言する。
           </p>
         </section>
+        <!-- 代入ブロック -->
+        <section class="blockSection">
+          <div id="assignBlockDiv" class="sampleBlock"></div>
+          <xml id="assignBlockXml" style="display: none">
+            <block type="assign"></block>
+          </xml>
+          <script>
+            {
+              let workspace = Blockly.inject('assignBlockDiv', 
+                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
+              );
+              Blockly.Xml.domToWorkspace(document.getElementById('assignBlockXml'), workspace);
+            }
+          </script>
+          <p class="blockDescription">
+変数に値を代入する「代入ブロック」。<br>
+左辺に変数ブロックを置き、右辺に変数ブロックや値ブロックを置くことで、
+左辺の変数に右辺値を代入することができる。<br>
+左辺には変数ブロックしか置くことができない。
+          </p>
+        </section>
+        <!-- 変数ブロック -->
         <section class="blockSection">
           <div id="variableBlockDiv" class="sampleBlock"></div>
           <xml id="variableBlockXml" style="display: none">
@@ -138,26 +162,6 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
 プルダウンメニューから演算子を指定し、演算子の左右のブロックの演算を行う。
 演算結果を代入ブロックの右辺として利用したり、演算ブロックの中に演算ブロックを入れて
 利用する（入れ子）。
-          </p>
-        </section>
-        <section class="blockSection">
-          <div id="assignBlockDiv" class="sampleBlock"></div>
-          <xml id="assignBlockXml" style="display: none">
-            <block type="assign"></block>
-          </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('assignBlockDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('assignBlockXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-変数に値を代入する「代入ブロック」。<br>
-左辺に変数ブロックを置き、右辺に変数ブロックや値ブロックを置くことで、
-左辺の変数に右辺値を代入することができる。<br>
-左辺には変数ブロックしか置くことができない。
           </p>
         </section>
         <section class="blockSection">
