@@ -14,6 +14,13 @@ Blockly.Pen['declare_variable'] = function(block) {
   return code;
 };
 
+Blockly.Pen['assign'] = function(block) {
+  const to = Blockly.Pen.valueToCode(block, 'to', Blockly.Pen.ORDER_ATOMIC);
+  const from = Blockly.Pen.valueToCode(block, 'from', Blockly.Pen.ORDER_ATOMIC);
+  const code = to + ' ← ' + from + '\n';
+  return code;
+};
+
 /*
 Blockly.Pen['variable'] = function(block) {
   const name = block.getFieldValue('name');

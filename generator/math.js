@@ -15,20 +15,6 @@ Blockly.Pen['calculation'] = function(block) {
   // return code;
 };
 
-Blockly.Pen['assign'] = function(block) {
-  let to = Blockly.Pen.valueToCode(block, 'to', Blockly.Pen.ORDER_ATOMIC);
-  // 括弧を取り除く
-  /*
-  to = to.substr(1);
-  to = to.substr(0, to.length-1);
-  */
-  let from = Blockly.Pen.valueToCode(block, 'from', Blockly.Pen.ORDER_ATOMIC);
-  from = from.substr(1);
-  from = from.substr(0, from.length-1);
-  const code = to + ' ← ' + from + '\n';
-  return code;
-};
-
 Blockly.Pen['random'] = function(block) {
   var value_val = Blockly.Pen.valueToCode(block, 'val', Blockly.Pen.ORDER_ATOMIC);
   // 括弧を取り除く

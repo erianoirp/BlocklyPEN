@@ -32,6 +32,22 @@ Blockly.Blocks['declare_variable'] = {
   }
 };
 
+Blockly.Blocks['assign'] = {
+  init: function() {
+    this.appendValueInput("to")
+        .setCheck("variable");
+    this.appendDummyInput()
+        .appendField(" ← ");
+    this.appendValueInput("from")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("左辺の変数に右辺の値を代入する");
+ this.setHelpUrl("");
+  }
+};
+
 /*
 Blockly.Blocks['variable'] = {
   init: function() {
