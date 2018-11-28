@@ -42,6 +42,7 @@
 	<script src="./blocks/num.js"></script>
 	<script src="./blocks/str.js"></script>
 	<script src="./blocks/start.js"></script>
+  <script src="./blocks/value.js"></script>
 	<script src="./blocks/variable.js"></script>
 
 	<!--翻訳モジュール-->
@@ -65,6 +66,7 @@
 	<script src="./generator/num.js"></script>
 	<script src="./generator/str.js"></script>
 	<script src="./generator/start.js"></script>
+  <script src="./generator/value.js"></script>
 	<script src="./generator/variable.js"></script>
 
   <!-- WaPENモジュール -->
@@ -176,19 +178,32 @@
 	<!--block内容-->
 	<xml id="toolbox" style="display: none">
 
-		<!--宣言-->
+		<!-- 変数 -->
 		<category name="{catVariable}" colour="330">
       <block type="declare_variable">
         <value name="name">
           <block type="variable"></block>
         </value>
       </block>
+      <block type="assign">
+        <value name="to">
+          <block type="variable"></block>
+        </value>
+      </block>
       <block type="variable"></block>
 		</category>
 
+    <!-- 値 -->
+    <category name="{catValue}" colour="290">
+      <block type="integer"></block>
+      <block type="float"></block>
+      <block type="string"></block>
+      <block type="boolean"></block>
+    </category>
 		<!--計算-->
 		<category name="{catMath}" colour="230">
-			<block type="num"></block>
+    <!--<block type="num"></block>-->
+      <block type="integer"></block>
 			<block type="calculation">
 				<value name="val1">
 					<!-- <shadow type="num">
@@ -201,11 +216,6 @@
 					</shadow> -->
 				</value>
 			</block>
-      <block type="assign">
-        <value name="to">
-          <block type="variable"></block>
-        </value>
-      </block>
 			<block type="random">
 				<value name="val">
 					<shadow type="num">
@@ -470,8 +480,10 @@
 		</category>
 
 		<!--文字-->
+<!--
 		<category name="{catText}" colour="160">
       <block type="str"></block>
+-->
 <!--
       <block type="str">
         <value name="str">
