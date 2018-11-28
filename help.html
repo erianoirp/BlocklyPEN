@@ -184,6 +184,7 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
       </section>
       <section>
         <h3>入出力</h3>
+        <!-- 入力ブロック -->
         <section class="blockSection">
           <div id="inputBlockDiv" class="sampleBlock"></div>
           <xml id="inputBlockXml" style="display: none">
@@ -197,76 +198,49 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
               Blockly.Xml.domToWorkspace(document.getElementById('inputBlockXml'), workspace);
             }
           </script>
-          <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
-          </div>
+          <p class="blockDescription">
+キーボードからの値を変数に代入するための「入力ブロック」。<br>
+この文が実行されると入力を促すウィンドウが表示され、そこに値を入力することができる。<br>
+入力した値はこのブロックに置いた変数ブロックに代入される。<br>
+このブロックには変数ブロックしか置くことができない。
+          </p>
         </section>
+        <!-- 文字列表示ブロック -->
         <section class="blockSection">
-          <div id="outputBlockDiv" class="sampleBlock"></div>
-          <xml id="outputBlockXml" style="display: none">
-            <block type="output"></block>
+          <div id="printStringBlockDiv" class="sampleBlock"></div>
+          <xml id="printStringBlockXml" style="display: none">
+            <block type="print_string"></block>
           </xml>
           <script>
             {
-              let workspace = Blockly.inject('outputBlockDiv', 
+              let workspace = Blockly.inject('printStringBlockDiv', 
                 {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
               );
-              Blockly.Xml.domToWorkspace(document.getElementById('outputBlockXml'), workspace);
+              Blockly.Xml.domToWorkspace(document.getElementById('printStringBlockXml'), workspace);
             }
           </script>
-          <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
-          </div>
+          <p class="blockDescription">
+入力された文字列を表示する「文字列表示ブロック」。<br>
+文字列を入力し、改行の有無を選択して表示する。
+          </p>
         </section>
+        <!-- 値表示ブロック -->
         <section class="blockSection">
-          <div id="outputnoBlockDiv" class="sampleBlock"></div>
-          <xml id="outputnoBlockXml" style="display: none">
-            <block type="outputno"></block>
+          <div id="printVBlockDiv" class="sampleBlock"></div>
+          <xml id="printVBlockXml" style="display: none">
+            <block type="print_v"></block>
           </xml>
           <script>
             {
-              let workspace = Blockly.inject('outputnoBlockDiv', 
+              let workspace = Blockly.inject('printVBlockDiv', 
                 {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
               );
-              Blockly.Xml.domToWorkspace(document.getElementById('outputnoBlockXml'), workspace);
+              Blockly.Xml.domToWorkspace(document.getElementById('printVBlockXml'), workspace);
             }
           </script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
-          </div>
-        </section>
-        <section class="blockSection">
-          <div id="valoutputBlockDiv" class="sampleBlock"></div>
-          <xml id="valoutputBlockXml" style="display: none">
-            <block type="valoutput"></block>
-          </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('valoutputBlockDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('valoutputBlockXml'), workspace);
-            }
-          </script>
-          <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
-          </div>
-        </section>
-        <section class="blockSection">
-          <div id="valoutputnoBlockDiv" class="sampleBlock"></div>
-          <xml id="valoutputnoBlockXml" style="display: none">
-            <block type="valoutputno"></block>
-          </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('valoutputnoBlockDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('valoutputnoBlockXml'), workspace);
-            }
-          </script>
-          <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+置かれたブロックの値を表示する「値表示ブロック」。<br>
+置かれたブロックの値を改行の有無を選択して表示する。
           </div>
         </section>
       </section>
