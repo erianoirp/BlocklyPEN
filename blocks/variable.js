@@ -20,7 +20,7 @@ Blockly.Blocks['declare_variable'] = {
     this.appendDummyInput()
         .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "datatype");
     this.appendValueInput("name")
-        .setCheck("variable");
+        .setCheck("Variable");
     this.appendDummyInput()
         .appendField("を宣言");
     this.setInputsInline(true);
@@ -35,7 +35,7 @@ Blockly.Blocks['declare_variable'] = {
 Blockly.Blocks['assign'] = {
   init: function() {
     this.appendValueInput("to")
-        .setCheck("variable");
+        .setCheck("Variable");
     this.appendDummyInput()
         .appendField(" ← ");
     this.appendValueInput("from")
@@ -65,7 +65,7 @@ Blockly.Blocks['variable'] = {
   init: function() {
     this.appendDummyInput()
         .appendField(new Blockly.FieldVariable("≪変数≫"), "name");
-    this.setOutput(true, "variable");
+    this.setOutput(true, "Variable");
     this.setColour(330);
  this.setTooltip("");
  this.setHelpUrl("");
