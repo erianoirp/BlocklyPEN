@@ -27,17 +27,16 @@ Blockly.Pen['return_void_block'] = function(block) {
   return code;
 };
 
-Blockly.Pen['param_block'] = function(block) {
+Blockly.Pen['parameter'] = function(block) {
   const datatype = block.getFieldValue('datatype');
-  const variable = block.getFieldValue('variable');
+  const name = Blockly.Pen.variableDB_.getName(block.getFieldValue('name'), Blockly.Variables.NAME_TYPE);
   const parameter = Blockly.Pen.valueToCode(block, 'parameter', Blockly.Pen.ORDER_ATOMIC);
   let code;
   if (parameter==='' || parameter===')') {
-    code = datatype + ' ' + variable + parameter;
+    code = datatype + ' ' + name + parameter;
   } else {
-    code = datatype + ' ' + variable + ', ' + parameter;
+    code = datatype + ' ' + name + ', ' + parameter;
   }
-  // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 

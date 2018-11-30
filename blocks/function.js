@@ -1,7 +1,7 @@
 Blockly.Blocks['define_function'] = {
   init: function() {
     this.appendValueInput("parameters")
-        .setCheck(["parameter", "close_parenthesis"])
+        .setCheck(["Parameter", "CloseParenthesis"])
         .appendField("関数")
         .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "return_value")
         .appendField(new Blockly.FieldTextInput("≪関数≫"), "func_name")
@@ -20,7 +20,7 @@ Blockly.Blocks['define_function'] = {
 Blockly.Blocks['define_step'] = {
   init: function() {
     this.appendValueInput("parameters")
-        .setCheck(["parameter", "close_parenthesis"])
+        .setCheck(["Parameter", "CloseParenthesis"])
         .appendField("手続き")
         .appendField(new Blockly.FieldTextInput("≪手続き≫"), "step_name")
         .appendField("(");
@@ -59,13 +59,13 @@ Blockly.Blocks['return_void_block'] = {
   }
 };
 
-Blockly.Blocks['param_block'] = {
+Blockly.Blocks['parameter'] = {
   init: function() {
     this.appendValueInput("parameter")
-        .setCheck(["parameter", "close_parenthesis"])
+        .setCheck(["Parameter", "CloseParenthesis"])
         .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "datatype")
-        .appendField(new Blockly.FieldTextInput("≪値≫"), "variable");
-    this.setOutput(true, "parameter");
+        .appendField(new Blockly.FieldVariable("≪仮引数≫"), "name");
+    this.setOutput(true, "Parameter");
     this.setColour(160);
  this.setTooltip("");
  this.setHelpUrl("");
@@ -75,7 +75,7 @@ Blockly.Blocks['param_block'] = {
 Blockly.Blocks['call_step'] = {
   init: function() {
     this.appendValueInput("arguments")
-        .setCheck(["argument", "close_parenthesis"])
+        .setCheck(["argument", "CloseParenthesis"])
         .appendField(new Blockly.FieldTextInput("≪手続き≫"), "step_name")
         .appendField("(");
     this.setInputsInline(false);
@@ -90,7 +90,7 @@ Blockly.Blocks['call_step'] = {
 Blockly.Blocks['call_function'] = {
   init: function() {
     this.appendValueInput("arguments")
-        .setCheck(["argument", "close_parenthesis"])
+        .setCheck(["argument", "CloseParenthesis"])
         .appendField(new Blockly.FieldTextInput("≪関数≫"), "func_name")
         .appendField("(");
     this.setInputsInline(false);
@@ -104,7 +104,7 @@ Blockly.Blocks['call_function'] = {
 Blockly.Blocks['argument'] = {
   init: function() {
     this.appendValueInput("arg_or_cp")
-        .setCheck(["argument", "close_parenthesis"])
+        .setCheck(["argument", "CloseParenthesis"])
         .appendField(new Blockly.FieldTextInput("≪値≫"), "value");
     this.setOutput(true, "argument");
     this.setColour(160);
@@ -118,7 +118,7 @@ Blockly.Blocks['close_parenthesis'] = {
     this.appendDummyInput()
         .appendField(")");
     this.setInputsInline(true);
-    this.setOutput(true, "close_parenthesis");
+    this.setOutput(true, "CloseParenthesis");
     this.setColour(160);
  this.setTooltip("");
  this.setHelpUrl("");
