@@ -63,7 +63,7 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="declareVariableXml" style="display: none">
             <block type="declare_variable" x="3"></block>
           </xml>
-          <script>embedBlock("declareVariable");</script>
+          <script>embedBlock('declareVariable');</script>
 <!--
           <script>
   {
@@ -87,10 +87,11 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
   }
           </script>
 -->
-          <p class="blockDescription">
-変数を宣言する「変数宣言ブロック」。<br>
-プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」に書かれた名前の変数を宣言する。
-          </p>
+          <div class="blockDescription">
+<h4>変数宣言ブロック</h4>
+<p>変数を宣言する。<br>
+プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」に書かれた名前の変数を宣言する。</p>
+        </div>
         </section>
         <!-- 代入ブロック -->
         <section class="blockSection">
@@ -98,13 +99,14 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="assignXml" style="display: none">
             <block type="assign"></block>
           </xml>
-          <script>embedBlock("assign");</script>
-          <p class="blockDescription">
-変数に値を代入する「代入ブロック」。<br>
+          <script>embedBlock('assign');</script>
+          <div class="blockDescription">
+<h4>代入ブロック</h4>
+<p>変数に値を代入する。<br>
 左辺に変数ブロックを置き、右辺に変数ブロックや値ブロックを置くことで、
 左辺の変数に右辺値を代入することができる。<br>
-左辺には変数ブロックしか置くことができない。
-          </p>
+左辺には変数ブロックしか置くことができない。</p>
+          </div>
         </section>
         <!-- 変数ブロック -->
         <section class="blockSection">
@@ -112,15 +114,16 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="variableXml" style="display: none">
             <block type="variable"></block>
           </xml>
-          <script>embedBlock("variable");</script>
-          <p class="blockDescription">
-変数を参照する「変数ブロック」。<br>
+          <script>embedBlock('variable');</script>
+          <div class="blockDescription">
+<h4>変数ブロック</h4>
+<p>変数を参照する。<br>
 プルダウンメニューをクリックすることで、「既存の変数を選択」、「選択中の変数名を変更」、
 「選択中の変数を削除」することができる。<br>
 「選択中の変数を削除」すると、エディタ上にある同名の変数ブロックも削除される。<br>
 2つ以上エディタに存在の変数ブロックのうちの1つを削除したい場合（変数を削除するのではなく
-ブロックを削除したい場合）は、右クリックからブロックを削除する。
-          </p>
+ブロックを削除したい場合）は、右クリックからブロックを削除する。</p>
+          </div>
         </section>
       </section>
       <!-- 値 -->
@@ -132,12 +135,13 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="integerXml" style="display: none">
             <block type="integer"></block>
           </xml>
-          <script>embedBlock("integer");</script>
-          <p class="blockDescription">
-整数値をを入力するための「整数ブロック」。<br>
+          <script>embedBlock('integer');</script>
+          <div class="blockDescription">
+<h4>整数ブロック</h4>
+<p>整数値をを入力する。<br>
 整数型の変数に代入したり計算に使用する。<br>
--9007199254740991～9007199254740991までの値を扱える。
-          </p>
+-9007199254740991～9007199254740991までの値を扱える。</p>
+          </div>
         </section>
         <!-- ~整数ブロック -->
         <!-- 実数ブロック -->
@@ -146,15 +150,16 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="floatXml" style="display: none">
             <block type="float"></block>
           </xml>
-          <script>embedBlock("float");</script>
-          <p class="blockDescription">
-実数値をを入力するための「実数ブロック」。<br>
+          <script>embedBlock('float');</script>
+          <div class="blockDescription">
+<h4>実数ブロック</h4>
+<p>実数値を入力する。<br>
 実数型の変数に代入したり計算に使用する。<br>
 整数部分を入力した後にTabキーを押下すると、マウスを使わずに
 カーソルを小数部分を移動できる。小数部分から整数部分にカーソルを
-移動させるには、Shiftキーを押下しながらTabキーを押下する。
+移動させるには、Shiftキーを押下しながらTabキーを押下する。</p>
 <!-- Number.NEGATIVE_INFINITY～Number.POSITIVE_INFINITYまでの値を扱える。-->
-          </p>
+          </div>
         </section>
         <!-- ~実数ブロック -->
         <!-- 文字列ブロック -->
@@ -163,11 +168,12 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="stringXml" style="display: none">
             <block type="string"></block>
           </xml>
-          <script>embedBlock("string");</script>
-          <p class="blockDescription">
-文字列値をを入力するための「文字列ブロック」。<br>
-文字列型の変数に代入したり文字列を表示するために使用する。<br>
-          </p>
+          <script>embedBlock('string');</script>
+          <div class="blockDescription">
+<h4>文字列ブロック</h4>
+<p>文字列値をを入力する。<br>
+文字列型の変数に代入したり文字列を表示するために使用する。</p>
+          </div>
         </section>
         <!-- ~文字列ブロック -->
         <!-- 真偽ブロック -->
@@ -176,11 +182,12 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="booleanXml" style="display: none">
             <block type="boolean"></block>
           </xml>
-          <script>embedBlock("boolean");</script>
-          <p class="blockDescription">
-真偽をを入力するための「真偽ブロック」。<br>
-真偽型の変数に代入したり真偽を判定するために使用する。<br>
-          </p>
+          <script>embedBlock('boolean');</script>
+          <div class="blockDescription">
+<h4>真偽ブロック</h4>
+<p>真偽値をを入力する。<br>
+真偽型の変数に代入したり真偽を判定するために使用する。</p>
+          </div>
         </section>
         <!-- ~真偽ブロック -->
       </section>
@@ -192,36 +199,24 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="calculationXml" style="display: none">
             <block type="calculation"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('calculationDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('calculationXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-演算する「演算ブロック」<br>。
-プルダウンメニューから演算子を指定し、演算子の左右のブロックの演算を行う。
+          <script>embedBlock('calculation');</script>
+          <div class="blockDescription">
+<h4>演算ブロック</h4>
+<p>「＋」「－」「×」「÷」「％」の演算を行う。<br>。
+プルダウンメニューから演算子を指定し、演算子の左右のブロックの演算を行う。<br>
 演算結果を代入ブロックの右辺として利用したり、演算ブロックの中に演算ブロックを入れて
-利用する（入れ子）。
-          </p>
+利用する（入れ子）。</p>
+          </div>
         </section>
         <section class="blockSection">
           <div id="randomDiv" class="sampleBlock"></div>
           <xml id="randomXml" style="display: none">
             <block type="random"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('randomDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('randomXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('random');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>ランダムブロック</h4>
+<p>ランダムな数値を取得するためのブロック。<p>
           </div>
         </section>
       </section>
@@ -233,20 +228,14 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="inputXml" style="display: none">
             <block type="input"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('inputDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('inputXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-キーボードからの値を変数に代入するための「入力ブロック」。<br>
+          <script>embedBlock('input');</script>
+          <div class="blockDescription">
+<h4>入力ブロック</h4>
+<p>キーボードからの値を変数に代入する。<br>
 この文が実行されると入力を促すウィンドウが表示され、そこに値を入力することができる。<br>
 入力した値はこのブロックに置いた変数ブロックに代入される。<br>
-このブロックには変数ブロックしか置くことができない。
-          </p>
+このブロックには変数ブロックしか置くことができない。</p>
+          </div>
         </section>
         <!-- 文字列表示ブロック -->
         <section class="blockSection">
@@ -254,18 +243,12 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="printStringXml" style="display: none">
             <block type="print_string"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('printStringDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('printStringXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-入力された文字列を表示する「文字列表示ブロック」。<br>
-文字列を入力し、改行の有無を選択して表示する。
-          </p>
+          <script>embedBlock('printString');</script>
+          <div class="blockDescription">
+<h4>文字列表示ブロック</h4>
+<p>入力された文字列を表示する。<br>
+文字列を入力し、改行の有無を選択して表示する。</p>
+          </div>
         </section>
         <!-- 値表示ブロック -->
         <section class="blockSection">
@@ -273,17 +256,11 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="printVXml" style="display: none">
             <block type="print_v"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('printVDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('printVXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('printV');</script>
           <div class="blockDescription">
-置かれたブロックの値を表示する「値表示ブロック」。<br>
-置かれたブロックの値を改行の有無を選択して表示する。
+<h4>値表示ブロック</h4>
+<p>置かれたブロックの値を表示する。<br>
+置かれたブロックの値を改行の有無を選択して表示する。</p>
           </div>
         </section>
       </section>
@@ -294,16 +271,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="conditionsXml" style="display: none">
             <block type="conditions"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('conditionsDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('conditionsXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('conditions');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>比較ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -311,16 +282,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="ifXml" style="display: none">
             <block type="if"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('ifDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('ifXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('if');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>条件ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -328,16 +293,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="ifelseXml" style="display: none">
             <block type="ifelse"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('ifelseDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('ifelseXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('ifelse');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>二分条件ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
       </section>
@@ -348,16 +307,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="whileXml" style="display: none">
             <block type="while"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('whileDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('whileXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('while');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>繰り返しブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -365,16 +318,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="forplusXml" style="display: none">
             <block type="forplus"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('forplusDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('forplusXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('forplus');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>インクリメント型繰り返しブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -382,16 +329,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="forminusXml" style="display: none">
             <block type="forminus"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('forminusDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('forminusXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('forminus');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>デクリメント型繰り返しブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
       </section>
@@ -402,16 +343,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gopenwXml" style="display: none">
             <block type="gopenw"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gopenwDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gopenwXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gopenw');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>窓表示ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -419,16 +354,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gclosewXml" style="display: none">
             <block type="gclosew"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gclosewDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gclosewXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gclosew');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>窓非表示ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -436,16 +365,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gclearwXml" style="display: none">
             <block type="gclearw"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gclearwDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gclearwXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gclearw');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>窓クリアブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
       </section>
@@ -456,16 +379,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gscolorXml" style="display: none">
             <block type="gscolor"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gscolorDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gscolorXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gscolor');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>色設定ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -473,16 +390,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gsstyleXml" style="display: none">
             <block type="gsstyle"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gsstyleDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gsstyleXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gsstyle');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>太さ設定ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
       </section>
@@ -493,16 +404,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gdtextXml" style="display: none">
             <block type="gdtext"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gdtextDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gdtextXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gdtext');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>文字列描画ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -510,16 +415,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gdlineXml" style="display: none">
             <block type="gdline"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gdlineDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gdlineXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gdline');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>線描画ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -527,16 +426,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gdboxXml" style="display: none">
             <block type="gdbox"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gdboxDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gdboxXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gdbox');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>矩形描画ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -544,16 +437,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gfboxXml" style="display: none">
             <block type="gfbox"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gfboxDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gfboxXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gfbox');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>塗りつぶした矩形描画ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -561,16 +448,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gdcircleXml" style="display: none">
             <block type="gdcircle"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gdcircleDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gdcircleXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gdcircle');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>円描画ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -578,16 +459,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="gfcircleXml" style="display: none">
             <block type="gfcircle"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('gfcircleDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('gfcircleXml'), workspace);
-            }
-          </script>
+          <script>embedBlock('gfcircle');</script>
           <div class="blockDescription">
-            ランダムな数値を取得するためのブロック。
+<h4>塗りつぶした円描画ブロック</h4>
+<p>ランダムな数値を取得するためのブロック。</p>
           </div>
         </section>
       </section>
@@ -600,21 +475,15 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <xml id="defineFunctionXml" style="display: none">
             <block type="define_function"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('defineFunctionDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('defineFunctionXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-関数を定義するための「関数定義ブロック」。<br>
+          <script>embedBlock('defineFunction');</script>
+          <div class="blockDescription">
+<h4>関数定義ブロック</h4>
+<p>関数を定義する。<br>
 プルダウンメニューから戻り値の型を指定し、その右の入力欄に
 関数名を指定する。<br>
 「(」の右には「引数ブロック」と「閉じ括弧ブロック」を置くことができる。<br>
-BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。
-          </p>
+BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。</p>
+          </div>
         </section>
         <!-- ~関数定義ブロック -->
         <!-- 手続き定義ブロック -->
@@ -623,86 +492,62 @@ BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされ�
           <xml id="defineStepXml" style="display: none">
             <block type="define_step"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('defineStepDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('defineStepXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-手続きを定義するための「手続き定義ブロック」。<br>
+          <script>embedBlock('defineStep');</script>
+          <div class="blockDescription">
+<h4>手続き定義ブロック</h4>
+<p>手続きを定義する。<br>
 入力欄に手続き名を指定する。<br>
 「(」の右には「引数ブロック」と「閉じ括弧ブロック」を置くことができる。<br>
-BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。
-          </p>
+BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。</p>
+          </div>
         </section>
         <!-- ~手続き定義ブロック -->
         <!-- 仮引数ブロック -->
         <section class="blockSection">
-          <div id="paramBlockDiv" class="sampleBlock"></div>
-          <xml id="paramBlockXml" style="display: none">
+          <div id="paramDiv" class="sampleBlock"></div>
+          <xml id="paramXml" style="display: none">
             <block type="param_block"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('paramBlockDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('paramBlockXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-関数と手続きの仮引数を定義するための「仮引数ブロック」。<br>
+          <script>embedBlock('param');</script>
+          <div class="blockDescription">
+<h4>仮引数ブロック</h4>
+<p>関数と手続きの仮引数を定義する。<br>
 このブロック自身と「関数定義ブロック」・「手続き定義ブロック」の
 仮引数部分にのみ置くことができる。<br>
 プルダウンメニューから仮引数の型を指定し、その右の入力欄に
-仮引数の名前を指定する。
-          </p>
+仮引数の名前を指定する。</p>
+          </div>
         </section>
         <!-- ~仮引数ブロック -->
         <!-- 返却ブロック -->
         <section class="blockSection">
-          <div id="returnBlockDiv" class="sampleBlock"></div>
-          <xml id="returnBlockXml" style="display: none">
+          <div id="returnDiv" class="sampleBlock"></div>
+          <xml id="returnXml" style="display: none">
             <block type="return_block"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('returnBlockDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('returnBlockXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-関数の呼び出し元に値を返却するための「返却ブロック」。<br>
+          <script>embedBlock('return');</script>
+          <div class="blockDescription">
+<h4>返却ブロック</h4>
+<p>関数の呼び出し元に値を返却する。<br>
 「変数ブロック」や「値ブロック」を置き、その値を関数の呼び出し元に
 返却する。<br>
-関数を定義した場合は必ず1つ以上は使わなけらばならない。
-          </p>
+関数を定義した場合は必ず1つ以上は使わなけらばならない。</p>
+          </div>
         </section>
         <!-- ~返却ブロック -->
         <!-- 脱出ブロック -->
         <section class="blockSection">
-          <div id="returnVoidBlockDiv" class="sampleBlock"></div>
-          <xml id="returnVoidBlockXml" style="display: none">
+          <div id="returnVoidDiv" class="sampleBlock"></div>
+          <xml id="returnVoidXml" style="display: none">
             <block type="return_void_block"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('returnVoidBlockDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('returnVoidBlockXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-手続きを抜けるための「脱出ブロック」。<br>
+          <script>embedBlock('returnVoid');</script>
+          <div class="blockDescription">
+<h4>脱出ブロック</h4>
+<p>手続きを抜ける。<br>
 手続きの途中で処理を終了したい場合に使用する。<br>
-手続きを定義した場合でも必ず使う必要はない。
-          </p>
+手続きを定義した場合でも必ず使う必要はない。</p>
+          </div>
         </section>
         <!-- ~脱出ブロック -->
         <!-- 手続き呼び出しブロック -->
@@ -711,20 +556,14 @@ BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされ�
           <xml id="callStepXml" style="display: none">
             <block type="call_step"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('callStepDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('callStepXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-手続きを呼ぶための「手続き呼び出しブロック」。<br>
+          <script>embedBlock('callStep');</script>
+          <div class="blockDescription">
+<h4>手続き呼び出しブロック</h4>
+<p>手続きを呼ぶ。<br>
 入力欄で呼び出す手続きの名前を指定する。<br>
 「(」の右には「実引数ブロック」と「閉じ括弧ブロック」を置くことができる。<br>
-BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。
-          </p>
+BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。</p>
+          </div>
         </section>
         <!-- ~手続き呼び出しブロック -->
         <!-- 関数呼び出しブロック -->
@@ -733,20 +572,14 @@ BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされ�
           <xml id="callFunctionXml" style="display: none">
             <block type="call_function"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('callFunctionDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('callFunctionXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-関数を呼び出すための「関数呼び出しブロック」。<br>
+          <script>embedBlock('callFunction');</script>
+          <div class="blockDescription">
+<h4>関数呼び出しブロック</h4>
+<p>関数を呼び出す。<br>
 入力欄で呼び出す関数の名前を指定する。<br>
 「(」の右には「実引数ブロック」と「閉じ括弧ブロック」を置くことができる。<br>
-BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。
-          </p>
+BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。</p>
+          </div>
         </section>
         <!-- ~関数呼び出しブロック -->
         <!-- 実引数ブロック -->
@@ -755,19 +588,13 @@ BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされ�
           <xml id="argumentXml" style="display: none">
             <block type="argument"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('argumentDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('argumentXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-実引数を指定するための「実引数ブロック」。<br>
+          <script>embedBlock('argument');</script>
+          <div class="blockDescription">
+<h4>実引数ブロック</h4>
+<p>実引数を指定する。<br>
 このブロック自身と「閉じ括弧ブロック」のみ接続できる。<br>
-「変数ブロック」や「値ブロック」を置き、その値を実引数として扱う。
-          </p>
+「変数ブロック」や「値ブロック」を置き、その値を実引数として扱う。</p>
+          </div>
         </section>
         <!-- ~実引数ブロック -->
         <!-- 閉じ括弧ブロック -->
@@ -776,23 +603,17 @@ BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされ�
           <xml id="closeParenthesisXml" style="display: none">
             <block type="close_parenthesis"></block>
           </xml>
-          <script>
-            {
-              let workspace = Blockly.inject('closeParenthesisDiv', 
-                {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-              );
-              Blockly.Xml.domToWorkspace(document.getElementById('closeParenthesisXml'), workspace);
-            }
-          </script>
-          <p class="blockDescription">
-関数定義や関数呼び出しなどの括弧を閉じるための「閉じ括弧ブロック」。<br>
+          <script>embedBlock('closeParenthesis');</script>
+          <div class="blockDescription">
+<h4>閉じ括弧ブロック</h4>
+<p>関数定義や関数呼び出しなどの括弧を閉じる。<br>
 「関数定義ブロック」・「手続き定義ブロック」・「関数呼び出しブロック」・
 「手続き呼び出しブロック」・「実引数ブロック」・「仮引数ブロック」に
 接続し、括弧を閉じる。<br>
 BlocklyPENでは、「関数定義ブロック」などに初めから接続されているため使用する
 必要はないが、誤って接続されている「閉じ括弧ブロック」を削除してしまった場合に
-使用する。
-          </p>
+使用する。</p>
+          </div>
         </section>
         <!-- 閉じ括弧ブロック -->
       </section>

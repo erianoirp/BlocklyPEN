@@ -12,16 +12,19 @@ header {
   line-height: 50px;
 }
 
+h1,h2,h3,h4 {
+  color: #343434;
+}
+
 h1 {
 /*  background-color: #f07f09;*/
   height: 100%;
   margin: 0;
 }
 
-h1,h2,h3 {
-  color: #343434;
+h4,p {
+  margin: 0 0 10px 0;
 }
-
 #mainContent {
   background-color: white;
   width: 80%;
