@@ -56,3 +56,20 @@ Blockly.defineBlocksWithJsonArray([ // Mutator blocks. Do not extract.
   }
 ]);
 
+Blockly.Constants.Logic.IF_MUTATOR_MIXIN = {
+  mutationToDom: function() {
+  },
+  domToMutation: function() {
+  },
+  decompose: function(workspace) {
+  },
+  compose: function(workspace) {
+  }
+};
+
+Blockly.Extensions.registerMutator(
+  'if_mutator',
+  Blockly.Constants.Logic.IF_MUTATOR_MIXIN,
+  null,
+  ['if_elseif', 'if_else']
+);
