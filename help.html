@@ -39,9 +39,10 @@ function embedBlock(_block) {
     <article>
       <h2>BlocklyPENとは</h2>
       <p>
-BlocklyPENとは、名古屋高等学校で教師をしていらっしゃる「中西 渉 (なかにし わたる)」先生が
+BlocklyPENとは、名古屋高等学校で教師をしていらっしゃる「中西 渉（なかにし わたる）」先生が
 作成している「<a href="https://watayan.net/index.html">WaPEN</a>」と、Googleが提供しているライブラリ
-「<a href="https://developers.google.com/blockly/">Blockly</a>」を組み合わせた、センター試験用手順記述標準言語(DNCL)の勉強用教材です。
+「<a href="https://developers.google.com/blockly/">Blockly</a>」を組み合わせた、
+センター試験用手順記述標準言語(DNCL)の勉強用教材です。
       </p>
       <p>
 BlocklyPENでは、ブロックを組み合わせてプログラミングを行うことができます。これは、
@@ -51,7 +52,148 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
       </p>
     </article>
     <article>
-      <h2>基本的な使い方</h2>
+      <h2>使い方</h2>
+      <section>
+        <p>
+BlocklyPENでは、用意されたブロックを組み合わせてプログラムを作成することができます。<br>
+インターネットに繋がっていれば何もインストールせずに使うこともできますし、あらかじめ
+ファイルを保存しておけば、インターネットに繋がっていなくても（オフライン）使うことができます。<br>
+        </p>
+        <p>
+BlocklyPENは、DNCLを拡張した言語(xDNCL)を用います。<br>
+xDNCLとBlocklyPENの実践的な使い方は、<s>こちら</s>で学ぶことができます（工事中）。
+        </p>
+        <p>
+オフラインでBlocklyPENを使いたい場合は、<s>こちら</s>(zip)か
+<a href="https://github.com/omotonama/BlocklyPEN">こちら</a>(GitHub)から保存してください。<br>
+保存したファイルを解凍し、解凍したフォルダの中にある「index.html」をダブルクリックしてください。
+ブラウザが起動するか、すでに起動している場合は新しいタブなどにBlocklyPENが表示されます。
+        </p>
+        <p>
+BlocklyPENの保存はから行ってください。
+        </p>
+      </section>
+      <section>
+        <h3>動作環境</h3>
+        <p>
+BlocklyPENはパソコン上で動かすことを想定しており、スマートフォンやタブレットには
+対応しておりません。また、ブラウザ単体で動かせるため、Javaをインストールする必要は
+ありません。<br>
+        </p>
+        <p>
+BlocklyPENは、以下のブラウザに対応しています（多分）。
+        </p>
+        <ul>
+<li>Google Chrome</li>
+<li>Mozilla Firefox</li>
+<li>Internet Explorer</li>
+<li>Microsoft Edge</li>
+        </ul>
+      </section>
+      <section>
+        <h3>用語</h3>
+        <table>
+<thead>
+  <tr>
+    <th>項目</th>
+    <th>説明</th>
+  </tr>
+</thead>
+</thead>
+<tbody>
+  <tr>
+    <td>ドラッグ</td>
+    <td>クリックボタンを押しながらマウスを動かすこと。</td>
+  </tr>
+  <tr>
+    <td>ドロップ</td>
+    <td>クリックボタンの長押しをやめること。</td>
+  </tr>
+  <tr>
+    <td>D&amp;D（ドラッグ＆ドロップ）</td>
+    <td>ドラッグとドロップを続けて行うこと。</td>
+  </tr>
+</tbody>
+        </table>
+      </section>
+      <section>
+        <h3>画面 (2018年12月5日)</h3>
+        <img src="images/IdeDescription.png" alt="BlocklyPENの画面設計" title="BlocklyPENの画面設計">
+        <table>
+<thead>
+  <tr>
+    <th>項目</th>
+    <th>説明</th>
+  </tr>
+</thead>
+</thead>
+<tbody>
+  <tr>
+    <td>実行</td>
+    <td>ワークスペースで作ったプログラムを実行する。</td>
+  </tr>
+  <tr>
+    <td>ステップ実行</td>
+    <td>ワークスペースで作ったプログラムをステップ実行する。</td>
+  </tr>
+  <tr>
+    <td>エクスポート</td>
+    <td>作成したブロックをXMLファイルとして保存する。</td>
+  </tr>
+  <tr>
+    <td>インポート</td>
+    <td>エクスポートしたファイルを指定して読み込み、ワークスペースに反映する。</td>
+  </tr>
+  <tr>
+    <td>クリア</td>
+    <td>ワークスペース上のブロックと実行結果をクリアする。<br>
+    ※Firefoxではスタートブロックも消えてしまう不具合あり。</td>
+  </tr>
+  <tr>
+    <td>ブロックタブ</td>
+    <td>ツールボックスとワークスペースを表示する。</td>
+  </tr>
+  <tr>
+    <td>PENタブ</td>
+    <td>ワークスペースで作成したブロックをPENのコードに変換したテキストを表示する。</td>
+  </tr>
+  <tr>
+    <td>ツールボックス</td>
+    <td>ワークスペースでブロックを組むためのブロックが格納されている。<br>
+    ブロックは各カテゴリに分けられており、カテゴリをクリックすることでブロックが表示される。<br>
+    表示されたブロックをD&amp;Dすることで、ワークスペースで使えるようになる。</td>
+  </tr>
+  <tr>
+    <td>ワークスペース</td>
+    <td>ブロックを組む（プログラムを作る）領域。<br>
+    ブロックを左クリックしながら
+    右クリックすることで、直前の状態に戻したり、ブロックを削除したりできる。</td>
+  </tr>
+  <tr>
+    <td>中心に移動</td>
+    <td>ワークスペースの中心に移動する。</td>
+  </tr>
+  <tr>
+    <td>拡大・縮小</td>
+    <td>ワークスペースを拡大・縮小する。</td>
+  </tr>
+  <tr>
+    <td>ゴミ箱</td>
+    <td>ブロックを削除する。<br>
+    ワークスペースに置かれた不要なブロックをここにD&amp;して
+    削除することができる。</td>
+  </tr>
+  <tr>
+    <td>実行結果</td>
+    <td>実行した結果がここに表示される。</td>
+  </tr>
+  <tr>
+    <td>実行結果クリア</td>
+    <td>実行結果をクリアする。</td>
+  </tr>
+</tbody>
+        </table>
+      </section>
     </article>
     <article>
       <h2>ブロックの種類</h2>
@@ -105,7 +247,8 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
 <p>変数に値を代入する。<br>
 左辺に変数ブロックを置き、右辺に変数ブロックや値ブロックを置くことで、
 左辺の変数に右辺値を代入することができる。<br>
-左辺には変数ブロックしか置くことができない。</p>
+左辺には変数ブロックしか置くことができない。<br>
+BlocklyPEN上では「変数ブロック」が最初からセットされている。</p>
           </div>
         </section>
         <!-- 変数ブロック -->
@@ -202,7 +345,7 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <script>embedBlock('calculation');</script>
           <div class="blockDescription">
 <h4>演算ブロック</h4>
-<p>「＋」「－」「×」「÷」「％」の演算を行う。<br>。
+<p>「＋」「－」「×」「÷」「％」の演算を行う。<br>
 プルダウンメニューから演算子を指定し、演算子の左右のブロックの演算を行う。<br>
 演算結果を代入ブロックの右辺として利用したり、演算ブロックの中に演算ブロックを入れて
 利用する（入れ子）。</p>
@@ -274,7 +417,9 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <script>embedBlock('conditions');</script>
           <div class="blockDescription">
 <h4>比較ブロック</h4>
-<p>ランダムな数値を取得するためのブロック。</p>
+<p>「＝」「≠」「＜」「≦」「＞」「≧」の演算を行う。<br>
+プルダウンメニューから演算子を指定し、演算子の左右のブロックの演算を行う。<br>
+演算結果を「条件ブロック」の条件として利用したりする。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -285,7 +430,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <script>embedBlock('if');</script>
           <div class="blockDescription">
 <h4>条件ブロック</h4>
-<p>ランダムな数値を取得するためのブロック。</p>
+<p>条件分岐を行う。<br>
+「比較ブロック」などを置いて使用する。<br>
+条件が真であればこのブロックの間に置かれたブロックを実行し、
+偽であればこのブロックに接続された下のブロックを実行する。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -296,7 +444,9 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <script>embedBlock('ifelse');</script>
           <div class="blockDescription">
 <h4>二分条件ブロック</h4>
-<p>ランダムな数値を取得するためのブロック。</p>
+<p>条件分岐を行う。<br>
+「条件ブロック」と使い方はほぼ同じだが、条件が偽のときにもブロックを指定
+することができる。</p>
           </div>
         </section>
       </section>
@@ -310,7 +460,10 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <script>embedBlock('while');</script>
           <div class="blockDescription">
 <h4>繰り返しブロック</h4>
-<p>ランダムな数値を取得するためのブロック。</p>
+<p>条件が真の間、ブロックを実行する。<br>
+条件部分には「比較ブロック」などを置く。<br>
+このブロックを初めて実行するときとブロックがすべて実行された後に比較が行われる。
+そのため、条件が常に真でないようにしなければ無限ループに陥ってしまう。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -321,7 +474,14 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <script>embedBlock('forplus');</script>
           <div class="blockDescription">
 <h4>インクリメント型繰り返しブロック</h4>
-<p>ランダムな数値を取得するためのブロック。</p>
+<p>指定した値から値までの間、ブロックを実行する。<br>
+1つ目のブロックは「変数ブロック」しか置くことができない。<br>
+このブロックは、<br>
+①：1つ目の「変数ブロック」に2つ目の値を代入する<br>
+②：「変数ブロック」が3つ目の値より小さい場合はブロックを実行する<br>
+③：「変数ブロック」の値を4つ目の値分増やす<br>
+④：②～③を繰り返す<br>
+という流れで実行する。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -332,12 +492,14 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           <script>embedBlock('forminus');</script>
           <div class="blockDescription">
 <h4>デクリメント型繰り返しブロック</h4>
-<p>ランダムな数値を取得するためのブロック。</p>
+<p>指定した値から値までの間、ブロックを実行する。<br>
+「インクリメント型繰り返しブロック」と使い方はほぼ同じだが、③の値を増やす処理が
+減らす処理になったものである。</p>
           </div>
         </section>
       </section>
       <section>
-        <h3>窓操作</h3>
+        <h3>ウィンドウ操作</h3>
         <section class="blockSection">
           <div id="gopenwDiv" class="sampleBlock"></div>
           <xml id="gopenwXml" style="display: none">
@@ -345,8 +507,8 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           </xml>
           <script>embedBlock('gopenw');</script>
           <div class="blockDescription">
-<h4>窓表示ブロック</h4>
-<p>ランダムな数値を取得するためのブロック。</p>
+<h4>ウィンドウ表示ブロック</h4>
+<p>描画用のウィンドウを表示する。</p>
           </div>
         </section>
         <section class="blockSection">
@@ -356,8 +518,8 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           </xml>
           <script>embedBlock('gclosew');</script>
           <div class="blockDescription">
-<h4>窓非表示ブロック</h4>
-<p>ランダムな数値を取得するためのブロック。</p>
+<h4>ウィンドウ非表示ブロック</h4>
+<p>「ウィンドウ表示ブロック」で開いたウィンドウを閉じる</p>
           </div>
         </section>
         <section class="blockSection">
@@ -367,8 +529,8 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
           </xml>
           <script>embedBlock('gclearw');</script>
           <div class="blockDescription">
-<h4>窓クリアブロック</h4>
-<p>ランダムな数値を取得するためのブロック。</p>
+<h4>ウィンドウクリアブロック</h4>
+<p>ウィンドウを白紙に戻す。</p>
           </div>
         </section>
       </section>

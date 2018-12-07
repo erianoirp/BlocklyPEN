@@ -2,7 +2,6 @@ body {
   background-color: #f3f3f3;
   margin: 0;
 }
-
 header {
   height: 50px;
   color: white;
@@ -11,17 +10,14 @@ header {
   vertical-align: middle;
   line-height: 50px;
 }
-
-h1,h2,h3,h4 {
+h1,h2,h3,h4,table {
   color: #343434;
 }
-
 h1 {
 /*  background-color: #f07f09;*/
   height: 100%;
   margin: 0;
 }
-
 h4,p {
   margin: 0 0 10px 0;
 }
@@ -33,21 +29,43 @@ h4,p {
   margin: 0 auto;
   padding: 20px;
 }
-
+img {
+  width: 100%;
+}
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  border-bottom: solid 2px #f8f0d0;
+}
+tr:nth-child(even) {
+  background-color: #f8f0d0;
+}
+th,td {
+  padding: 10px;
+}
+th {
+  color: white;
+  background-color: #ea8b51;
+}
+th:first-of-type,td:first-of-type {
+  width: 130px;
+  border-right: solid 2px white;
+};
+tbody {
+  border-bottom: solid 2px #ea8b51;
+}
 article {
   width: 100%;
 }
-
 section:after { /* 横並びを解除 IE8以上 */
   clear: both;
   content: '';
   display: block;
 }
-
 section.blockSection {
   margin-bottom: 25px;
 }
-
 .sampleBlock {
   width: 220px;
   height: 120px;
@@ -55,7 +73,6 @@ section.blockSection {
   padding: 2px;
   box-sizing: border-box;
 }
-
 .blockDescription {
   width: -webkit-calc(100% - 220px);
   width: calc(100% - 220px);
