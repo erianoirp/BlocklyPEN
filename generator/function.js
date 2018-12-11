@@ -3,29 +3,16 @@ Blockly.Pen['define_function'] = function(block) {
   const func_name = block.getFieldValue('func_name');
   let params = '';
   let i = 1;
-  while (block.getFieldValue('PARAM' + i)) {
+  while (block.getInput('PARAM' + i)) {
     const datatype = block.getFieldValue('DATATYPE' + i);
     const name = block.getFieldValue('NAME' + i);
     params += (i > 1 ? ', ' : '') + datatype + ' ' + name;
+    i++;
   }
   const statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
   const code = '関数 ' + return_value + ' ' + func_name + ' (' + params + ')\n' + statements + '関数終了\n';
   return code;
 };
-
-/*
-Blockly.Pen['define_function'] = function(block) {
-  const return_value = block.getFieldValue('return_value');
-  const func_name = block.getFieldValue('func_name');
-  const params = Blockly.Pen.valueToCode(block, 'parameters', Blockly.Pen.ORDER_ATOMIC);
-  const statements = Blockly.Pen.statementToCode(block, 'statements');
-  // TODO: Assemble JavaScript into code variable.
-  const code = '関数 ' + return_value + ' ' + func_name + ' (' + params + '\n' + statements + '関数終了\n';
-  return code;
-//  return ['', Blockly.PEN.ORDER_ATOMIC];
-  return '';
-};
-*/
 
 Blockly.Pen['define_step'] = function(block) {
   const step_name = block.getFieldValue('step_name');
