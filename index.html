@@ -39,6 +39,7 @@
   <script src="./blocks/loop.js"></script>
   <script src="./blocks/math.js"></script>
   <script src="./blocks/num.js"></script>
+  <script src="./blocks/step.js"></script>
   <script src="./blocks/str.js"></script>
   <script src="./blocks/start.js"></script>
   <script src="./blocks/value.js"></script>
@@ -63,8 +64,9 @@
   <script src="./generator/loop.js"></script>
   <script src="./generator/math.js"></script>
   <script src="./generator/num.js"></script>
-  <script src="./generator/str.js"></script>
   <script src="./generator/start.js"></script>
+  <script src="./generator/step.js"></script>
+  <script src="./generator/str.js"></script>
   <script src="./generator/value.js"></script>
   <script src="./generator/variable.js"></script>
 
@@ -974,29 +976,17 @@
         </value>
       </block>
       <sep gap="16"></sep>
-      <block type="define_step">
-      </block>
+      <block type="define_step"></block>
       <sep gap="16"></sep>
       <block type="return_block"></block>
       <sep gap="16"></sep>
       <block type="return_void_block"></block>
       <label text="呼び出しブロック"></label>
       <sep gap="16"></sep>
-      <block type="call_step">
-        <value name="arguments">
-          <block type="close_parenthesis"></block>
-        </value>
-      </block>
+      <block type="call_step"></block>
       <sep gap="16"></sep>
-      <block type="call_function">
-        <value name="arguments">
-          <block type="close_parenthesis"></block>
-        </value>
-      </block>
+      <block type="call_function"></block>
       <sep gap="16"></sep>
-      <block type="argument"></block>
-      <label text="その他"></label>
-      <block type="close_parenthesis"></block>
     </category>
   </xml>
 
