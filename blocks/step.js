@@ -272,24 +272,6 @@ Blockly.Constants.Logic.CALL_STEP_MUTATOR_MIXIN = {
    * @this Blockly.Block
    */
   saveConnections: function(containerBlock) {
-    var clauseBlock = containerBlock.nextConnection.targetBlock();
-    var i = 1;
-    while (clauseBlock) {
-      switch (clauseBlock.type) {
-        case 'argument':
-          var inputParam = this.getInput('ARG' + i);
-/*
-          clauseBlock.valueConnection_ =
-              inputParam && inputParam.connection.targetConnection;
-*/
-          i++;
-          break;
-        default:
-          throw 'Unknown block type.';
-      }
-      clauseBlock = clauseBlock.nextConnection &&
-          clauseBlock.nextConnection.targetBlock();
-    }
   },
   /**
    * Modify this block to have the correct number of inputs.
