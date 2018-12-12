@@ -15,12 +15,29 @@ Blockly.Pen['define_function'] = function(block) {
 };
 
 Blockly.Pen['define_step'] = function(block) {
+  const stepName = block.getFieldValue('step_name');
+  let params = '';
+  let i = 1;
+  while (block.getInput('PARAM' + i)) {
+    const datatype = block.getFieldValue('DATATYPE' + i);
+    const name = Blockly.Pen.variableDB_.getName(block.getFieldValue('NAME' + i), Blockly.Variables.NAME_TYPE);
+//    const name = block.getFieldValue('NAME' + i);
+    params += (i > 1 ? ', ' : '') + datatype + ' ' + name;
+    i++;
+  }
+  const statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
+  const code = '手続き ' + stepName + ' (' + params + ')\n' + statements + '手続き終了\n';
+  return code;
+};
+/*
+Blockly.Pen['define_step'] = function(block) {
   const step_name = block.getFieldValue('step_name');
   const params = Blockly.Pen.valueToCode(block, 'parameters', Blockly.Pen.ORDER_ATOMIC);
   const statements = Blockly.Pen.statementToCode(block, 'statements');
   const code = '手続き ' + step_name + ' (' + params + '\n' + statements + '手続き終了\n';
   return code;
 };
+*/
 
 Blockly.Pen['return_block'] = function(block) {
   const return_value = Blockly.Pen.valueToCode(block, 'return_value', Blockly.Pen.ORDER_ATOMIC);
