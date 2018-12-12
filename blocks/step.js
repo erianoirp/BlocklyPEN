@@ -6,39 +6,31 @@ goog.require('Blockly');
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   {
-    "type": "define_function",
-    "message0": "関数名 %1",
+    "type": "define_step",
+    "message0": "手続き名 %1",
     "args0": [
       {
         "type": "field_input",
-        "name": "func_name",
-        "text": "≪関数≫"
+        "name": "step_name",
+        "text": "≪手続き≫"
       }
     ],
-    "message1": "戻り値の型 %1",
+    "message1": "仮引数 なし %1",
     "args1": [
-      {
-        "type": "field_dropdown",
-        "name": "return_value",
-        "options": [["整数", "整数"], ["実数", "実数"], ["文字列", "文字列"], ["真偽", "真偽"]]
-      }
-    ],
-    "message2": "仮引数 なし %1",
-    "args2": [
       {
         "type": "input_dummy",
         "name": "PARAM0"
       }
     ],
-    "message3": "%1",
-    "args3": [
+    "message2": "%1",
+    "args2": [
       {
         "type": "input_statement",
         "name": "STATEMENTS"
       }
     ],
-    "message4": "関数終了 %1",
-    "args4": [
+    "message3": "手続き終了 %1",
+    "args3": [
       {
         "type": "input_dummy",
         "name": "define_end"
@@ -48,103 +40,11 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "colour": 160,
     "tooltip": "",
     "helpUrl": "",
-    "mutator": "define_function_mutator"
-  }
-  /* 横長バージョン
-  {
-    "type": "define_function",
-    "message0": "関数 %1 %2 (",
-    "args0": [
-      {
-        "type": "field_dropdown",
-        "name": "return_value",
-        "options": [["整数", "整数"], ["実数", "実数"], ["文字列", "文字列"], ["真偽", "真偽"]]
-      },
-      {
-        "type": "field_input",
-        "name": "func_name",
-        "text": "≪関数≫"
-      }
-    ],
-    "message1": "%1",
-    "args1": [
-      {
-        "type": "input_dummy",
-        "name": "PARAM0"
-      }
-    ],
-    "message2": ") %1",
-    "args2": [
-      {
-        "type": "input_dummy",
-        "name": "close_parenthesis"
-      }
-    ],
-    "message3": "%1",
-    "args3": [
-      {
-        "type": "input_statement",
-        "name": "STATEMENTS"
-      }
-    ],
-    "message4": "関数終了 %1",
-    "args4": [
-      {
-        "type": "input_dummy",
-        "name": "define_end"
-      }
-    ],
-    "inputsInline": true,
-    "colour": 160,
-    "tooltip": "",
-    "helpUrl": "",
-    "mutator": "define_function_mutator"
-  }
-  */
-]);
-
-Blockly.defineBlocksWithJsonArray([ // Mutator blocks. Do not extract.
-  /*
-  {
-    "type": "parameters",
-    "message0": "( %1",
-    "args0": [
-      {
-        "type": "input_dummy"
-      }
-    ],
-    "message1": "%1 )",
-    "args1": [
-      {
-        "type": "input_statement",
-        "name": "parameters"
-      }
-    ],
-    "enableContextMenu": false,
-    "colour": 160,
-    "tooltip": ""
-  },
-  */
-  {
-    "type": "parameters",
-    "message0": "仮引数たち",
-    "nextStatement": null,
-    "enableContextMenu": false,
-    "colour": 160,
-    "tooltip": ""
-  },
-  {
-    "type": "parameter",
-    "message0": "仮引数",
-    "previousStatement": null,
-    "nextStatement": null,
-    "enableContextMenu": false,
-    "colour": 160,
-    "tooltip": ""
+    "mutator": "define_step_mutator"
   }
 ]);
 
-Blockly.Constants.Logic.DEFINE_FUNCTION_MUTATOR_MIXIN = {
+Blockly.Constants.Logic.DEFINE_STEP_MUTATOR_MIXIN = {
   parameterCount: 0,
 
   /**
@@ -261,82 +161,33 @@ Blockly.Constants.Logic.DEFINE_FUNCTION_MUTATOR_MIXIN = {
         this.appendDummyInput('PARAM' + i)
             .appendField(i > 1 ? '      ' : '仮引数')
             .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "DATATYPE" + i)
+// Blockly.FieldVariableがうまくいかない
+//            .appendField(new Blockly.FieldVariable("≪仮引数" + i + "≫"), "NAME" + i);
             .appendField(new Blockly.FieldTextInput("≪仮引数" + i + '≫'), "NAME" + i);
       }
     }
     this.appendStatementInput('STATEMENTS');
     this.appendDummyInput('define_end')
-        .appendField('関数終了');
-    /* 横長バージョン
-    // Delete until parameter part.
-    this.removeInput('define_end');
-    this.removeInput('STATEMENTS');
-    this.removeInput('close_parenthesis');
-    var i = 1;
-    while (this.getInput('PARAM' + i)) {
-      this.removeInput('PARAM' + i);
-      i++;
-    }
-    var i = 2;
-    while (this.getInput('COMMA' + i)) {
-      this.removeInput('COMMA' + i);
-      i++;
-    }
-    // Rebuild block.
-    for (var i = 1; i <= this.parameterCount; i++) {
-      if (i > 1) {
-        this.appendDummyInput('COMMA' + i)
-            .appendField(',');
-      }
-      this.appendDummyInput('PARAM' + i)
-          .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "DATATYPE" + i)
-          .appendField(new Blockly.FieldTextInput("≪仮引数≫"), "NAME" + i);
-    }
-    this.appendDummyInput('close_parenthesis')
-        .appendField(')');
-    this.appendStatementInput('STATEMENTS');
-    this.appendDummyInput('define_end')
-        .appendField('関数終了');
-    */
+        .appendField('手続き終了');
   }
 };
 
 Blockly.Extensions.registerMutator(
-  'define_function_mutator',
-  Blockly.Constants.Logic.DEFINE_FUNCTION_MUTATOR_MIXIN,
+  'define_step_mutator',
+  Blockly.Constants.Logic.DEFINE_STEP_MUTATOR_MIXIN,
   null,
   ['parameter']
 );
 
-Blockly.defineBlocksWithJsonArray([ // Mutator blocks. Do not extract.
-  {
-    "type": "arguments",
-    "message0": "実引数たち",
-    "nextStatement": null,
-    "enableContextMenu": false,
-    "colour": 160,
-    "tooltip": ""
-  },
-  {
-    "type": "argument",
-    "message0": "実引数",
-    "previousStatement": null,
-    "nextStatement": null,
-    "enableContextMenu": false,
-    "colour": 160,
-    "tooltip": ""
-  }
-]);
-
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   {
-    "type": "call_function",
+    "type": "call_step",
     "message0": "%1 (",
     "args0": [
       {
         "type": "field_input",
-        "name": "func_name",
-        "text": "≪関数≫"
+        "name": "step_name",
+        "text": "≪手続き≫"
       }
     ],
     "message1": "%1",
@@ -354,15 +205,16 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       }
     ],
     "inputsInline": true,
-    "output": null,
+    "previousStatement": null,
+    "nextStatement": null,
     "colour": 160,
     "tooltip": "",
     "helpUrl": "",
-    "mutator": "call_function_mutator"
+    "mutator": "call_step_mutator"
   }
 ]);
 
-Blockly.Constants.Logic.CALL_FUNCTION_MUTATOR_MIXIN = {
+Blockly.Constants.Logic.CALL_STEP_MUTATOR_MIXIN = {
   argumentCount: 0,
 
   /**
@@ -483,18 +335,16 @@ Blockly.Constants.Logic.CALL_FUNCTION_MUTATOR_MIXIN = {
 };
 
 Blockly.Extensions.registerMutator(
-  'call_function_mutator',
-  Blockly.Constants.Logic.CALL_FUNCTION_MUTATOR_MIXIN,
+  'call_step_mutator',
+  Blockly.Constants.Logic.CALL_STEP_MUTATOR_MIXIN,
   null,
   ['argument']
 );
 
-Blockly.Blocks['return_block'] = {
+Blockly.Blocks['return_void_block'] = {
   init: function() {
-    this.appendValueInput("return_value")
-        .setCheck(null);
     this.appendDummyInput()
-        .appendField("を返す");
+        .appendField("手続きを抜ける");
     this.setPreviousStatement(true, null);
     this.setColour(160);
  this.setTooltip("");
