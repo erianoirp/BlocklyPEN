@@ -14,6 +14,7 @@
   <script src="./blocks/loop.js"></script>
   <script src="./blocks/math.js"></script>
   <script src="./blocks/num.js"></script>
+  <script src="./blocks/step.js"></script>
   <script src="./blocks/str.js"></script>
   <script src="./blocks/start.js"></script>
   <script src="./blocks/value.js"></script>
@@ -222,10 +223,6 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
     let translate = 'translate(' + startX + ',' + startY + ')';
     //block.style.transform = translate;
     */
-    let workspace = Blockly.inject('declareVariableDiv', 
-      {grid: {spacing: 25, length: 3, colour: '#ccc', snap: false}}
-    );
-    Blockly.Xml.domToWorkspace(document.getElementById('declareVariableXml'), workspace);
   }
           </script>
 -->
@@ -314,8 +311,22 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           <script>embedBlock('string');</script>
           <div class="blockDescription">
 <h4>文字列ブロック</h4>
-<p>文字列値をを入力する。<br>
+<p>文字列値を入力する。<br>
 文字列型の変数に代入したり文字列を表示するために使用する。</p>
+          </div>
+        </section>
+        <!-- ~文字列ブロック -->
+        <!-- 文字列化ブロック -->
+        <section class="blockSection">
+          <div id="value2StringDiv" class="sampleBlock"></div>
+          <xml id="value2StringXml" style="display: none">
+            <block type="value_2_string"></block>
+          </xml>
+          <script>embedBlock('value2String');</script>
+          <div class="blockDescription">
+<h4>文字列化ブロック</h4>
+<p>値を文字列値に変換する。<br>
+数字でなく文字列として連結・出力したい場合などに使用する。</p>
           </div>
         </section>
         <!-- ~文字列ブロック -->
@@ -434,19 +445,6 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 「比較ブロック」などを置いて使用する。<br>
 条件が真であればこのブロックの間に置かれたブロックを実行し、
 偽であればこのブロックに接続された下のブロックを実行する。</p>
-          </div>
-        </section>
-        <section class="blockSection">
-          <div id="ifelseDiv" class="sampleBlock"></div>
-          <xml id="ifelseXml" style="display: none">
-            <block type="ifelse"></block>
-          </xml>
-          <script>embedBlock('ifelse');</script>
-          <div class="blockDescription">
-<h4>二分条件ブロック</h4>
-<p>条件分岐を行う。<br>
-「条件ブロック」と使い方はほぼ同じだが、条件が偽のときにもブロックを指定
-することができる。</p>
           </div>
         </section>
       </section>
@@ -641,10 +639,9 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           <div class="blockDescription">
 <h4>関数定義ブロック</h4>
 <p>関数を定義する。<br>
-プルダウンメニューから戻り値の型を指定し、その右の入力欄に
-関数名を指定する。<br>
-「(」の右には「引数ブロック」と「閉じ括弧ブロック」を置くことができる。<br>
-BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。</p>
+「≪関数≫」に定義する関数の名前を指定し、その下のプルダウンメニュー
+で戻り値の型を指定する。<br>
+歯車のアイコンをクリックすると吹き出しが出現し、仮引数の個数を指定できる。</p>
           </div>
         </section>
         <!-- ~関数定義ブロック -->
@@ -658,29 +655,11 @@ BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされ�
           <div class="blockDescription">
 <h4>手続き定義ブロック</h4>
 <p>手続きを定義する。<br>
-入力欄に手続き名を指定する。<br>
-「(」の右には「引数ブロック」と「閉じ括弧ブロック」を置くことができる。<br>
-BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。</p>
+「≪手続き≫」に定義する手続きの名前を指定する。<br>
+歯車のアイコンをクリックすると吹き出しが出現し、仮引数の個数を指定できる。</p>
           </div>
         </section>
         <!-- ~手続き定義ブロック -->
-        <!-- 仮引数ブロック -->
-        <section class="blockSection">
-          <div id="parameterDiv" class="sampleBlock"></div>
-          <xml id="parameterXml" style="display: none">
-            <block type="parameter"></block>
-          </xml>
-          <script>embedBlock('parameter');</script>
-          <div class="blockDescription">
-<h4>仮引数ブロック</h4>
-<p>関数と手続きの仮引数を定義する。<br>
-このブロック自身と「関数定義ブロック」・「手続き定義ブロック」の
-仮引数部分にのみ置くことができる。<br>
-プルダウンメニューから仮引数の型を指定し、その右の入力欄に
-仮引数の名前を指定する。</p>
-          </div>
-        </section>
-        <!-- ~仮引数ブロック -->
         <!-- 返却ブロック -->
         <section class="blockSection">
           <div id="returnDiv" class="sampleBlock"></div>
@@ -712,6 +691,21 @@ BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされ�
           </div>
         </section>
         <!-- ~脱出ブロック -->
+        <!-- 関数呼び出しブロック -->
+        <section class="blockSection">
+          <div id="callFunctionDiv" class="sampleBlock"></div>
+          <xml id="callFunctionXml" style="display: none">
+            <block type="call_function"></block>
+          </xml>
+          <script>embedBlock('callFunction');</script>
+          <div class="blockDescription">
+<h4>関数呼び出しブロック</h4>
+<p>関数を呼ぶ。<br>
+「≪関数≫」に呼び出す関数の名前を指定する。<br>
+歯車のアイコンをクリックすると吹き出しが出現し、実引数の個数を指定できる。</p>
+          </div>
+        </section>
+        <!-- ~関数呼び出しブロック -->
         <!-- 手続き呼び出しブロック -->
         <section class="blockSection">
           <div id="callStepDiv" class="sampleBlock"></div>
@@ -722,62 +716,11 @@ BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされ�
           <div class="blockDescription">
 <h4>手続き呼び出しブロック</h4>
 <p>手続きを呼ぶ。<br>
-入力欄で呼び出す手続きの名前を指定する。<br>
-「(」の右には「実引数ブロック」と「閉じ括弧ブロック」を置くことができる。<br>
-BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。</p>
+「≪手続き≫」に呼び出す手続きの名前を指定する。<br>
+歯車のアイコンをクリックすると吹き出しが出現し、実引数の個数を指定できる。</p>
           </div>
         </section>
         <!-- ~手続き呼び出しブロック -->
-        <!-- 関数呼び出しブロック -->
-        <section class="blockSection">
-          <div id="callFunctionDiv" class="sampleBlock"></div>
-          <xml id="callFunctionXml" style="display: none">
-            <block type="call_function"></block>
-          </xml>
-          <script>embedBlock('callFunction');</script>
-          <div class="blockDescription">
-<h4>関数呼び出しブロック</h4>
-<p>関数を呼び出す。<br>
-入力欄で呼び出す関数の名前を指定する。<br>
-「(」の右には「実引数ブロック」と「閉じ括弧ブロック」を置くことができる。<br>
-BlocklyPEN上では「閉じ括弧ブロック」が最初からセットされている。</p>
-          </div>
-        </section>
-        <!-- ~関数呼び出しブロック -->
-        <!-- 実引数ブロック -->
-        <section class="blockSection">
-          <div id="argumentDiv" class="sampleBlock"></div>
-          <xml id="argumentXml" style="display: none">
-            <block type="argument"></block>
-          </xml>
-          <script>embedBlock('argument');</script>
-          <div class="blockDescription">
-<h4>実引数ブロック</h4>
-<p>実引数を指定する。<br>
-このブロック自身と「閉じ括弧ブロック」のみ接続できる。<br>
-「変数ブロック」や「値ブロック」を置き、その値を実引数として扱う。</p>
-          </div>
-        </section>
-        <!-- ~実引数ブロック -->
-        <!-- 閉じ括弧ブロック -->
-        <section class="blockSection">
-          <div id="closeParenthesisDiv" class="sampleBlock"></div>
-          <xml id="closeParenthesisXml" style="display: none">
-            <block type="close_parenthesis"></block>
-          </xml>
-          <script>embedBlock('closeParenthesis');</script>
-          <div class="blockDescription">
-<h4>閉じ括弧ブロック</h4>
-<p>関数定義や関数呼び出しなどの括弧を閉じる。<br>
-「関数定義ブロック」・「手続き定義ブロック」・「関数呼び出しブロック」・
-「手続き呼び出しブロック」・「実引数ブロック」・「仮引数ブロック」に
-接続し、括弧を閉じる。<br>
-BlocklyPENでは、「関数定義ブロック」などに初めから接続されているため使用する
-必要はないが、誤って接続されている「閉じ括弧ブロック」を削除してしまった場合に
-使用する。</p>
-          </div>
-        </section>
-        <!-- 閉じ括弧ブロック -->
       </section>
     </article>
   </div>
