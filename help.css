@@ -81,4 +81,52 @@ section.blockSection {
   padding: 2px 10px;
   box-sizing: border-box;
 }
+.sampleBlock-1-0 {
+  width: 330px;
+  height: 120px;
+  float: left;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.blockDescription-1-0 {
+  width: -webkit-calc(100% - 330px);
+  width: calc(100% - 330px);
+  float: left;
+  margin: 0;
+  padding: 2px 10px;
+  box-sizing: border-box;
+}
+.sampleBlock-0-1 {
+  width: 220px;
+  height: 240px;
+  float: left;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.blockDescription-0-1 {
+  width: -webkit-calc(100% - 220px);
+  width: calc(100% - 220px);
+  float: left;
+  margin: 0;
+  padding: 2px 10px;
+  box-sizing: border-box;
+}
+.sampleBlock-1-1 {
+  width: 330px;
+  height: 240px;
+  float: left;
+  padding: 2px;
+  box-sizing: border-box;
+}
+.blockDescription-1-1 {
+  width: -webkit-calc(100% - 330px);
+  width: calc(100% - 330px);
+  float: left;
+  margin: 0;
+  padding: 2px 10px;
+  box-sizing: border-box;
+}
+text.blocklyText {
+  font-family: monospace;
+}
 
