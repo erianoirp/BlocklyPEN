@@ -35,6 +35,22 @@ Blockly.Blocks['string'] = {
   }
 };
 
+Blockly.Blocks['value_2_string'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("「");
+    this.appendValueInput("value")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("」");
+    this.setInputsInline(true);
+    this.setOutput(true, "String");
+    this.setColour(290);
+  this.setTooltip("");
+  this.setHelpUrl("");
+  }
+};
+
 Blockly.Blocks['boolean'] = {
   init: function() {
     this.appendDummyInput()

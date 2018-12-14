@@ -13,7 +13,13 @@ Blockly.Pen['float'] = function(block) {
 
 Blockly.Pen['string'] = function(block) {
   const value = block.getFieldValue('value');
-  const code = "「" + value + "」";
+  const code = '「' + value + '」';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
+Blockly.Pen['value_2_string'] = function(block) {
+  var value = Blockly.Pen.valueToCode(block, 'value', Blockly.Pen.ORDER_ATOMIC);
+  var code = '「' + value + '」';
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
