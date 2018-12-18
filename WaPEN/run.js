@@ -1606,11 +1606,20 @@ class GraphicStatement extends Statement
 	{
 		if(this.command == 'gOpenWindow')
 		{
-			var canvas = document.getElementById('canvas');
-			context = canvas.getContext('2d');
-			canvas.setAttribute("width", this.args[0].getValue().value + "px");
-			canvas.setAttribute("height", this.args[1].getValue().value + "px");
-			canvas.style.display="block";
+      var canvasDiv = document.getElementById('canvasDiv');
+      var canvasTitlebar = document.getElementById('canvasTitlebar');
+      var canvas = document.getElementById('canvas');
+      context = canvas.getContext('2d');
+      canvas.setAttribute("width", this.args[0].getValue().value + "px");
+      canvas.setAttribute("height", this.args[1].getValue().value + "px");
+      context.fillStyle = "white";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      canvasDiv.style.width = this.args[0].getValue().value + 2 + "px"; // width of border of canvas
+      canvasDiv.style.height = this.args[1].getValue().value + 30 + 1 + "px"; // height of titlebar + border of bottom of canvas
+      canvasDiv.style.top = "80px";
+      canvasDiv.style.left = "80px";
+      canvasTitlebar.style.width = this.args[0].getValue().value + 2 + "px"; // width of border of canvas
+      canvas.style.display = "block";
 		}
 		else if(this.command == 'gCloseWindow')
 		{
