@@ -448,8 +448,10 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
       </section>
+      <!-- 繰り返し -->
       <section>
         <h3>繰り返し</h3>
+        <!-- 繰り返しブロック -->
         <section class="blockSection">
           <h4>繰り返しブロック</h4>
           <div id="whileDiv" class="sampleBlock"></div>
@@ -464,38 +466,29 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 そのため、条件が常に真でないようにしなければ無限ループに陥ってしまう。</p>
           </div>
         </section>
+        <!-- ~繰り返しブロック -->
+        <!-- 指定回型繰り返しブロック -->
         <section class="blockSection">
-          <h4>インクリメント型繰り返しブロック</h4>
-          <div id="forplusDiv" class="sampleBlock-1-0"></div>
-          <xml id="forplusXml" style="display: none">
-            <block type="forplus"></block>
+          <h4>指定回型繰り返しブロック</h4>
+          <div id="forDiv" class="sampleBlock-1-0"></div>
+          <xml id="forXml" style="display: none">
+            <block type="for"></block>
           </xml>
-          <script>embedBlock('forplus');</script>
+          <script>embedBlock('for');</script>
           <div class="blockDescription-1-0">
 <p>指定した値から値までの間、ブロックを実行する。<br>
 1つ目のブロックは「変数ブロック」しか置くことができない。<br>
 このブロックは、<br>
 ①：1つ目の「変数ブロック」に2つ目の値を代入する<br>
-②：「変数ブロック」が3つ目の値より小さい場合はブロックを実行する<br>
-③：「変数ブロック」の値を4つ目の値分増やす<br>
+②：「変数ブロック」の値が2つ目の値と3つ目の値の間の場合はブロックを実行する<br>
+③：「変数ブロック」の値を4つ目の値分増やすor減らす<br>
 ④：②～③を繰り返す<br>
 という流れで実行する。</p>
           </div>
         </section>
-        <section class="blockSection">
-          <h4>デクリメント型繰り返しブロック</h4>
-          <div id="forminusDiv" class="sampleBlock-1-0"></div>
-          <xml id="forminusXml" style="display: none">
-            <block type="forminus"></block>
-          </xml>
-          <script>embedBlock('forminus');</script>
-          <div class="blockDescription-1-0">
-<p>指定した値から値までの間、ブロックを実行する。<br>
-「インクリメント型繰り返しブロック」と使い方はほぼ同じだが、③の値を増やす処理が
-減らす処理になったものである。</p>
-          </div>
-        </section>
+        <!-- 指定回型繰り返しブロック -->
       </section>
+      <!-- ~繰り返し -->
       <section>
         <h3>ウィンドウ操作</h3>
         <section class="blockSection">
