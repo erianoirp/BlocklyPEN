@@ -66,20 +66,19 @@ xDNCLとBlocklyPENの実践的な使い方は、<s>こちら</s>で学ぶこと�
         </p>
         <p>
 オフラインでBlocklyPENを使いたい場合は、<s>こちら</s>(zip)か
-<a href="https://github.com/omotonama/BlocklyPEN">こちら</a>(GitHub)から保存してください。<br>
+<a href="https://github.com/erianoirp/BlocklyPEN">こちら</a>(GitHub)から保存してください。<br>
 保存したファイルを解凍し、解凍したフォルダの中にある「index.html」をダブルクリックしてください。
 ブラウザが起動するか、すでに起動している場合は新しいタブなどにBlocklyPENが表示されます。
-        </p>
-        <p>
-BlocklyPENの保存はから行ってください。
         </p>
       </section>
       <section>
         <h3>動作環境</h3>
         <p>
 BlocklyPENはパソコン上で動かすことを想定しており、スマートフォンやタブレットには
-対応しておりません。また、ブラウザ単体で動かせるため、Javaをインストールする必要は
-ありません。<br>
+対応しておりません。
+        </p>
+        <p>
+ブラウザ単体で動かせるため、Javaをインストールする必要はありません。
         </p>
         <p>
 BlocklyPENは、以下のブラウザに対応しています（多分）。
@@ -229,9 +228,24 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
 -->
           <div class="blockDescription">
 <p>変数を宣言する。<br>
-プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」に書かれた名前の変数を宣言する。</p>
+プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」の名前の変数を宣言する。</p>
         </div>
         </section>
+        <!-- 配列宣言ブロック -->
+        <section class="blockSection">
+          <h4>配列宣言ブロック</h4>
+          <div id="declareArrayDiv" class="sampleBlock-1-0"></div>
+          <xml id="declareArrayXml" style="display: none">
+            <block type="declare_array"></block>
+          </xml>
+          <script>embedBlock('declareArray');</script>
+          <div class="blockDescription-1-0">
+<p>配列を宣言する。<br>
+プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」の名前の配列を宣言する。<br>
+指定された大きさ分の配列が作られる。</p>
+          </div>
+        </section>
+        <!-- ~配列宣言ブロック -->
         <!-- 代入ブロック -->
         <section class="blockSection">
           <h4>代入ブロック</h4>
@@ -265,8 +279,24 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 ブロックを削除したい場合）は、右クリックからブロックを削除する。</p>
           </div>
         </section>
+        <!-- ~変数ブロック -->
+        <!-- 配列ブロック -->
+        <section class="blockSection">
+          <h4>変数ブロック</h4>
+          <div id="arrayDiv" class="sampleBlock"></div>
+          <xml id="arrayXml" style="display: none">
+            <block type="array"></block>
+          </xml>
+          <script>embedBlock('array');</script>
+          <div class="blockDescription">
+<p>配列を参照する。<br>
+「変数ブロック」とほとんど使い方は同じだが、配列の要素番号を指定することができる。</p>
+          </div>
+        </section>
+        <!-- ~配列ブロック -->
       </section>
-      <!-- 値 -->
+      <!-- ~変数カテゴリ -->
+      <!-- 値カテゴリ -->
       <section>
         <h3>値</h3>
         <!-- 整数ブロック -->
