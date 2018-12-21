@@ -15,6 +15,16 @@ Blockly.Pen['while'] = function(block) {
   return code;
 };
 
+Blockly.Pen['do_while'] = function(block) {
+  var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
+  var condition = Blockly.Pen.valueToCode(block, 'CONDITION', Blockly.Pen.ORDER_ATOMIC);
+  var code = '';
+  code += '繰り返し，\n';
+  code += statements;
+  code += 'を，' + condition + ' になるまで実行する\n';
+  return code;
+};
+
 Blockly.Pen['for'] = function(block) {
   var variable = Blockly.Pen.valueToCode(block, 'VARIABLE', Blockly.Pen.ORDER_ATOMIC);
   var from = Blockly.Pen.valueToCode(block, 'FROM', Blockly.Pen.ORDER_ATOMIC);

@@ -4,7 +4,7 @@ Blockly.Pen['conditions'] = function(block) {
   var dropdown_comparisonoperator = block.getFieldValue('comparisonOperator');
   var value_argument2 = Blockly.Pen.valueToCode(block, 'argument2', Blockly.Pen.ORDER_ATOMIC);
   var code = value_argument1 + " " + dropdown_comparisonoperator + " " + value_argument2;
-  return [code, Blockly.Pen.ORDER_NONE];
+  return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
 Blockly.Pen['if'] = function(block) {
