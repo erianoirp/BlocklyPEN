@@ -13,6 +13,26 @@ Blockly.Pen['random'] = function(block) {
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
+Blockly.Pen['abs'] = function(block) {
+  var value = Blockly.Pen.valueToCode(block, 'VALUE', Blockly.Pen.ORDER_FUNCTION_CALL);
+  var code = 'abs(' + value + ')';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
+Blockly.Pen['round'] = function(block) {
+  var kind = block.getFieldValue('KIND');
+  var value = Blockly.Pen.valueToCode(block, 'VALUE', Blockly.Pen.ORDER_FUNCTION_CALL);
+  var code = kind + '(' + value + ')';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
+Blockly.Pen['trigonometric'] = function(block) {
+  var kind = block.getFieldValue('KIND');
+  var value = Blockly.Pen.valueToCode(block, 'VALUE', Blockly.Pen.ORDER_FUNCTION_CALL);
+  var code = kind + '(' + value + ')';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
 //-------------------------------------------------------------------------------------
 
 //未使用
@@ -24,18 +44,6 @@ Blockly.Pen['decimal'] = function(block) {
   value_val = value_val.substr(0,value_val.length-1);
   // TODO: Assemble Pen into code variable.
   var code = dropdown_decimal + '(' + value_val + ')';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.Pen.ORDER_NONE];
-};
-
-Blockly.Pen['trigonometric'] = function(block) {
-  var value_val = Blockly.Pen.valueToCode(block, 'val', Blockly.Pen.ORDER_ATOMIC);
-  var dropdown_trigonometric = block.getFieldValue('trigonometric');
-  // 括弧を取り除く
-  value_val = value_val.substr(1);
-  value_val = value_val.substr(0,value_val.length-1);
-  // TODO: Assemble Pen into code variable.
-  var code = dropdown_trigonometric + '(' + value_val +  ')';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.Pen.ORDER_NONE];
 };
