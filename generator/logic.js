@@ -15,7 +15,7 @@ Blockly.Pen['if'] = function(block) {
     conditionCode = Blockly.Pen.valueToCode(block, 'IF' + n,
       Blockly.Pen.ORDER_NONE) || 'false';
     branchCode = Blockly.Pen.statementToCode(block, 'DO' + n);
-    code += (n > 0 ? '\nを実行し、そうでなくて' : '') +
+    code += (n > 0 ? '\nを実行し、そうでなく' : '') +
       'もし ' + conditionCode + ' ならば\n　｜' + branchCode;
     ++n;
   } while (block.getInput('IF' + n));

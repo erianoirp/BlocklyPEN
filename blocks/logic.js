@@ -75,7 +75,7 @@ Blockly.defineBlocksWithJsonArray([ // Mutator blocks. Do not extract.
   // 条件ブロックの「elseif」部分のmutator
   {
     "type": "if_elseif",
-    "message0": "そうでなくてもし",
+    "message0": "そうでなくもし",
     "previousStatement": null,
     "nextStatement": null,
     "enableContextMenu": false,
@@ -239,7 +239,7 @@ Blockly.Constants.Logic.IF_MUTATOR_MIXIN = {
     // Rebuild block.
     for (var i = 1; i <= this.elseifCount_; i++) {
       this.appendValueInput('IF' + i)
-          .appendField('を実行し、そうでなくてもし');
+          .appendField('を実行し、そうでなくもし');
       this.appendDummyInput('IF_THEN' + i)
           .appendField('ならば');
       this.appendStatementInput('DO' + i);
