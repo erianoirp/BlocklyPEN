@@ -35,12 +35,12 @@ function embedBlock(_block) {
 </head>
 <body>
   <header>
-    BlocklyPEN
+    <h1>BlocklyPEN</h1>
   </header>
   <div id="mainContent">
-    <h1>BlocklyPENの使い方</h1>
+    <h2>BlocklyPENの使い方</h2>
     <article>
-      <h2>BlocklyPENとは</h2>
+      <h3>BlocklyPENとは</h3>
       <p>
 BlocklyPENとは、名古屋高等学校で教師をしていらっしゃる「中西 渉（なかにし わたる）」先生が
 作成している「<a href="https://watayan.net/index.html">WaPEN</a>」と、Googleが提供しているライブラリ
@@ -55,7 +55,7 @@ BlocklyPENでは、ブロックを組み合わせてプログラミングを行�
       </p>
     </article>
     <article>
-      <h2>使い方</h2>
+      <h3>使い方</h3>
       <section>
         <p>
 BlocklyPENでは、用意されたブロックを組み合わせてプログラムを作成することができます。<br>
@@ -198,12 +198,12 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
       </section>
     </article>
     <article>
-      <h2>ブロックの種類</h2>
+      <h3>ブロックの種類</h3>
       <section>
-        <h3>変数</h3>
+        <h4>変数</h4>
         <!-- 変数宣言ブロック -->
         <section class="blockSection">
-          <h4>変数宣言ブロック</h4>
+          <h5>変数宣言ブロック</h5>
           <div id="declareVariableDiv" class="sampleBlock"></div>
           <xml id="declareVariableXml" style="display: none">
             <block type="declare_variable" x="3"></block>
@@ -235,7 +235,7 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
         </section>
         <!-- 配列宣言ブロック -->
         <section class="blockSection">
-          <h4>配列宣言ブロック</h4>
+          <h5>配列宣言ブロック</h5>
           <div id="declareArrayDiv" class="sampleBlock-1-0"></div>
           <xml id="declareArrayXml" style="display: none">
             <block type="declare_array"></block>
@@ -250,7 +250,7 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
         <!-- ~配列宣言ブロック -->
         <!-- 代入ブロック -->
         <section class="blockSection">
-          <h4>代入ブロック</h4>
+          <h5>代入ブロック</h5>
           <div id="assignDiv" class="sampleBlock"></div>
           <xml id="assignXml" style="display: none">
             <block type="assign"></block>
@@ -266,7 +266,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         </section>
         <!-- 変数ブロック -->
         <section class="blockSection">
-          <h4>変数ブロック</h4>
+          <h5>変数ブロック</h5>
           <div id="variableDiv" class="sampleBlock"></div>
           <xml id="variableXml" style="display: none">
             <block type="variable"></block>
@@ -284,7 +284,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~変数ブロック -->
         <!-- 配列ブロック -->
         <section class="blockSection">
-          <h4>変数ブロック</h4>
+          <h5>変数ブロック</h5>
           <div id="arrayDiv" class="sampleBlock"></div>
           <xml id="arrayXml" style="display: none">
             <block type="array"></block>
@@ -300,10 +300,10 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
       <!-- ~変数カテゴリ -->
       <!-- 値カテゴリ -->
       <section>
-        <h3>値</h3>
+        <h4>値</h4>
         <!-- 整数ブロック -->
         <section class="blockSection">
-          <h4>整数ブロック</h4>
+          <h5>整数ブロック</h5>
           <div id="integerDiv" class="sampleBlock"></div>
           <xml id="integerXml" style="display: none">
             <block type="integer"></block>
@@ -318,7 +318,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~整数ブロック -->
         <!-- 実数ブロック -->
         <section class="blockSection">
-          <h4>実数ブロック</h4>
+          <h5>実数ブロック</h5>
           <div id="floatDiv" class="sampleBlock"></div>
           <xml id="floatXml" style="display: none">
             <block type="float"></block>
@@ -336,7 +336,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~実数ブロック -->
         <!-- 文字列ブロック -->
         <section class="blockSection">
-          <h4>文字列ブロック</h4>
+          <h5>文字列ブロック</h5>
           <div id="stringDiv" class="sampleBlock"></div>
           <xml id="stringXml" style="display: none">
             <block type="string"></block>
@@ -350,7 +350,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~文字列ブロック -->
         <!-- 文字列化ブロック -->
         <section class="blockSection">
-          <h4>文字列化ブロック</h4>
+          <h5>文字列化ブロック</h5>
           <div id="value2StringDiv" class="sampleBlock"></div>
           <xml id="value2StringXml" style="display: none">
             <block type="value_2_string"></block>
@@ -364,7 +364,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~文字列ブロック -->
         <!-- 真偽ブロック -->
         <section class="blockSection">
-          <h4>真偽ブロック</h4>
+          <h5>真偽ブロック</h5>
           <div id="booleanDiv" class="sampleBlock"></div>
           <xml id="booleanXml" style="display: none">
             <block type="boolean"></block>
@@ -379,9 +379,9 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
       </section>
       <!-- 計算 -->
       <section>
-        <h3>計算</h3>
+        <h4>計算</h4>
         <section class="blockSection">
-          <h4>演算ブロック</h4>
+          <h5>演算ブロック</h5>
           <div id="calculationDiv" class="sampleBlock"></div>
           <xml id="calculationXml" style="display: none">
             <block type="calculation"></block>
@@ -395,7 +395,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
         <section class="blockSection">
-          <h4>ランダムブロック</h4>
+          <h5>ランダムブロック</h5>
           <div id="randomDiv" class="sampleBlock-1-0"></div>
           <xml id="randomXml" style="display: none">
             <block type="random"></block>
@@ -407,10 +407,10 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         </section>
       </section>
       <section>
-        <h3>入出力</h3>
+        <h4>入出力</h4>
         <!-- 入力ブロック -->
         <section class="blockSection">
-          <h4>入力ブロック</h4>
+          <h5>入力ブロック</h5>
           <div id="inputDiv" class="sampleBlock-1-0"></div>
           <xml id="inputXml" style="display: none">
             <block type="input"></block>
@@ -425,7 +425,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         </section>
         <!-- 文字列表示ブロック -->
         <section class="blockSection">
-          <h4>文字列表示ブロック</h4>
+          <h5>文字列表示ブロック</h5>
           <div id="printStringDiv" class="sampleBlock-2-0"></div>
           <xml id="printStringXml" style="display: none">
             <block type="print_string"></block>
@@ -438,7 +438,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         </section>
         <!-- 値表示ブロック -->
         <section class="blockSection">
-          <h4>値表示ブロック</h4>
+          <h5>値表示ブロック</h5>
           <div id="printVDiv" class="sampleBlock-1-0"></div>
           <xml id="printVXml" style="display: none">
             <block type="print_v"></block>
@@ -451,9 +451,9 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         </section>
       </section>
       <section>
-        <h3>条件分岐</h3>
+        <h4>条件分岐</h4>
         <section class="blockSection">
-          <h4>比較ブロック</h4>
+          <h5>比較ブロック</h5>
           <div id="conditionsDiv" class="sampleBlock"></div>
           <xml id="conditionsXml" style="display: none">
             <block type="conditions"></block>
@@ -467,13 +467,13 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         </section>
         <!-- 条件ブロック -->
         <section class="blockSection">
-          <h4>条件ブロック</h4>
-          <div id="ifDiv" class="sampleBlock-1-1"></div>
+          <h5>条件ブロック</h5>
+          <div id="ifDiv" class="sampleBlock"></div>
           <xml id="ifXml" style="display: none">
             <block type="if"></block>
           </xml>
           <script>embedBlock('if');</script>
-          <div class="blockDescription-1-1">
+          <div class="blockDescription">
 <p>条件分岐を行う。<br>
 「比較ブロック」などを置いて使用する。<br>
 条件が真であればこのブロックの間に置かれたブロックを実行する</p>
@@ -482,13 +482,13 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~条件ブロック -->
         <!-- 条件ブロック -->
         <section class="blockSection">
-          <h4>二分条件ブロック</h4>
-          <div id="ifelseDiv" class="sampleBlock-1-1"></div>
+          <h5>二分条件ブロック</h5>
+          <div id="ifelseDiv" class="sampleBlock-0-1"></div>
           <xml id="ifelseXml" style="display: none">
             <block type="ifelse"></block>
           </xml>
           <script>embedBlock('ifelse');</script>
-          <div class="blockDescription-1-1">
+          <div class="blockDescription-0-1">
 <p>条件分岐を行う。<br>
 「比較ブロック」などを置いて使用する。<br>
 条件ブロックと使い方は同じだが、条件が偽であったときも動作を指定できる。</p>
@@ -497,7 +497,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~条件ブロック -->
         <!-- 条件ブロック -->
         <section class="blockSection">
-          <h4>条件ブロック</h4>
+          <h5>条件ブロック</h5>
           <div id="if2Div" class="sampleBlock-1-1"></div>
           <xml id="if2Xml" style="display: none">
             <block type="if2" disabled="true"></block>
@@ -515,10 +515,10 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
       </section>
       <!-- 繰り返し -->
       <section>
-        <h3>繰り返し</h3>
+        <h4>繰り返し</h4>
         <!-- 繰り返しブロック -->
         <section class="blockSection">
-          <h4>繰り返しブロック</h4>
+          <h5>繰り返しブロック</h5>
           <div id="whileDiv" class="sampleBlock"></div>
           <xml id="whileXml" style="display: none">
             <block type="while"></block>
@@ -534,7 +534,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~繰り返しブロック -->
         <!-- 後判定型繰り返しブロック -->
         <section class="blockSection">
-          <h4>後判定型繰り返しブロック</h4>
+          <h5>後判定型繰り返しブロック</h5>
           <div id="repeatUntilDiv" class="sampleBlock-1-0"></div>
           <xml id="repeatUntilXml" style="display: none">
             <block type="repeat_until"></block>
@@ -549,7 +549,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~後判定型繰り返しブロック -->
         <!-- 指定回型繰り返しブロック -->
         <section class="blockSection">
-          <h4>指定回型繰り返しブロック</h4>
+          <h5>指定回型繰り返しブロック</h5>
           <div id="forDiv" class="sampleBlock-2-0"></div>
           <xml id="forXml" style="display: none">
             <block type="for"></block>
@@ -570,9 +570,9 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
       </section>
       <!-- ~繰り返し -->
       <section>
-        <h3>ウィンドウ操作</h3>
+        <h4>ウィンドウ操作</h4>
         <section class="blockSection">
-          <h4>ウィンドウ表示ブロック</h4>
+          <h5>ウィンドウ表示ブロック</h5>
           <div id="gopenwDiv" class="sampleBlock-1-0"></div>
           <xml id="gopenwXml" style="display: none">
             <block type="gopenw"></block>
@@ -583,7 +583,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
         <section class="blockSection">
-          <h4>ウィンドウ非表示ブロック</h4>
+          <h5>ウィンドウ非表示ブロック</h5>
           <div id="gclosewDiv" class="sampleBlock"></div>
           <xml id="gclosewXml" style="display: none">
             <block type="gclosew"></block>
@@ -594,7 +594,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
         <section class="blockSection">
-          <h4>ウィンドウクリアブロック</h4>
+          <h5>ウィンドウクリアブロック</h5>
           <div id="gclearwDiv" class="sampleBlock"></div>
           <xml id="gclearwXml" style="display: none">
             <block type="gclearw"></block>
@@ -606,9 +606,9 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         </section>
       </section>
       <section>
-        <h3>描画設定</h3>
+        <h4>描画設定</h4>
         <section class="blockSection">
-          <h4>色設定ブロック</h4>
+          <h5>色設定ブロック</h5>
           <div id="gscolorDiv" class="sampleBlock-2-0"></div>
           <xml id="gscolorXml" style="display: none">
             <block type="gscolor"></block>
@@ -619,7 +619,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
         <section class="blockSection">
-          <h4>太さ設定ブロック</h4>
+          <h5>太さ設定ブロック</h5>
           <div id="gsstyleDiv" class="sampleBlock-1-0"></div>
           <xml id="gsstyleXml" style="display: none">
             <block type="gsstyle"></block>
@@ -633,9 +633,9 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
       <!-- ~描画設定カテゴリ -->
       <!-- 描画カテゴリ -->
       <section>
-        <h3>描画</h3>
+        <h4>描画</h4>
         <section class="blockSection">
-          <h4>文字列描画ブロック</h4>
+          <h5>文字列描画ブロック</h5>
           <div id="gdtextDiv" class="sampleBlock-2-0"></div>
           <xml id="gdtextXml" style="display: none">
             <block type="gdtext"></block>
@@ -646,7 +646,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
         <section class="blockSection">
-          <h4>線描画ブロック</h4>
+          <h5>線描画ブロック</h5>
           <div id="gdlineDiv" class="sampleBlock-2-0"></div>
           <xml id="gdlineXml" style="display: none">
             <block type="gdline"></block>
@@ -657,7 +657,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
         <section class="blockSection">
-          <h4>矩形描画ブロック</h4>
+          <h5>矩形描画ブロック</h5>
           <div id="gdboxDiv" class="sampleBlock-2-0"></div>
           <xml id="gdboxXml" style="display: none">
             <block type="gdbox"></block>
@@ -668,7 +668,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
         <section class="blockSection">
-          <h4>塗りつぶした矩形描画ブロック</h4>
+          <h5>塗りつぶした矩形描画ブロック</h5>
           <div id="gfboxDiv" class="sampleBlock-2-0"></div>
           <xml id="gfboxXml" style="display: none">
             <block type="gfbox"></block>
@@ -679,7 +679,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
         <section class="blockSection">
-          <h4>円描画ブロック</h4>
+          <h5>円描画ブロック</h5>
           <div id="gdcircleDiv" class="sampleBlock-2-0"></div>
           <xml id="gdcircleXml" style="display: none">
             <block type="gdcircle"></block>
@@ -690,7 +690,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
         <section class="blockSection">
-          <h4>塗りつぶした円描画ブロック</h4>
+          <h5>塗りつぶした円描画ブロック</h5>
           <div id="gfcircleDiv" class="sampleBlock-2-0"></div>
           <xml id="gfcircleXml" style="display: none">
             <block type="gfcircle"></block>
@@ -704,10 +704,10 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
       <!-- 描画カテゴリ -->
       <!-- 関数 -->
       <section>
-        <h3>関数</h3>
+        <h4>関数</h4>
         <!-- 関数定義ブロック -->
         <section class="blockSection">
-          <h4>関数定義ブロック</h4>
+          <h5>関数定義ブロック</h5>
           <div id="defineFunctionDiv" class="sampleBlock-1-1"></div>
           <xml id="defineFunctionXml" style="display: none">
             <block type="define_function"></block>
@@ -724,7 +724,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- 関数定義ブロック -->
 <!--
         <section class="blockSection">
-          <h4>関数定義ブロック</h4>
+          <h5>関数定義ブロック</h5>
           <div id="defineFunctionDiv" class="sampleBlock-1-1"></div>
           <xml id="defineFunctionXml" style="display: none">
             <block type="define_function"></block>
@@ -741,7 +741,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~関数定義ブロック -->
         <!-- 手続き定義ブロック -->
         <section class="blockSection">
-          <h4>手続き定義ブロック</h4>
+          <h5>手続き定義ブロック</h5>
           <div id="defineStepDiv" class="sampleBlock-1-1"></div>
           <xml id="defineStepXml" style="display: none">
             <block type="define_step"></block>
@@ -756,7 +756,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~手続き定義ブロック -->
         <!-- 返却ブロック -->
         <section class="blockSection">
-          <h4>返却ブロック</h4>
+          <h5>返却ブロック</h5>
           <div id="returnDiv" class="sampleBlock"></div>
           <xml id="returnXml" style="display: none">
             <block type="return_block"></block>
@@ -772,7 +772,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~返却ブロック -->
         <!-- 脱出ブロック -->
         <section class="blockSection">
-          <h4>脱出ブロック</h4>
+          <h5>脱出ブロック</h5>
           <div id="returnVoidDiv" class="sampleBlock"></div>
           <xml id="returnVoidXml" style="display: none">
             <block type="return_void_block"></block>
@@ -787,7 +787,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~脱出ブロック -->
         <!-- 関数呼び出しブロック -->
         <section class="blockSection">
-          <h4>関数呼び出しブロック</h4>
+          <h5>関数呼び出しブロック</h5>
           <div id="callFunctionDiv" class="sampleBlock"></div>
           <xml id="callFunctionXml" style="display: none">
             <block type="call_function"></block>
@@ -802,7 +802,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- ~関数呼び出しブロック -->
         <!-- 手続き呼び出しブロック -->
         <section class="blockSection">
-          <h4>手続き呼び出しブロック</h4>
+          <h5>手続き呼び出しブロック</h5>
           <div id="callStepDiv" class="sampleBlock"></div>
           <xml id="callStepXml" style="display: none">
             <block type="call_step"></block>

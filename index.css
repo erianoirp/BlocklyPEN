@@ -15,16 +15,18 @@ body {
 h1 {
   margin: 0;
   color: white;
+  float: left;
 }
-#helpLink {
-  float: right;
+.linkOnTitle {
+  margin-left: 5px;
+  float: left;
   display: table;
 }
-#helpLink a {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#helpIcon {
+  display: table-cell;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
 }
 text.blocklyText {
   font-family: monospace;
