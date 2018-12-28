@@ -5,7 +5,8 @@
   <title>BlocklyPENの使い方</title>
   <script src="./blockly/blockly_compressed.js"></script>
   <script src="./blocks/file.js"></script>
-  <script src="./blocks/function.js"></script>
+  <!--  <script src="./blocks/function.js"></script>-->
+  <script src="./blocks/function (no datatype).js"></script>
   <script src="./blocks/gdraw.js"></script>
   <script src="./blocks/gset.js"></script>
   <script src="./blocks/gwindow.js"></script>
@@ -14,7 +15,8 @@
   <script src="./blocks/loop.js"></script>
   <script src="./blocks/math.js"></script>
   <script src="./blocks/num.js"></script>
-  <script src="./blocks/step.js"></script>
+  <!--  <script src="./blocks/step.js"></script>-->
+  <script src="./blocks/step (no datatype).js"></script>
   <script src="./blocks/str.js"></script>
   <script src="./blocks/start.js"></script>
   <script src="./blocks/value.js"></script>
@@ -463,6 +465,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 演算結果を「条件ブロック」の条件として利用したりする。</p>
           </div>
         </section>
+        <!-- 条件ブロック -->
         <section class="blockSection">
           <h4>条件ブロック</h4>
           <div id="ifDiv" class="sampleBlock-1-1"></div>
@@ -473,10 +476,42 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           <div class="blockDescription-1-1">
 <p>条件分岐を行う。<br>
 「比較ブロック」などを置いて使用する。<br>
-条件が真であればこのブロックの間に置かれたブロックを実行し、
-偽であればこのブロックに接続された下のブロックを実行する。</p>
+条件が真であればこのブロックの間に置かれたブロックを実行する</p>
           </div>
         </section>
+        <!-- ~条件ブロック -->
+        <!-- 条件ブロック -->
+        <section class="blockSection">
+          <h4>二分条件ブロック</h4>
+          <div id="ifelseDiv" class="sampleBlock-1-1"></div>
+          <xml id="ifelseXml" style="display: none">
+            <block type="ifelse"></block>
+          </xml>
+          <script>embedBlock('ifelse');</script>
+          <div class="blockDescription-1-1">
+<p>条件分岐を行う。<br>
+「比較ブロック」などを置いて使用する。<br>
+条件ブロックと使い方は同じだが、条件が偽であったときも動作を指定できる。</p>
+          </div>
+        </section>
+        <!-- ~条件ブロック -->
+        <!-- 条件ブロック -->
+        <section class="blockSection">
+          <h4>条件ブロック</h4>
+          <div id="if2Div" class="sampleBlock-1-1"></div>
+          <xml id="if2Xml" style="display: none">
+            <block type="if2" disabled="true"></block>
+          </xml>
+          <script>embedBlock('if2');</script>
+          <div class="blockDescription-1-1">
+<p>条件分岐を行う。<br>
+「比較ブロック」などを置いて使用する。<br>
+条件が真であればこのブロックの間に置かれたブロックを実行し、
+偽であればこのブロックに接続された下のブロックを実行する。<br>
+現在は使用できない。</p>
+          </div>
+        </section>
+        <!-- ~条件ブロック -->
       </section>
       <!-- 繰り返し -->
       <section>
@@ -500,11 +535,11 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
         <!-- 後判定型繰り返しブロック -->
         <section class="blockSection">
           <h4>後判定型繰り返しブロック</h4>
-          <div id="doWhileDiv" class="sampleBlock-1-0"></div>
-          <xml id="doWhileXml" style="display: none">
-            <block type="do_while"></block>
+          <div id="repeatUntilDiv" class="sampleBlock-1-0"></div>
+          <xml id="repeatUntilXml" style="display: none">
+            <block type="repeat_until"></block>
           </xml>
-          <script>embedBlock('doWhile');</script>
+          <script>embedBlock('repeatUntil');</script>
           <div class="blockDescription-1-0">
 <p>条件が真の間、ブロックを実行する。<br>
 繰り返しブロックとの違いは、必ず一度はこのブロック内のブロックが実行されることで、
@@ -680,11 +715,29 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           <script>embedBlock('defineFunction');</script>
           <div class="blockDescription-1-1">
 <p>関数を定義する。<br>
+「≪関数≫」に定義する関数の名前を指定する<br>
+歯車のアイコンをクリックすると吹き出しが出現し、仮引数の個数を指定できる。</p>
+          </div>
+        </section>
+        <!-- ~関数定義ブロック -->
+<!-- 型指定が必要な関数定義ブロックの説明 現在は使ってないのでコメントアウト-->
+        <!-- 関数定義ブロック -->
+<!--
+        <section class="blockSection">
+          <h4>関数定義ブロック</h4>
+          <div id="defineFunctionDiv" class="sampleBlock-1-1"></div>
+          <xml id="defineFunctionXml" style="display: none">
+            <block type="define_function"></block>
+          </xml>
+          <script>embedBlock('defineFunction');</script>
+          <div class="blockDescription-1-1">
+<p>関数を定義する。<br>
 「≪関数≫」に定義する関数の名前を指定し、その下のプルダウンメニュー
 で戻り値の型を指定する。<br>
 歯車のアイコンをクリックすると吹き出しが出現し、仮引数の個数を指定できる。</p>
           </div>
         </section>
+-->
         <!-- ~関数定義ブロック -->
         <!-- 手続き定義ブロック -->
         <section class="blockSection">
