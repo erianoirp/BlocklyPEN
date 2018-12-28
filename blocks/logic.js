@@ -21,9 +21,53 @@ Blockly.Blocks['conditions'] = {
   }
 };
 
+Blockly.Blocks['if'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("もし");
+    this.appendValueInput("conditions")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("ならば");
+    this.appendStatementInput("exe")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("を実行する");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(190);
+    this.setTooltip('');
+  }
+};
+
+Blockly.Blocks['ifelse'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("もし");
+    this.appendValueInput("conditions")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("ならば");
+    this.appendStatementInput("exe1")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("を実行し，そうでなければ");
+    this.appendStatementInput("exe2")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("を実行する");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(190);
+    this.setTooltip('');
+  }
+};
+
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   {
-    "type": "if",
+    "type": "if2",
     "message0": "もし %1",
     "args0": [
       {

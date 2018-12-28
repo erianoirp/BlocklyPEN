@@ -8,6 +8,30 @@ Blockly.Pen['conditions'] = function(block) {
 };
 
 Blockly.Pen['if'] = function(block) {
+  var value_conditions = Blockly.Pen.valueToCode(block, 'conditions', Blockly.Pen.ORDER_ATOMIC);
+  var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
+  //インデント調整
+  statements_exe = statements_exe.replace(/\n/g,"\n  |");
+  statements_exe = statements_exe.slice(0,-4);
+  var code = 'もし ' + value_conditions + ' ならば\n  | ' + statements_exe + '\nを実行する\n';
+  return code;
+};
+
+Blockly.Pen['ifelse'] = function(block) {
+  var value_conditions = Blockly.Pen.valueToCode(block, 'conditions', Blockly.Pen.ORDER_ATOMIC);
+  var statements_exe1 = Blockly.Pen.statementToCode(block, 'exe1');
+  var statements_exe2 = Blockly.Pen.statementToCode(block, 'exe2');
+  //インデント調整
+  statements_exe1 = statements_exe1.replace(/\n/g,"\n  |");
+  statements_exe1 = statements_exe1.slice(0,-4);
+  statements_exe2 = statements_exe2.replace(/\n/g,"\n  |");
+  statements_exe2 = statements_exe2.slice(0,-4);
+  var code = 'もし ' + value_conditions + ' ならば\n  | ' + statements_exe1 + '\nを実行し，そうでなければ\n  | ' + statements_exe2 + '\nを実行する\n';
+  return code;
+};
+
+/*
+Blockly.Pen['if2'] = function(block) {
   // If/elseif/else condition.
   var n = 0;
   var code = '', branchCode, conditionCode;
@@ -26,4 +50,5 @@ Blockly.Pen['if'] = function(block) {
   }
   return code + '\nを実行する\n';
 };
+*/
 
