@@ -15,82 +15,27 @@ Blockly.Pen['while'] = function(block) {
   return code;
 };
 
-// Blockly.Pen['forplus'] = function(block) {
-//   var text_conditions1 = block.getFieldValue('conditions1');
-//   var text_conditions2 = block.getFieldValue('conditions2');
-//   var text_conditions3 = block.getFieldValue('conditions3');
-//   var text_conditions4 = block.getFieldValue('conditions4');
-//   var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
-//   // TODO: Assemble Pen into code variable.
-
-//   var code = text_conditions1 + ' を ' + text_conditions2 + ' から ' + text_conditions3 + ' まで ' + text_conditions4 + ' ずつ増やしながら，\n' + statements_exe;
-//   code = code.replace(/\n/g,"\n  |");
-// // a = a.slice(0,-4);
-//   code = code + "\nを繰り返す\n";
-
-//   return code;
-// };
-
-Blockly.Pen['forplus'] = function(block) {
-  var value_conditions1 = Blockly.Pen.valueToCode(block, 'conditions1', Blockly.Pen.ORDER_ATOMIC);
-  var value_conditions2 = Blockly.Pen.valueToCode(block, 'conditions2', Blockly.Pen.ORDER_ATOMIC);
-  var value_conditions3 = Blockly.Pen.valueToCode(block, 'conditions3', Blockly.Pen.ORDER_ATOMIC);
-  var value_conditions4 = Blockly.Pen.valueToCode(block, 'conditions4', Blockly.Pen.ORDER_ATOMIC);
-  var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
-  // 括弧を取り除く
-  value_conditions1 = value_conditions1.substr(1);
-  value_conditions1 = value_conditions1.substr(0,value_conditions1.length-1);
-  value_conditions2 = value_conditions2.substr(1);
-  value_conditions2 = value_conditions2.substr(0,value_conditions2.length-1);
-  value_conditions3 = value_conditions3.substr(1);
-  value_conditions3 = value_conditions3.substr(0,value_conditions3.length-1);
-  value_conditions4 = value_conditions4.substr(1);
-  value_conditions4 = value_conditions4.substr(0,value_conditions4.length-1);
-  // TODO: Assemble Pen into code variable.
-  var code = value_conditions1 + ' を ' + value_conditions2 + ' から ' + value_conditions3 + ' まで ' + value_conditions4 + ' ずつ増やしながら，\n' + statements_exe;
-  // インデント調整
-  code = code.replace(/\n/g,"\n  |");
-// a = a.slice(0,-4);
-  code = code + "\nを繰り返す\n";
+Blockly.Pen['repeat_until'] = function(block) {
+  var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
+  var condition = Blockly.Pen.valueToCode(block, 'CONDITION', Blockly.Pen.ORDER_ATOMIC);
+  var code = '';
+  code += '繰り返し，\n';
+  code += statements;
+  code += 'を，' + condition + ' になるまで実行する\n';
   return code;
 };
 
-// Blockly.Pen['forminus'] = function(block) {
-//   var text_conditions1 = block.getFieldValue('conditions1');
-//   var text_conditions2 = block.getFieldValue('conditions2');
-//   var text_conditions3 = block.getFieldValue('conditions3');
-//   var text_conditions4 = block.getFieldValue('conditions4');
-//   var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
-//   // TODO: Assemble Pen into code variable.
-
-//   var code = text_conditions1 + ' を ' + text_conditions2 + ' から ' + text_conditions3 + ' まで ' + text_conditions4 + ' ずつ減らしながら，\n' + statements_exe;
-//   code = code.replace(/\n/g,"\n  |");
-// //   a = a.slice(0,-4);
-//   code = code + "\nを繰り返す\n";
-
-//   return code;
-// };
-
-Blockly.Pen['forminus'] = function(block) {
-  var value_conditions1 = Blockly.Pen.valueToCode(block, 'conditions1', Blockly.Pen.ORDER_ATOMIC);
-  var value_conditions2 = Blockly.Pen.valueToCode(block, 'conditions2', Blockly.Pen.ORDER_ATOMIC);
-  var value_conditions3 = Blockly.Pen.valueToCode(block, 'conditions3', Blockly.Pen.ORDER_ATOMIC);
-  var value_conditions4 = Blockly.Pen.valueToCode(block, 'conditions4', Blockly.Pen.ORDER_ATOMIC);
-  var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
-  // 括弧を取り除く
-  value_conditions1 = value_conditions1.substr(1);
-  value_conditions1 = value_conditions1.substr(0,value_conditions1.length-1);
-  value_conditions2 = value_conditions2.substr(1);
-  value_conditions2 = value_conditions2.substr(0,value_conditions2.length-1);
-  value_conditions3 = value_conditions3.substr(1);
-  value_conditions3 = value_conditions3.substr(0,value_conditions3.length-1);
-  value_conditions4 = value_conditions4.substr(1);
-  value_conditions4 = value_conditions4.substr(0,value_conditions4.length-1);
-  // TODO: Assemble Pen into code variable.
-  var code = value_conditions1 + ' を ' + value_conditions2 + ' から ' + value_conditions3 + ' まで ' + value_conditions4 + ' ずつ減らしながら，\n' + statements_exe;
-  // インデント調整
-  code = code.replace(/\n/g,"\n  |");
-//   a = a.slice(0,-4);
-  code = code + "\nを繰り返す\n";
+Blockly.Pen['for'] = function(block) {
+  var variable = Blockly.Pen.valueToCode(block, 'VARIABLE', Blockly.Pen.ORDER_ATOMIC);
+  var from = Blockly.Pen.valueToCode(block, 'FROM', Blockly.Pen.ORDER_ATOMIC);
+  var to = Blockly.Pen.valueToCode(block, 'TO', Blockly.Pen.ORDER_ATOMIC);
+  var by = Blockly.Pen.valueToCode(block, 'BY', Blockly.Pen.ORDER_ATOMIC);
+  var while_ = block.getFieldValue('WHILE');
+  var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
+  var code = '';
+  code += variable + ' を ' + from + ' から ' + to + ' まで ' + by + ' ずつ' + while_ + 'ながら、\n';
+  code += statements;
+  code += 'を繰り返す\n';
   return code;
 };
+

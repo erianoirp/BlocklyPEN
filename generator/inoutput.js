@@ -22,9 +22,9 @@ Blockly.Pen['print_v'] = function(block) {
   const doNewline = block.getFieldValue('newline');
   let code;
   if (doNewline === 'true') {
-    code = v + 'を表示する\n';
+    code = v + ' を表示する\n';
   } else {
-    code = v + 'を改行無しで表示する\n';
+    code = v + ' を改行無しで表示する\n';
   }
   return code;
 };

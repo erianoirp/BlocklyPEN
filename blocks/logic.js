@@ -21,9 +21,53 @@ Blockly.Blocks['conditions'] = {
   }
 };
 
+Blockly.Blocks['if'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("もし");
+    this.appendValueInput("conditions")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("ならば");
+    this.appendStatementInput("exe")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("を実行する");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(190);
+    this.setTooltip('');
+  }
+};
+
+Blockly.Blocks['ifelse'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("もし");
+    this.appendValueInput("conditions")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("ならば");
+    this.appendStatementInput("exe1")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("を実行し，そうでなければ");
+    this.appendStatementInput("exe2")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("を実行する");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(190);
+    this.setTooltip('');
+  }
+};
+
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   {
-    "type": "if",
+    "type": "if2",
     "message0": "もし %1",
     "args0": [
       {
@@ -75,7 +119,7 @@ Blockly.defineBlocksWithJsonArray([ // Mutator blocks. Do not extract.
   // 条件ブロックの「elseif」部分のmutator
   {
     "type": "if_elseif",
-    "message0": "そうでなくてもし",
+    "message0": "そうでなくもし",
     "previousStatement": null,
     "nextStatement": null,
     "enableContextMenu": false,
@@ -239,7 +283,7 @@ Blockly.Constants.Logic.IF_MUTATOR_MIXIN = {
     // Rebuild block.
     for (var i = 1; i <= this.elseifCount_; i++) {
       this.appendValueInput('IF' + i)
-          .appendField('を実行し、そうでなくてもし');
+          .appendField('を実行し、そうでなくもし');
       this.appendDummyInput('IF_THEN' + i)
           .appendField('ならば');
       this.appendStatementInput('DO' + i);

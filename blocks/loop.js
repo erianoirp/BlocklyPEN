@@ -15,58 +15,77 @@ Blockly.Blocks['while'] = {
   }
 };
 
-Blockly.Blocks['forplus'] = {
+Blockly.Blocks['repeat_until'] = {
   init: function() {
-    this.appendValueInput("conditions1")
-        .setCheck(null)
-        .appendField("");
-    this.appendValueInput("conditions2")
-        .setCheck(null)
-        .appendField("を");
-    this.appendValueInput("conditions3")
-        .setCheck(null)
-        .appendField("から");
-    this.appendValueInput("conditions4")
-        .setCheck(null)
-        .appendField("まで");
-    this.appendDummyInput()
-        .appendField("ずつ増やしながら，");
-    this.appendStatementInput("exe")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を繰り返す");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(120);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "繰り返し，",
+      "message1": "%1",
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS"
+        }
+      ],
+      "message2": "を， %1 になるまで実行する",
+      "args2": [
+        {
+          "type": "input_value",
+          "name": "CONDITION"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
-Blockly.Blocks['forminus'] = {
+Blockly.Blocks['for'] = {
   init: function() {
-    this.appendValueInput("conditions1")
-        .setCheck(null)
-        .appendField("");
-    this.appendValueInput("conditions2")
-        .setCheck(null)
-        .appendField("を");
-    this.appendValueInput("conditions3")
-        .setCheck(null)
-        .appendField("から");
-    this.appendValueInput("conditions4")
-        .setCheck(null)
-        .appendField("まで");
-    this.appendDummyInput()
-        .appendField("ずつ減らしながら，");
-    this.appendStatementInput("exe")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を繰り返す");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(120);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "%1 を %2 から %3 まで %4 ずつ %5 ながら",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VARIABLE",
+          "check": "Variable"
+        },
+        {
+          "type": "input_value",
+          "name": "FROM"
+        },
+        {
+          "type": "input_value",
+          "name": "TO"
+        },
+        {
+          "type": "input_value",
+          "name": "BY"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "WHILE",
+          "options": [["増やし", "増やし"], ["減らし", "減らし"]]
+        },
+      ],
+      "message1": "%1",
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS"
+        }
+      ],
+      "message2": "を繰り返す",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 120,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
+

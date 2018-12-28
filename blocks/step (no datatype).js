@@ -7,7 +7,7 @@ goog.require('Blockly');
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   {
     "type": "define_step",
-    "message0": "手続き名 %1",
+    "message0": "手続き %1 (",
     "args0": [
       {
         "type": "field_input",
@@ -15,28 +15,35 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "text": "≪手続き≫"
       }
     ],
-    "message1": "仮引数 なし %1",
+    "message1": "%1",
     "args1": [
       {
         "type": "input_dummy",
         "name": "PARAM0"
       }
     ],
-    "message2": "%1",
+    "message2": ") %1",
     "args2": [
+      {
+        "type": "input_dummy",
+        "name": "CLOSE_PARENTHESIS"
+      }
+    ],
+    "message3": "%1",
+    "args3": [
       {
         "type": "input_statement",
         "name": "STATEMENTS"
       }
     ],
-    "message3": "手続き終了 %1",
-    "args3": [
+    "message4": "手続き終了 %1",
+    "args4": [
       {
         "type": "input_dummy",
-        "name": "define_end"
+        "name": "DEFINE_END"
       }
     ],
-    "inputsInline": false,
+    "inputsInline": true,
     "colour": 160,
     "tooltip": "",
     "helpUrl": "",
@@ -129,33 +136,32 @@ Blockly.Constants.Logic.DEFINE_STEP_MUTATOR_MIXIN = {
    * @private
    */
   updateShape_: function() {
-    this.removeInput('define_end');
+    this.removeInput('DEFINE_END');
     this.removeInput('STATEMENTS');
-    if (this.getInput('PARAM0')) {
-      this.removeInput('PARAM0');
-    } else {
-      var i = 1;
-      while (this.getInput('PARAM' + i)) {
-        this.removeInput('PARAM' + i);
-        i++;
-      }
+    this.removeInput('CLOSE_PARENTHESIS');
+    var i = 1;
+    while (this.getInput('PARAM' + i)) {
+      this.removeInput('PARAM' + i);
+      i++;
+    }
+    var i = 2;
+    while (this.getInput('COMMA' + i)) {
+      this.removeInput('COMMA' + i);
+      i++;
     }
     // Rebuild block.
-    if (!this.parameterCount) {
-      this.appendDummyInput('PARAM0')
-          .appendField('仮引数 なし');
-    } else {
-      for (var i = 1; i <= this.parameterCount; i++) {
-        this.appendDummyInput('PARAM' + i)
-            .appendField(i > 1 ? '      ' : '仮引数')
-            .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "DATATYPE" + i)
-// Blockly.FieldVariableがうまくいかない
-//            .appendField(new Blockly.FieldVariable("≪仮引数" + i + "≫"), "NAME" + i);
-            .appendField(new Blockly.FieldTextInput("≪仮引数" + i + '≫'), "NAME" + i);
+    for (var i = 1; i <= this.parameterCount; i++) {
+      if (i > 1) {
+        this.appendDummyInput('COMMA' + i)
+            .appendField(',');
       }
+      this.appendDummyInput('PARAM' + i)
+          .appendField(new Blockly.FieldTextInput("≪仮引数≫"), "NAME" + i);
     }
+    this.appendDummyInput('CLOSE_PARENTHESIS')
+        .appendField(')');
     this.appendStatementInput('STATEMENTS');
-    this.appendDummyInput('define_end')
+    this.appendDummyInput('DEFINE_END')
         .appendField('手続き終了');
   }
 };

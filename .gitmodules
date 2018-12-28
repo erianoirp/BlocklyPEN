@@ -4,3 +4,6 @@
 [submodule "blockly"]
 	path = blockly
 	url = git@github.com:google/blockly.git
+[submodule "WaPEN"]
+	path = WaPEN
+	url = git@github.com:erianoirp/WaPEN.git
