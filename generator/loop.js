@@ -15,7 +15,7 @@ Blockly.Pen['while'] = function(block) {
   return code;
 };
 
-Blockly.Pen['do_while'] = function(block) {
+Blockly.Pen['repeat_until'] = function(block) {
   var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
   var condition = Blockly.Pen.valueToCode(block, 'CONDITION', Blockly.Pen.ORDER_ATOMIC);
   var code = '';

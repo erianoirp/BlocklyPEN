@@ -15,7 +15,7 @@ Blockly.Blocks['while'] = {
   }
 };
 
-Blockly.Blocks['do_while'] = {
+Blockly.Blocks['repeat_until'] = {
   init: function() {
     this.jsonInit({
       "message0": "繰り返し，",
