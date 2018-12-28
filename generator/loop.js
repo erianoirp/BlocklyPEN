@@ -2,11 +2,6 @@
 Blockly.Pen['while'] = function(block) {
   var value_conditions = Blockly.Pen.valueToCode(block, 'conditions', Blockly.Pen.ORDER_ATOMIC);
   var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
-  // TODO: Assemble Pen into code variable.
-
-  // 括弧を取り除く
-  value_conditions = value_conditions.substr(1);
-  value_conditions = value_conditions.substr(0,value_conditions.length-1);
   //インデント調整
   statements_exe = statements_exe.replace(/\n/g,"\n  |");
   statements_exe = statements_exe.slice(0,-4);
