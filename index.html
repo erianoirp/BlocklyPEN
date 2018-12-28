@@ -418,7 +418,23 @@
       <block type="controls_flow_statements"></block>
       -->
     </category>
-
+    <!-- 関数 -->
+    <!--<category name="{catFunctions}" colour="290" custom="PROCEDURE"></category>-->
+    <category name="{catFunctions}" colour="160">
+      <label text="定義ブロック"></label>
+      <block type="define_function">
+        <value name="STATEMENTS">
+          <block type="return_block"></block>
+        </value>
+      </block>
+      <block type="define_step"></block>
+      <block type="return_block"></block>
+      <block type="return_void_block"></block>
+      <label text="呼び出しブロック"></label>
+      <block type="call_function"></block>
+      <block type="call_step"></block>
+    </category>
+    <!-- ~関数 -->
     <!--文字-->
 <!--
     <category name="{catText}" colour="160">
@@ -665,21 +681,13 @@
 
     <!--窓操作-->
     <category name="{catgwindow}" colour="0">
-      <block type="gopenw">
-        <value name="width">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="height">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
+      <block type="gopenw" disabled="true">
+        <value name="width"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="height"><shadow type="num"><field name="num">0</field></shadow></value>
       </block>
       <!-- <block type="gopengraphw"></block> -->
-      <block type="gclosew"></block>
-      <block type="gclearw"></block>
+      <block type="gclosew" disabled="true"></block>
+      <block type="gclearw" disabled="true"></block>
       <!-- <block type="gsavew"></block> -->
       <!--<block type="lists_create_with">
         <mutation items="0"></mutation>
@@ -734,29 +742,13 @@
 
     <!--セット-->
     <category name="{catgset}" colour="20">
-      <block type="gscolor">
-        <value name="r">
-          <shadow type="cnum">
-            <field name="cnum">0</field>
-          </shadow>
-        </value>
-        <value name="g">
-          <shadow type="cnum">
-            <field name="cnum">0</field>
-          </shadow>
-        </value>
-        <value name="b">
-          <shadow type="cnum">
-            <field name="cnum">0</field>
-          </shadow>
-        </value>
+      <block type="gscolor" disabled="true">
+        <value name="r"><shadow type="cnum"><field name="cnum">0</field></shadow></value>
+        <value name="g"><shadow type="cnum"><field name="cnum">0</field></shadow></value>
+        <value name="b"><shadow type="cnum"><field name="cnum">0</field></shadow></value>
       </block>
-      <block type="gsstyle">
-        <value name="style">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
+      <block type="gsstyle" disabled="true">
+        <value name="style"><shadow type="num"><field name="num">0</field></shadow></value>
       </block>
       <!-- <block type="gsfontts"></block> -->
       <!-- <block type="gsarrow"></block> -->
@@ -805,119 +797,38 @@
 
     <!--描画-->
     <category name="{catgdraw}" colour="20">
-      <block type="gdtext">
-        <value name="x">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="y">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="text">
-        </value>
+      <block type="gdtext" disabled="true">
+        <value name="x"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="y"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="text"></value>
       </block>
-      <block type="gdline">
-        <value name="x1">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="y1">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="x2">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="y2">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
+      <block type="gdline" disabled="true">
+        <value name="x1"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="y1"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="x2"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="y2"><shadow type="num"><field name="num">0</field></shadow></value>
       </block>
-      <block type="gdbox">
-        <value name="x">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="y">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="height">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="width">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
+      <block type="gdbox" disabled="true">
+        <value name="x"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="y"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="height"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="width"><shadow type="num"><field name="num">0</field></shadow></value>
       </block>
-      <block type="gfbox">
-        <value name="x">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="y">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="height">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="width">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
+      <block type="gfbox" disabled="true">
+        <value name="x"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="y"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="height"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="width"><shadow type="num"><field name="num">0</field></shadow></value>
       </block>
-      <block type="gdcircle">
-        <value name="x">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="y">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="r">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
+      <block type="gdcircle" disabled="true">
+        <value name="x"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="y"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="r"><shadow type="num"><field name="num">0</field></shadow></value>
       </block>
-      <block type="gfcircle">
-        <value name="x">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="y">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
-        <value name="r">
-          <shadow type="num">
-            <field name="num">0</field>
-          </shadow>
-        </value>
+      <block type="gfcircle" disabled="true">
+        <value name="x"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="y"><shadow type="num"><field name="num">0</field></shadow></value>
+        <value name="r"><shadow type="num"><field name="num">0</field></shadow></value>
       </block>
       <!-- <block type="gdpoint"></block> -->
       <!-- <block type="gdoval"></block> -->
@@ -944,23 +855,6 @@
     <!--整数-->
     <!--<category name="{catVariablesInt}" colour="350">-->
     <!--</category>-->
-
-    <!--関数-->
-    <!--<category name="{catFunctions}" colour="290" custom="PROCEDURE"></category>-->
-    <category name="{catFunctions}" colour="160">
-      <label text="定義ブロック"></label>
-      <block type="define_function">
-        <value name="STATEMENTS">
-          <block type="return_block"></block>
-        </value>
-      </block>
-      <block type="define_step"></block>
-      <block type="return_block"></block>
-      <block type="return_void_block"></block>
-      <label text="呼び出しブロック"></label>
-      <block type="call_function"></block>
-      <block type="call_step"></block>
-    </category>
   </xml>
 
   <!--追加-->
