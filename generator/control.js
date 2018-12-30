@@ -1,12 +1,3 @@
-//WaPENで使用できる
-Blockly.Pen['conditions'] = function(block) {
-  var value_argument1 = Blockly.Pen.valueToCode(block, 'argument1', Blockly.Pen.ORDER_ATOMIC);
-  var dropdown_comparisonoperator = block.getFieldValue('comparisonOperator');
-  var value_argument2 = Blockly.Pen.valueToCode(block, 'argument2', Blockly.Pen.ORDER_ATOMIC);
-  var code = value_argument1 + " " + dropdown_comparisonoperator + " " + value_argument2;
-  return [code, Blockly.Pen.ORDER_ATOMIC];
-};
-
 Blockly.Pen['if'] = function(block) {
   var value_conditions = Blockly.Pen.valueToCode(block, 'conditions', Blockly.Pen.ORDER_ATOMIC);
   var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
@@ -51,4 +42,39 @@ Blockly.Pen['if2'] = function(block) {
   return code + '\nを実行する\n';
 };
 */
+
+Blockly.Pen['while'] = function(block) {
+  var value_conditions = Blockly.Pen.valueToCode(block, 'conditions', Blockly.Pen.ORDER_ATOMIC);
+  var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
+  //インデント調整
+  statements_exe = statements_exe.replace(/\n/g,"\n  |");
+  statements_exe = statements_exe.slice(0,-4);
+
+  var code = value_conditions + ' の間，\n  |' + statements_exe +'\nを繰り返す\n';
+  return code;
+};
+
+Blockly.Pen['repeat_until'] = function(block) {
+  var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
+  var condition = Blockly.Pen.valueToCode(block, 'CONDITION', Blockly.Pen.ORDER_ATOMIC);
+  var code = '';
+  code += '繰り返し，\n';
+  code += statements;
+  code += 'を，' + condition + ' になるまで実行する\n';
+  return code;
+};
+
+Blockly.Pen['for'] = function(block) {
+  var variable = Blockly.Pen.valueToCode(block, 'VARIABLE', Blockly.Pen.ORDER_ATOMIC);
+  var from = Blockly.Pen.valueToCode(block, 'FROM', Blockly.Pen.ORDER_ATOMIC);
+  var to = Blockly.Pen.valueToCode(block, 'TO', Blockly.Pen.ORDER_ATOMIC);
+  var by = Blockly.Pen.valueToCode(block, 'BY', Blockly.Pen.ORDER_ATOMIC);
+  var while_ = block.getFieldValue('WHILE');
+  var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
+  var code = '';
+  code += variable + ' を ' + from + ' から ' + to + ' まで ' + by + ' ずつ' + while_ + 'ながら、\n';
+  code += statements;
+  code += 'を繰り返す\n';
+  return code;
+};
 

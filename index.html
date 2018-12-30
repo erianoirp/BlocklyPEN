@@ -27,8 +27,10 @@
   <!--本体モジュール-->
   <script src="./blockly/blockly_compressed.js"></script>
 
-  <!--Blockモジュール-->
+  <!--ブロックモジュール-->
   <!-- <script src="../google/blockly/blocks_compressed.js"></script> -->
+  <script src="./blocks/comp_logic.js"></script>
+  <script src="./blocks/control.js"></script>
   <script src="./blocks/file.js"></script>
   <!--  <script src="./blocks/function.js"></script>-->
   <script src="./blocks/function (no datatype).js"></script>
@@ -36,8 +38,6 @@
   <script src="./blocks/gset.js"></script>
   <script src="./blocks/gwindow.js"></script>
   <script src="./blocks/inoutput.js"></script>
-  <script src="./blocks/logic.js"></script>
-  <script src="./blocks/loop.js"></script>
   <script src="./blocks/math.js"></script>
   <script src="./blocks/num.js"></script>
   <!--  <script src="./blocks/step.js"></script>-->
@@ -56,6 +56,8 @@
   <script src="./code/code.js"></script>
 
   <script src="./generator/pen.js"></script>
+  <script src="./generator/comp_logic.js"></script>
+  <script src="./generator/control.js"></script>
   <script src="./generator/file.js"></script>
   <!--  <script src="./generator/function.js"></script>-->
   <script src="./generator/function (no datatype).js"></script>
@@ -63,8 +65,6 @@
   <script src="./generator/gset.js"></script>
   <script src="./generator/gwindow.js"></script>
   <script src="./generator/inoutput.js"></script>
-  <script src="./generator/logic.js"></script>
-  <script src="./generator/loop.js"></script>
   <script src="./generator/math.js"></script>
   <script src="./generator/num.js"></script>
   <script src="./generator/start.js"></script>
@@ -325,26 +325,12 @@
       <block type="print_v"></block>
     </category>
 
-    <!--条件分岐-->
-    <category name="{catLogic}" colour="190">
-      <!--<block type="controls_if"></block>-->
-      <block type="conditions">
-        <value name="argument1">
-          <!-- <shadow type="num">
-            <field name="num">0</field>
-          </shadow> -->
-          <!--
-        </value>
-        <value name="argument2">
-          -->
-          <!-- <shadow type="num">
-            <field name="num">0</field>
-          </shadow> -->
-        </value>
-      </block>
-      <block type="if2" disabled="true"></block>
-      <block type="if"></block>
-      <block type="ifelse"></block>
+    <!-- 比較・論理 -->
+    <category name="{catCompLogic}" colour="190">
+      <block type="conditions"></block>
+      <block type="and"></block>
+      <block type="or"></block>
+      <block type="not"></block>
       <!--
       <block type="ifelse"></block>
       -->
@@ -354,9 +340,12 @@
       <!--<block type="logic_null"></block>-->
       <!--<block type="logic_ternary"></block>-->
     </category>
-
-    <!--繰り返し-->
-    <category name="{catLoops}" colour="120">
+    <!-- ~比較・論理 -->
+    <!-- 制御 -->
+    <category name="{catControl}" colour="190">
+      <block type="if2" disabled="true"></block>
+      <block type="if"></block>
+      <block type="ifelse"></block>
       <block type="while"></block>
       <block type="repeat_until"></block>
       <block type="for"></block>
@@ -391,17 +380,15 @@
       <block type="controls_flow_statements"></block>
       -->
     </category>
+    <!-- ~制御 -->
     <sep></sep>
     <!-- 変数 -->
     <category name="{catVariable}" colour="330" custom="MYVARIABLE"></category>
     <!-- 関数 -->
-    <!--<category name="{catFunctions}" colour="290" custom="PROCEDURE"></category>-->
     <category name="{catFunctions}" colour="160">
       <label text="定義ブロック"></label>
       <block type="define_function">
-        <value name="STATEMENTS">
-          <block type="return_block"></block>
-        </value>
+        <value name="STATEMENTS"><block type="return_block"></block></value>
       </block>
       <block type="define_step"></block>
       <block type="return_block"></block>
