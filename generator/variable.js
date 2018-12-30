@@ -1,16 +1,7 @@
-/*
-Blockly.Pen['declare_variable'] = function(block) {
-  const datatype = block.getFieldValue('datatype');
-  const name = block.getFieldValue('name');
-  const code = datatype + ' ' + name + '\n';
-  return code;
-};
-*/
-
-Blockly.Pen['declare_variable'] = function(block) {
-  const datatype = block.getFieldValue('datatype');
-  const name = Blockly.Pen.valueToCode(block, 'name', Blockly.Pen.ORDER_ATOMIC);
-  const code = datatype + ' ' + name + '\n';
+Blockly.Pen['variable_declare'] = function(block) {
+  var type = block.getFieldValue('TYPE');
+  var variable = Blockly.Pen.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var code = type + ' ' + variable + '\n';
   return code;
 };
 
@@ -22,25 +13,17 @@ Blockly.Pen['declare_array'] = function(block) {
   return code;
 };
 
-Blockly.Pen['assign'] = function(block) {
-  const to = Blockly.Pen.valueToCode(block, 'to', Blockly.Pen.ORDER_ATOMIC);
-  const from = Blockly.Pen.valueToCode(block, 'from', Blockly.Pen.ORDER_ATOMIC);
-  const code = to + ' ← ' + from + '\n';
-  return code;
-};
-
-/*
-Blockly.Pen['variable'] = function(block) {
-  const name = block.getFieldValue('name');
-  const code = name;
-  return [code, Blockly.Pen.ORDER_NONE];
-};
-*/
-
-Blockly.Pen['variable'] = function(block) {
-  const name = Blockly.Pen.variableDB_.getName(block.getFieldValue('name'), Blockly.Variables.NAME_TYPE);
-  const code = name;
+Blockly.Pen['variable_get'] = function(block) {
+  var variable = Blockly.Pen.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var code = variable;
   return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
+Blockly.Pen['variable_set'] = function(block) {
+  var variable = Blockly.Pen.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+  var value = Blockly.Pen.valueToCode(block, 'VALUE', Blockly.Pen.ORDER_ATOMIC);
+  var code = variable + ' ← ' + value + '\n';
+  return code;
 };
 
 Blockly.Pen['array'] = function(block) {
