@@ -187,8 +187,6 @@
 
   <!--block内容-->
   <xml id="toolbox" style="display: none">
-    <!-- 変数 -->
-    <category name="{catVariable}" custom="MYVARIABLE"></category>
     <!-- 値 -->
     <category name="{catValue}" colour="290">
       <block type="integer"></block>
@@ -322,11 +320,7 @@
     <category name="{catInoutput}" colour="65">
       <!--<block type="math_number"></block>
       <block type="penvar"></block>-->
-      <block type="input">
-        <value name="variable">
-          <block type="variable"></block>
-        </value>
-      </block>
+      <block type="input"></block>
       <block type="print_string"></block>
       <block type="print_v"></block>
     </category>
@@ -365,11 +359,7 @@
     <category name="{catLoops}" colour="120">
       <block type="while"></block>
       <block type="repeat_until"></block>
-      <block type="for">
-        <value name="VARIABLE">
-          <block type="variable"></block>
-        </value>
-      </block>
+      <block type="for"></block>
 <!--
       <block type="controls_repeat_ext">
         <value name="TIMES">
@@ -401,6 +391,9 @@
       <block type="controls_flow_statements"></block>
       -->
     </category>
+    <sep></sep>
+    <!-- 変数 -->
+    <category name="{catVariable}" colour="330" custom="MYVARIABLE"></category>
     <!-- 関数 -->
     <!--<category name="{catFunctions}" colour="290" custom="PROCEDURE"></category>-->
     <category name="{catFunctions}" colour="160">
@@ -418,6 +411,7 @@
       <block type="call_step"></block>
     </category>
     <!-- ~関数 -->
+    <sep></sep>
     <!--文字-->
 <!--
     <category name="{catText}" colour="160">
