@@ -187,24 +187,8 @@
 
   <!--block内容-->
   <xml id="toolbox" style="display: none">
-
     <!-- 変数 -->
-    <category name="{catVariable}" colour="330">
-      <block type="declare_variable">
-        <value name="name">
-          <block type="variable"></block>
-        </value>
-      </block>
-      <block type="declare_array">
-        <value name="NAME">
-          <block type="variable"></block>
-        </value>
-      </block>
-      <block type="assign"></block>
-      <block type="variable"></block>
-      <block type="array"></block>
-    </category>
-
+    <category name="{catVariable}" custom="MYVARIABLE"></category>
     <!-- 値 -->
     <category name="{catValue}" colour="290">
       <block type="integer"></block>

@@ -1,6 +1,6 @@
 "use strict";
 
-/*
+/**
  * WaPENのコードを上書き
  */
 function setRunflag(b) {
@@ -221,11 +221,10 @@ onload = function onload() {
     if (dirty) return "プログラムが消去されます";
   });
 };
-/*
- * WaPEN上書き 終了
- */
 
-/***** ↓ 初期化するモジュール ↓ *****/
+/**
+ * 初期化するモジュール
+ */
 var startBlock = '<xml><block type="start" deletable="false"></block></xml>';
 var initWorkspace = function initWorkspace() {
   // firefoxではなぜか動かない
@@ -233,9 +232,10 @@ var initWorkspace = function initWorkspace() {
   Blockly.mainWorkspace.addChangeListener(Blockly.Events.disableOrphans);
 };
 //initBlocks();
-/***** ↑ 初期化するモジュール ↑ *****/
 
-/***** ↓ ステップ実行するモジュール ↓ *****/
+/**
+ * ステップ実行するモジュール
+ */
 /*
 const stepButton = document.getElementById('stepButton');
 const workspace = Blockly.inject('content_block',
@@ -309,9 +309,10 @@ workspace.addChangeListener(function(event) {
   }
 });
 */
-/***** ↑ ステップ実行するモジュール ↑ *****/
 
-/***** ↓ ブロックを保存するモジュール ↓ *****/
+/**
+ * ブロックを保存するモジュール
+ */
 var saveButton = document.getElementById('saveButton');
 var saveBlocks = function saveBlocks() {
   var fileName = 'myprogram.xml';
@@ -340,9 +341,10 @@ var saveBlocks = function saveBlocks() {
 saveButton.onclick = function () {
   saveBlocks();
 };
-/***** ↑ ブロックを保存するモジュール ↑ *****/
 
-/***** ↓ ブロックを読み込むモジュール ↓ *****/
+/**
+ * ブロックを読み込むモジュール
+ */
 var loadButton = document.getElementById('loadButton');
 var loadBlocks = function loadBlocks() {
   var input = document.createElement("input");
@@ -372,17 +374,18 @@ var loadBlocks = function loadBlocks() {
 loadButton.onclick = function () {
   loadBlocks();
 };
-/***** ↑ ブロックを読み込むモジュール ↑ *****/
 
-/***** ↓ 実行結果をリセットするモジュール ↓ *****/
-
+/**
+ * 実行結果をリセットするモジュール
+ */
 var resetButton = document.getElementById('resetButton');
 resetButton.onclick = function () {
   reset();
 };
-/***** ↑ 実行結果をリセットするモジュール ↑ *****/
 
-/***** ↓ ブロックをリセットするモジュール ↓ *****/
+/*
+ * ブロックをリセットするモジュール
+ */
 var resetBlocksButton = document.getElementById('trashButton');
 var resetBlocks = function resetBlocks() {
   Blockly.mainWorkspace.clear();
@@ -392,4 +395,35 @@ resetBlocksButton.onclick = function () {
   resetBlocks();
   reset();
 };
-/***** ↑ ブロックをリセットするモジュール ↑ *****/
+
+/**
+ * 変数カテゴリのモジュール
+ */
+window.addEventListener('load', function () {
+  var buttonName = '変数を作成する';
+  Code.workspace.registerToolboxCategoryCallback('MYVARIABLE', function (workspace) {
+    var vars = Blockly.Variables.getAddedVariables(Code.workspace, []);
+    var xmlList = [];
+    var buttonText = '<xml>' + '<button text="' + buttonName + '" callbackKey="CreateVariableButton"></button>' + '</xml>';
+    var button = Blockly.Xml.textToDom(buttonText).firstChild;
+    xmlList.push(button);
+    var numOfVar = Blockly.Variables.getAddedVariables(Code.workspace, []).length;
+    if (numOfVar > 0) {
+      var declarerText = '<xml>' + '<block type="variable_declare">' + '<field name="VAR">' + vars[vars.length - 1].name + '</field>' + '</block>' + '</xml>';
+      var declarer = Blockly.Xml.textToDom(declarerText).firstChild;
+      xmlList.push(declarer);
+      var setterText = '<xml>' + '<block type="variable_set">' + '<field name="VAR">' + vars[vars.length - 1].name + '</field>' + '</block>' + '</xml>';
+      var setter = Blockly.Xml.textToDom(setterText).firstChild;
+      xmlList.push(setter);
+    }
+    for (var i = 0; i < numOfVar; i++) {
+      var getterText = '<xml>' + '<block type="variable_get">' + '<field name="VAR">' + vars[i].name + '</field>' + '</block>' + '</xml>';
+      var getter = Blockly.Xml.textToDom(getterText).firstChild;
+      xmlList.push(getter);
+    }
+    return xmlList;
+  });
+  Code.workspace.registerButtonCallback('CreateVariableButton', function (button) {
+    Blockly.Variables.createVariable(button.getTargetWorkspace(), null, null);
+  });
+}, false);
