@@ -193,6 +193,7 @@
     <!-- 変数 -->
     <!--<category name="{catVariable}" colour="330" custom="MYVARIABLE"></category>-->
     <category name="{catVariable}" colour="330">
+      <label text="宣言ブロック"></label>
       <block type="declare_variable">
         <value name="VARIABLE"><block type="variable"></block></value>
       </block>
@@ -202,16 +203,23 @@
       <block type="declare_array2">
         <value name="VARIABLE"><block type="variable"></block></value>
       </block>
+      <label text="代入ブロック"></label>
       <block type="assign"></block>
+      <label text="変数ブロック"></label>
       <block type="variable"></block>
       <block type="array1">
         <value name="VARIABLE"><block type="variable"></block></value>
-        <value name="INDEX1"><shadow type="integer"><field name="value">0</field></shadow></value>
+        <value name="INDEX1"><shadow type="integer"></shadow></value>
       </block>
       <block type="array2">
         <value name="VARIABLE"><block type="variable"></block></value>
-        <value name="INDEX1"><shadow type="integer"><field name="value">0</field></shadow></value>
-        <value name="INDEX2"><shadow type="integer"><field name="value">0</field></shadow></value>
+        <value name="INDEX1"><shadow type="integer"></shadow></value>
+        <value name="INDEX2"><shadow type="integer"></shadow></value>
+      </block>
+      <label text="その他"></label>
+      <block type="incDec">
+        <value name="VARIABLE"><block type="variable"></block></value>
+        <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
       </block>
     </category>
     <sep></sep>

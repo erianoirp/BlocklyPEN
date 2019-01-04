@@ -269,3 +269,34 @@ Blockly.Blocks['variable_set'] = {
 };
 */
 
+Blockly.Blocks['incDec'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 の値を %2 %3",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VARIABLE",
+          "check": "Variable"
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE1",
+          "check": ["Number","Variable"]
+        },
+        {
+          "type": "field_dropdown",
+          "name": "VALUE2",
+          "options": [["増やす","増やす"],["減らす","減らす"]]
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 330,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+

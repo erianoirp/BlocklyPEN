@@ -72,3 +72,12 @@ Blockly.Pen['variable_set'] = function(block) {
 };
 */
 
+Blockly.Pen['incDec'] = function(block) {
+  var variable = Blockly.Pen.valueToCode(block, 'VARIABLE', Blockly.Pen.ORDER_ATOMIC);
+  var value1 = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
+  var value2 = block.getFieldValue('VALUE2');
+  var code = variable + ' ← ' +
+    variable + ' ' + (value2 === '増やす' ? '+' : '-') + ' ' +
+    value1 + '\n';
+  return code;
+};

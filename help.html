@@ -280,6 +280,22 @@ BlocklyPEN上では、変数ブロックが最初からセットされている�
 変数ブロックとほとんど使い方は同じだが、配列の要素番号を指定することができる。</p>
           </div>
         </section>
+        <section class="blockSection">
+          <h5>増減ブロック</h5>
+          <div id="incDecDiv" class="sampleBlock"></div>
+          <xml id="incDecXml" style="display: none">
+            <block type="incDec">
+              <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
+            </block>
+          </xml>
+          <script>embedBlock('incDec');</script>
+          <div class="blockDescription">
+<p>変数の値を増減する。<br>
+2つ目のブロック分だけ変数の値を増やすor減らすことができる。<br>
+代入ブロックで代用できるが、繰り返しブロックなどで変数の値を1増やしたい場合などにそれを簡単に実現することができるので、
+主に繰り返しブロックで使用する。</p>
+          </div>
+        </section>
       </section>
       <!-- 
         - 値カテゴリ
