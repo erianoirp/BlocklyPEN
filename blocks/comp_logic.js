@@ -7,7 +7,7 @@ Blockly.Blocks['conditions'] = {
     this.appendValueInput("argument2")
         .setCheck(null);
     this.setInputsInline(true);
-    this.setOutput(true, "Moziretu");
+    this.setOutput(true, "Boolean");
     this.setColour(190);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
@@ -34,6 +34,7 @@ Blockly.Blocks['and_or'] = {
         }
       ],
       "inputsInline": true,
+      "output": "Boolean",
       "colour": 190,
       "helpUrl": "",
       "tooltip": ""
@@ -55,8 +56,8 @@ Blockly.Blocks['and'] = {
           "name": "VALUE2"
         }
       ],
-      "output": null,
       "inputsInline": true,
+      "output": "Boolean",
       "colour": 190,
       "helpUrl": "",
       "tooltip": ""
@@ -78,8 +79,8 @@ Blockly.Blocks['or'] = {
           "name": "VALUE2"
         }
       ],
-      "output": null,
       "inputsInline": true,
+      "output": "Boolean",
       "colour": 190,
       "helpUrl": "",
       "tooltip": ""
@@ -97,8 +98,8 @@ Blockly.Blocks['not'] = {
           "name": "VALUE1"
         }
       ],
-      "output": null,
       "inputsInline": true,
+      "output": "Boolean",
       "colour": 190,
       "helpUrl": "",
       "tooltip": ""
