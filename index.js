@@ -329,6 +329,7 @@ resetBlocksButton.onclick = function() {
 /**
  * 変数カテゴリのモジュール
  */
+/*
 window.addEventListener('load', function() {
   const buttonName = '変数を作成する';
   Code.workspace.registerToolboxCategoryCallback('MYVARIABLE', function(workspace) {
@@ -371,11 +372,13 @@ window.addEventListener('load', function() {
     Blockly.Variables.createVariable(button.getTargetWorkspace(), null, null);
   });
 }, false);
+*/
 /**
  * 変数宣言が必要かチェックするモジュール
  */
 const isDeclarationNecessary = document.varForm.isDeclarationNecessary;
 isDeclarationNecessary.checked = true;
+setting.var_declaration = 0;
 isDeclarationNecessary.addEventListener('change', function() {
   if (this.checked) {
     setting.var_declaration = 0;

@@ -399,39 +399,56 @@ resetBlocksButton.onclick = function () {
 /**
  * 変数カテゴリのモジュール
  */
-window.addEventListener('load', function () {
-  var buttonName = '変数を作成する';
-  Code.workspace.registerToolboxCategoryCallback('MYVARIABLE', function (workspace) {
+/*
+window.addEventListener('load', function() {
+  const buttonName = '変数を作成する';
+  Code.workspace.registerToolboxCategoryCallback('MYVARIABLE', function(workspace) {
     var vars = Blockly.Variables.getAddedVariables(Code.workspace, []);
     var xmlList = [];
-    var buttonText = '<xml>' + '<button text="' + buttonName + '" callbackKey="CreateVariableButton"></button>' + '</xml>';
+    var buttonText = '<xml>' +
+      '<button text="' + buttonName + '" callbackKey="CreateVariableButton"></button>' +
+      '</xml>';
     var button = Blockly.Xml.textToDom(buttonText).firstChild;
     xmlList.push(button);
     var numOfVar = Blockly.Variables.getAddedVariables(Code.workspace, []).length;
     if (numOfVar > 0) {
-      var declarerText = '<xml>' + '<block type="variable_declare">' + '<field name="VAR">' + vars[vars.length - 1].name + '</field>' + '</block>' + '</xml>';
+      var declarerText = '<xml>' +
+        '<block type="variable_declare">' +
+        '<field name="VAR">' + vars[vars.length-1].name + '</field>' +
+        '</block>' +
+        '</xml>';
       var declarer = Blockly.Xml.textToDom(declarerText).firstChild;
       xmlList.push(declarer);
-      var setterText = '<xml>' + '<block type="variable_set">' + '<field name="VAR">' + vars[vars.length - 1].name + '</field>' + '</block>' + '</xml>';
+      var setterText = '<xml>' +
+        '<block type="variable_set">' +
+        '<field name="VAR">' + vars[vars.length-1].name + '</field>' +
+        '</block>' +
+        '</xml>';
       var setter = Blockly.Xml.textToDom(setterText).firstChild;
       xmlList.push(setter);
     }
-    for (var i = 0; i < numOfVar; i++) {
-      var getterText = '<xml>' + '<block type="variable_get">' + '<field name="VAR">' + vars[i].name + '</field>' + '</block>' + '</xml>';
+    for (let i = 0; i < numOfVar; i++) {
+      var getterText = '<xml>' +
+        '<block type="variable_get">' +
+        '<field name="VAR">' + vars[i].name + '</field>' +
+        '</block>' +
+        '</xml>';
       var getter = Blockly.Xml.textToDom(getterText).firstChild;
       xmlList.push(getter);
     }
     return xmlList;
   });
-  Code.workspace.registerButtonCallback('CreateVariableButton', function (button) {
+  Code.workspace.registerButtonCallback('CreateVariableButton', function(button) {
     Blockly.Variables.createVariable(button.getTargetWorkspace(), null, null);
   });
 }, false);
+*/
 /**
  * 変数宣言が必要かチェックするモジュール
  */
 var isDeclarationNecessary = document.varForm.isDeclarationNecessary;
 isDeclarationNecessary.checked = true;
+setting.var_declaration = 0;
 isDeclarationNecessary.addEventListener('change', function () {
   if (this.checked) {
     setting.var_declaration = 0;

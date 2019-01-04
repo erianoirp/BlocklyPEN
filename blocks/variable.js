@@ -1,21 +1,48 @@
-Blockly.Blocks['declare_array'] = {
+Blockly.Blocks['declare_variable'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 %2 の変数を宣言",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "DATATYPE",
+          "options": [["整数","整数"],["実数","実数"],["文字列","文字列"],["真偽","真偽"]]
+        },
+        {
+          "type": "input_value",
+          "name": "VARIABLE",
+          "check": "Variable"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 330,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.Blocks['declare_array1'] = {
   init: function() {
     this.jsonInit({
       "message0": "%1 %2 大きさ %3 の配列を宣言",
       "args0": [
         {
           "type": "field_dropdown",
-          "name": "datatype",
+          "name": "DATATYPE",
           "options": [["整数","整数"],["実数","実数"],["文字列","文字列"],["真偽","真偽"]]
         },
         {
           "type": "input_value",
-          "name": "NAME",
+          "name": "VARIABLE",
           "check": "Variable"
         },
         {
           "type": "field_number",
-          "name": "SIZE",
+          "name": "SIZE1",
+          "check": "Number",
           "value": 1,
           "min": 1,
           "precision": 1
@@ -31,6 +58,148 @@ Blockly.Blocks['declare_array'] = {
   }
 };
 
+Blockly.Blocks['declare_array2'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 %2 大きさ %3, %4 の配列を宣言",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "DATATYPE",
+          "options": [["整数","整数"],["実数","実数"],["文字列","文字列"],["真偽","真偽"]]
+        },
+        {
+          "type": "input_value",
+          "name": "VARIABLE",
+          "check": "Variable"
+        },
+        {
+          "type": "field_number",
+          "name": "SIZE1",
+          "check": "Number",
+          "value": 1,
+          "min": 1,
+          "precision": 1
+        },
+        {
+          "type": "field_number",
+          "name": "SIZE2",
+          "check": "Number",
+          "value": 1,
+          "min": 1,
+          "precision": 1
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 330,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.Blocks['assign'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 の値を %2 にする",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VARIABLE",
+          "check": "Variable"
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 330,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.Blocks['variable'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "VARIABLE",
+          "text": "≪変数≫"
+        }
+      ],
+      "output": "Variable",
+      "colour": 330,
+      "helpUrl": "",
+      "tooltip": ""
+    });
+  }
+};
+
+Blockly.Blocks['array1'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 の %2 番目",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VARIABLE",
+          "check": "Variable"
+        },
+        {
+          "type": "input_value",
+          "name": "INDEX1",
+          "check": ["Number","Variable"]
+        }
+      ],
+      "inputsInline": true,
+      "output": "Variable",
+      "colour": 330,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.Blocks['array2'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 の %2 %3 番目",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VARIABLE",
+          "check": "Variable"
+        },
+        {
+          "type": "input_value",
+          "name": "INDEX1",
+          "check": ["Number","Variable"]
+        },
+        {
+          "type": "input_value",
+          "name": "INDEX2",
+          "check": ["Number","Variable"]
+        }
+      ],
+      "inputsInline": true,
+      "output": "Variable",
+      "colour": 330,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+/*
 Blockly.Blocks['variable_declare'] = {
   init: function() {
     this.jsonInit({
@@ -98,28 +267,5 @@ Blockly.Blocks['variable_set'] = {
     });
   }
 };
-
-Blockly.Blocks['array'] = {
-  init: function() {
-    this.jsonInit({
-      "message0": "%1 の %2 番目",
-      "args0": [
-        {
-          "type": "field_variable",
-          "name": "NAME",
-          "variable": "≪変数≫"
-        },
-        {
-          "type": "input_value",
-          "name": "INDEX"
-        }
-      ],
-      "inputsInline": true,
-      "output": null,
-      "colour": 330,
-      "tooltip": "",
-      "helpUrl": ""
-    });
-  }
-};
+*/
 

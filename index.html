@@ -141,7 +141,7 @@
                     <img src='./google/blockly/media/1x1.gif' class="trash icon21">
                   </button>
                   <form id="varForm" name="varForm" action="">
-                    <input id="isDeclarationNecessary" type="checkbox">変数宣言が必要
+                    <input id="isDeclarationNecessary" type="checkbox">変数宣言を必須にする（チェック推奨）
                   </form>
                 </td>
               </tr>
@@ -190,6 +190,31 @@
 
   <!--block内容-->
   <xml id="toolbox" style="display: none">
+    <!-- 変数 -->
+    <!--<category name="{catVariable}" colour="330" custom="MYVARIABLE"></category>-->
+    <category name="{catVariable}" colour="330">
+      <block type="declare_variable">
+        <value name="VARIABLE"><block type="variable"></block></value>
+      </block>
+      <block type="declare_array1">
+        <value name="VARIABLE"><block type="variable"></block></value>
+      </block>
+      <block type="declare_array2">
+        <value name="VARIABLE"><block type="variable"></block></value>
+      </block>
+      <block type="assign"></block>
+      <block type="variable"></block>
+      <block type="array1">
+        <value name="VARIABLE"><block type="variable"></block></value>
+        <value name="INDEX1"><shadow type="integer"><field name="value">0</field></shadow></value>
+      </block>
+      <block type="array2">
+        <value name="VARIABLE"><block type="variable"></block></value>
+        <value name="INDEX1"><shadow type="integer"><field name="value">0</field></shadow></value>
+        <value name="INDEX2"><shadow type="integer"><field name="value">0</field></shadow></value>
+      </block>
+    </category>
+    <sep></sep>
     <!-- 値 -->
     <category name="{catValue}" colour="290">
       <block type="integer"></block>
@@ -319,15 +344,6 @@
       -->
     </category>
 
-    <!--入出力-->
-    <category name="{catInoutput}" colour="65">
-      <!--<block type="math_number"></block>
-      <block type="penvar"></block>-->
-      <block type="input"></block>
-      <block type="print_string"></block>
-      <block type="print_v"></block>
-    </category>
-
     <!-- 比較・論理 -->
     <category name="{catCompLogic}" colour="190">
       <block type="conditions"></block>
@@ -385,8 +401,16 @@
     </category>
     <!-- ~制御 -->
     <sep></sep>
-    <!-- 変数 -->
-    <category name="{catVariable}" colour="330" custom="MYVARIABLE"></category>
+    <!-- 入出力 -->
+    <category name="{catInoutput}" colour="65">
+      <!--<block type="math_number"></block>
+      <block type="penvar"></block>-->
+      <block type="input"></block>
+      <block type="print_string"></block>
+      <block type="print_v"></block>
+    </category>
+    <!-- ~入出力 -->
+    <sep></sep>
     <!-- 関数 -->
     <category name="{catFunctions}" colour="160">
       <label text="定義ブロック"></label>
