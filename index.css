@@ -28,6 +28,9 @@ h1 {
   width: 25px;
   height: 25px;
 }
+#varForm {
+  display: inline;
+}
 text.blocklyText {
   font-family: monospace;
 }

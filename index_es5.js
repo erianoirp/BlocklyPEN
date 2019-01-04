@@ -427,3 +427,15 @@ window.addEventListener('load', function () {
     Blockly.Variables.createVariable(button.getTargetWorkspace(), null, null);
   });
 }, false);
+/**
+ * 変数宣言が必要かチェックするモジュール
+ */
+var isDeclarationNecessary = document.varForm.isDeclarationNecessary;
+isDeclarationNecessary.checked = true;
+isDeclarationNecessary.addEventListener('change', function () {
+  if (this.checked) {
+    setting.var_declaration = 0;
+  } else {
+    setting.var_declaration = 1;
+  }
+});
