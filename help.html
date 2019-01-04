@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>BlocklyPENの使い方</title>
   <script src="./blockly/blockly_compressed.js"></script>
+  <script src="./blocks/comp_logic.js"></script>
+  <script src="./blocks/control.js"></script>
   <script src="./blocks/file.js"></script>
   <!--  <script src="./blocks/function.js"></script>-->
   <script src="./blocks/function (no datatype).js"></script>
@@ -11,8 +13,6 @@
   <script src="./blocks/gset.js"></script>
   <script src="./blocks/gwindow.js"></script>
   <script src="./blocks/inoutput.js"></script>
-  <script src="./blocks/logic.js"></script>
-  <script src="./blocks/loop.js"></script>
   <script src="./blocks/math.js"></script>
   <script src="./blocks/num.js"></script>
   <!--  <script src="./blocks/step.js"></script>-->
@@ -103,18 +103,9 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
 </thead>
 </thead>
 <tbody>
-  <tr>
-    <td>ドラッグ</td>
-    <td>クリックボタンを押しながらマウスを動かすこと。</td>
-  </tr>
-  <tr>
-    <td>ドロップ</td>
-    <td>クリックボタンの長押しをやめること。</td>
-  </tr>
-  <tr>
-    <td>D&amp;D（ドラッグ＆ドロップ）</td>
-    <td>ドラッグとドロップを続けて行うこと。</td>
-  </tr>
+  <tr><td>ドラッグ</td><td>クリックボタンを押しながらマウスを動かすこと。</td></tr>
+  <tr><td>ドロップ</td><td>クリックボタンの長押しをやめること。</td></tr>
+  <tr><td>D&amp;D（ドラッグ＆ドロップ）</td><td>ドラッグとドロップを続けて行うこと。</td></tr>
 </tbody>
         </table>
       </section>
@@ -123,76 +114,36 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
         <img src="images/IdeDescription.png" alt="BlocklyPENの画面設計" title="BlocklyPENの画面設計">
         <table>
 <thead>
-  <tr>
-    <th>項目</th>
-    <th>説明</th>
-  </tr>
+  <tr><th>項目</th><th>説明</th></tr>
 </thead>
 </thead>
 <tbody>
-  <tr>
-    <td>実行</td>
-    <td>ワークスペースで作ったプログラムを実行する。</td>
-  </tr>
-  <tr>
-    <td>ステップ実行</td>
-    <td>ワークスペースで作ったプログラムをステップ実行する。</td>
-  </tr>
-  <tr>
-    <td>エクスポート</td>
-    <td>作成したブロックをXMLファイルとして保存する。</td>
-  </tr>
-  <tr>
-    <td>インポート</td>
-    <td>エクスポートしたファイルを指定して読み込み、ワークスペースに反映する。</td>
-  </tr>
-  <tr>
-    <td>クリア</td>
-    <td>ワークスペース上のブロックと実行結果をクリアする。<br>
-    ※Firefoxではスタートブロックも消えてしまう不具合あり。</td>
-  </tr>
-  <tr>
-    <td>ブロックタブ</td>
-    <td>ツールボックスとワークスペースを表示する。</td>
-  </tr>
-  <tr>
-    <td>PENタブ</td>
-    <td>ワークスペースで作成したブロックをPENのコードに変換したテキストを表示する。</td>
-  </tr>
-  <tr>
-    <td>ツールボックス</td>
+  <tr><td>実行</td><td>ワークスペースで作ったプログラムを実行する。</td></tr>
+  <tr><td>ステップ実行</td><td>ワークスペースで作ったプログラムをステップ実行する。</td></tr>
+  <tr><td>エクスポート</td><td>作成したブロックをXMLファイルとして保存する。</td></tr>
+  <tr><td>インポート</td><td>エクスポートしたファイルを指定して読み込み、ワークスペースに反映する。</td></tr>
+  <tr><td>クリア</td><td>ワークスペース上のブロックと実行結果をクリアする。<br>※Firefoxではスタートブロックも消えてしまう不具合あり。</td></tr>
+  <tr><td>ブロックタブ</td><td>ツールボックスとワークスペースを表示する。</td></tr>
+  <tr><td>PENタブ</td><td>ワークスペースで作成したブロックをPENのコードに変換したテキストを表示する。</td></tr>
+  <tr><td>ツールボックス</td>
     <td>ワークスペースでブロックを組むためのブロックが格納されている。<br>
     ブロックは各カテゴリに分けられており、カテゴリをクリックすることでブロックが表示される。<br>
     表示されたブロックをD&amp;Dすることで、ワークスペースで使えるようになる。</td>
   </tr>
-  <tr>
-    <td>ワークスペース</td>
+  <tr><td>ワークスペース</td>
     <td>ブロックを組む（プログラムを作る）領域。<br>
     ブロックを左クリックしながら
     右クリックすることで、直前の状態に戻したり、ブロックを削除したりできる。</td>
   </tr>
-  <tr>
-    <td>中心に移動</td>
-    <td>ワークスペースの中心に移動する。</td>
-  </tr>
-  <tr>
-    <td>拡大・縮小</td>
-    <td>ワークスペースを拡大・縮小する。</td>
-  </tr>
-  <tr>
-    <td>ゴミ箱</td>
+  <tr><td>中心に移動</td><td>ワークスペースの中心に移動する。</td></tr>
+  <tr><td>拡大・縮小</td><td>ワークスペースを拡大・縮小する。</td></tr>
+  <tr><td>ゴミ箱</td>
     <td>ブロックを削除する。<br>
     ワークスペースに置かれた不要なブロックをここにD&amp;して
     削除することができる。</td>
   </tr>
-  <tr>
-    <td>実行結果</td>
-    <td>実行した結果がここに表示される。</td>
-  </tr>
-  <tr>
-    <td>実行結果クリア</td>
-    <td>実行結果をクリアする。</td>
-  </tr>
+  <tr><td>実行結果</td><td>実行した結果がここに表示される。</td></tr>
+  <tr><td>実行結果クリア</td><td>実行結果をクリアする。</td></tr>
 </tbody>
         </table>
       </section>
@@ -201,7 +152,9 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
       <h3>ブロックの種類</h3>
       <section>
         <h4>変数</h4>
-        <!-- 変数宣言ブロック -->
+        <!--
+          - 変数宣言ブロック
+          -->
         <section class="blockSection">
           <h5>変数宣言ブロック</h5>
           <div id="declareVariableDiv" class="sampleBlock"></div>
@@ -209,6 +162,14 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
             <block type="declare_variable" x="3"></block>
           </xml>
           <script>embedBlock('declareVariable');</script>
+<!--
+  <script>
+    var div = document.createElement('div');
+    div.className = 'blockDescription';
+    div.innerHTML = blockDescriptions.declareVariable;
+    document.getElementById('declareVariableDiv').parentNode.appendChild(div);
+  </script>
+-->
 <!--
           <script>
   {
@@ -230,25 +191,35 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
 -->
           <div class="blockDescription">
 <p>変数を宣言する。<br>
-プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」の名前の変数を宣言する。</p>
+プルダウンメニューから宣言する変数の型を指定し、変数ブロックの名前の変数を宣言する。</p>
         </div>
         </section>
-        <!-- 配列宣言ブロック -->
         <section class="blockSection">
-          <h5>配列宣言ブロック</h5>
-          <div id="declareArrayDiv" class="sampleBlock-1-0"></div>
-          <xml id="declareArrayXml" style="display: none">
-            <block type="declare_array"></block>
+          <h5>1次元配列宣言ブロック</h5>
+          <div id="declareArray1Div" class="sampleBlock-1-0"></div>
+          <xml id="declareArray1Xml" style="display: none">
+            <block type="declare_array1"></block>
           </xml>
-          <script>embedBlock('declareArray');</script>
+          <script>embedBlock('declareArray1');</script>
           <div class="blockDescription-1-0">
-<p>配列を宣言する。<br>
-プルダウンメニューから宣言する変数の型を指定し、「変数ブロック」の名前の配列を宣言する。<br>
-指定された大きさ分の配列が作られる。</p>
+<p>1次元配列を宣言する。<br>
+プルダウンメニューから宣言する変数の型を指定し、変数ブロックの名前の配列を宣言する。<br>
+指定された大きさ分の1次元配列が作られる。</p>
           </div>
         </section>
-        <!-- ~配列宣言ブロック -->
-        <!-- 代入ブロック -->
+        <section class="blockSection">
+          <h5>2次元配列宣言ブロック</h5>
+          <div id="declareArray2Div" class="sampleBlock-1-0"></div>
+          <xml id="declareArray2Xml" style="display: none">
+            <block type="declare_array2"></block>
+          </xml>
+          <script>embedBlock('declareArray2');</script>
+          <div class="blockDescription-1-0">
+<p>2次元配列を宣言する。<br>
+プルダウンメニューから宣言する変数の型を指定し、変数ブロックの名前の配列を宣言する。<br>
+指定された大きさ分の2次元配列が作られる。</p>
+          </div>
+        </section>
         <section class="blockSection">
           <h5>代入ブロック</h5>
           <div id="assignDiv" class="sampleBlock"></div>
@@ -258,13 +229,12 @@ BlocklyPENは、以下のブラウザに対応しています（多分）。
           <script>embedBlock('assign');</script>
           <div class="blockDescription">
 <p>変数に値を代入する。<br>
-左辺に変数ブロックを置き、右辺に変数ブロックや値ブロックを置くことで、
+1つ目の空白に変数ブロックを置き、2つ目の空白に変数ブロックや値ブロックを置くことで、
 左辺の変数に右辺値を代入することができる。<br>
 左辺には変数ブロックしか置くことができない。<br>
-BlocklyPEN上では「変数ブロック」が最初からセットされている。</p>
+BlocklyPEN上では、変数ブロックが最初からセットされている。</p>
           </div>
         </section>
-        <!-- 変数ブロック -->
         <section class="blockSection">
           <h5>変数ブロック</h5>
           <div id="variableDiv" class="sampleBlock"></div>
@@ -281,27 +251,41 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 ブロックを削除したい場合）は、右クリックからブロックを削除する。</p>
           </div>
         </section>
-        <!-- ~変数ブロック -->
-        <!-- 配列ブロック -->
         <section class="blockSection">
-          <h5>変数ブロック</h5>
-          <div id="arrayDiv" class="sampleBlock"></div>
-          <xml id="arrayXml" style="display: none">
-            <block type="array"></block>
+          <h5>1次元配列ブロック</h5>
+          <div id="array1Div" class="sampleBlock"></div>
+          <xml id="array1Xml" style="display: none">
+            <block type="array1">
+              <value name="INDEX1"><shadow type="integer"></shadow></value>
+            </block>
           </xml>
-          <script>embedBlock('array');</script>
+          <script>embedBlock('array1');</script>
           <div class="blockDescription">
-<p>配列を参照する。<br>
-「変数ブロック」とほとんど使い方は同じだが、配列の要素番号を指定することができる。</p>
+<p>1次元の配列を参照する。<br>
+変数ブロックとほとんど使い方は同じだが、配列の要素番号を指定することができる。</p>
           </div>
         </section>
-        <!-- ~配列ブロック -->
+        <section class="blockSection">
+          <h5>2次元配列ブロック</h5>
+          <div id="array2Div" class="sampleBlock"></div>
+          <xml id="array2Xml" style="display: none">
+            <block type="array2">
+              <value name="INDEX1"><shadow type="integer"></shadow></value>
+              <value name="INDEX2"><shadow type="integer"></shadow></value>
+            </block>
+          </xml>
+          <script>embedBlock('array2');</script>
+          <div class="blockDescription">
+<p>2次元の配列を参照する。<br>
+変数ブロックとほとんど使い方は同じだが、配列の要素番号を指定することができる。</p>
+          </div>
+        </section>
       </section>
-      <!-- ~変数カテゴリ -->
-      <!-- 値カテゴリ -->
+      <!-- 
+        - 値カテゴリ
+        -->
       <section>
         <h4>値</h4>
-        <!-- 整数ブロック -->
         <section class="blockSection">
           <h5>整数ブロック</h5>
           <div id="integerDiv" class="sampleBlock"></div>
@@ -315,8 +299,6 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 -9007199254740991～9007199254740991までの値を扱える。</p>
           </div>
         </section>
-        <!-- ~整数ブロック -->
-        <!-- 実数ブロック -->
         <section class="blockSection">
           <h5>実数ブロック</h5>
           <div id="floatDiv" class="sampleBlock"></div>
@@ -333,8 +315,6 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 <!-- Number.NEGATIVE_INFINITY～Number.POSITIVE_INFINITYまでの値を扱える。-->
           </div>
         </section>
-        <!-- ~実数ブロック -->
-        <!-- 文字列ブロック -->
         <section class="blockSection">
           <h5>文字列ブロック</h5>
           <div id="stringDiv" class="sampleBlock"></div>
@@ -347,8 +327,6 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 文字列型の変数に代入したり文字列を表示するために使用する。</p>
           </div>
         </section>
-        <!-- ~文字列ブロック -->
-        <!-- 文字列化ブロック -->
         <section class="blockSection">
           <h5>文字列化ブロック</h5>
           <div id="value2StringDiv" class="sampleBlock"></div>
@@ -361,8 +339,6 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 数字でなく文字列として連結・出力したい場合などに使用する。</p>
           </div>
         </section>
-        <!-- ~文字列ブロック -->
-        <!-- 真偽ブロック -->
         <section class="blockSection">
           <h5>真偽ブロック</h5>
           <div id="booleanDiv" class="sampleBlock"></div>
@@ -375,9 +351,10 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
 真偽型の変数に代入したり真偽を判定するために使用する。</p>
           </div>
         </section>
-        <!-- ~真偽ブロック -->
       </section>
-      <!-- 計算 -->
+      <!--
+        - 計算カテゴリ
+        -->
       <section>
         <h4>計算</h4>
         <section class="blockSection">
@@ -398,14 +375,267 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           <h5>ランダムブロック</h5>
           <div id="randomDiv" class="sampleBlock-1-0"></div>
           <xml id="randomXml" style="display: none">
-            <block type="random"></block>
+            <block type="random">
+              <value name="val"><shadow type="integer"></shadow></value>
+            </block>
           </xml>
           <script>embedBlock('random');</script>
           <div class="blockDescription-1-0">
-<p>ランダムな数値を取得するためのブロック。<p>
+<p>ランダムな数値を取得するためのブロック。<br>
+空欄に整数ブロックか整数型の変数ブロックを入れることで、0からブロックまでの間の値を取得することができる。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>絶対値ブロック</h5>
+          <div id="absDiv" class="sampleBlock"></div>
+          <xml id="absXml" style="display: none">
+            <block type="abs">
+              <value name="VALUE"><shadow type="float"></shadow></value>
+            </block>
+          </xml>
+          <script>embedBlock('abs');</script>
+          <div class="blockDescription">
+<p>絶対値を取得するためのブロック。<br>
+空欄に実数ブロックか実数型の変数ブロックを入れることで、そのブロックの値の絶対値を取得することができる。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>ラウンドブロック</h5>
+          <div id="roundDiv" class="sampleBlock"></div>
+          <xml id="roundXml" style="display: none">
+            <block type="round">
+              <value name="VALUE"><shadow type="float"></shadow></value>
+            </block>
+          </xml>
+          <script>embedBlock('round');</script>
+          <div class="blockDescription">
+<p>「切り上げ」「切り捨て」「四捨五入」した値を取得するためのブロック。<br>
+空欄に実数ブロックか実数型の変数ブロックを入れることで、そのブロックの値に対する切り上げた値・切り捨てた値・四捨五入した値の
+いずれかを取得することができる。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>三角関数ブロック</h5>
+          <div id="trigonometricDiv" class="sampleBlock"></div>
+          <xml id="trigonometricXml" style="display: none">
+            <block type="trigonometric">
+              <value name="VALUE"><shadow type="float"></shadow></value>
+            </block>
+          </xml>
+          <script>embedBlock('trigonometric');</script>
+          <div class="blockDescription">
+<p>「sin」「cos」「tan」の値を取得するためのブロック。<br>
+空欄に実数ブロックか実数型の変数ブロックを入れることで、そのブロックの値に対するsin値・cos値・tan値の
+いずれかを取得することができる。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>平方根ブロック</h5>
+          <div id="sqrtDiv" class="sampleBlock"></div>
+          <xml id="sqrtXml" style="display: none">
+            <block type="sqrt">
+              <value name="VALUE"><shadow type="float"></shadow></value>
+            </block>
+          </xml>
+          <script>embedBlock('sqrt');</script>
+          <div class="blockDescription">
+<p>平方根を取得するためのブロック。<br>
+空欄に実数ブロックか実数型の変数ブロックを入れることで、そのブロックの値に対する平方根を取得することができる。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>対数ブロック</h5>
+          <div id="logDiv" class="sampleBlock"></div>
+          <xml id="logXml" style="display: none">
+            <block type="log">
+              <value name="VALUE"><shadow type="float"></shadow></value>
+            </block>
+          </xml>
+          <script>embedBlock('log');</script>
+          <div class="blockDescription">
+<p>対数を取得するためのブロック。<br>
+空欄に実数ブロックか実数型の変数ブロックを入れることで、そのブロックの値に対する対数を取得することができる。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>ネイピアブロック</h5>
+          <div id="expDiv" class="sampleBlock"></div>
+          <xml id="expXml" style="display: none">
+            <block type="exp">
+              <value name="VALUE"><shadow type="float"></shadow></value>
+            </block>
+          </xml>
+          <script>embedBlock('exp');</script>
+          <div class="blockDescription">
+<p>Eの累乗を取得するためのブロック。<br>
+空欄に実数ブロックか実数型の変数ブロックを入れることで、そのブロックの値を指数としたEの累乗を取得することができる。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>累乗ブロック</h5>
+          <div id="powDiv" class="sampleBlock-1-0"></div>
+          <xml id="powXml" style="display: none">
+            <block type="pow">
+              <value name="VALUE1"><shadow type="float"></shadow></value>
+              <value name="VALUE2"><shadow type="float"></shadow></value>
+            </block>
+          </xml>
+          <script>embedBlock('pow');</script>
+          <div class="blockDescription-1-0">
+<p>累乗を取得するためのブロック。<br>
+空欄に実数ブロックか実数型の変数ブロックを入れることで、「1つ目のブロック」の「2つ目のブロック乗」の値を取得することができる。</p>
           </div>
         </section>
       </section>
+      <!--
+        - 比較・論理カテゴリ
+        -->
+      <section>
+        <h4>比較・論理</h4>
+        <section class="blockSection">
+          <h5>比較ブロック</h5>
+          <div id="conditionsDiv" class="sampleBlock"></div>
+          <xml id="conditionsXml" style="display: none">
+            <block type="conditions"></block>
+          </xml>
+          <script>embedBlock('conditions');</script>
+          <div class="blockDescription">
+<p>「＝」「≠」「＜」「≦」「＞」「≧」の演算を行う。<br>
+プルダウンメニューから演算子を指定し、演算子の左右のブロックの演算を行う。<br>
+演算結果を「条件ブロック」の条件として利用したりする。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>アンドブロック</h5>
+          <div id="andDiv" class="sampleBlock"></div>
+          <xml id="andXml" style="display: none">
+            <block type="and"></block>
+          </xml>
+          <script>embedBlock('and');</script>
+          <div class="blockDescription">
+<p>論理積演算を行う。<br>
+2つのブロックの論理積をとり、その結果を取得する。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>オアブロック</h5>
+          <div id="orDiv" class="sampleBlock"></div>
+          <xml id="orXml" style="display: none">
+            <block type="or"></block>
+          </xml>
+          <script>embedBlock('or');</script>
+          <div class="blockDescription">
+<p>論理和演算を行う。<br>
+2つのブロックの論理和をとり、その結果を取得する。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>ノットブロック</h5>
+          <div id="notDiv" class="sampleBlock"></div>
+          <xml id="notXml" style="display: none">
+            <block type="not"></block>
+          </xml>
+          <script>embedBlock('not');</script>
+          <div class="blockDescription">
+<p>否定演算を行う。<br>
+入力されたブロックの否定をとり、その結果を取得する。</p>
+          </div>
+        </section>
+      </section>
+      <!-- 
+        - 制御カテゴリ
+        -->
+      <section>
+        <h4>制御</h4>
+        <section class="blockSection">
+          <h5>条件ブロック</h5>
+          <div id="ifDiv" class="sampleBlock"></div>
+          <xml id="ifXml" style="display: none">
+            <block type="if"></block>
+          </xml>
+          <script>embedBlock('if');</script>
+          <div class="blockDescription">
+<p>条件分岐を行う。<br>
+「比較ブロック」などを置いて使用する。<br>
+条件が真であればこのブロックの間に置かれたブロックを実行する</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>二分条件ブロック</h5>
+          <div id="ifelseDiv" class="sampleBlock-0-1"></div>
+          <xml id="ifelseXml" style="display: none">
+            <block type="ifelse"></block>
+          </xml>
+          <script>embedBlock('ifelse');</script>
+          <div class="blockDescription-0-1">
+<p>条件分岐を行う。<br>
+「比較ブロック」などを置いて使用する。<br>
+条件ブロックと使い方は同じだが、条件が偽であったときも動作を指定できる。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>条件ブロック（未実装）</h5>
+          <div id="if2Div" class="sampleBlock-1-2"></div>
+          <xml id="if2Xml" style="display: none">
+            <block type="if2"></block>
+          </xml>
+          <script>embedBlock('if2');</script>
+          <div class="blockDescription-1-2">
+<p>条件分岐を行う。<br>
+「比較ブロック」などを置いて使用する。<br>
+条件が真であればこのブロックの間に置かれたブロックを実行し、
+偽であればこのブロックに接続された下のブロックを実行する。<br>
+現在は使用できない。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>繰り返しブロック</h5>
+          <div id="whileDiv" class="sampleBlock"></div>
+          <xml id="whileXml" style="display: none">
+            <block type="while"></block>
+          </xml>
+          <script>embedBlock('while');</script>
+          <div class="blockDescription">
+<p>条件が真の間、ブロックを実行する。<br>
+条件部分には「比較ブロック」などを置く。<br>
+このブロックを初めて実行するときとブロックがすべて実行された後に比較が行われる。
+そのため、条件が常に真でないようにしなければ無限ループに陥ってしまう。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>後判定型繰り返しブロック</h5>
+          <div id="repeatUntilDiv" class="sampleBlock-1-0"></div>
+          <xml id="repeatUntilXml" style="display: none">
+            <block type="repeat_until"></block>
+          </xml>
+          <script>embedBlock('repeatUntil');</script>
+          <div class="blockDescription-1-0">
+<p>条件が真の間、ブロックを実行する。<br>
+繰り返しブロックとの違いは、必ず一度はこのブロック内のブロックが実行されることで、
+その他は繰り返しブロックと同じように使用する。</p>
+          </div>
+        </section>
+        <section class="blockSection">
+          <h5>指定回型繰り返しブロック</h5>
+          <div id="forDiv" class="sampleBlock-2-0"></div>
+          <xml id="forXml" style="display: none">
+            <block type="for"></block>
+          </xml>
+          <script>embedBlock('for');</script>
+          <div class="blockDescription-2-0">
+<p>指定した値から値までの間、ブロックを実行する。<br>
+1つ目のブロックは「変数ブロック」しか置くことができない。<br>
+このブロックは、<br>
+①：1つ目の「変数ブロック」に2つ目の値を代入する<br>
+②：「変数ブロック」の値が2つ目の値と3つ目の値の間の場合はブロックを実行する<br>
+③：「変数ブロック」の値を4つ目の値分増やすor減らす<br>
+④：②～③を繰り返す<br>
+という流れで実行する。</p>
+          </div>
+        </section>
+      </section>
+      <!-- ~制御 -->
+      <!-- 入出力カテゴリ -->
       <section>
         <h4>入出力</h4>
         <!-- 入力ブロック -->
@@ -450,125 +680,7 @@ BlocklyPEN上では「変数ブロック」が最初からセットされてい�
           </div>
         </section>
       </section>
-      <section>
-        <h4>条件分岐</h4>
-        <section class="blockSection">
-          <h5>比較ブロック</h5>
-          <div id="conditionsDiv" class="sampleBlock"></div>
-          <xml id="conditionsXml" style="display: none">
-            <block type="conditions"></block>
-          </xml>
-          <script>embedBlock('conditions');</script>
-          <div class="blockDescription">
-<p>「＝」「≠」「＜」「≦」「＞」「≧」の演算を行う。<br>
-プルダウンメニューから演算子を指定し、演算子の左右のブロックの演算を行う。<br>
-演算結果を「条件ブロック」の条件として利用したりする。</p>
-          </div>
-        </section>
-        <!-- 条件ブロック -->
-        <section class="blockSection">
-          <h5>条件ブロック</h5>
-          <div id="ifDiv" class="sampleBlock"></div>
-          <xml id="ifXml" style="display: none">
-            <block type="if"></block>
-          </xml>
-          <script>embedBlock('if');</script>
-          <div class="blockDescription">
-<p>条件分岐を行う。<br>
-「比較ブロック」などを置いて使用する。<br>
-条件が真であればこのブロックの間に置かれたブロックを実行する</p>
-          </div>
-        </section>
-        <!-- ~条件ブロック -->
-        <!-- 条件ブロック -->
-        <section class="blockSection">
-          <h5>二分条件ブロック</h5>
-          <div id="ifelseDiv" class="sampleBlock-0-1"></div>
-          <xml id="ifelseXml" style="display: none">
-            <block type="ifelse"></block>
-          </xml>
-          <script>embedBlock('ifelse');</script>
-          <div class="blockDescription-0-1">
-<p>条件分岐を行う。<br>
-「比較ブロック」などを置いて使用する。<br>
-条件ブロックと使い方は同じだが、条件が偽であったときも動作を指定できる。</p>
-          </div>
-        </section>
-        <!-- ~条件ブロック -->
-        <!-- 条件ブロック -->
-        <section class="blockSection">
-          <h5>条件ブロック</h5>
-          <div id="if2Div" class="sampleBlock-1-1"></div>
-          <xml id="if2Xml" style="display: none">
-            <block type="if2" disabled="true"></block>
-          </xml>
-          <script>embedBlock('if2');</script>
-          <div class="blockDescription-1-1">
-<p>条件分岐を行う。<br>
-「比較ブロック」などを置いて使用する。<br>
-条件が真であればこのブロックの間に置かれたブロックを実行し、
-偽であればこのブロックに接続された下のブロックを実行する。<br>
-現在は使用できない。</p>
-          </div>
-        </section>
-        <!-- ~条件ブロック -->
-      </section>
-      <!-- 繰り返し -->
-      <section>
-        <h4>繰り返し</h4>
-        <!-- 繰り返しブロック -->
-        <section class="blockSection">
-          <h5>繰り返しブロック</h5>
-          <div id="whileDiv" class="sampleBlock"></div>
-          <xml id="whileXml" style="display: none">
-            <block type="while"></block>
-          </xml>
-          <script>embedBlock('while');</script>
-          <div class="blockDescription">
-<p>条件が真の間、ブロックを実行する。<br>
-条件部分には「比較ブロック」などを置く。<br>
-このブロックを初めて実行するときとブロックがすべて実行された後に比較が行われる。
-そのため、条件が常に真でないようにしなければ無限ループに陥ってしまう。</p>
-          </div>
-        </section>
-        <!-- ~繰り返しブロック -->
-        <!-- 後判定型繰り返しブロック -->
-        <section class="blockSection">
-          <h5>後判定型繰り返しブロック</h5>
-          <div id="repeatUntilDiv" class="sampleBlock-1-0"></div>
-          <xml id="repeatUntilXml" style="display: none">
-            <block type="repeat_until"></block>
-          </xml>
-          <script>embedBlock('repeatUntil');</script>
-          <div class="blockDescription-1-0">
-<p>条件が真の間、ブロックを実行する。<br>
-繰り返しブロックとの違いは、必ず一度はこのブロック内のブロックが実行されることで、
-その他は繰り返しブロックと同じように使用する。</p>
-          </div>
-        </section>
-        <!-- ~後判定型繰り返しブロック -->
-        <!-- 指定回型繰り返しブロック -->
-        <section class="blockSection">
-          <h5>指定回型繰り返しブロック</h5>
-          <div id="forDiv" class="sampleBlock-2-0"></div>
-          <xml id="forXml" style="display: none">
-            <block type="for"></block>
-          </xml>
-          <script>embedBlock('for');</script>
-          <div class="blockDescription-2-0">
-<p>指定した値から値までの間、ブロックを実行する。<br>
-1つ目のブロックは「変数ブロック」しか置くことができない。<br>
-このブロックは、<br>
-①：1つ目の「変数ブロック」に2つ目の値を代入する<br>
-②：「変数ブロック」の値が2つ目の値と3つ目の値の間の場合はブロックを実行する<br>
-③：「変数ブロック」の値を4つ目の値分増やすor減らす<br>
-④：②～③を繰り返す<br>
-という流れで実行する。</p>
-          </div>
-        </section>
-        <!-- 指定回型繰り返しブロック -->
-      </section>
-      <!-- ~繰り返し -->
+      <!-- ~入出力カテゴリ -->
       <!-- 関数カテゴリ -->
       <section>
         <h4>関数</h4>
