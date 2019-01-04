@@ -227,7 +227,9 @@
     <category name="{catMath}" colour="230">
     <!--<block type="num"></block>-->
       <block type="calculation"></block>
-      <block type="random"></block>
+      <block type="random">
+        <value name="val"><shadow type="integer">0</shadow></value>
+      </block>
       <!-- <block type="decimal">
         <value name="val">
           <shadow type="num">
@@ -236,9 +238,28 @@
         </value>
       </block>
       -->
-      <block type="abs"></block>
-      <block type="round"></block>
-      <block type="trigonometric"></block>
+      <block type="abs">
+        <value name="VALUE"><shadow type="float"></shadow></value>
+      </block>
+      <block type="round">
+        <value name="VALUE"><shadow type="float"></shadow></value>
+      </block>
+      <block type="trigonometric">
+        <value name="VALUE"><shadow type="float"></shadow></value>
+      </block>
+      <block type="sqrt">
+        <value name="VALUE"><shadow type="float"></shadow></value>
+      </block>
+      <block type="log">
+        <value name="VALUE"><shadow type="float"></shadow></value>
+      </block>
+      <block type="exp">
+        <value name="VALUE"><shadow type="float"></shadow></value>
+      </block>
+      <block type="pow">
+        <value name="VALUE1"><shadow type="float"></shadow></value>
+        <value name="VALUE2"><shadow type="float"></shadow></value>
+      </block>
       <!--
       <block type="other">
         <value name="val">
