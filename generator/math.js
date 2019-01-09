@@ -7,6 +7,14 @@ Blockly.Pen['calculation'] = function(block) {
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
+Blockly.Pen['plus_minus'] = function(block) {
+  var value1 = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
+  var value2 = Blockly.Pen.valueToCode(block, 'VALUE2', Blockly.Pen.ORDER_ATOMIC);
+  var operator = block.getFieldValue('OPERATOR1');
+  var code = value1 + ' ' +  operator + ' ' + value2;
+  return [code, Blockly.Pen.ORDER_NONE];
+};
+
 Blockly.Pen['random'] = function(block) {
   var val = Blockly.Pen.valueToCode(block, 'val', Blockly.Pen.ORDER_ATOMIC);
   var code = 'random(' + val +  ')';

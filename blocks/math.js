@@ -13,6 +13,34 @@ Blockly.Blocks['calculation'] = {
   }
 };
 
+Blockly.Blocks['plus_minus'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "( %1 %2 %3 )",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "OPERATOR1",
+          "options": [["＋", "+"],["－", "-"]]
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE2"
+        }
+      ],
+      "inputsInline": true,
+      "output": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
 Blockly.Blocks['random'] = {
   init: function() {
     this.appendDummyInput()
