@@ -16,6 +16,7 @@ var MSG = {
   catVariable: "変数",
 //  catnum: "値",
   catMath: "計算",
+  catSamples: "サンプル",
   catText: "文字",
   catgwindow: "窓操作",
   catgset: "描画設定",

@@ -373,23 +373,24 @@
       -->
     </category>
 
-    <!-- 比較・論理 -->
+    <!--
+      - 比較・論理
+    -->
     <category name="{catCompLogic}" colour="190">
       <block type="conditions"></block>
       <block type="and"></block>
       <block type="or"></block>
       <block type="not"></block>
-      <!--
-      <block type="ifelse"></block>
-      -->
+      <block type="even_odd"></block>
       <!--<block type="logic_operation"></block>-->
       <!--<block type="logic_negate"></block>-->
       <!--<block type="logic_boolean"></block>-->
       <!--<block type="logic_null"></block>-->
       <!--<block type="logic_ternary"></block>-->
     </category>
-    <!-- ~比較・論理 -->
-    <!-- 制御 -->
+    <!--
+      - 制御
+    -->
     <category name="{catControl}" colour="190">
       <block type="if2" disabled="true"></block>
       <block type="if"></block>
@@ -876,6 +877,52 @@
     <!--整数-->
     <!--<category name="{catVariablesInt}" colour="350">-->
     <!--</category>-->
+    <sep></sep>
+    <!--
+      - サンプル
+    -->
+    <category name="{catSamples}" expanded="true">
+      <category name="奇数か偶数か">
+        <block type="declare_variable">
+          <value name="VARIABLE"><block type="variable"><field name="VARIABLE">num</field></block></value>
+          <next>
+            <block type="for">
+              <value name="VARIABLE"><block type="variable"><field name="VARIABLE">num</field></block></value>
+              <value name="FROM"><block type="integer"><field name="value">1</field></block></value>
+              <value name="TO"><block type="integer"><field name="value">10</field></block></value>
+              <value name="BY"><block type="integer"><field name="value">1</field></block></value>
+              <statement name="STATEMENTS">
+                <block type="ifelse">
+                  <value name="conditions">
+                    <block type="even_odd">
+                      <value name="VALUE1"><block type="variable"><field name="VARIABLE">num</field></block></value>
+                    </block>
+                  </value>
+                  <statement name="exe1">
+                    <block type="print_v">
+                      <value name="v"><block type="variable"><field name="VARIABLE">num</field></block></value>
+                      <field name="newline">しないで</field>
+                      <next>
+                        <block type="print_string"><field name="string">は奇数です。</field></block>
+                      </next>
+                    </block>
+                  </statement>
+                  <statement name="exe2">
+                    <block type="print_v">
+                      <value name="v"><block type="variable"><field name="VARIABLE">num</field></block></value>
+                      <field name="newline">しないで</field>
+                      <next>
+                        <block type="print_string"><field name="string">は偶数です。</field></block>
+                      </next>
+                    </block>
+                  </statement>
+                </block>
+              </statement>
+            </block>
+          </next>
+        </block>
+      </category>
+    </category>
   </xml>
 
   <!--追加-->
