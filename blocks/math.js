@@ -75,7 +75,7 @@ Blockly.Blocks['round'] = {
 Blockly.Blocks['trigonometric'] = {
   init: function() {
     this.jsonInit({
-      "message0": "%1 ( %2 )",
+      "message0": "%1 %2",
       "args0": [
         {
           "type": "field_dropdown",
@@ -120,7 +120,7 @@ Blockly.Blocks['sqrt'] = {
 Blockly.Blocks['log'] = {
   init: function() {
     this.jsonInit({
-      "message0": "log( %1 )",
+      "message0": "log %1",
       "args0": [
         {
           "type": "input_value",
