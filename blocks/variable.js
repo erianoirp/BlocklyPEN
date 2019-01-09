@@ -9,9 +9,9 @@ Blockly.Blocks['declare_variable'] = {
           "options": [["整数","整数"],["実数","実数"],["文字列","文字列"],["真偽","真偽"]]
         },
         {
-          "type": "input_value",
+          "type": "field_input",
           "name": "VARIABLE",
-          "check": "Variable"
+          "text": "≪変数≫"
         }
       ],
       "inputsInline": true,
@@ -35,9 +35,9 @@ Blockly.Blocks['declare_array1'] = {
           "options": [["整数","整数"],["実数","実数"],["文字列","文字列"],["真偽","真偽"]]
         },
         {
-          "type": "input_value",
+          "type": "field_input",
           "name": "VARIABLE",
-          "check": "Variable"
+          "text": "≪変数≫"
         },
         {
           "type": "field_number",
@@ -69,9 +69,9 @@ Blockly.Blocks['declare_array2'] = {
           "options": [["整数","整数"],["実数","実数"],["文字列","文字列"],["真偽","真偽"]]
         },
         {
-          "type": "input_value",
+          "type": "field_input",
           "name": "VARIABLE",
-          "check": "Variable"
+          "text": "≪変数≫"
         },
         {
           "type": "field_number",
@@ -106,13 +106,13 @@ Blockly.Blocks['assign'] = {
       "message0": "%1 の値を %2 にする",
       "args0": [
         {
-          "type": "input_value",
+          "type": "field_input",
           "name": "VARIABLE",
-          "check": "Variable"
+          "text": "≪変数≫"
         },
         {
           "type": "input_value",
-          "name": "VALUE"
+          "name": "VALUE1"
         }
       ],
       "inputsInline": true,
@@ -150,9 +150,9 @@ Blockly.Blocks['array1'] = {
       "message0": "%1 の %2 番目",
       "args0": [
         {
-          "type": "input_value",
+          "type": "field_input",
           "name": "VARIABLE",
-          "check": "Variable"
+          "text": "≪変数≫"
         },
         {
           "type": "input_value",
@@ -175,9 +175,9 @@ Blockly.Blocks['array2'] = {
       "message0": "%1 の %2 %3 番目",
       "args0": [
         {
-          "type": "input_value",
+          "type": "field_input",
           "name": "VARIABLE",
-          "check": "Variable"
+          "text": "≪変数≫"
         },
         {
           "type": "input_value",
@@ -275,9 +275,9 @@ Blockly.Blocks['incDec'] = {
       "message0": "%1 の値を %2 %3",
       "args0": [
         {
-          "type": "input_value",
+          "type": "field_input",
           "name": "VARIABLE",
-          "check": "Variable"
+          "text": "≪変数≫"
         },
         {
           "type": "input_value",
