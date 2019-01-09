@@ -29,3 +29,8 @@ Blockly.Pen['print_v'] = function(block) {
   return code;
 };
 
+Blockly.Pen['newline'] = function(block) {
+  var code = '「」を表示する\n';
+  return code;
+};
+

@@ -44,3 +44,17 @@ Blockly.Blocks['print_v'] = {
   }
 };
 
+Blockly.Blocks['newline'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "改行する",
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 65,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+
