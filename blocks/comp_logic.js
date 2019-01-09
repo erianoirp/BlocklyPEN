@@ -1,16 +1,28 @@
-Blockly.Blocks['conditions'] = {
+Blockly.Blocks['comparison'] = {
   init: function() {
-    this.appendValueInput("argument1")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["=", "="], ["≠", "!="], ["<", "<"], ["≦", "<="], [">", ">"], ["≧", ">="]]), "comparisonOperator");
-    this.appendValueInput("argument2")
-        .setCheck(null);
-    this.setInputsInline(true);
-    this.setOutput(true, "Boolean");
-    this.setColour(190);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
+    this.jsonInit({
+      "message0": "%1 %2 %3",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "OPERATOR",
+          "options": [["＝", "="], ["≠", "!="], ["＜", "<"], ["≦", "<="], ["＞", ">"], ["≧", ">="]]
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE2"
+        }
+      ],
+      "inputsInline": true,
+      "output": "Boolean",
+      "colour": 105,
+      "helpUrl": "",
+      "tooltip": ""
+    });
   }
 };
 
@@ -35,7 +47,7 @@ Blockly.Blocks['and_or'] = {
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 190,
+      "colour": 105,
       "helpUrl": "",
       "tooltip": ""
     });
@@ -58,7 +70,7 @@ Blockly.Blocks['and'] = {
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 190,
+      "colour": 105,
       "helpUrl": "",
       "tooltip": ""
     });
@@ -81,7 +93,7 @@ Blockly.Blocks['or'] = {
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 190,
+      "colour": 105,
       "helpUrl": "",
       "tooltip": ""
     });
@@ -100,7 +112,7 @@ Blockly.Blocks['not'] = {
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 190,
+      "colour": 105,
       "helpUrl": "",
       "tooltip": ""
     });
@@ -124,7 +136,7 @@ Blockly.Blocks['even_odd'] = {
       ],
       "inputsInline": true,
       "output": "Boolean",
-      "colour": 190,
+      "colour": 105,
       "helpUrl": "",
       "tooltip": ""
     });
