@@ -605,6 +605,19 @@ BlocklyPEN上では、変数ブロックが最初からセットされている�
           </div>
         </section>
         <section class="blockSection">
+          <h5>簡易版繰り返しブロック</h5>
+          <div id="whileSimplifiedDiv" class="sampleBlock"></div>
+          <xml id="whileSimplifiedXml" style="display: none">
+            <block type="while_simplified"></block>
+          </xml>
+          <script>embedBlock('whileSimplified');</script>
+          <div class="blockDescription">
+<p>指定回数だけブロックを実行する。<br>
+入力欄に入力された回数だけブロックが繰り返し実行される。<br>
+※WaPENで動くように「tempxxxxxx」のような名前の変数が自動で宣言される。</p>
+          </div>
+        </section>
+        <section class="blockSection">
           <h5>繰り返しブロック</h5>
           <div id="whileDiv" class="sampleBlock"></div>
           <xml id="whileXml" style="display: none">

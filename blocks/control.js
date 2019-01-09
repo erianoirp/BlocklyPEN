@@ -305,6 +305,37 @@ Blockly.Blocks['while'] = {
   }
 };
 
+Blockly.Blocks['while_simplified'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 回",
+      "args0": [
+        {
+          "type": "field_number",
+          "name": "VALUE1",
+          "value": 10,
+          "min": 0,
+          "precision": 1
+        }
+      ],
+      "message1": "%1",
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS1"
+        }
+      ],
+      "message2": "を繰り返す",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 190,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
 Blockly.Blocks['repeat_until'] = {
   init: function() {
     this.jsonInit({

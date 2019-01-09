@@ -54,6 +54,21 @@ Blockly.Pen['while'] = function(block) {
   return code;
 };
 
+var numOfI = 0;
+Blockly.Pen['while_simplified'] = function(block) {
+  var numOfTimes = block.getFieldValue('VALUE1');
+  var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS1');
+  var tempVar = 'temp' + ('000000' + numOfI).slice(-6);
+  var code = '整数 ' + tempVar + '\n';
+  code += tempVar + ' ← 0\n';
+  code += tempVar + ' < ' + numOfTimes + ' の間，\n';
+  code += statements;
+  code += '  ' + tempVar + ' ← ' + tempVar + ' + 1\n';
+  code += 'を繰り返す\n';
+  numOfI++;
+  return code;
+};
+
 Blockly.Pen['repeat_until'] = function(block) {
   var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
   var condition = Blockly.Pen.valueToCode(block, 'CONDITION', Blockly.Pen.ORDER_ATOMIC);
