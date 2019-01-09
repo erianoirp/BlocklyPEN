@@ -29,8 +29,8 @@
 
   <!--ブロックモジュール-->
   <!-- <script src="../google/blockly/blocks_compressed.js"></script> -->
+  <script src="./blocks/branching.js"></script>
   <script src="./blocks/comp_logic.js"></script>
-  <script src="./blocks/control.js"></script>
   <script src="./blocks/file.js"></script>
   <!--  <script src="./blocks/function.js"></script>-->
   <script src="./blocks/function (no datatype).js"></script>
@@ -38,6 +38,7 @@
   <script src="./blocks/gset.js"></script>
   <script src="./blocks/gwindow.js"></script>
   <script src="./blocks/inoutput.js"></script>
+  <script src="./blocks/looping.js"></script>
   <script src="./blocks/math.js"></script>
   <script src="./blocks/num.js"></script>
   <!--  <script src="./blocks/step.js"></script>-->
@@ -56,8 +57,8 @@
   <script src="./code/code.js"></script>
 
   <script src="./generator/pen.js"></script>
+  <script src="./generator/branching.js"></script>
   <script src="./generator/comp_logic.js"></script>
-  <script src="./generator/control.js"></script>
   <script src="./generator/file.js"></script>
   <!--  <script src="./generator/function.js"></script>-->
   <script src="./generator/function (no datatype).js"></script>
@@ -65,6 +66,7 @@
   <script src="./generator/gset.js"></script>
   <script src="./generator/gwindow.js"></script>
   <script src="./generator/inoutput.js"></script>
+  <script src="./generator/looping.js"></script>
   <script src="./generator/math.js"></script>
   <script src="./generator/num.js"></script>
   <script src="./generator/start.js"></script>
@@ -200,7 +202,9 @@
       <block type="declare_array1"></block>
       <block type="declare_array2"></block>
       <label text="代入ブロック"></label>
-      <block type="assign"></block>
+      <block type="assign">
+        <value name="VALUE1"><shadow type="integer"></shadow></value>
+      </block>
       <label text="変数ブロック"></label>
       <block type="variable"></block>
       <block type="array1">
@@ -226,9 +230,10 @@
       <block type="value_2_string"></block>
       <block type="boolean"></block>
     </category>
-    <!--計算-->
+    <!--
+      - 計算
+    -->
     <category name="{catMath}" colour="230">
-    <!--<block type="num"></block>-->
       <block type="calculation"></block>
       <block type="plus_minus"></block>
       <block type="random">
@@ -371,12 +376,17 @@
     <!--
       - 比較・論理
     -->
-    <category name="{catCompLogic}" colour="190">
-      <block type="conditions"></block>
+    <category name="{catCompLogic}" colour="105">
+      <block type="comparison">
+        <value name="VALUE1"><shadow type="variable"></shadow></value>
+        <value name="VALUE2"><shadow type="integer"></shadow></value>
+      </block>
       <block type="and"></block>
       <block type="or"></block>
       <block type="not"></block>
-      <block type="even_odd"></block>
+      <block type="even_odd">
+        <value name="VALUE1"><shadow type="variable"></shadow></value>
+      </block>
       <!--<block type="logic_operation"></block>-->
       <!--<block type="logic_negate"></block>-->
       <!--<block type="logic_boolean"></block>-->
@@ -384,16 +394,25 @@
       <!--<block type="logic_ternary"></block>-->
     </category>
     <!--
-      - 制御
+      - 条件分岐
     -->
-    <category name="{catControl}" colour="190">
+    <category name="{catBranching}" colour="260">
       <block type="if2" disabled="true"></block>
       <block type="if"></block>
       <block type="ifelse"></block>
+    </category>
+    <!--
+      - 制御
+    -->
+    <category name="{catLooping}" colour="190">
       <block type="while_simplified"></block>
       <block type="while"></block>
       <block type="repeat_until"></block>
-      <block type="for"></block>
+      <block type="for">
+        <value name="FROM"><shadow type="integer"></shadow></value>
+        <value name="TO"><shadow type="integer"><field name="value">10</field></shadow></value>
+        <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
+      </block>
 <!--
       <block type="controls_repeat_ext">
         <value name="TIMES">
@@ -434,7 +453,9 @@
       <block type="penvar"></block>-->
       <block type="input" disabled="true"></block>
       <block type="print_string"></block>
-      <block type="print_v"></block>
+      <block type="print_v">
+        <value name="v"><shadow type="variable"></shadow></value>
+      </block>
       <block type="newline"></block>
     </category>
     <sep></sep>
