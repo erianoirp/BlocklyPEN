@@ -107,3 +107,27 @@ Blockly.Blocks['not'] = {
   }
 };
 
+Blockly.Blocks['even_odd'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 が %2",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "VALUE2",
+          "options": [["偶数","EVEN"],["奇数","ODD"]]
+        }
+      ],
+      "inputsInline": true,
+      "output": "Boolean",
+      "colour": 190,
+      "helpUrl": "",
+      "tooltip": ""
+    });
+  }
+};
+
