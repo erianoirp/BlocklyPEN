@@ -904,23 +904,23 @@
     <category name="{catSamples}" expanded="true">
       <category name="奇数か偶数か">
 <block type="declare_variable">
-  <value name="VARIABLE"><block type="variable"><field name="VARIABLE">num</field></block></value>
+  <field name="VARIABLE">num</field>
   <next>
     <block type="for">
-      <value name="VARIABLE"><block type="variable"><field name="VARIABLE">num</field></block></value>
-      <value name="FROM"><block type="integer"><field name="value">1</field></block></value>
-      <value name="TO"><block type="integer"><field name="value">10</field></block></value>
-      <value name="BY"><block type="integer"><field name="value">1</field></block></value>
+      <field name="VARIABLE">num</field>
+      <value name="FROM"><shadow type="integer"><field name="value">1</field></shadow></value>
+      <value name="TO"><shadow type="integer"><field name="value">10</field></shadow></value>
+      <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
       <statement name="STATEMENTS">
         <block type="ifelse">
           <value name="conditions">
             <block type="even_odd">
-              <value name="VALUE1"><block type="variable"><field name="VARIABLE">num</field></block></value>
+              <value name="VALUE1"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
             </block>
           </value>
           <statement name="exe1">
             <block type="print_v">
-              <value name="v"><block type="variable"><field name="VARIABLE">num</field></block></value>
+              <value name="v"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
               <field name="newline">しないで</field>
               <next>
                 <block type="print_string"><field name="string">は偶数です。</field></block>
@@ -929,7 +929,7 @@
           </statement>
           <statement name="exe2">
             <block type="print_v">
-              <value name="v"><block type="variable"><field name="VARIABLE">num</field></block></value>
+              <value name="v"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
               <field name="newline">しないで</field>
               <next>
                 <block type="print_string"><field name="string">は奇数です。</field></block>
@@ -944,50 +944,50 @@
       </category>
       <category name="素数（激重）">
 <block type="declare_variable">
-  <value name="VARIABLE"><block type="variable"><field name="VARIABLE">i,j</field></block></value>
+  <field name="VARIABLE">i,j</field>
   <next>
     <block type="declare_variable">
-      <value name="VARIABLE"><block type="variable"><field name="VARIABLE">numOfDiv</field></block></value>
+      <field name="VARIABLE">numOfDiv</field>
       <next>
         <block type="declare_variable">
-          <value name="VARIABLE"><block type="variable"><field name="VARIABLE">N</field></block></value>
+          <field name="VARIABLE">N</field>
           <next>
             <block type="assign">
-              <value name="VARIABLE"><block type="variable"><field name="VARIABLE">N</field></block></value>
-              <value name="VALUE"><block type="integer"><field name="value">50</field></block></value>
+              <field name="VARIABLE">N</field>
+              <value name="VALUE1"><shadow type="integer"><field name="value">50</field></shadow></value>
               <next>
                 <block type="for">
-                  <value name="VARIABLE"><block type="variable"><field name="VARIABLE">i</field></block></value>
-                  <value name="FROM"><block type="integer"><field name="value">2</field></block></value>
+                  <field name="VARIABLE">i</field>
+                  <value name="FROM"><shadow type="integer"><field name="value">2</field></shadow></value>
                   <value name="TO"><block type="variable"><field name="VARIABLE">N</field></block></value>
-                  <value name="BY"><block type="integer"><field name="value">1</field></block></value>
+                  <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
                   <statement name="STATEMENTS">
                     <block type="assign">
-                      <value name="VARIABLE"><block type="variable"><field name="VARIABLE">numOfDiv</field></block></value>
-                      <value name="VALUE"><block type="integer"><field name="value">0</field></block></value>
+                      <field name="VARIABLE">numOfDiv</field>
+                      <value name="VALUE1"><shadow type="integer"><field name="value">0</field></shadow></value>
                       <next>
                         <block type="for">
-                          <value name="VARIABLE"><block type="variable"><field name="VARIABLE">j</field></block></value>
-                          <value name="FROM"><block type="integer"><field name="value">2</field></block></value>
+                          <field name="VARIABLE">j</field>
+                          <value name="FROM"><shadow type="integer"><field name="value">2</field></shadow></value>
                           <value name="TO"><block type="variable"><field name="VARIABLE">i</field></block></value>
-                          <value name="BY"><block type="integer"><field name="value">1</field></block></value>
+                          <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
                           <statement name="STATEMENTS">
                             <block type="if">
                               <value name="conditions">
-                                <block type="conditions">
-                                  <value name="argument1">
+                                <block type="comparison">
+                                  <value name="VALUE1">
                                     <block type="calculation">
                                       <value name="val1"><block type="variable"><field name="VARIABLE">i</field></block></value>
                                       <field name="calculation">%</field>
                                       <value name="val2"><block type="variable"><field name="VARIABLE">j</field></block></value>
                                     </block>
                                   </value>
-                                  <value name="argument2"><block type="integer"></value>
+                                  <value name="VALUE2"><shadow type="integer"></shadow></value>
                                 </block>
                               </value>
                               <statement name="exe">
                                 <block type="incDec">
-                                  <value name="VARIABLE"><block type="variable"><field name="VARIABLE">numOfDiv</field></block></value>
+                                  <field name="VARIABLE">numOfDiv</field>
                                   <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
                                 </block>
                               </statement>
@@ -996,9 +996,9 @@
                           <next>
                             <block type="if">
                               <value name="conditions">
-                                <block type="conditions">
-                                  <value name="argument1"><block type="variable"><field name="VARIABLE">numOfDiv</field></block></value>
-                                  <value name="argument2"><block type="integer"><field name="value">1</field></block></value>
+                                <block type="comparison">
+                                  <value name="VALUE1"><shadow type="variable"><field name="VARIABLE">numOfDiv</field></shadow></value>
+                                  <value name="VALUE2"><shadow type="integer"><field name="value">1</field></shadow></value>
                                 </block>
                               </value>
                               <statement name="exe">
@@ -1025,7 +1025,7 @@
               </next>
             </block>
           </next>
-    </block>
+        </block>
       </next>
     </block>
   </next>
