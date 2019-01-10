@@ -488,7 +488,6 @@
     <!--
     </category>
     -->
-
     <!--
       - 窓操作
     -->
@@ -864,13 +863,13 @@
                                         <value name="TO"><shadow type="integer"><field name="value">9</field></shadow></value>
                                         <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
                                         <statement name="STATEMENTS">
-                                          <block type="if" id="g5h3^Lr(rl%0uu:nrq)t">
+                                          <block type="if">
                                             <value name="conditions">
                                               <block type="comparison">
                                                 <field name="OPERATOR">&lt;</field>
                                                 <value name="VALUE1">
                                                   <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
-                                                  <block type="calculation" id="HR+e_ST,v1+pcM7R#j!d">
+                                                  <block type="calculation">
                                                     <field name="calculation">*</field>
                                                     <value name="val1"><block type="variable"><field name="VARIABLE">x</field></block></value>
                                                     <value name="val2"><block type="variable"><field name="VARIABLE">y</field></block></value>
@@ -894,7 +893,7 @@
                                                     <field name="newline">false</field>
                                                     <value name="v">
                                                       <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
-                                                      <block type="calculation" id="nO~F{UYKsYsU_;8J2ciD">
+                                                      <block type="calculation">
                                                         <field name="calculation">*</field>
                                                         <value name="val1"><block type="variable"><field name="VARIABLE">x</field></block></value>
                                                         <value name="val2"><block type="variable"><field name="VARIABLE">y</field></block></value>
@@ -921,6 +920,90 @@
                       </next>
                     </block>
                   </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </category>
+      <category name="うるう年">
+        <block type="declare_variable">
+          <field name="DATATYPE">整数</field>
+          <field name="VARIABLE">year</field>
+          <next>
+            <block type="assign">
+              <field name="VARIABLE">year</field>
+              <value name="VALUE1"><shadow type="integer"><field name="value">1997</field></shadow></value>
+              <next>
+                <block type="ifelse">
+                  <value name="conditions">
+                    <block type="comparison">
+                      <field name="OPERATOR">=</field>
+                      <value name="VALUE1">
+                        <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
+                        <block type="calculation">
+                          <field name="calculation">%</field>
+                          <value name="val1"><block type="variable"><field name="VARIABLE">year</field></block></value>
+                          <value name="val2"><block type="integer"><field name="value">4</field></block></value>
+                        </block>
+                      </value>
+                      <value name="VALUE2"><shadow type="integer"><field name="value">0</field></shadow></value>
+                    </block>
+                  </value>
+                  <statement name="exe1">
+                    <block type="ifelse">
+                      <value name="conditions">
+                        <block type="and">
+                          <value name="VALUE1">
+                            <block type="comparison">
+                              <field name="OPERATOR">=</field>
+                              <value name="VALUE1">
+                                <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
+                                <block type="calculation">
+                                  <field name="calculation">%</field>
+                                  <value name="val1"><block type="variable"><field name="VARIABLE">year</field></block></value>
+                                  <value name="val2"><block type="integer"><field name="value">100</field></block></value>
+                                </block>
+                              </value>
+                              <value name="VALUE2"><shadow type="integer"><field name="value">0</field></shadow></value>
+                            </block>
+                          </value>
+                          <value name="VALUE2">
+                            <block type="comparison">
+                              <field name="OPERATOR">!=</field>
+                              <value name="VALUE1">
+                                <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
+                                <block type="calculation">
+                                  <field name="calculation">%</field>
+                                  <value name="val1"><block type="variable"><field name="VARIABLE">year</field></block></value>
+                                  <value name="val2"><block type="integer"><field name="value">400</field></block></value>
+                                </block>
+                              </value>
+                              <value name="VALUE2"><shadow type="integer"><field name="value">0</field></shadow></value>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <statement name="exe1">
+                        <block type="print_string">
+                          <field name="string">平年です</field>
+                          <field name="newline">true</field>
+                        </block>
+                      </statement>
+                      <statement name="exe2">
+                        <block type="print_string">
+                          <field name="string">うるう年です</field>
+                          <field name="newline">true</field>
+                        </block>
+                      </statement>
+                    </block>
+                  </statement>
+                  <statement name="exe2">
+                    <block type="print_string">
+                      <field name="string">平年です</field>
+                      <field name="newline">true</field>
+                    </block>
+                  </statement>
                 </block>
               </next>
             </block>
