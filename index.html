@@ -374,7 +374,7 @@
       <block type="input" disabled="true"></block>
       <block type="print_string"></block>
       <block type="print_v">
-        <value name="v"><shadow type="variable"></shadow></value>
+        <value name="VALUE1"><shadow type="variable"></shadow></value>
       </block>
       <block type="newline"></block>
     </category>
@@ -681,26 +681,26 @@
               <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
               <statement name="STATEMENTS">
                 <block type="ifelse">
-                  <value name="conditions">
+                  <value name="VALUE1">
                     <block type="even_odd">
                       <value name="VALUE1"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
                     </block>
                   </value>
-                  <statement name="exe1">
+                  <statement name="STATEMENTS1">
                     <block type="print_v">
-                      <value name="v"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
-                      <field name="newline">しないで</field>
+                      <value name="VALUE1"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
+                      <field name="NEWLINE">false</field>
                       <next>
-                        <block type="print_string"><field name="string">は偶数です。</field></block>
+                        <block type="print_string"><field name="VALUE1">は偶数です。</field></block>
                       </next>
                     </block>
                   </statement>
-                  <statement name="exe2">
+                  <statement name="STATEMENTS2">
                     <block type="print_v">
-                      <value name="v"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
-                      <field name="newline">しないで</field>
+                      <value name="VALUE1"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
+                      <field name="NEWLINE">false</field>
                       <next>
-                        <block type="print_string"><field name="string">は奇数です。</field></block>
+                        <block type="print_string"><field name="VALUE1">は奇数です。</field></block>
                       </next>
                     </block>
                   </statement>
@@ -741,7 +741,7 @@
                                   <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
                                   <statement name="STATEMENTS">
                                     <block type="if">
-                                      <value name="conditions">
+                                      <value name="VALUE1">
                                         <block type="comparison">
                                           <value name="VALUE1">
                                             <block type="calculation">
@@ -753,7 +753,7 @@
                                           <value name="VALUE2"><shadow type="integer"></shadow></value>
                                         </block>
                                       </value>
-                                      <statement name="exe">
+                                      <statement name="STATEMENTS1">
                                         <block type="incDec">
                                           <field name="VARIABLE">numOfDiv</field>
                                           <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
@@ -763,21 +763,21 @@
                                   </statement>
                                   <next>
                                     <block type="if">
-                                      <value name="conditions">
+                                      <value name="VALUE1">
                                         <block type="comparison">
                                           <value name="VALUE1"><shadow type="variable"><field name="VARIABLE">numOfDiv</field></shadow></value>
                                           <value name="VALUE2"><shadow type="integer"><field name="value">1</field></shadow></value>
                                         </block>
                                       </value>
-                                      <statement name="exe">
+                                      <statement name="STATEMENTS1">
                                         <block type="print_v">
-                                          <value name="v">
+                                          <value name="VALUE1">
                                             <block type="calculation">
                                               <value name="val1"><block type="variable"><field name="VARIABLE">i</field></block></value>
                                               <value name="val2"><block type="string"><field name="value"> </field></block></value>
                                             </block>
                                           </value>
-                                          <field name="newline">しないで</field>
+                                          <field name="NEWLINE">false</field>
                                         </block>
                                       </statement>
                                     </block>
@@ -809,8 +809,8 @@
               <field name="VARIABLE">y</field>
               <next>
                 <block type="print_string">
-                  <field name="string">  |</field>
-                  <field name="newline">false</field>
+                  <field name="VALUE1">  |</field>
+                  <field name="NEWLINE">false</field>
                   <next>
                     <block type="for">
                       <field name="VARIABLE">x</field>
@@ -820,8 +820,7 @@
                       <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
                       <statement name="STATEMENTS">
                         <block type="print_v">
-                          <field name="newline">false</field>
-                          <value name="v">
+                          <value name="VALUE1">
                             <shadow type="variable"><field name="VARIABLE">x</field></shadow>
                             <block type="calculation">
                               <field name="calculation">+</field>
@@ -829,14 +828,14 @@
                               <value name="val2"> <block type="variable"><field name="VARIABLE">x</field></block></value>
                             </block>
                           </value>
+                          <field name="NEWLINE">false</field>
                         </block>
                       </statement>
                       <next>
                         <block type="newline">
                         <next>
                           <block type="print_string">
-                            <field name="string">--+---------------------------</field>
-                            <field name="newline">true</field>
+                            <field name="VALUE1">--+---------------------------</field>
                             <next>
                               <block type="for">
                                 <field name="VARIABLE">y</field>
@@ -846,8 +845,7 @@
                                 <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
                                 <statement name="STATEMENTS">
                                   <block type="print_v">
-                                    <field name="newline">false</field>
-                                    <value name="v">
+                                    <value name="VALUE1">
                                       <shadow type="variable"><field name="VARIABLE">x</field></shadow>
                                       <block type="calculation">
                                         <field name="calculation">+</field>
@@ -855,6 +853,7 @@
                                         <value name="val2"><block type="string"><field name="value"> |</field></block></value>
                                       </block>
                                     </value>
+                                    <field name="NEWLINE">false</field>
                                     <next>
                                       <block type="for">
                                         <field name="VARIABLE">x</field>
@@ -864,7 +863,7 @@
                                         <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
                                         <statement name="STATEMENTS">
                                           <block type="if">
-                                            <value name="conditions">
+                                            <value name="VALUE1">
                                               <block type="comparison">
                                                 <field name="OPERATOR">&lt;</field>
                                                 <value name="VALUE1">
@@ -878,20 +877,19 @@
                                                 <value name="VALUE2"><shadow type="integer"><field name="value">10</field></shadow></value>
                                               </block>
                                             </value>
-                                            <statement name="exe">
+                                            <statement name="STATEMENTS1">
                                               <block type="print_string">
-                                                <field name="string"> </field>
-                                                <field name="newline">false</field>
+                                                <field name="VALUE1"> </field>
+                                                <field name="NEWLINE">false</field>
                                               </block>
                                             </statement>
                                             <next>
                                               <block type="print_string">
-                                                <field name="string"> </field>
-                                                <field name="newline">false</field>
+                                                <field name="VALUE1"> </field>
+                                                <field name="NEWLINE">false</field>
                                                 <next>
                                                   <block type="print_v">
-                                                    <field name="newline">false</field>
-                                                    <value name="v">
+                                                    <value name="VALUE1">
                                                       <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
                                                       <block type="calculation">
                                                         <field name="calculation">*</field>
@@ -899,6 +897,7 @@
                                                         <value name="val2"><block type="variable"><field name="VARIABLE">y</field></block></value>
                                                       </block>
                                                     </value>
+                                                    <field name="NEWLINE">false</field>
                                                   </block>
                                                 </next>
                                               </block>
@@ -936,7 +935,7 @@
               <value name="VALUE1"><shadow type="integer"><field name="value">1997</field></shadow></value>
               <next>
                 <block type="ifelse">
-                  <value name="conditions">
+                  <value name="VALUE1">
                     <block type="comparison">
                       <field name="OPERATOR">=</field>
                       <value name="VALUE1">
@@ -950,9 +949,9 @@
                       <value name="VALUE2"><shadow type="integer"><field name="value">0</field></shadow></value>
                     </block>
                   </value>
-                  <statement name="exe1">
+                  <statement name="STATEMENTS1">
                     <block type="ifelse">
-                      <value name="conditions">
+                      <value name="VALUE1">
                         <block type="and">
                           <value name="VALUE1">
                             <block type="comparison">
@@ -984,24 +983,21 @@
                           </value>
                         </block>
                       </value>
-                      <statement name="exe1">
+                      <statement name="STATEMENTS1">
                         <block type="print_string">
-                          <field name="string">平年です</field>
-                          <field name="newline">true</field>
+                          <field name="VALUE1">平年です</field>
                         </block>
                       </statement>
-                      <statement name="exe2">
+                      <statement name="STATEMENTS2">
                         <block type="print_string">
-                          <field name="string">うるう年です</field>
-                          <field name="newline">true</field>
+                          <field name="VALUE1">うるう年です</field>
                         </block>
                       </statement>
                     </block>
                   </statement>
-                  <statement name="exe2">
+                  <statement name="STATEMENTS2">
                     <block type="print_string">
-                      <field name="string">平年です</field>
-                      <field name="newline">true</field>
+                      <field name="VALUE1">平年です</field>
                     </block>
                   </statement>
                 </block>

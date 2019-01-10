@@ -6,45 +6,67 @@ goog.require('Blockly');
 
 Blockly.Blocks['if'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("もし");
-    this.appendValueInput("conditions")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("ならば");
-    this.appendStatementInput("exe")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を実行する");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(260);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "もし %1 ならば",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1",
+          "check": "Boolean"
+        }
+      ],
+      "message1": "%1",
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS1"
+        }
+      ],
+      "message2": "を実行する",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 260,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
 Blockly.Blocks['ifelse'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("もし");
-    this.appendValueInput("conditions")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("ならば");
-    this.appendStatementInput("exe1")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を実行し，そうでなければ");
-    this.appendStatementInput("exe2")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を実行する");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(260);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "もし %1 ならば",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1",
+          "check": "Boolean"
+        }
+      ],
+      "message1": "%1",
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS1"
+        }
+      ],
+      "message2": "を実行し，そうでなければ",
+      "message3": "%1",
+      "args3": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS2"
+        }
+      ],
+      "message4": "を実行する",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 260,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 

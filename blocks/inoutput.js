@@ -14,33 +14,50 @@ Blockly.Blocks['input'] = {
 
 Blockly.Blocks['print_string'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("「")
-        .appendField(new Blockly.FieldTextInput("≪文字列≫"), "string")
-        .appendField("」を改行")
-        .appendField(new Blockly.FieldDropdown([["して","true"], ["しないで","false"]]), "newline")
-        .appendField("表示する");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(65);
- this.setTooltip("");
- this.setHelpUrl("");
+    this.jsonInit({
+      "message0": "「 %1 」を改行 %2 表示する",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "VALUE1",
+          "text": ""
+        },
+        {
+          "type": "field_dropdown",
+          "name": "NEWLINE",
+          "options": [["して","true"], ["しないで","false"]]
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 65,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
 Blockly.Blocks['print_v'] = {
   init: function() {
-    this.appendValueInput("v")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を改行")
-        .appendField(new Blockly.FieldDropdown([["して","true"], ["しないで","false"]]), "newline")
-        .appendField("表示する");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(65);
- this.setTooltip("");
- this.setHelpUrl("");
+    this.jsonInit({
+      "message0": " %1 を改行 %2 表示する",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "NEWLINE",
+          "options": [["して","true"], ["しないで","false"]]
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 65,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 

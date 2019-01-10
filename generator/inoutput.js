@@ -1,31 +1,20 @@
 Blockly.Pen['input'] = function(block) {
-  const variable = Blockly.Pen.valueToCode(block, 'variable', Blockly.Pen.ORDER_ATOMIC);
-  const code = variable + ' を入力する\n';
+  var variable = Blockly.Pen.valueToCode(block, 'variable', Blockly.Pen.ORDER_ATOMIC);
+  var code = variable + ' を入力する\n';
   return code;
 };
 
 Blockly.Pen['print_string'] = function(block) {
-  const string = block.getFieldValue('string');
-  const doNewline = block.getFieldValue('newline');
-  let code;
-  if (doNewline === 'true') {
-    code = '「' + string + '」を表示する\n';
-  } else {
-    code = '「' + string + '」を改行無しで表示する\n';
-  }
+  var string = block.getFieldValue('VALUE1');
+  var doNewline = block.getFieldValue('NEWLINE');
+  var code = '「' + string + '」を' + ((doNewline === 'true') ? '' : '改行無しで') + '表示する\n';
   return code;
 };
 
-// "v" means variable or value.
 Blockly.Pen['print_v'] = function(block) {
-  const v = Blockly.Pen.valueToCode(block, 'v', Blockly.Pen.ORDER_ATOMIC);
-  const doNewline = block.getFieldValue('newline');
-  let code;
-  if (doNewline === 'true') {
-    code = v + ' を表示する\n';
-  } else {
-    code = v + ' を改行無しで表示する\n';
-  }
+  var value = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
+  var doNewline = block.getFieldValue('NEWLINE');
+  var code = value + ' を' + ((doNewline === 'true') ? '' : '改行無しで') + '表示する\n';
   return code;
 };
 

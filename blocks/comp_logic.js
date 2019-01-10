@@ -10,7 +10,7 @@ Blockly.Blocks['comparison'] = {
         {
           "type": "field_dropdown",
           "name": "OPERATOR",
-          "options": [["＝", "="], ["≠", "!="], ["＜", "<"], ["≦", "<="], ["＞", ">"], ["≧", ">="]]
+          "options": [["＝","="],["≠","!="],["＜","<"],["≦","<="],["＞",">"],["≧",">="]]
         },
         {
           "type": "input_value",

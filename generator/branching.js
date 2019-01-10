@@ -1,23 +1,23 @@
 Blockly.Pen['if'] = function(block) {
-  var value_conditions = Blockly.Pen.valueToCode(block, 'conditions', Blockly.Pen.ORDER_ATOMIC);
-  var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
+  var condition = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
+  var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS1');
   //インデント調整
-  statements_exe = statements_exe.replace(/\n/g,"\n  |");
-  statements_exe = statements_exe.slice(0,-4);
-  var code = 'もし ' + value_conditions + ' ならば\n  | ' + statements_exe + '\nを実行する\n';
+  statements = statements.replace(/\n/g,"\n  |");
+  statements = statements.slice(0,-4);
+  var code = 'もし ' + condition + ' ならば\n  | ' + statements + '\nを実行する\n';
   return code;
 };
 
 Blockly.Pen['ifelse'] = function(block) {
-  var value_conditions = Blockly.Pen.valueToCode(block, 'conditions', Blockly.Pen.ORDER_ATOMIC);
-  var statements_exe1 = Blockly.Pen.statementToCode(block, 'exe1');
-  var statements_exe2 = Blockly.Pen.statementToCode(block, 'exe2');
+  var condition = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
+  var statements1 = Blockly.Pen.statementToCode(block, 'STATEMENTS1');
+  var statements2 = Blockly.Pen.statementToCode(block, 'STATEMENTS2');
   //インデント調整
-  statements_exe1 = statements_exe1.replace(/\n/g,"\n  |");
-  statements_exe1 = statements_exe1.slice(0,-4);
-  statements_exe2 = statements_exe2.replace(/\n/g,"\n  |");
-  statements_exe2 = statements_exe2.slice(0,-4);
-  var code = 'もし ' + value_conditions + ' ならば\n  | ' + statements_exe1 + '\nを実行し，そうでなければ\n  | ' + statements_exe2 + '\nを実行する\n';
+  statements1 = statements1.replace(/\n/g,"\n  |");
+  statements1 = statements1.slice(0,-4);
+  statements2 = statements2.replace(/\n/g,"\n  |");
+  statements2 = statements2.slice(0,-4);
+  var code = 'もし ' + condition + ' ならば\n  | ' + statements1 + '\nを実行し，そうでなければ\n  | ' + statements2 + '\nを実行する\n';
   return code;
 };
 
