@@ -11,7 +11,7 @@ Blockly.Pen['while'] = function(block) {
 
 var numOfI = 0;
 Blockly.Pen['while_simplified'] = function(block) {
-  var numOfTimes = block.getFieldValue('VALUE1');
+  var numOfTimes = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
   var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS1');
   var tempVar = 'temp' + ('000000' + numOfI).slice(-6);
   var code = '整数 ' + tempVar + '\n';

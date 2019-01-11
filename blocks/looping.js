@@ -21,11 +21,8 @@ Blockly.Blocks['while_simplified'] = {
       "message0": "%1 回",
       "args0": [
         {
-          "type": "field_number",
-          "name": "VALUE1",
-          "value": 10,
-          "min": 0,
-          "precision": 1
+          "type": "input_value",
+          "name": "VALUE1"
         }
       ],
       "message1": "%1",

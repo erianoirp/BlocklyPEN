@@ -1,19 +1,19 @@
 Blockly.Pen['integer'] = function(block) {
-  const value = block.getFieldValue('value');
-  const code = value;
+  var value = block.getFieldValue('value');
+  var code = value;
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
 Blockly.Pen['float'] = function(block) {
-  const integerValue = block.getFieldValue('integerValue');
-  const fractionalValue = block.getFieldValue('fractionalValue');
-  const code = integerValue + '.' + fractionalValue;
+  var integerValue = block.getFieldValue('integerValue');
+  var fractionalValue = block.getFieldValue('fractionalValue');
+  var code = integerValue + '.' + fractionalValue;
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
 Blockly.Pen['string'] = function(block) {
-  const value = block.getFieldValue('value');
-  const code = '「' + value + '」';
+  var value = block.getFieldValue('value');
+  var code = '「' + value + '」';
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
@@ -24,7 +24,20 @@ Blockly.Pen['value_2_string'] = function(block) {
 };
 
 Blockly.Pen['boolean'] = function(block) {
-  const value = block.getFieldValue('value');
-  const code = value;
+  var value = block.getFieldValue('value');
+  var code = value;
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
+
+Blockly.Pen['natural_number'] = function(block) {
+  var value = block.getFieldValue('VALUE1');
+  var code = value;
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
+Blockly.Pen['nonnegative_integer'] = function(block) {
+  var value = block.getFieldValue('VALUE1');
+  var code = value;
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
