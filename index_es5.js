@@ -456,3 +456,32 @@ isDeclarationNecessary.addEventListener('change', function () {
     setting.var_declaration = 1;
   }
 });
+
+/**
+ * ツールボックスのレベルを変更するモジュール
+ */
+function changeToolboxLevel() {
+  var selector = document.toolboxLevelForm.toolboxLevelSelector;
+  var value = selector.options[selector.selectedIndex].value;
+  var toolbox = void 0;
+  if (value === 'beginner') {
+    toolbox = document.getElementById('toolbox1');
+  } else if (value === 'intermediate') {
+    toolbox = document.getElementById('toolbox2');
+  } else {
+    toolbox = document.getElementById('toolbox0');
+  }
+  /*
+  const sampleXml = document.getElementById('samples');
+  toolbox.appendChild(sampleXml.firstElementChild);
+  */
+  var toolboxText = toolbox.outerHTML.replace(/{(\w+)}/g, function (m, p1) {
+    return MSG[p1];
+  });
+  var toolboxXml = Blockly.Xml.textToDom(toolboxText);
+  Code.workspace.updateToolbox(toolboxXml);
+}
+window.addEventListener('load', function () {
+  document.toolboxLevelForm.toolboxLevelSelector.addEventListener('change', changeToolboxLevel);
+  changeToolboxLevel();
+});
