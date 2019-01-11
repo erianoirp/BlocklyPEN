@@ -89,16 +89,26 @@
 <body>
   <div id="titleDiv">
     <h1><span id="title">読み込み失敗</span></h1>
-    <div class="linkOnTitle">
-      <a href="./help.html" target="_blank"><img id="helpIcon" src="images/question.png"></a>
+    <div id="link2Help" class="linkOnTitle">
+      <a href="./help.html" target="_blank"><img src="images/question.png"></a>
     </div>
-    <form name="toolboxLevelForm">
-      <select name="toolboxLevelSelector" size="1">
-        <option value="debug" selected>デバッグ</option>
-        <option value="beginner">初学者レベル</option>
-        <option value="intermediate">中級者レベル</option>
-      </select>
-    </form>
+    <div id="settingButton">
+      <img src="images/setting.png">
+    </div>
+    <div id="settingMenu">
+      <form id="varForm" name="varForm" action="">
+        <input id="isDeclarationNecessary" type="checkbox">
+        <div class="descriptionOfCheckbox">変数宣言を必須にする<br>※チェック推奨</div>
+      </form>
+      <form name="toolboxLevelForm">
+        <div class="descriptionOfCheckbox">使用者レベル</div>
+        <select name="toolboxLevelSelector" size="1">
+          <option value="debug" selected>デバッグ</option>
+          <option value="beginner">初学者レベル</option>
+          <option value="intermediate">中級者レベル</option>
+        </select>
+      </form>
+    </div>
   </div>
   <div id="IDE">
     <div id="editor">
@@ -148,9 +158,6 @@
                   <button id="trashButton" class="notext" title="...">
                     <img src='./google/blockly/media/1x1.gif' class="trash icon21">
                   </button>
-                  <form id="varForm" name="varForm" action="">
-                    <input id="isDeclarationNecessary" type="checkbox">変数宣言を必須にする（チェック推奨）
-                  </form>
                 </td>
               </tr>
             </table>

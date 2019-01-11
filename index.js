@@ -413,3 +413,24 @@ window.addEventListener('load', function() {
   document.toolboxLevelForm.toolboxLevelSelector.addEventListener('change', changeToolboxLevel);
   changeToolboxLevel();
 });
+
+/**
+ * 設定ボタンに関するモジュール
+ */
+function showHide4SettingMenu() {
+  const settingMenu = document.getElementById('settingMenu');
+  settingMenu.style.display = settingMenu.style.display === 'none' ? '' : 'none';
+}
+function hide4SettingMenu() {
+  document.getElementById('settingMenu').style.display = 'none';
+}
+document.addEventListener('click', function(event) {
+  const clickedSettingButton = $(event.target).closest('#settingButton').length;
+  const clickedSettingMenu = $(event.target).closest('#settingMenu').length;
+  if (clickedSettingButton) {
+    showHide4SettingMenu();
+  } else if (!clickedSettingMenu) {
+    hide4SettingMenu();
+  }
+});
+hide4SettingMenu();

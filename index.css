@@ -22,11 +22,62 @@ h1 {
   float: left;
   display: table;
 }
-#helpIcon {
+#link2Help img {
   display: table-cell;
   vertical-align: middle;
   width: 25px;
   height: 25px;
+}
+#settingButton {
+  float: right;
+  display: table;
+  position: relative;
+  padding-right: 10px;
+}
+#settingButton img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  transition: filter 0.1s linear;
+  transition: transform 0.1s ease-out;
+}
+#settingButton img:hover {
+  cursor: pointer;
+  filter:brightness(90%);
+  -webkit-filter:brightness(90%);
+  transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+}
+#settingButton img:active {
+  position: relative;
+  top: 2px;
+}
+#settingMenu {
+  width: 250px;
+  height: 120px;
+  background-color: white;
+  border: solid 1px gray;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  z-index: 2;
+}
+#settingMenu form {
+  display: block;
+  padding: 4px 8px;
+}
+#settingMenu input,select {
+  display: inline-block;
+  vertical-align: middle;
+}
+#settingMenu .descriptionOfCheckbox {
+  display: inline-block;
+  line-height: 1.6em;
+  vertical-align: middle;
+  padding: 0 4px;
 }
 #varForm {
   display: inline;
