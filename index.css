@@ -28,6 +28,19 @@ h1 {
   width: 25px;
   height: 25px;
 }
+#setting {
+  float: right;
+  display: table;
+}
+#setting img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+}
+#setting ul {
+  display: none;
+}
 #varForm {
   display: inline;
 }

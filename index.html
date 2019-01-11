@@ -92,13 +92,25 @@
     <div class="linkOnTitle">
       <a href="./help.html" target="_blank"><img id="helpIcon" src="images/question.png"></a>
     </div>
-    <form name="toolboxLevelForm">
-      <select name="toolboxLevelSelector" size="1">
-        <option value="debug" selected>デバッグ</option>
-        <option value="beginner">初学者レベル</option>
-        <option value="intermediate">中級者レベル</option>
-      </select>
-    </form>
+    <div id="setting">
+      <img src="images/setting.png">
+      <ul>
+        <li>
+          <form id="varForm" name="varForm" action="">
+            <input id="isDeclarationNecessary" type="checkbox">変数宣言を必須にする（チェック推奨）
+          </form>
+        </li>
+        <li>
+          <form name="toolboxLevelForm">
+            <select name="toolboxLevelSelector" size="1">
+              <option value="debug" selected>デバッグ</option>
+              <option value="beginner">初学者レベル</option>
+              <option value="intermediate">中級者レベル</option>
+            </select>
+          </form>
+        </li>
+      </ul>
+    </div>
   </div>
   <div id="IDE">
     <div id="editor">
@@ -148,9 +160,6 @@
                   <button id="trashButton" class="notext" title="...">
                     <img src='./google/blockly/media/1x1.gif' class="trash icon21">
                   </button>
-                  <form id="varForm" name="varForm" action="">
-                    <input id="isDeclarationNecessary" type="checkbox">変数宣言を必須にする（チェック推奨）
-                  </form>
                 </td>
               </tr>
             </table>
