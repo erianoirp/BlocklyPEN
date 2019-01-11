@@ -1,4 +1,3 @@
-//WaPENで使用できる
 Blockly.Blocks['calculation'] = {
   init: function() {
     this.appendValueInput("val1")
@@ -210,3 +209,21 @@ Blockly.Blocks['pow'] = {
   }
 };
 
+Blockly.Blocks['formula'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "VALUE1",
+          "text": "≪数式≫"
+        }
+      ],
+      "output": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};

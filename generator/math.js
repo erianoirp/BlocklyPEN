@@ -66,3 +66,9 @@ Blockly.Pen['pow'] = function(block) {
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
+Blockly.Pen['formula'] = function(block) {
+  var formula = block.getFieldValue('VALUE1');
+  var code = formula;
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
