@@ -21,7 +21,6 @@ Blockly.Pen['ifelse'] = function(block) {
   return code;
 };
 
-/*
 Blockly.Pen['if2'] = function(block) {
   // If/elseif/else condition.
   var n = 0;
@@ -41,5 +40,4 @@ Blockly.Pen['if2'] = function(block) {
   }
   return code + '\nを実行する\n';
 };
-*/
 
