@@ -461,15 +461,22 @@ isDeclarationNecessary.addEventListener('change', function () {
  * ツールボックスのレベルを変更するモジュール
  */
 function changeToolboxLevel() {
-  var selector = document.toolboxLevelForm.toolboxLevelSelector;
-  var value = selector.options[selector.selectedIndex].value;
+  var value = document.learnerLevelForm.level.value;
   var toolbox = void 0;
-  if (value === 'beginner') {
-    toolbox = document.getElementById('toolbox1');
-  } else if (value === 'intermediate') {
-    toolbox = document.getElementById('toolbox2');
-  } else {
-    toolbox = document.getElementById('toolbox0');
+  switch (value) {
+    case 'debugger':
+      toolbox = document.getElementById('toolbox0');
+      break;
+    case 'beginner':
+      toolbox = document.getElementById('toolbox1');
+      break;
+    case 'intermediate':
+      toolbox = document.getElementById('toolbox2');
+      break;
+    default:
+      console.log('Unknown Learner Level');
+      return;
+      break;
   }
   /*
   const sampleXml = document.getElementById('samples');
@@ -482,7 +489,7 @@ function changeToolboxLevel() {
   Code.workspace.updateToolbox(toolboxXml);
 }
 window.addEventListener('load', function () {
-  document.toolboxLevelForm.toolboxLevelSelector.addEventListener('change', changeToolboxLevel);
+  document.learnerLevelForm.addEventListener('change', changeToolboxLevel);
   changeToolboxLevel();
 });
 

@@ -7,7 +7,6 @@ var MSG = {
   timeout: "命令の実行回数が制限値を超えました。",
   trashTooltip: "すべてのブロックを消します。",
   catVariable: "変数",
-  catCalc4Variable: "計算（変数）",
   catValue: "値",
   catCalc: "計算",
   catCompLogic: "比較・論理",

@@ -102,7 +102,7 @@ Blockly.Pen['postfix_increment_decrement'] = function(block) {
 };
 */
 
-Blockly.Pen['shortening_calculation'] = function(block) {
+Blockly.Pen['compound_assignment'] = function(block) {
   var variable = block.getFieldValue('VARIABLE');
   var operator = block.getFieldValue('OPERATOR');
   var value = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
@@ -114,7 +114,7 @@ Blockly.Pen['shortening_calculation'] = function(block) {
  * 将来右結合に対応させたい
  */
 /*
-Blockly.Pen['shortening_calculation'] = function(block) {
+Blockly.Pen['compound_assignment'] = function(block) {
   var variable = block.getFieldValue('VARIABLE');
   var operator = block.getFieldValue('OPERATOR');
   var value = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);

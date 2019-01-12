@@ -326,7 +326,7 @@ Blockly.Blocks['postfix_increment_decrement'] = {
   }
 };
 
-Blockly.Blocks['shortening_calculation'] = {
+Blockly.Blocks['compound_assignment'] = {
   init: function() {
     this.jsonInit({
       "message0": "%1 %2 %3",

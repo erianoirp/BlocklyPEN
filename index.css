@@ -57,7 +57,7 @@ h1 {
 }
 #settingMenu {
   width: 250px;
-  height: 120px;
+  height: 180px;
   background-color: white;
   border: solid 1px gray;
   position: absolute;
@@ -67,20 +67,26 @@ h1 {
 }
 #settingMenu form {
   display: block;
-  padding: 4px 8px;
+  margin-bottom: 4px;
+  padding-left: 8px;
 }
-#settingMenu input,select {
+.checkboxOnSettingMenu input {
   display: inline-block;
   vertical-align: middle;
+  margin-right: 6px;
 }
-#settingMenu .descriptionOfCheckbox {
+.checkboxOnSettingMenu p {
   display: inline-block;
   line-height: 1.6em;
   vertical-align: middle;
-  padding: 0 4px;
+  padding-top: 8px;
+  margin: 0 0 8px 0;
 }
-#varForm {
-  display: inline;
+.radiobuttonOnSettingMenu {
+  line-height: 1.6em;
+}
+.radiobuttonOnSettingMenu p {
+  margin: 0;
 }
 text.blocklyText {
   font-family: monospace;
