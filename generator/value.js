@@ -41,3 +41,8 @@ Blockly.Pen['nonnegative_integer'] = function(block) {
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
+Blockly.Pen['PI'] = function(block) {
+  var code = '3.141592653589793';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+

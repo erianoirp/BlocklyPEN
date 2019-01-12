@@ -1,4 +1,3 @@
-//WaPENで使用できる
 Blockly.Pen['calculation'] = function(block) {
   var val1 = Blockly.Pen.valueToCode(block, 'val1', Blockly.Pen.ORDER_ATOMIC);
   var calculation = block.getFieldValue('calculation');
@@ -7,7 +6,7 @@ Blockly.Pen['calculation'] = function(block) {
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
-Blockly.Pen['plus_minus'] = function(block) {
+Blockly.Pen['calculation_with_parentheses'] = function(block) {
   var value1 = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
   var value2 = Blockly.Pen.valueToCode(block, 'VALUE2', Blockly.Pen.ORDER_ATOMIC);
   var operator = block.getFieldValue('OPERATOR1');

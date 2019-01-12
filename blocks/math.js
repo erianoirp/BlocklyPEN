@@ -12,7 +12,7 @@ Blockly.Blocks['calculation'] = {
   }
 };
 
-Blockly.Blocks['plus_minus'] = {
+Blockly.Blocks['calculation_with_parentheses'] = {
   init: function() {
     this.jsonInit({
       "message0": "( %1 %2 %3 )",
