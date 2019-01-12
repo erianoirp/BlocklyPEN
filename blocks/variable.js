@@ -269,7 +269,7 @@ Blockly.Blocks['variable_set'] = {
 };
 */
 
-Blockly.Blocks['incDec'] = {
+Blockly.Blocks['increment_decrement'] = {
   init: function() {
     this.jsonInit({
       "message0": "%1 の値を %2 %3",
@@ -300,3 +300,58 @@ Blockly.Blocks['incDec'] = {
   }
 };
 
+Blockly.Blocks['postfix_increment_decrement'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 %2",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "VARIABLE",
+          "text": "≪変数≫"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "OPERATOR",
+          "options": [['++','+'],['--','-']]
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 330,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.Blocks['shortening_calculation'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 %2 %3",
+      "args0":[
+        {
+          "type": "field_input",
+          "name": "VARIABLE",
+          "text": "≪変数≫"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "OPERATOR",
+          "options": [['+=','+'],['-=','-'],['*=','*'],['/=','/'],['%=','%']]
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE1"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 330,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};

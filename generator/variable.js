@@ -72,7 +72,7 @@ Blockly.Pen['variable_set'] = function(block) {
 };
 */
 
-Blockly.Pen['incDec'] = function(block) {
+Blockly.Pen['increment_decrement'] = function(block) {
   var variable = block.getFieldValue('VARIABLE');
   var value1 = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
   var value2 = block.getFieldValue('VALUE2');
@@ -81,3 +81,45 @@ Blockly.Pen['incDec'] = function(block) {
     value1 + '\n';
   return code;
 };
+
+Blockly.Pen['postfix_increment_decrement'] = function(block) {
+  var variable = block.getFieldValue('VARIABLE');
+  var operator = block.getFieldValue('OPERATOR');
+  var code = variable + ' ← ' + variable + ' ' + operator + ' 1\n';
+  return code;
+};
+
+/**
+ * 将来右結合に対応させたい
+ */
+/*
+Blockly.Pen['postfix_increment_decrement'] = function(block) {
+  var variable = block.getFieldValue('VARIABLE');
+  var operator = block.getFieldValue('OPERATOR');
+  var code = '#post#';
+  code += variable + ' ← ' + variable + operator + ' 1\n';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+*/
+
+Blockly.Pen['shortening_calculation'] = function(block) {
+  var variable = block.getFieldValue('VARIABLE');
+  var operator = block.getFieldValue('OPERATOR');
+  var value = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
+  var code = variable + ' ← ' + variable + ' ' + operator + ' (' + value + ')\n';
+  return code;
+};
+
+/**
+ * 将来右結合に対応させたい
+ */
+/*
+Blockly.Pen['shortening_calculation'] = function(block) {
+  var variable = block.getFieldValue('VARIABLE');
+  var operator = block.getFieldValue('OPERATOR');
+  var value = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
+  var code = '#post#';
+  code += variable + ' ← ' + variable + ' ' + operator + ' (' + value + ')\n';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+*/

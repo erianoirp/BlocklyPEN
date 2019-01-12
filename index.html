@@ -227,9 +227,24 @@
         <value name="INDEX1"><shadow type="integer"></shadow></value>
         <value name="INDEX2"><shadow type="integer"></shadow></value>
       </block>
+      <!--
       <label text="その他"></label>
-      <block type="incDec">
+      <block type="increment_decrement">
         <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
+      </block>
+      <block type="postfix_increment_decrement"></block>
+      <block type="shortening_calculation">
+        <value name="VALUE1"><shadow type="integer"></shadow></value>
+      </block>
+      -->
+    </category>
+    <category name="{catCalc4Variable}" colour="330">
+      <block type="increment_decrement">
+        <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
+      </block>
+      <block type="postfix_increment_decrement"></block>
+      <block type="shortening_calculation">
+        <value name="VALUE1"><shadow type="integer"></shadow></value>
       </block>
     </category>
     <sep></sep>
@@ -246,7 +261,7 @@
     <!--
       - 計算
     -->
-    <category name="{catMath}" colour="230">
+    <category name="{catCalc}" colour="230">
       <block type="calculation"></block>
       <block type="plus_minus"></block>
       <block type="random">
@@ -773,7 +788,7 @@
                                         </block>
                                       </value>
                                       <statement name="STATEMENTS1">
-                                        <block type="incDec">
+                                        <block type="increment_decrement">
                                           <field name="VARIABLE">numOfDiv</field>
                                           <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
                                         </block>
@@ -1042,7 +1057,7 @@
       <label text="変数ブロック"></label>
       <block type="variable"></block>
       <label text="その他"></label>
-      <block type="incDec">
+      <block type="increment_decrement">
         <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
       </block>
     </category>
@@ -1225,7 +1240,7 @@
                                         </block>
                                       </value>
                                       <statement name="STATEMENTS1">
-                                        <block type="incDec">
+                                        <block type="increment_decrement">
                                           <field name="VARIABLE">numOfDiv</field>
                                           <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
                                         </block>
@@ -1693,7 +1708,7 @@
                                         </block>
                                       </value>
                                       <statement name="STATEMENTS1">
-                                        <block type="incDec">
+                                        <block type="increment_decrement">
                                           <field name="VARIABLE">numOfDiv</field>
                                           <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
                                         </block>
@@ -2035,7 +2050,7 @@
                                         </block>
                                       </value>
                                       <statement name="STATEMENTS1">
-                                        <block type="incDec">
+                                        <block type="increment_decrement">
                                           <field name="VARIABLE">numOfDiv</field>
                                           <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
                                         </block>
