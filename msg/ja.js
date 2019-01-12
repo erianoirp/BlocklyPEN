@@ -17,6 +17,7 @@ var MSG = {
   catgwindow: "窓操作",
   catgset: "描画設定",
   catgdraw: "描画",
+  catUsage: "使い方",
   catSamples: "サンプル",
   /*
   catfile: "ファイル",

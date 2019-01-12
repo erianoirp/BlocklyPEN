@@ -717,9 +717,40 @@
     <!--</category>-->
     <sep></sep>
     <!--
+      - 使い方
+    -->
+    <category name="{catUsage}">
+      <category name=" 1. 変数の使い方">
+        <block type="declare_variable">
+          <field name="DATATYPE">整数</field>
+          <field name="VARIABLE">a</field>
+          <next>
+            <block type="assign">
+              <field name="VARIABLE">a</field>
+              <value name="VALUE1">
+                <shadow type="integer">
+                  <field name="value">10</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="print_v">
+                  <field name="NEWLINE">true</field>
+                  <value name="VALUE1">
+                    <shadow type="variable">
+                      <field name="VARIABLE">a</field>
+                    </shadow>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </category>
+    </category>
+    <!--
       - サンプル
     -->
-    <category name="{catSamples}" expanded="true">
+    <category name="{catSamples}">
       <category name="奇数か偶数か">
         <block type="declare_variable">
           <field name="VARIABLE">num</field>
@@ -1197,9 +1228,40 @@
     </category>
     <sep></sep>
     <!--
+      - 使い方
+    -->
+    <category name="{catUsage}">
+      <category name=" 1. 変数の使い方">
+        <block type="declare_variable">
+          <field name="DATATYPE">整数</field>
+          <field name="VARIABLE">a</field>
+          <next>
+            <block type="assign">
+              <field name="VARIABLE">a</field>
+              <value name="VALUE1">
+                <shadow type="integer">
+                  <field name="value">10</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="print_v">
+                  <field name="NEWLINE">true</field>
+                  <value name="VALUE1">
+                    <shadow type="variable">
+                      <field name="VARIABLE">a</field>
+                    </shadow>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </category>
+    </category>
+    <!--
       - サンプル
     -->
-    <category name="{catSamples}" expanded="true">
+    <category name="{catSamples}">
       <category name="奇数か偶数か">
         <block type="declare_variable">
           <field name="VARIABLE">num</field>
@@ -1690,7 +1752,38 @@
       <block type="call_step"></block>
     </category>
     <sep></sep>
-    <category name="{catSamples}" expanded="true">
+    <!--
+      - 使い方
+    -->
+    <category name="{catUsage}">
+      <category name=" 1. 変数の使い方">
+        <block type="declare_variable">
+          <field name="DATATYPE">整数</field>
+          <field name="VARIABLE">a</field>
+          <next>
+            <block type="assign">
+              <field name="VARIABLE">a</field>
+              <value name="VALUE1">
+                <shadow type="integer">
+                  <field name="value">10</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="print_v">
+                  <field name="NEWLINE">true</field>
+                  <value name="VALUE1">
+                    <shadow type="variable">
+                      <field name="VARIABLE">a</field>
+                    </shadow>
+                  </value>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </category>
+    </category>
+    <category name="{catSamples}">
       <category name="奇数か偶数か">
         <block type="declare_variable">
           <field name="VARIABLE">num</field>
