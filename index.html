@@ -221,11 +221,11 @@
       <label text="変数ブロック"></label>
       <block type="variable"></block>
       <block type="array1">
-        <value name="INDEX1"><shadow type="integer"></shadow></value>
+        <value name="INDEX1"><shadow type="nonnegative_integer"></shadow></value>
       </block>
       <block type="array2">
-        <value name="INDEX1"><shadow type="integer"></shadow></value>
-        <value name="INDEX2"><shadow type="integer"></shadow></value>
+        <value name="INDEX1"><shadow type="nonnegative_integer"></shadow></value>
+        <value name="INDEX2"><shadow type="nonnegative_integer"></shadow></value>
       </block>
       <label text="その他"></label>
       <block type="increment_decrement">
@@ -1097,12 +1097,18 @@
     <category name="{catVariable}" colour="330">
       <label text="変数を作るブロック"></label>
       <block type="declare_variable"></block>
+      <label text="配列を作るブロック"></label>
+      <block type="declare_array1"></block>
       <label text="変数に値を入れるブロック"></label>
       <block type="assign">
         <value name="VALUE1"><shadow type="integer"></shadow></value>
       </block>
-      <label text="変数を使うブロック"></label>
+      <label text="変数を使うためのブロック"></label>
       <block type="variable"></block>
+      <label text="配列を使うためのブロック"></label>
+      <block type="array1">
+        <value name="INDEX1"><shadow type="nonnegative_integer"></shadow></value>
+      </block>
       <label text="その他"></label>
       <block type="increment_decrement">
         <value name="VALUE1"><shadow type="natural_number"></shadow></value>
@@ -1617,11 +1623,11 @@
       <label text="変数ブロック"></label>
       <block type="variable"></block>
       <block type="array1">
-        <value name="INDEX1"><shadow type="integer"></shadow></value>
+        <value name="INDEX1"><shadow type="nonnegative_integer"></shadow></value>
       </block>
       <block type="array2">
-        <value name="INDEX1"><shadow type="integer"></shadow></value>
-        <value name="INDEX2"><shadow type="integer"></shadow></value>
+        <value name="INDEX1"><shadow type="nonnegative_integer"></shadow></value>
+        <value name="INDEX2"><shadow type="nonnegative_integer"></shadow></value>
       </block>
       <label text="その他"></label>
       <block type="postfix_increment_decrement"></block>
