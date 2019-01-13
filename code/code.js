@@ -535,10 +535,12 @@ Code.runJS = function() {
  * Discard all blocks from the workspace.
  */
 Code.discard = function() {
-  var count = Code.workspace.getAllBlocks().length;
+  var count = Code.workspace.getAllBlocks().length - 1; //スタートブロックの分を引いてる
   if (count < 2 ||
       window.confirm(Blockly.Msg.DELETE_ALL_BLOCKS.replace('%1', count))) {
     Code.workspace.clear();
+    var startBlock = '<xml><block type="start" deletable="false" x="10" y="10"></block></xml>';
+    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(startBlock), Code.workspace);
     if (window.location.hash) {
       window.location.hash = '';
     }
