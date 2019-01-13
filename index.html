@@ -149,11 +149,11 @@
                   <button id="linkButton" class="notext" title="...">
                     <img src='./google/blockly/media/1x1.gif' class="link icon21">
                   </button>
-                  <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
-                    <img src='./google/blockly/media/export.gif' class="newicon">
-                  </button>
                   <button id="loadButton" class="notext" title="ブロックを外部から読み込みます。">
                     <img src='./google/blockly/media/import.gif' class="newicon">
+                  </button>
+                  <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
+                    <img src='./google/blockly/media/export.gif' class="newicon">
                   </button>
                   <button id="trashButton" class="notext" title="...">
                     <img src='./google/blockly/media/1x1.gif' class="trash icon21">
@@ -205,11 +205,9 @@
 
   <!--block内容-->
   <xml id="toolbox0" style="display: none">
-    <!--
-      - 変数
-    -->
     <!--<category name="{catVariable}" colour="330" custom="MYVARIABLE"></category>-->
     <category name="{catVariable}" colour="330">
+      <!-- 変数カテゴリ -->
       <label text="宣言ブロック"></label>
       <block type="declare_variable"></block>
       <block type="declare_array1"></block>
@@ -237,10 +235,8 @@
       </block>
     </category>
     <sep></sep>
-    <!--
-      - 値
-    -->
     <category name="{catValue}" colour="290">
+      <!-- 値カテゴリ -->
       <block type="integer"></block>
       <block type="float"></block>
       <block type="string"></block>
@@ -248,10 +244,8 @@
       <block type="boolean"></block>
       <block type="PI"></block>
     </category>
-    <!--
-      - 計算
-    -->
     <category name="{catCalc}" colour="230">
+      <!-- 計算カテゴリ -->
       <block type="calculation">
         <value name="val1"><shadow type="float"></shadow></value>
         <value name="val2"><shadow type="float"></shadow></value>
@@ -334,10 +328,8 @@
       <block type="math_random_float"></block>
       -->
     </category>
-    <!--
-      - 比較・論理
-    -->
     <category name="{catCompLogic}" colour="105">
+      <!-- 比較・論理カテゴリ -->
       <block type="comparison">
         <value name="VALUE1"><shadow type="variable"></shadow></value>
         <value name="VALUE2"><shadow type="integer"></shadow></value>
@@ -371,18 +363,14 @@
       <!--<block type="logic_null"></block>-->
       <!--<block type="logic_ternary"></block>-->
     </category>
-    <!--
-      - 条件分岐
-    -->
     <category name="{catBranching}" colour="260">
+      <!-- 条件分岐カテゴリ -->
       <block type="if2"></block>
       <block type="if"></block>
       <block type="ifelse"></block>
     </category>
-    <!--
-      - 制御
-    -->
     <category name="{catLooping}" colour="190">
+      <!-- 繰り返しカテゴリ -->
       <block type="while_simplified">
         <value name="VALUE1"><shadow type="natural_number"></shadow></value>
       </block>
@@ -408,10 +396,8 @@
       -->
     </category>
     <sep></sep>
-    <!--
-      - 入出力
-    -->
     <category name="{catInoutput}" colour="65">
+      <!-- 入出力カテゴリ -->
       <!--
       <block type="math_number"></block>
       <block type="penvar"></block>
@@ -427,10 +413,8 @@
       <block type="newline"></block>
     </category>
     <sep></sep>
-    <!--
-      - 関数
-    -->
     <category name="{catFunctions}" colour="160">
+      <!-- 関数カテゴリ -->
       <label text="定義ブロック"></label>
       <block type="define_function">
         <value name="STATEMENTS"><block type="return_block"></block></value>
@@ -444,11 +428,9 @@
     </category>
     <sep></sep>
     <!--
-      - 文字
-    -->
-    <!--
     <category name="{catText}" colour="160">
     -->
+      <!-- 文字カテゴリ -->
       <!--
       <block type="str"></block>
       <block type="str">
@@ -536,10 +518,8 @@
     <!--
     </category>
     -->
-    <!--
-      - 窓操作
-    -->
     <category name="{catgwindow}" colour="0">
+      <!-- 窓操作カテゴリ -->
       <block type="gopenw">
         <value name="width"><shadow type="num"><field name="num">0</field></shadow></value>
         <value name="height"><shadow type="num"><field name="num">0</field></shadow></value>
@@ -598,10 +578,8 @@
       </block>
       <block type="lists_sort"></block> -->
     </category>
-    <!--
-      - セット
-    -->
     <category name="{catgset}" colour="20">
+      <!-- 描画設定カテゴリ -->
       <block type="gscolor">
         <value name="r"><shadow type="cnum"><field name="cnum">0</field></shadow></value>
         <value name="g"><shadow type="cnum"><field name="cnum">0</field></shadow></value>
@@ -653,10 +631,8 @@
       </block>
       -->
     </category>
-    <!--
-      - 描画
-    -->
     <category name="{catgdraw}" colour="20">
+      <!-- 描画カテゴリ -->
       <block type="gdtext">
         <value name="x"><shadow type="num"><field name="num">0</field></shadow></value>
         <value name="y"><shadow type="num"><field name="num">0</field></shadow></value>
@@ -698,10 +674,9 @@
       <block type="gdimage"></block>
       <block type="gdimage2"></block> -->
     </category>
-    <!--
-      - ファイル
-    -->
-    <!-- <category name="{catfile}">
+    <!--<category name="{catfile}">-->
+      <!-- ファイルカテゴリ -->
+      <!--
       <block type="fopen"></block>
       <block type="fclose"></block>
       <block type="fgstr"></block>
@@ -711,15 +686,14 @@
       <block type="frename"></block>
       <block type="fflush"></block>
       <block type="fremove"></block>
-    </category> -->
+      -->
+    <!--</category>-->
     <!--整数-->
     <!--<category name="{catVariablesInt}" colour="350">-->
     <!--</category>-->
     <sep></sep>
-    <!--
-      - 使い方
-    -->
     <category name="{catUsage}">
+      <!-- 使い方カテゴリ -->
       <category name=" 1. 変数の使い方">
         <block type="declare_variable">
           <field name="DATATYPE">整数</field>
@@ -747,10 +721,8 @@
         </block>
       </category>
     </category>
-    <!--
-      - サンプル
-    -->
     <category name="{catSamples}">
+      <!-- サンプルカテゴリ -->
       <category name="奇数か偶数か">
         <block type="declare_variable">
           <field name="VARIABLE">num</field>
