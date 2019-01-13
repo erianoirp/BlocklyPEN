@@ -4,64 +4,69 @@ goog.provide('Blockly.Constants.Logic');
 goog.require('Blockly.Blocks');
 goog.require('Blockly');
 
-//WaPENで使用できる
-Blockly.Blocks['conditions'] = {
-  init: function() {
-    this.appendValueInput("argument1")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["=", "="], ["≠", "!="], ["<", "<"], ["≦", "<="], [">", ">"], ["≧", ">="]]), "comparisonOperator");
-    this.appendValueInput("argument2")
-        .setCheck(null);
-    this.setInputsInline(true);
-    this.setOutput(true, "Moziretu");
-    this.setColour(190);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.example.com/');
-  }
-};
-
 Blockly.Blocks['if'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("もし");
-    this.appendValueInput("conditions")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("ならば");
-    this.appendStatementInput("exe")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を実行する");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(190);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "もし %1 ならば",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1",
+          "check": "Boolean"
+        }
+      ],
+      "message1": "%1",
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS1"
+        }
+      ],
+      "message2": "を実行する",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 260,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
 Blockly.Blocks['ifelse'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("もし");
-    this.appendValueInput("conditions")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("ならば");
-    this.appendStatementInput("exe1")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を実行し，そうでなければ");
-    this.appendStatementInput("exe2")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を実行する");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(190);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "もし %1 ならば",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1",
+          "check": "Boolean"
+        }
+      ],
+      "message1": "%1",
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS1"
+        }
+      ],
+      "message2": "を実行し，そうでなければ",
+      "message3": "%1",
+      "args3": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS2"
+        }
+      ],
+      "message4": "を実行する",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 260,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
@@ -99,7 +104,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     "inputsInline": true,
     "previousStatement": null,
     "nextStatement": null,
-    "colour": 190,
+    "colour": 260,
     "tooltip": "",
     "helpUrl": "",
     "mutator": "if_mutator"
@@ -113,7 +118,7 @@ Blockly.defineBlocksWithJsonArray([ // Mutator blocks. Do not extract.
     "message0": "もし",
     "nextStatement": null,
     "enableContextMenu": false,
-    "colour": 190,
+    "colour": 260,
     "tooltip": ""
   },
   // 条件ブロックの「elseif」部分のmutator
@@ -123,7 +128,7 @@ Blockly.defineBlocksWithJsonArray([ // Mutator blocks. Do not extract.
     "previousStatement": null,
     "nextStatement": null,
     "enableContextMenu": false,
-    "colour": 190,
+    "colour": 260,
     "tooltip": ""
   },
   // 条件ブロックの「else」部分のmutator
@@ -132,7 +137,7 @@ Blockly.defineBlocksWithJsonArray([ // Mutator blocks. Do not extract.
     "message0": "そうでなければ",
     "previousStatement": null,
     "enableContextMenu": false,
-    "colour": 190,
+    "colour": 260,
     "tooltip": ""
   }
 ]);

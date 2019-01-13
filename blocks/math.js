@@ -1,4 +1,3 @@
-//WaPENで使用できる
 Blockly.Blocks['calculation'] = {
   init: function() {
     this.appendValueInput("val1")
@@ -10,6 +9,34 @@ Blockly.Blocks['calculation'] = {
     this.setOutput(true, null);
     this.setColour(230);
     this.setTooltip('');
+  }
+};
+
+Blockly.Blocks['calculation_with_parentheses'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "( %1 %2 %3 )",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "OPERATOR1",
+          "options": [["＋", "+"],["－", "-"]]
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE2"
+        }
+      ],
+      "inputsInline": true,
+      "output": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
@@ -75,7 +102,7 @@ Blockly.Blocks['round'] = {
 Blockly.Blocks['trigonometric'] = {
   init: function() {
     this.jsonInit({
-      "message0": "%1 ( %2 )",
+      "message0": "%1 %2",
       "args0": [
         {
           "type": "field_dropdown",
@@ -97,31 +124,106 @@ Blockly.Blocks['trigonometric'] = {
   }
 };
 
-//-------------------------------------------------------------------------------------
-
-//未使用
-Blockly.Blocks['decimal'] = {
+Blockly.Blocks['sqrt'] = {
   init: function() {
-    this.appendValueInput("val")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("の小数点以下を")
-        .appendField(new Blockly.FieldDropdown([["切り捨てる", "floor"], ["切り上げる", "ceil"], ["四捨五入する", "round"]]), "decimal");
-    this.setOutput(true, null);
-    this.setColour(230);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "%1 の平方根",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": ["Number","Variable"]
+        }
+      ],
+      "inputsInline": true,
+      "output": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
-Blockly.Blocks['other'] = {
+Blockly.Blocks['log'] = {
   init: function() {
-    this.appendValueInput("val")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("の")
-        .appendField(new Blockly.FieldDropdown([["絶対値", "abs"], ["整数化", "int"], ["平方根", "sqrt"], ["対数", "log"]]), "other");
-    this.setOutput(true, null);
-    this.setColour(230);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "log %1",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": ["Number","Variable"]
+        }
+      ],
+      "inputsInline": true,
+      "output": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.Blocks['exp'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "Eの %1 乗",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": ["Number","Variable"]
+        }
+      ],
+      "inputsInline": true,
+      "output": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.Blocks['pow'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 の %2 乗",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1",
+          "check": ["Number","Variable"]
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE2",
+          "check": ["Number","Variable"]
+        }
+      ],
+      "inputsInline": true,
+      "output": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
+Blockly.Blocks['formula'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "VALUE1",
+          "text": "≪数式≫"
+        }
+      ],
+      "output": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };

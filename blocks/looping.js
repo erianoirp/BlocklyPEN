@@ -10,8 +10,36 @@ Blockly.Blocks['while'] = {
         .appendField("を繰り返す");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(190);
     this.setTooltip('');
+  }
+};
+
+Blockly.Blocks['while_simplified'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "%1 回",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1"
+        }
+      ],
+      "message1": "%1",
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS1"
+        }
+      ],
+      "message2": "を繰り返す",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 190,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
@@ -36,7 +64,7 @@ Blockly.Blocks['repeat_until'] = {
       "inputsInline": true,
       "previousStatement": null,
       "nextStatement": null,
-      "colour": 120,
+      "colour": 190,
       "tooltip": "",
       "helpUrl": ""
     });
@@ -49,9 +77,9 @@ Blockly.Blocks['for'] = {
       "message0": "%1 を %2 から %3 まで %4 ずつ %5 ながら",
       "args0": [
         {
-          "type": "input_value",
+          "type": "field_input",
           "name": "VARIABLE",
-          "check": "Variable"
+          "text": "≪変数≫"
         },
         {
           "type": "input_value",
@@ -82,7 +110,7 @@ Blockly.Blocks['for'] = {
       "inputsInline": true,
       "previousStatement": null,
       "nextStatement": null,
-      "colour": 120,
+      "colour": 190,
       "tooltip": "",
       "helpUrl": ""
     });

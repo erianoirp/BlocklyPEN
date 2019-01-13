@@ -1,4 +1,3 @@
-//WaPENで使用できる
 Blockly.Pen['while'] = function(block) {
   var value_conditions = Blockly.Pen.valueToCode(block, 'conditions', Blockly.Pen.ORDER_ATOMIC);
   var statements_exe = Blockly.Pen.statementToCode(block, 'exe');
@@ -7,6 +6,21 @@ Blockly.Pen['while'] = function(block) {
   statements_exe = statements_exe.slice(0,-4);
 
   var code = value_conditions + ' の間，\n  |' + statements_exe +'\nを繰り返す\n';
+  return code;
+};
+
+var numOfI = 0;
+Blockly.Pen['while_simplified'] = function(block) {
+  var numOfTimes = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
+  var statements = Blockly.Pen.statementToCode(block, 'STATEMENTS1');
+  var tempVar = 'temp' + ('000000' + numOfI).slice(-6);
+  var code = '整数 ' + tempVar + '\n';
+  code += tempVar + ' ← 0\n';
+  code += tempVar + ' < ' + numOfTimes + ' の間，\n';
+  code += statements;
+  code += '  ' + tempVar + ' ← ' + tempVar + ' + 1\n';
+  code += 'を繰り返す\n';
+  numOfI++;
   return code;
 };
 
@@ -21,7 +35,7 @@ Blockly.Pen['repeat_until'] = function(block) {
 };
 
 Blockly.Pen['for'] = function(block) {
-  var variable = Blockly.Pen.valueToCode(block, 'VARIABLE', Blockly.Pen.ORDER_ATOMIC);
+  var variable = block.getFieldValue('VARIABLE');
   var from = Blockly.Pen.valueToCode(block, 'FROM', Blockly.Pen.ORDER_ATOMIC);
   var to = Blockly.Pen.valueToCode(block, 'TO', Blockly.Pen.ORDER_ATOMIC);
   var by = Blockly.Pen.valueToCode(block, 'BY', Blockly.Pen.ORDER_ATOMIC);

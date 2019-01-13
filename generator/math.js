@@ -1,10 +1,17 @@
-//WaPENで使用できる
 Blockly.Pen['calculation'] = function(block) {
   var val1 = Blockly.Pen.valueToCode(block, 'val1', Blockly.Pen.ORDER_ATOMIC);
   var calculation = block.getFieldValue('calculation');
   var val2 = Blockly.Pen.valueToCode(block, 'val2', Blockly.Pen.ORDER_ATOMIC);
   var code = val1 + ' ' +  calculation + ' ' + val2;
   return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
+Blockly.Pen['calculation_with_parentheses'] = function(block) {
+  var value1 = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_ATOMIC);
+  var value2 = Blockly.Pen.valueToCode(block, 'VALUE2', Blockly.Pen.ORDER_ATOMIC);
+  var operator = block.getFieldValue('OPERATOR1');
+  var code = value1 + ' ' +  operator + ' ' + value2;
+  return [code, Blockly.Pen.ORDER_NONE];
 };
 
 Blockly.Pen['random'] = function(block) {
@@ -33,29 +40,34 @@ Blockly.Pen['trigonometric'] = function(block) {
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
-//-------------------------------------------------------------------------------------
-
-//未使用
-Blockly.Pen['decimal'] = function(block) {
-  var value_val = Blockly.Pen.valueToCode(block, 'val', Blockly.Pen.ORDER_ATOMIC);
-  var dropdown_decimal = block.getFieldValue('decimal');
-  // 括弧を取り除く
-  value_val = value_val.substr(1);
-  value_val = value_val.substr(0,value_val.length-1);
-  // TODO: Assemble Pen into code variable.
-  var code = dropdown_decimal + '(' + value_val + ')';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.Pen.ORDER_NONE];
+Blockly.Pen['sqrt'] = function(block) {
+  var value = Blockly.Pen.valueToCode(block, 'VALUE', Blockly.Pen.ORDER_FUNCTION_CALL);
+  var code = 'sqrt(' + value + ')';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
-Blockly.Pen['other'] = function(block) {
-  var value_val = Blockly.Pen.valueToCode(block, 'val', Blockly.Pen.ORDER_ATOMIC);
-  var dropdown_other = block.getFieldValue('other');
-  // 括弧を取り除く
-  value_val = value_val.substr(1);
-  value_val = value_val.substr(0,value_val.length-1);
-  // TODO: Assemble Pen into code variable.
-  var code = dropdown_other + '(' + value_val +  ')';
-  // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.Pen.ORDER_NONE];
+Blockly.Pen['log'] = function(block) {
+  var value = Blockly.Pen.valueToCode(block, 'VALUE', Blockly.Pen.ORDER_FUNCTION_CALL);
+  var code = 'log(' + value + ')';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
 };
+
+Blockly.Pen['exp'] = function(block) {
+  var value = Blockly.Pen.valueToCode(block, 'VALUE', Blockly.Pen.ORDER_FUNCTION_CALL);
+  var code = 'exp(' + value + ')';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
+Blockly.Pen['pow'] = function(block) {
+  var value1 = Blockly.Pen.valueToCode(block, 'VALUE1', Blockly.Pen.ORDER_FUNCTION_CALL);
+  var value2 = Blockly.Pen.valueToCode(block, 'VALUE2', Blockly.Pen.ORDER_FUNCTION_CALL);
+  var code = 'pow(' + value1 + ',' + value2 + ')';
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
+Blockly.Pen['formula'] = function(block) {
+  var formula = block.getFieldValue('VALUE1');
+  var code = formula;
+  return [code, Blockly.Pen.ORDER_ATOMIC];
+};
+
