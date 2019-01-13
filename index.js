@@ -1,6 +1,19 @@
 /**
  * WaPENのコードを上書き
  */
+function openInputWindow() {
+  var $input = $("#input");
+  var $input_overlay = $("#input-overlay");
+  setRunflag(false);
+  $input_overlay.fadeIn();
+  $input.fadeIn();
+  //var inputarea = document.getElementById("inputarea");
+  //if(inputarea.addEventListener) inputarea.addEventListener("keydown", keydown);
+  //else if(inputarea.attachEvent) inputarea.attachEvent("onkeydown", keydown);
+  $("#inputarea").focus();
+  $("#inputarea").val('');
+}
+
 function setRunflag(b)
 {
 	run_flag = b;
