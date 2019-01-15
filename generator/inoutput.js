@@ -1,5 +1,5 @@
 Blockly.Pen['input'] = function(block) {
-  var variable = Blockly.Pen.valueToCode(block, 'variable', Blockly.Pen.ORDER_ATOMIC);
+  var variable = block.getFieldValue('VARIABLE');
   var code = variable + ' を入力する\n';
   return code;
 };
