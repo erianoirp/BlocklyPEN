@@ -77,7 +77,7 @@ Blockly.Blocks['natural_number'] = {
         }
       ],
       "output": null,
-      "colour": 230,
+      "colour": 290,
       "tooltip": "",
       "helpUrl": ""
     });
@@ -99,9 +99,22 @@ Blockly.Blocks['nonnegative_integer'] = {
         }
       ],
       "output": null,
-      "colour": 230,
+      "colour": 290,
       "tooltip": "",
       "helpUrl": ""
     });
   }
 };
+
+Blockly.Blocks['PI'] = {
+  init: function() {
+    this.jsonInit({
+      "message0": "π",
+      "output": null,
+      "colour": 290,
+      "tooltip": "",
+      "helpUrl": ""
+    });
+  }
+};
+
