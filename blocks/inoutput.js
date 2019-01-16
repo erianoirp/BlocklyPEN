@@ -1,14 +1,20 @@
 Blockly.Blocks['input'] = {
   init: function() {
-    this.appendValueInput("variable")
-        .setCheck("Variable");
-    this.appendDummyInput()
-        .appendField("に値を入力する");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(65);
- this.setTooltip("");
- this.setHelpUrl("");
+    this.jsonInit({
+      "message0": "%1 に値を入力する",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "VARIABLE",
+          "text": "≪変数≫"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 65,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 

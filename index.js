@@ -1,23 +1,30 @@
 /**
  * WaPENのコードを上書き
  */
-function setRunflag(b)
-{
-	run_flag = b;
+function openInputWindow() {
+  var $input = $("#input");
+  var $input_overlay = $("#input-overlay");
+  setRunflag(false);
+  $input_overlay.fadeIn();
+  $input.fadeIn();
+  //var inputarea = document.getElementById("inputarea");
+  //if(inputarea.addEventListener) inputarea.addEventListener("keydown", keydown);
+  //else if(inputarea.attachEvent) inputarea.attachEvent("onkeydown", keydown);
+  $("#inputarea").focus();
+  $("#inputarea").val('');
 }
 
-function run()
-{
-  if(code == null)
-  {
-    try
-    {
+function setRunflag(b) {
+  run_flag = b;
+}
+
+function run() {
+  if(code == null) {
+    try {
       reset();
       const source = Blockly.Pen.workspaceToCode(Code.workspace);
       code = [new parsedMainRoutine(dncl.parse(source))];
-    }
-    catch(e)
-    {
+    } catch(e) {
       console.log(e);
       textareaAppend("構文エラーです\n" + e.message + "\n");
       setRunflag(false);
@@ -30,138 +37,55 @@ function run()
 }
 
 onload = function(){
-	var resultTextArea = document.getElementById("resultTextarea");
-	var runButton     = document.getElementById("runButton");
-	var flowchartButton = document.getElementById("flowchartButton");
-//	var stepButton    = document.getElementById("stepButton");
-	var file_prefix   = document.getElementById("file_prefix");
-	var flowchart_canvas = document.getElementById("flowchart");
-  initWorkspace();
-	$("#sourceTextarea").linedtextarea();
-	textarea = resultTextArea;
-	runButton.onclick = function(){
-		if(run_flag && !step_flag)
-		{
-			setRunflag(false);
-			document.getElementById("sourceTextarea").readOnly = true;
-		}
-		else
-		{
-			step_flag = false;
-			run();
-		}
-	};
+  var resultTextArea = document.getElementById("resultTextarea");
+  var runButton     = document.getElementById("runButton");
+  var flowchartButton = document.getElementById("flowchartButton");
+  //var stepButton    = document.getElementById("stepButton");
+  var file_prefix   = document.getElementById("file_prefix");
+  var flowchart_canvas = document.getElementById("flowchart");
+  // trashButtonはcode.jsのCode.bindClick()で紐づけされている
+  Code.discard();
+  Code.workspace.addChangeListener(Blockly.Events.disableOrphans);
+  textarea = resultTextArea;
+  runButton.onclick = function() {
+    if(run_flag && !step_flag) {
+      setRunflag(false);
+    } else {
+      step_flag = false;
+      run();
+    }
+  };
+  // this code is from David Baron's Weblog
+  // https://dbaron.org/log/20100309-faster-timeouts
+  //  var timeouts = [];
+  var messageName = "zero-timeout-message";
 
-	$.contextMenu(
-		{
-			selector: "#sourceTextarea",
-			items:{
-				copyAll: {name: "プログラムをコピー", callback(k,e){document.getElementById("sourceTextarea").select(); document.execCommand('copy');}},
-				zenkaku: {name: "入力補助",
-					items:{
-						かつ:		{name:"かつ",	callback(k,e){insertCode("《値》 かつ 《値》");}},
-						または:	{name:"または",	callback: function(k,e){insertCode("《値》 または 《値》");}},
-						でない:	{name:"でない",	callback: function(k,e){insertCode("《値》 でない");}},
-						と:		{name:"と",		callback: function(k,e){insertCode("《値》と《値》");}},
-						カッコ:	{name:"「」",	callback: function(k,e){insertCode("「《値》」");}},
-					}
-				},
-				math:{ name:"数学関数",
-				 	items:{
-						abs:	{name:"abs 絶対値", callback: function(k,e){insertCode("abs(《値》)");}},
-						random:	{name: "random 乱数", callback: function(k,e){insertCode("random(《整数》)");}},
-						ceil:	{name: "ceil 切り上げ", callback: function(k,e){insertCode("ceil(《実数》)");}},
-						floor:	{name: "floor 切り捨て", callback: function(k,e){insertCode("floor(《実数》)");}},
-						round:	{name: "round 四捨五入", callback: function(k,e){insertCode("round(《実数》)");}},
-						sin:	{name: "sin サイン", callback: function(k,e){insertCode("sin(《実数》)");}},
-						cos:	{name: "cos コサイン", callback: function(k,e){insertCode("cos(《実数》)");}},
-						tan:	{name: "tan タンジェント", callback: function(k,e){insertCode("tan(《実数》)");}},
-						sqrt:	{name: "sqrt ルート", callback: function(k,e){insertCode("sqrt(《実数》)");}},
-						log:	{name: "log 自然対数", callback: function(k,e){insertCode("log(《実数》)");}},
-						exp:	{name: "exp 指数関数", callback: function(k,e){insertCode("exp(《実数》)");}},
-						pow:	{name: "pow 累乗", callback: function(k,e){insertCode("pow(《実数》,《実数》)");}}
-					}
-				},
-				str:{name:"文字列関数",
-					items:{
-						length:	{name: "length 長さ", callback: function(k,e){insertCode("length(《文字列》)");}},
-						append:	{name: "append 文字列結合", callback: function(k,e){insertCode("append(《文字列》,《文字列》)");}},
-						substring1:	{name: "substring 部分文字列（最後まで）", callback: function(k,e){insertCode("substring(《文字列》,《開始位置》)");}},
-						substring2:	{name: "substring 部分文字列（長さ指定）", callback: function(k,e){insertCode("substring(《文字列》,《開始位置》,《長さ》)");}},
-						extract:	{name: "extract 部分文字列（長さ指定）", callback: function(k,e){insertCode("extract(《文字列》,《区切文字列》,《番号》)");}},
-						insert:	{name: "insert 挿入", callback: function(k,e){insertCode("insert(《文字列》,《位置》,《文字列》)");}},
-						replace:	{name: "replace 置換", callback: function(k,e){insertCode("replace(《文字列》,《位置》,《長さ》,《文字列》)");}},
-					}
-				},
-				misc:{ name:"各種命令",
-					items:{
-						gOpenWindow:{name:"描画領域開く", callback: function(k,e){insertCode("描画領域開く(《幅》,《高さ》)");}},
-						gCloseWindow:{name:"描画領域閉じる", callback: function(k,e){insertCode("描画領域閉じる()");}},
-						gClearWindow:{name:"描画領域全消去", callback: function(k,e){insertCode("描画領域全消去()");}},
-						gSetLineColor:{name:"線色設定", callback: function(k,e){insertCode("線色設定(《赤》,《緑》,《青》)");}},
-						gSetFillColor:{name:"塗色設定", callback: function(k,e){insertCode("塗色設定(《赤》,《緑》,《青》)");}},
-						gSetLineWidth:{name:"線太さ設定", callback: function(k,e){insertCode("線太さ設定(《太さ》)");}},
-						gSetFontSize:{name:"文字サイズ設定", callback: function(k,e){insertCode("文字サイズ設定(《サイズ》)");}},
-						gDrawText:{name:"文字描画", callback: function(k,e){insertCode("文字描画(《文字列》,《x》,《y》)");}},
-						gDrawLine:{name:"線描画", callback: function(k,e){insertCode("線描画(《x1》,《y1》,《x2》,《y2》)");}},
-						gDrawBox:{name:"矩形描画", callback: function(k,e){insertCode("矩形描画(《x》,《y》,《幅》,《高さ》)");}},
-						gFillBox:{name:"矩形塗描画", callback: function(k,e){insertCode("矩形塗描画(《x》,《y》,《幅》,《高さ》)");}},
-						gDrawCircle:{name:"円描画", callback: function(k,e){insertCode("円描画(《x》,《y》,《半径》)");}},
-						gFillCircle:{name:"円塗描画", callback: function(k,e){insertCode("円塗描画(《x》,《y》,《半径》)");}},
-						sleep:{name:"待つ", callback: function(k,e){insertCode("《ミリ秒数》 ミリ秒待つ");}}
-					}
-				}
-			}
-		}
-	);
-	$.contextMenu(
-		{
-			selector: "#flowchart",
-			build: contextMenu_Flowchart
-		}
-	);
-	// this code is from David Baron's Weblog
-	// https://dbaron.org/log/20100309-faster-timeouts
-//	var timeouts = [];
-	var messageName = "zero-timeout-message";
+  // Like setTimeout, but only takes a function argument.  There's
+  // no time argument (always zero) and no arguments (you have to
+  // use a closure).
+  function setZeroTimeout(fn) {
+    timeouts.push(fn);
+    window.postMessage(messageName, "*");
+  }
 
-	// Like setTimeout, but only takes a function argument.  There's
-	// no time argument (always zero) and no arguments (you have to
-	// use a closure).
-	function setZeroTimeout(fn) {
-		timeouts.push(fn);
-		window.postMessage(messageName, "*");
-	}
+  function handleMessage(event) {
+    if (event.source == window && event.data == messageName) {
+      event.stopPropagation();
+      if (timeouts.length > 0) {
+        var fn = timeouts.shift();
+        fn();
+      }
+    }
+  }
 
-	function handleMessage(event) {
-		if (event.source == window && event.data == messageName) {
-			event.stopPropagation();
-			if (timeouts.length > 0) {
-				var fn = timeouts.shift();
-				fn();
-			}
-		}
-	}
+  if(window.addEventListener) window.addEventListener("message", handleMessage, true);
+  else if(window.attachEvent) window.attachEvent("onmessage", handleMessage);
 
-	if(window.addEventListener) window.addEventListener("message", handleMessage, true);
-	else if(window.attachEvent) window.attachEvent("onmessage", handleMessage);
+  // Add the one thing we want added to the window object.
+  window.setZeroTimeout = setZeroTimeout;
 
-	// Add the one thing we want added to the window object.
-	window.setZeroTimeout = setZeroTimeout;
-
-	$(window).bind("beforeunload", function(){if(dirty) return "プログラムが消去されます";});
+  $(window).bind("beforeunload", function(){if(dirty) return "プログラムが消去されます";});
 }
-
-/**
- * 初期化するモジュール
- */
-const startBlock = '<xml><block type="start" deletable="false"></block></xml>';
-const initWorkspace = function() {
-  // firefoxではなぜか動かない
-  Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(startBlock), Blockly.mainWorkspace);
-  Blockly.mainWorkspace.addChangeListener(Blockly.Events.disableOrphans);
-};
-//initBlocks();
 
 /**
  * ステップ実行するモジュール
@@ -243,8 +167,7 @@ workspace.addChangeListener(function(event) {
 /**
  * ブロックを保存するモジュール
  */
-const saveButton = document.getElementById('saveButton');
-const saveBlocks = function() {
+function saveBlocks() {
   const fileName = 'myprogram.xml';
   var xml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
   var xmltext = Blockly.Xml.domToPrettyText(xml);
@@ -268,15 +191,14 @@ const saveBlocks = function() {
     window.open('data:' + mimeType + ';base64,' + window.Base64.encode(content), '_blank');
   }
 };
-saveButton.onclick = function() {
+document.getElementById('saveButton').onclick = function() {
   saveBlocks();
 };
 
 /**
  * ブロックを読み込むモジュール
  */
-const loadButton = document.getElementById('loadButton');
-const loadBlocks = function() {
+function loadBlocks() {
   var input = document.createElement("input");
   input.type = "file";
   input.id = "loadFile";
@@ -301,28 +223,14 @@ const loadBlocks = function() {
   }, false);
   input.click();
 };
-loadButton.onclick = function() {
+document.getElementById('loadButton').onclick = function() {
   loadBlocks();
 };
 
 /**
  * 実行結果をリセットするモジュール
  */
-const resetButton = document.getElementById('resetButton');
-resetButton.onclick = function() {
-  reset();
-};
-
-/*
- * ブロックをリセットするモジュール
- */
-const resetBlocksButton = document.getElementById('trashButton');
-const resetBlocks = function() {
-  Blockly.mainWorkspace.clear();
-  initWorkspace();
-};
-resetBlocksButton.onclick = function() {
-  resetBlocks();
+document.getElementById('resetButton').onclick = function() {
   reset();
 };
 
@@ -391,6 +299,15 @@ isDeclarationNecessary.addEventListener('change', function() {
  * ツールボックスのレベルを変更するモジュール
  */
 function changeToolboxLevel() {
+  /**
+   * toolboxのidをtoolbox4Debuggerとかにしようとしてたけどcode.jsでは
+   * toolbox0がデフォでそんまま使いたいのでコメントアウト
+   */
+  /*
+  let who = document.learnerLevelForm.level.value;
+  who = who.charAt(0).toUpperCase() + who.slice(1); // 頭文字を大文字に変換
+  const toolbox = document.getElementById('toolbox4' + who);
+  */
   const value = document.learnerLevelForm.level.value;
   let toolbox;
   switch (value) {
@@ -408,16 +325,32 @@ function changeToolboxLevel() {
       return;
       break;
   }
-  /*
-  const sampleXml = document.getElementById('samples');
-  toolbox.appendChild(sampleXml.firstElementChild);
-  */
   const toolboxText = toolbox.outerHTML.replace(/{(\w+)}/g, function(m, p1) {return MSG[p1]});
   const toolboxXml = Blockly.Xml.textToDom(toolboxText);
   Code.workspace.updateToolbox(toolboxXml);
 }
+function initToolboxes() {
+  const toolboxesFor = ['Debugger', 'Beginner', 'Intermediate'];
+  let toolbox;
+  const usageCategory = document.getElementById('usageXml').firstElementChild;
+  const sampleCategory = document.getElementById('sampleXml').firstElementChild;
+  for (var i = 0; i < toolboxesFor.length; i++) {
+    toolbox = document.getElementById('toolbox' + i);
+    toolbox.appendChild(document.createElement('sep'));
+    toolbox.appendChild(usageCategory.cloneNode(true));
+    toolbox.appendChild(sampleCategory.cloneNode(true));
+  }
+  /*
+  for (const who of toolboxesFor) {
+    toolbox = document.getElementById('toolbox4' + who);
+    toolbox.appendChild(document.createElement('sep'));
+    toolbox.appendChild(sampleXml.cloneNode(true));
+  }
+  */
+}
 window.addEventListener('load', function() {
   document.learnerLevelForm.addEventListener('change', changeToolboxLevel);
+  initToolboxes();
   changeToolboxLevel();
 });
 
