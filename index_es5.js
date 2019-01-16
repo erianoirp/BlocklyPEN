@@ -59,7 +59,7 @@ onload = function onload() {
   };
   // this code is from David Baron's Weblog
   // https://dbaron.org/log/20100309-faster-timeouts
-  //	var timeouts = [];
+  //  var timeouts = [];
   var messageName = "zero-timeout-message";
 
   // Like setTimeout, but only takes a function argument.  There's
@@ -302,6 +302,15 @@ isDeclarationNecessary.addEventListener('change', function () {
  * ツールボックスのレベルを変更するモジュール
  */
 function changeToolboxLevel() {
+  /**
+   * toolboxのidをtoolbox4Debuggerとかにしようとしてたけどcode.jsでは
+   * toolbox0がデフォでそんまま使いたいのでコメントアウト
+   */
+  /*
+  let who = document.learnerLevelForm.level.value;
+  who = who.charAt(0).toUpperCase() + who.slice(1); // 頭文字を大文字に変換
+  const toolbox = document.getElementById('toolbox4' + who);
+  */
   var value = document.learnerLevelForm.level.value;
   var toolbox = void 0;
   switch (value) {
@@ -319,18 +328,34 @@ function changeToolboxLevel() {
       return;
       break;
   }
-  /*
-  const sampleXml = document.getElementById('samples');
-  toolbox.appendChild(sampleXml.firstElementChild);
-  */
   var toolboxText = toolbox.outerHTML.replace(/{(\w+)}/g, function (m, p1) {
     return MSG[p1];
   });
   var toolboxXml = Blockly.Xml.textToDom(toolboxText);
   Code.workspace.updateToolbox(toolboxXml);
 }
+function initToolboxes() {
+  var toolboxesFor = ['Debugger', 'Beginner', 'Intermediate'];
+  var toolbox = void 0;
+  var usageCategory = document.getElementById('usageXml').firstElementChild;
+  var sampleCategory = document.getElementById('sampleXml').firstElementChild;
+  for (var i = 0; i < toolboxesFor.length; i++) {
+    toolbox = document.getElementById('toolbox' + i);
+    toolbox.appendChild(document.createElement('sep'));
+    toolbox.appendChild(usageCategory.cloneNode(true));
+    toolbox.appendChild(sampleCategory.cloneNode(true));
+  }
+  /*
+  for (const who of toolboxesFor) {
+    toolbox = document.getElementById('toolbox4' + who);
+    toolbox.appendChild(document.createElement('sep'));
+    toolbox.appendChild(sampleXml.cloneNode(true));
+  }
+  */
+}
 window.addEventListener('load', function () {
   document.learnerLevelForm.addEventListener('change', changeToolboxLevel);
+  initToolboxes();
   changeToolboxLevel();
 });
 

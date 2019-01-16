@@ -55,36 +55,36 @@ onload = function(){
       run();
     }
   };
-	// this code is from David Baron's Weblog
-	// https://dbaron.org/log/20100309-faster-timeouts
-//	var timeouts = [];
-	var messageName = "zero-timeout-message";
+  // this code is from David Baron's Weblog
+  // https://dbaron.org/log/20100309-faster-timeouts
+  //  var timeouts = [];
+  var messageName = "zero-timeout-message";
 
-	// Like setTimeout, but only takes a function argument.  There's
-	// no time argument (always zero) and no arguments (you have to
-	// use a closure).
-	function setZeroTimeout(fn) {
-		timeouts.push(fn);
-		window.postMessage(messageName, "*");
-	}
+  // Like setTimeout, but only takes a function argument.  There's
+  // no time argument (always zero) and no arguments (you have to
+  // use a closure).
+  function setZeroTimeout(fn) {
+    timeouts.push(fn);
+    window.postMessage(messageName, "*");
+  }
 
-	function handleMessage(event) {
-		if (event.source == window && event.data == messageName) {
-			event.stopPropagation();
-			if (timeouts.length > 0) {
-				var fn = timeouts.shift();
-				fn();
-			}
-		}
-	}
+  function handleMessage(event) {
+    if (event.source == window && event.data == messageName) {
+      event.stopPropagation();
+      if (timeouts.length > 0) {
+        var fn = timeouts.shift();
+        fn();
+      }
+    }
+  }
 
-	if(window.addEventListener) window.addEventListener("message", handleMessage, true);
-	else if(window.attachEvent) window.attachEvent("onmessage", handleMessage);
+  if(window.addEventListener) window.addEventListener("message", handleMessage, true);
+  else if(window.attachEvent) window.attachEvent("onmessage", handleMessage);
 
-	// Add the one thing we want added to the window object.
-	window.setZeroTimeout = setZeroTimeout;
+  // Add the one thing we want added to the window object.
+  window.setZeroTimeout = setZeroTimeout;
 
-	$(window).bind("beforeunload", function(){if(dirty) return "プログラムが消去されます";});
+  $(window).bind("beforeunload", function(){if(dirty) return "プログラムが消去されます";});
 }
 
 /**
@@ -299,6 +299,15 @@ isDeclarationNecessary.addEventListener('change', function() {
  * ツールボックスのレベルを変更するモジュール
  */
 function changeToolboxLevel() {
+  /**
+   * toolboxのidをtoolbox4Debuggerとかにしようとしてたけどcode.jsでは
+   * toolbox0がデフォでそんまま使いたいのでコメントアウト
+   */
+  /*
+  let who = document.learnerLevelForm.level.value;
+  who = who.charAt(0).toUpperCase() + who.slice(1); // 頭文字を大文字に変換
+  const toolbox = document.getElementById('toolbox4' + who);
+  */
   const value = document.learnerLevelForm.level.value;
   let toolbox;
   switch (value) {
@@ -316,16 +325,32 @@ function changeToolboxLevel() {
       return;
       break;
   }
-  /*
-  const sampleXml = document.getElementById('samples');
-  toolbox.appendChild(sampleXml.firstElementChild);
-  */
   const toolboxText = toolbox.outerHTML.replace(/{(\w+)}/g, function(m, p1) {return MSG[p1]});
   const toolboxXml = Blockly.Xml.textToDom(toolboxText);
   Code.workspace.updateToolbox(toolboxXml);
 }
+function initToolboxes() {
+  const toolboxesFor = ['Debugger', 'Beginner', 'Intermediate'];
+  let toolbox;
+  const usageCategory = document.getElementById('usageXml').firstElementChild;
+  const sampleCategory = document.getElementById('sampleXml').firstElementChild;
+  for (var i = 0; i < toolboxesFor.length; i++) {
+    toolbox = document.getElementById('toolbox' + i);
+    toolbox.appendChild(document.createElement('sep'));
+    toolbox.appendChild(usageCategory.cloneNode(true));
+    toolbox.appendChild(sampleCategory.cloneNode(true));
+  }
+  /*
+  for (const who of toolboxesFor) {
+    toolbox = document.getElementById('toolbox4' + who);
+    toolbox.appendChild(document.createElement('sep'));
+    toolbox.appendChild(sampleXml.cloneNode(true));
+  }
+  */
+}
 window.addEventListener('load', function() {
   document.learnerLevelForm.addEventListener('change', changeToolboxLevel);
+  initToolboxes();
   changeToolboxLevel();
 });
 
