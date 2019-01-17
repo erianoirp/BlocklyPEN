@@ -12,7 +12,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "field_input",
         "name": "func_name",
-        "text": "≪関数≫"
+        "text": "《関数》"
       }
     ],
     "message1": "戻り値の型 %1",
@@ -63,7 +63,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "field_input",
         "name": "func_name",
-        "text": "≪関数≫"
+        "text": "《関数》"
       }
     ],
     "message1": "%1",
@@ -249,7 +249,7 @@ Blockly.Constants.Logic.DEFINE_FUNCTION_MUTATOR_MIXIN = {
         this.appendDummyInput('PARAM' + i)
             .appendField(i > 1 ? '      ' : '仮引数')
             .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "DATATYPE" + i)
-            .appendField(new Blockly.FieldTextInput("≪仮引数" + i + '≫'), "NAME" + i);
+            .appendField(new Blockly.FieldTextInput("《仮引数" + i + '》'), "NAME" + i);
       }
     }
     this.appendStatementInput('STATEMENTS');
@@ -278,7 +278,7 @@ Blockly.Constants.Logic.DEFINE_FUNCTION_MUTATOR_MIXIN = {
       }
       this.appendDummyInput('PARAM' + i)
           .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "DATATYPE" + i)
-          .appendField(new Blockly.FieldTextInput("≪仮引数≫"), "NAME" + i);
+          .appendField(new Blockly.FieldTextInput("《仮引数》"), "NAME" + i);
     }
     this.appendDummyInput('close_parenthesis')
         .appendField(')');
@@ -324,7 +324,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "field_input",
         "name": "func_name",
-        "text": "≪関数≫"
+        "text": "《関数》"
       }
     ],
     "message1": "%1",

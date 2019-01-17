@@ -217,7 +217,7 @@ Blockly.Blocks['formula'] = {
         {
           "type": "field_input",
           "name": "VALUE1",
-          "text": "≪数式≫"
+          "text": "《数式》"
         }
       ],
       "output": null,

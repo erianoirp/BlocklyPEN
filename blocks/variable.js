@@ -11,7 +11,7 @@ Blockly.Blocks['declare_variable'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         }
       ],
       "inputsInline": true,
@@ -37,7 +37,7 @@ Blockly.Blocks['declare_array1'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         },
         {
           "type": "field_number",
@@ -71,7 +71,7 @@ Blockly.Blocks['declare_array2'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         },
         {
           "type": "field_number",
@@ -108,7 +108,7 @@ Blockly.Blocks['assign'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         },
         {
           "type": "input_value",
@@ -133,7 +133,7 @@ Blockly.Blocks['variable'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         }
       ],
       "output": "Variable",
@@ -152,7 +152,7 @@ Blockly.Blocks['array1'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         },
         {
           "type": "input_value",
@@ -177,7 +177,7 @@ Blockly.Blocks['array2'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         },
         {
           "type": "input_value",
@@ -277,7 +277,7 @@ Blockly.Blocks['increment_decrement'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         },
         {
           "type": "input_value",
@@ -308,7 +308,7 @@ Blockly.Blocks['postfix_increment_decrement'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         },
         {
           "type": "field_dropdown",
@@ -334,7 +334,7 @@ Blockly.Blocks['compound_assignment'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         },
         {
           "type": "field_dropdown",

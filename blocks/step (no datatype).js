@@ -12,7 +12,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "field_input",
         "name": "step_name",
-        "text": "≪手続き≫"
+        "text": "《手続き》"
       }
     ],
     "message1": "%1",
@@ -156,7 +156,7 @@ Blockly.Constants.Logic.DEFINE_STEP_MUTATOR_MIXIN = {
             .appendField(',');
       }
       this.appendDummyInput('PARAM' + i)
-          .appendField(new Blockly.FieldTextInput("≪仮引数≫"), "NAME" + i);
+          .appendField(new Blockly.FieldTextInput("《仮引数》"), "NAME" + i);
     }
     this.appendDummyInput('CLOSE_PARENTHESIS')
         .appendField(')');
@@ -181,7 +181,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "field_input",
         "name": "step_name",
-        "text": "≪手続き≫"
+        "text": "《手続き》"
       }
     ],
     "message1": "%1",

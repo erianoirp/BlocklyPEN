@@ -26,7 +26,7 @@ Blockly.Blocks['string'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("「")
-        .appendField(new Blockly.FieldTextInput("≪文字列≫"), "value")
+        .appendField(new Blockly.FieldTextInput("《文字列》"), "value")
         .appendField("」");
     this.setOutput(true, "String");
     this.setColour(290);

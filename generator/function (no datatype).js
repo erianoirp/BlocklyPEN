@@ -1,33 +1,33 @@
 Blockly.Pen['define_function'] = function(block) {
-  const func_name = block.getFieldValue('func_name');
-  let params = '';
-  let i = 1;
+  var func_name = block.getFieldValue('func_name') || '《関数》';
+  var params = '';
+  var i = 1;
   while (block.getInput('PARAM' + i)) {
-    const name = block.getFieldValue('NAME' + i);
+    var name = block.getFieldValue('NAME' + i) || '《仮引数》';
     params += (i > 1 ? ', ' : '') + name;
     i++;
   }
-  const statements = Blockly.Pen.statementToCode(block, 'STATEMENTS');
-  const code = '関数 ' + func_name + ' (' + params + ')\n' + statements + '関数終了\n';
+  var statements1 = Blockly.Pen.adjustIndent(Blockly.Pen.statementToCode(block, 'STATEMENTS'));
+  var code = '関数 ' + func_name + ' (' + params + ')\n' + statements1 + '関数終了\n';
   return code;
 };
 
 Blockly.Pen['call_function'] = function(block) {
-  const funcName = block.getFieldValue('func_name');
-  let args = '';
-  let i = 1;
+  var funcName = block.getFieldValue('func_name') || '《関数》';
+  var args = '';
+  var i = 1;
   while (block.getInput('ARG' + i)) {
-    const arg = Blockly.Pen.valueToCode(block, 'ARG' + i, Blockly.Pen.ORDER_ATOMIC);
+    var arg = Blockly.Pen.valueToCode(block, 'ARG' + i, Blockly.Pen.ORDER_ATOMIC) || '《実引数》';
     args += (i > 1 ? ', ' : '') + arg;
     i++;
   }
-  const code = funcName + '(' + args + ')';
+  var code = funcName + '(' + args + ')';
   return [code, Blockly.Pen.ORDER_ATOMIC];
 };
 
 Blockly.Pen['return_block'] = function(block) {
-  const return_value = Blockly.Pen.valueToCode(block, 'return_value', Blockly.Pen.ORDER_ATOMIC);
-  const code = return_value + 'を返す\n'
+  var return_value = Blockly.Pen.valueToCode(block, 'return_value', Blockly.Pen.ORDER_ATOMIC) || '《値》';
+  var code = return_value + 'を返す\n'
   return code;
 };
 
