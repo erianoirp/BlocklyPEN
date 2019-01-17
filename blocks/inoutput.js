@@ -6,7 +6,7 @@ Blockly.Blocks['input'] = {
         {
           "type": "field_input",
           "name": "VARIABLE",
-          "text": "≪変数≫"
+          "text": "《変数》"
         }
       ],
       "previousStatement": null,
@@ -26,7 +26,7 @@ Blockly.Blocks['print_string'] = {
         {
           "type": "field_input",
           "name": "VALUE1",
-          "text": ""
+          "text": "《文字列》"
         },
         {
           "type": "field_dropdown",

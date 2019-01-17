@@ -326,3 +326,12 @@ Blockly.Pen.getAdjusted = function(block, atId, opt_delta, opt_negate,
   }
   return at;
 };
+
+Blockly.Pen.adjustIndent = function(code) {
+  if (!code) {
+    return '｜　\n';
+  }
+  code = code.replace(/  /, '｜　');
+  code = code.replace(/\n  /g, '\n｜　');
+  return code;
+}

@@ -245,7 +245,7 @@ Code.LANG = Code.getLang();
  * List of tab names.
  * @private
  */
-Code.TABS_ = ['blocks', 'javascript', 'php', 'python', 'dart', 'lua', 'xml','pen'];
+Code.TABS_ = ['blocks', 'javascript', 'php', 'python', 'dart', 'lua', 'xml', 'dncl'];
 
 Code.selected = 'blocks';
 
@@ -350,13 +350,13 @@ Code.renderContent = function() {
       code = prettyPrintOne(code, 'lua');
       content.innerHTML = code;
     }
-  } else if (content.id == 'content_pen') {
+  } else if (content.id == 'content_dncl') {
     code = Blockly.Pen.workspaceToCode(Code.workspace);
     content.textContent = code;
     //sourceTextarea.value = code;
     if (typeof prettyPrintOne == 'function') {
       code = content.innerHTML;
-      code = prettyPrintOne(code, 'pen');
+      code = prettyPrintOne(code, 'dncl');
       content.innerHTML = code;
 // 変換されたコード（Result）をクリップボードにコピー
       var AAA = content.getElementsByTagName("span");

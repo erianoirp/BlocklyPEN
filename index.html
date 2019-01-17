@@ -135,7 +135,7 @@
                 <!--<td class="tabmin">&nbsp;</td>-->
                 <td id="tab_xml" class="taboff">XML</td>
                 <td class="tabmin">&nbsp;</td>
-                <td id="tab_pen" class="taboff">PEN</td>
+                <td id="tab_dncl" class="taboff">DNCL</td>
                 <td class="tabmax">
                   <button id="runButton" class="notext primary" title="...">
                     <img src='./google/blockly/media/1x1.gif' class="run icon21">
@@ -196,7 +196,7 @@
   <pre id="content_php" class="content"></pre>
   <pre id="content_lua" class="content"></pre>
   <pre id="content_dart" class="content"></pre>
-  <pre id="content_pen" class="content"></pre>
+  <pre id="content_dncl" class="content"></pre>
   <textarea id="content_xml" class="content" wrap="off"></textarea>
 
   <!--block内容-->
@@ -691,11 +691,9 @@
   </xml>
   <xml id="toolbox1" style="display: none">
     <!-- Toolbox for Beginner.-->
-    <!--
-      - 変数
-    -->
     <!--<category name="{catVariable}" colour="330" custom="MYVARIABLE"></category>-->
     <category name="{catVariable}" colour="330">
+      <!-- 変数カテゴリ -->
       <label text="変数を作るブロック"></label>
       <block type="declare_variable"></block>
       <label text="配列を作るブロック"></label>
@@ -716,10 +714,8 @@
       </block>
     </category>
     <sep></sep>
-    <!--
-      - 値
-    -->
     <category name="{catValue}" colour="290">
+      <!-- 値カテゴリ -->
       <block type="integer"></block>
       <block type="float"></block>
       <block type="string"></block>
@@ -727,10 +723,8 @@
       <block type="boolean"></block>
       <block type="PI"></block>
     </category>
-    <!--
-      - 計算
-    -->
     <category name="{catCalc}" colour="230">
+      <!-- 計算カテゴリ -->
       <block type="calculation">
         <value name="val1"><shadow type="integer"></shadow></value>
         <value name="val2"><shadow type="integer"></shadow></value>
@@ -765,10 +759,8 @@
         <value name="VALUE2"><shadow type="nonnegative_integer"></shadow></value>
       </block>
     </category>
-    <!--
-      - 比較・論理
-    -->
     <category name="{catCompLogic}" colour="105">
+      <!-- 比較・論理カテゴリ -->
       <block type="comparison">
         <value name="VALUE1"><shadow type="variable"></shadow></value>
         <value name="VALUE2"><shadow type="integer"></shadow></value>
@@ -785,29 +777,14 @@
       <block type="and"></block>
       <block type="or"></block>
       <block type="not"></block>
-      <block type="even_odd">
-        <value name="VALUE1"><shadow type="variable"></shadow></value>
-      </block>
-      <block type="even_odd">
-        <value name="VALUE1">
-          <block type="calculation">
-            <value name="val1"><shadow type="integer"></shadow></value>
-            <value name="val2"><shadow type="integer"></shadow></value>
-          </block>
-        </value>
-      </block>
     </category>
-    <!--
-      - 条件分岐
-    -->
     <category name="{catBranching}" colour="260">
+      <!-- 条件分岐カテゴリ -->
       <block type="if"></block>
       <block type="ifelse"></block>
     </category>
-    <!--
-      - 制御
-    -->
     <category name="{catLooping}" colour="190">
+      <!-- 繰り返しカテゴリ -->
       <block type="while_simplified">
         <value name="VALUE1"><shadow type="natural_number"></shadow></value>
       </block>
@@ -819,10 +796,8 @@
       </block>
     </category>
     <sep></sep>
-    <!--
-      - 入出力
-    -->
     <category name="{catInoutput}" colour="65">
+      <!-- 入出力カテゴリ -->
       <block type="input"></block>
       <block type="print_string"></block>
       <block type="print_v">
@@ -836,11 +811,9 @@
   </xml>
   <xml id="toolbox2" style="display: none">
     <!-- Toolbox for Intermediate.-->
-    <!--
-      - 変数
-    -->
     <!--<category name="{catVariable}" colour="330" custom="MYVARIABLE"></category>-->
     <category name="{catVariable}" colour="330">
+      <!-- 変数カテゴリ -->
       <label text="宣言ブロック"></label>
       <block type="declare_variable"></block>
       <block type="declare_array1"></block>
@@ -865,10 +838,8 @@
       </block>
     </category>
     <sep></sep>
-    <!--
-      - 値
-    -->
     <category name="{catValue}" colour="290">
+      <!-- 値カテゴリ -->
       <block type="integer"></block>
       <block type="float"></block>
       <block type="string"></block>
@@ -876,10 +847,8 @@
       <block type="boolean"></block>
       <block type="PI"></block>
     </category>
-    <!--
-      - 計算
-    -->
     <category name="{catCalc}" colour="230">
+      <!-- 計算カテゴリ -->
       <block type="calculation">
         <value name="val1"><shadow type="integer"></shadow></value>
         <value name="val2"><shadow type="integer"></shadow></value>
@@ -915,10 +884,8 @@
       </block>
       <block type="formula"></block>
     </category>
-    <!--
-      - 比較・論理
-    -->
     <category name="{catCompLogic}" colour="105">
+      <!-- 比較・論理カテゴリ -->
       <block type="comparison">
         <value name="VALUE1"><shadow type="variable"></shadow></value>
         <value name="VALUE2"><shadow type="integer"></shadow></value>
@@ -936,17 +903,13 @@
       <block type="or"></block>
       <block type="not"></block>
     </category>
-    <!--
-      - 条件分岐
-    -->
     <category name="{catBranching}" colour="260">
+      <!-- 条件分岐カテゴリ -->
       <block type="if"></block>
       <block type="ifelse"></block>
     </category>
-    <!--
-      - 制御
-    -->
     <category name="{catLooping}" colour="190">
+      <!-- 繰り返しカテゴリ -->
       <block type="while"></block>
       <block type="repeat_until"></block>
       <block type="for">
@@ -956,10 +919,8 @@
       </block>
     </category>
     <sep></sep>
-    <!--
-      - 入出力
-    -->
     <category name="{catInoutput}" colour="65">
+      <!-- 入出力カテゴリ -->
       <block type="input"></block>
       <block type="print_string"></block>
       <block type="print_v">
@@ -971,10 +932,8 @@
       <block type="newline"></block>
     </category>
     <sep></sep>
-    <!--
-      - 関数
-    -->
     <category name="{catFunctions}" colour="160">
+      <!-- 関数カテゴリ -->
       <label text="定義ブロック"></label>
       <block type="define_function">
         <value name="STATEMENTS"><block type="return_block"></block></value>
@@ -1022,40 +981,83 @@
     <category name="{catSamples}">
       <category name="奇数か偶数か">
         <block type="declare_variable">
+          <field name="DATATYPE">整数</field>
           <field name="VARIABLE">num</field>
           <next>
-            <block type="for">
+            <block type="input">
               <field name="VARIABLE">num</field>
-              <value name="FROM"><shadow type="integer"><field name="value">1</field></shadow></value>
-              <value name="TO"><shadow type="integer"><field name="value">10</field></shadow></value>
-              <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
-              <statement name="STATEMENTS">
+              <next>
                 <block type="ifelse">
                   <value name="VALUE1">
-                    <block type="even_odd">
-                      <value name="VALUE1"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
+                    <block type="comparison">
+                      <field name="OPERATOR">=</field>
+                      <value name="VALUE1">
+                        <block type="calculation">
+                          <field name="calculation">%</field>
+                          <value name="val1">
+                            <shadow type="integer">
+                              <field name="value">0</field>
+                            </shadow>
+                            <block type="variable">
+                              <field name="VARIABLE">num</field>
+                            </block>
+                          </value>
+                          <value name="val2">
+                            <shadow type="integer">
+                              <field name="value">2</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </value>
+                      <value name="VALUE2">
+                        <shadow type="integer">
+                          <field name="value">0</field>
+                        </shadow>
+                      </value>
                     </block>
                   </value>
                   <statement name="STATEMENTS1">
                     <block type="print_v">
-                      <value name="VALUE1"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
-                      <field name="NEWLINE">false</field>
-                      <next>
-                        <block type="print_string"><field name="VALUE1">は偶数です。</field></block>
-                      </next>
+                      <field name="NEWLINE">true</field>
+                      <value name="VALUE1">
+                        <block type="calculation">
+                          <field name="calculation">+</field>
+                          <value name="val1">
+                            <block type="variable">
+                              <field name="VARIABLE">num</field>
+                            </block>
+                          </value>
+                          <value name="val2">
+                            <block type="string">
+                              <field name="value">は偶数です。</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
                     </block>
                   </statement>
                   <statement name="STATEMENTS2">
                     <block type="print_v">
-                      <value name="VALUE1"><shadow type="variable"><field name="VARIABLE">num</field></shadow></value>
-                      <field name="NEWLINE">false</field>
-                      <next>
-                        <block type="print_string"><field name="VALUE1">は奇数です。</field></block>
-                      </next>
+                      <field name="NEWLINE">true</field>
+                      <value name="VALUE1">
+                        <block type="calculation">
+                          <field name="calculation">+</field>
+                          <value name="val1">
+                            <block type="variable">
+                              <field name="VARIABLE">num</field>
+                            </block>
+                          </value>
+                          <value name="val2">
+                            <block type="string">
+                              <field name="value">は奇数です。</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
                     </block>
                   </statement>
                 </block>
-              </statement>
+              </next>
             </block>
           </next>
         </block>
@@ -1070,9 +1072,8 @@
                 <block type="declare_variable">
                   <field name="VARIABLE">N</field>
                   <next>
-                    <block type="assign">
+                    <block type="input">
                       <field name="VARIABLE">N</field>
-                      <value name="VALUE1"><shadow type="integer"><field name="value">50</field></shadow></value>
                       <next>
                         <block type="for">
                           <field name="VARIABLE">i</field>
@@ -1280,9 +1281,8 @@
           <field name="DATATYPE">整数</field>
           <field name="VARIABLE">year</field>
           <next>
-            <block type="assign">
+            <block type="input">
               <field name="VARIABLE">year</field>
-              <value name="VALUE1"><shadow type="integer"><field name="value">1997</field></shadow></value>
               <next>
                 <block type="ifelse">
                   <value name="VALUE1">

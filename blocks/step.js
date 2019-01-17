@@ -12,7 +12,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "field_input",
         "name": "step_name",
-        "text": "≪手続き≫"
+        "text": "《手続き》"
       }
     ],
     "message1": "仮引数 なし %1",
@@ -150,8 +150,8 @@ Blockly.Constants.Logic.DEFINE_STEP_MUTATOR_MIXIN = {
             .appendField(i > 1 ? '      ' : '仮引数')
             .appendField(new Blockly.FieldDropdown([["整数","整数"], ["実数","実数"], ["文字列","文字列"], ["真偽","真偽"]]), "DATATYPE" + i)
 // Blockly.FieldVariableがうまくいかない
-//            .appendField(new Blockly.FieldVariable("≪仮引数" + i + "≫"), "NAME" + i);
-            .appendField(new Blockly.FieldTextInput("≪仮引数" + i + '≫'), "NAME" + i);
+//            .appendField(new Blockly.FieldVariable("《仮引数" + i + "》"), "NAME" + i);
+            .appendField(new Blockly.FieldTextInput("《仮引数" + i + '》'), "NAME" + i);
       }
     }
     this.appendStatementInput('STATEMENTS');
@@ -175,7 +175,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       {
         "type": "field_input",
         "name": "step_name",
-        "text": "≪手続き≫"
+        "text": "《手続き》"
       }
     ],
     "message1": "%1",
