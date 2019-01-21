@@ -103,11 +103,15 @@ text.blocklyText {
   width: -webkit-calc(100% - 300px);
   width: calc(100% - 300px);
   height: 100%;
-  padding-right: 5px;
   box-sizing: border-box;
 }
 #content_area {
   height: 95%;
+}
+#content_blocks{
+  margin: 0;
+  position: absolute;
+  direction: ltr;
 }
 #lineF2F {
   position: absolute;

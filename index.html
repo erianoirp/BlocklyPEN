@@ -13,21 +13,16 @@
   <!--
   <link rel="stylesheet" href="css/pure-min.css">
   -->
-  <link rel="stylesheet" href="./google/blockly/demos/code/style.css">
+  <link rel="stylesheet" href="./demos/code/style.css">
 
   <link rel="stylesheet" href="./index.css">
 
   <link rel="shortcut icon" href="./suzu.gif">
 
-  <!--closure library-->
-  <script src="./google/closure-library/closure/goog/base.js"></script>
-  <script src="./google/closure-library/closure/goog/storage/storage.js"></script>
-
   <!--本体モジュール-->
   <script src="./blockly/blockly_compressed.js"></script>
 
   <!--ブロックモジュール-->
-  <!-- <script src="../google/blockly/blocks_compressed.js"></script> -->
   <script src="./blocks/branching.js"></script>
   <script src="./blocks/comp_logic.js"></script>
   <script src="./blocks/file.js"></script>
@@ -53,7 +48,7 @@
   <script src="./blockly/php_compressed.js"></script>
   <script src="./blockly/lua_compressed.js"></script>
   <script src="./blockly/dart_compressed.js"></script>
-  <script src="./code/code.js"></script>
+  <script src="./demos/code/code.js"></script>
 
   <script src="./generator/pen.js"></script>
   <script src="./generator/branching.js"></script>
@@ -88,6 +83,26 @@
 <body>
   <div id="titleDiv">
     <h1><span id="title">読み込み失敗</span></h1>
+    <button id="runButton" class="notext primary" title="...">
+      <img src='./blockly/media/1x1.gif' class="run icon21">
+    </button>
+    <!--
+      <button id="stepButton">
+      ステップ実行
+      </button>
+    -->
+    <button id="linkButton" class="notext" title="...">
+      <img src='./blockly/media/1x1.gif' class="link icon21">
+    </button>
+    <button id="loadButton" class="notext" title="ブロックを外部から読み込みます。">
+      <img src='./images/import.gif' class="newicon">
+    </button>
+    <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
+      <img src='./images/export.gif' class="newicon">
+    </button>
+    <button id="trashButton" class="notext" title="...">
+      <img src='./blockly/media/1x1.gif' class="trash icon21">
+    </button>
     <div id="link2Help" class="iconOnTitlebar">
       <a href="./help.html" target="_blank"><img src="images/question.png"></a>
     </div>
@@ -117,68 +132,26 @@
             <select id="languageMenu"></select>
           </td>
         </tr>
-        <tr>
-          <td colspan=2>
-            <table width="100%">
-              <tr id="tabRow" height="1em">
-                <td id="tab_blocks" class="tabon">...</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_javascript" class="taboff">JavaScript</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_python" class="taboff">Python</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_php" class="taboff">PHP</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_lua" class="taboff">Lua</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_dart" class="taboff">Dart</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_xml" class="taboff">XML</td>
-                <td class="tabmin">&nbsp;</td>
-                <td id="tab_dncl" class="taboff">DNCL</td>
-                <td class="tabmax">
-                  <button id="runButton" class="notext primary" title="...">
-                    <img src='./google/blockly/media/1x1.gif' class="run icon21">
-                  </button>
-                  <!--
-                  <button id="stepButton">
-                    ステップ実行
-                  </button>
-                  -->
-                  <button id="linkButton" class="notext" title="...">
-                    <img src='./google/blockly/media/1x1.gif' class="link icon21">
-                  </button>
-                  <button id="loadButton" class="notext" title="ブロックを外部から読み込みます。">
-                    <img src='./google/blockly/media/import.gif' class="newicon">
-                  </button>
-                  <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
-                    <img src='./google/blockly/media/export.gif' class="newicon">
-                  </button>
-                  <button id="trashButton" class="notext" title="...">
-                    <img src='./google/blockly/media/1x1.gif' class="trash icon21">
-                  </button>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <!--
-        <tr>
-          <td id="content_area" colspan=2>
-          </td>
-        </tr>
-        -->
       </table>
       <div id="content_area">
         <canvas id="line4F2FCanvas"></canvas>
       </div>
     </div>
-    <div id="result">
-      <div id="resultTitle">
-        実行結果
-        <button id="resetButton" class="notext" title="実行結果をリセットします。">
-          <img src='./google/blockly/media/reset.gif' class="newicon">
-        </button>
+    <div id="sidebar">
+      <div id="result">
+        <div id="resultTitle">
+          <p>実行結果</p>
+          <button id="resetButton" class="notext" title="実行結果をリセットします。">
+            <img src='./images/reset.gif' class="newicon">
+          </button>
+        </div>
+        <textarea id="resultTextarea" rows="20" cols="50" readonly></textarea>
+      </div>
+      <div id="dncl">
+        <div id="dnclTitle">
+          <p>DNCL</p>
+        </div>
+        <pre id="contentDncl"></pre>
       </div>
       <textarea id="resultTextarea" rows="20" cols="50" readonly></textarea>
     </div>
@@ -191,13 +164,6 @@
   </div>
 
   <div id="content_blocks" class="content"></div>
-  <pre id="content_javascript" class="content"></pre>
-  <pre id="content_python" class="content"></pre>
-  <pre id="content_php" class="content"></pre>
-  <pre id="content_lua" class="content"></pre>
-  <pre id="content_dart" class="content"></pre>
-  <pre id="content_dncl" class="content"></pre>
-  <textarea id="content_xml" class="content" wrap="off"></textarea>
 
   <!--block内容-->
   <xml id="toolbox0" style="display: none">
@@ -1370,8 +1336,6 @@
   </div>
   <div id="input-overlay"></div>
 
-  <!--追加-->
-  <script src="./code/my.js"></script>
   <script type="text/javascript">
     let onResizeCanvas = function(e) {
       let canvas = document.getElementById("line4F2FCanvas");
