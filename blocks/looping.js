@@ -1,17 +1,28 @@
 Blockly.Blocks['while'] = {
   init: function() {
-    this.appendValueInput("conditions")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("の間，");
-    this.appendStatementInput("exe")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField("を繰り返す");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(190);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "%1 の間，",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CONDITION"
+        }
+      ],
+      "message1": "%1",
+      "args1": [
+        {
+          "type": "input_statement",
+          "name": "STATEMENTS1"
+        }
+      ],
+      "message2": "を繰り返す",
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 190,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
