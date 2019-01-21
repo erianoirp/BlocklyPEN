@@ -11,28 +11,31 @@ body {
   padding-left: 1em;
   line-height: 50px;
 }
-.iconOnTitlebar {
+.onTitlebar {
+  height: 100%;
   display: inline-block;
 }
-.iconOnTitlebar a,img {
+.onTitlebar a,img,button {
   vertical-align: middle;
-}
-.iconOnTitlebar img {
-  width: 25px;
-  height: 25px;
 }
 h1 {
   margin: 0;
   color: white;
   float: left;
-  display: inline-block;
 }
 #title {
   vertical-align: middle;
 }
-#link2Help {
-  margin-left: 5px;
-  float: left;
+#buttons {
+  margin: 0 15px;
+}
+.myicon21 {
+  height: 21px;
+  width: 21px;
+}
+.myicon25 {
+  width: 25px;
+  height: 25px;
 }
 #settingButton {
   margin-right: 10px;
@@ -57,7 +60,7 @@ h1 {
 }
 #settingMenu {
   width: 250px;
-  height: 180px;
+  height: 191px;
   background-color: white;
   border: solid 1px gray;
   position: absolute;
@@ -65,9 +68,9 @@ h1 {
   top: 50px;
   z-index: 2;
 }
-#settingMenu form {
+.onSettingMenu {
   display: block;
-  margin-bottom: 4px;
+  margin: 2px 0;
   padding-left: 8px;
 }
 .checkboxOnSettingMenu input {
@@ -77,10 +80,9 @@ h1 {
 }
 .checkboxOnSettingMenu p {
   display: inline-block;
-  line-height: 1.6em;
+  line-height: 20px;
   vertical-align: middle;
-  padding-top: 8px;
-  margin: 0 0 8px 0;
+  margin: 0;
 }
 .radiobuttonOnSettingMenu {
   line-height: 1.6em;
@@ -88,25 +90,45 @@ h1 {
 .radiobuttonOnSettingMenu p {
   margin: 0;
 }
-text.blocklyText {
-  font-family: monospace;
+#link2Help {
+  border-top: solid 1px #ddd;
+  height: 32px;
+  padding: 0;
+  line-height: 32px;
+}
+#link2Help a {
+  display: block;
+  width: 100%;
+  color: black;
+  padding-left: 8px;
+  text-decoration:none;
+  transition: background-color 0.08s linear;
+  transition: color 0.08s linear;
+}
+#link2Help a:hover {
+  color: #444;
+  background-color: #eee;
+}
+#link2Help span {
+  margin: 0 4px;
+  vertical-align: middle;
+}
+#linkButton,#languageMenu {
+  display: none;
 }
 #IDE {
   width: 100%;
-  height: -webkit-calc(100% - 50px);
   height: calc(100% - 50px);
-  padding: 5px;
   box-sizing: border-box;
 }
 #editor {
   float: left;
-  width: -webkit-calc(100% - 300px);
   width: calc(100% - 300px);
   height: 100%;
   box-sizing: border-box;
 }
 #content_area {
-  height: 95%;
+  height: 100%;
 }
 #content_blocks{
   margin: 0;
@@ -116,23 +138,38 @@ text.blocklyText {
 #lineF2F {
   position: absolute;
 }
-#result {
-  float: right;
+#sidebar {
+  float: left;
   width: 300px;
   height: 100%;
+  padding: 0 4px 4px 4px;
   box-sizing: border-box;
 }
-#resultTitle {
-  height: 34px;
+.onSidebar {
+  height: 50%;
 }
-#resetButton {
+.titleOnSidebar {
+  display: block;
+  height: 20px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+}
+.displayOnSidebar {
+  height: calc(100% - 20px);
+  border: solid 1px #cccccc;
+  box-sizing: border-box;
+  font-size: 13px;
 }
 #resultTextarea {
   width: 100%;
-  height: -webkit-calc(100% - 35px);
-  height: calc(100% - 34px);
-  border: solid 1px #cccccc;
-  box-sizing: border-box;
+  resize: none;
+}
+#contentDncl {
+  margin: 0;
+  padding-top: 2px;
+  padding-left: 4px;
+  overflow: auto;
 }
 #canvasDiv {
   position: absolute;
@@ -193,4 +230,13 @@ text.blocklyText {
   height: 100%;
   background-color: rgba(0,0,0,0.4);
   z-index: 80;
+}
+text.blocklyText {
+  font-family: monospace;
+}
+.blocklyTreeLabel {
+  font-size: 11px;
+}
+.blocklyTreeIconNone, .blocklyTreeSelected > .blocklyTreeIconNone {
+  width: 4px;
 }

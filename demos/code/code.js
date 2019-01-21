@@ -279,7 +279,8 @@ Code.init = function() {
        toolbox: toolboxXml,
        zoom:
            {controls: true,
-            wheel: true}
+            wheel: true,
+            startScale: 0.9}
       });
 
   // Add to reserved word list: Local variables in execution environment (runJS)
