@@ -386,14 +386,7 @@ hide4SettingMenu();
 function showDNCL() {
   var content = document.getElementById('contentDncl');
   var code = Blockly.Pen.workspaceToCode(Code.workspace);
-  console.log(code);
   content.textContent = code;
-  // なんか色付けされる Code.jsから
-  if (typeof prettyPrintOne == 'function') {
-    code = content.innerHTML;
-    code = prettyPrintOne(code, 'dncl');
-    content.innerHTML = code;
-  }
 }
 window.addEventListener('load', function () {
   Code.workspace.addChangeListener(showDNCL);

@@ -198,15 +198,11 @@ Code.bindClick = function(el, func) {
  * Load the Prettify CSS and JavaScript.
  */
 Code.importPrettify = function() {
-  //<link rel="stylesheet" href="../prettify.css">
-  //<script src="../prettify.js"></script>
-  var link = document.createElement('link');
-  link.setAttribute('rel', 'stylesheet');
-  link.setAttribute('href', './google/blockly/demos/prettify.css');
-  document.head.appendChild(link);
+  /*
   var script = document.createElement('script');
-  script.setAttribute('src', './google/blockly/demos/prettify.js');
+  script.setAttribute('src', 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js');
   document.head.appendChild(script);
+  */
 };
 
 /**
@@ -314,7 +310,7 @@ Code.init = function() {
   Blockly.svgResize(Code.workspace);
 
   // Lazy-load the syntax-highlighting.
-  window.setTimeout(Code.importPrettify, 1);
+  // window.setTimeout(Code.importPrettify, 1);
 };
 
 /**
