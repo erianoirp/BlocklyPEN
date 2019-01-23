@@ -13,21 +13,16 @@
   <!--
   <link rel="stylesheet" href="css/pure-min.css">
   -->
-  <link rel="stylesheet" href="./google/blockly/demos/code/style.css">
+  <link rel="stylesheet" href="./demos/code/style.css">
 
   <link rel="stylesheet" href="./index.css">
 
   <link rel="shortcut icon" href="./suzu.gif">
 
-  <!--closure library-->
-  <script src="./google/closure-library/closure/goog/base.js"></script>
-  <script src="./google/closure-library/closure/goog/storage/storage.js"></script>
-
   <!--本体モジュール-->
   <script src="./blockly/blockly_compressed.js"></script>
 
   <!--ブロックモジュール-->
-  <!-- <script src="../google/blockly/blocks_compressed.js"></script> -->
   <script src="./blocks/branching.js"></script>
   <script src="./blocks/comp_logic.js"></script>
   <script src="./blocks/file.js"></script>
@@ -49,11 +44,7 @@
 
   <!--翻訳モジュール-->
   <script src="./blockly/javascript_compressed.js"></script>
-  <script src="./blockly/python_compressed.js"></script>
-  <script src="./blockly/php_compressed.js"></script>
-  <script src="./blockly/lua_compressed.js"></script>
-  <script src="./blockly/dart_compressed.js"></script>
-  <script src="./code/code.js"></script>
+  <script src="./demos/code/code.js"></script>
 
   <script src="./generator/pen.js"></script>
   <script src="./generator/branching.js"></script>
@@ -87,19 +78,48 @@
 </head>
 <body>
   <div id="titleDiv">
-    <h1><span id="title">読み込み失敗</span></h1>
-    <div id="link2Help" class="iconOnTitlebar">
-      <a href="./help.html" target="_blank"><img src="images/question.png"></a>
+    <h1 class="onTitlebar"><span id="title">読み込み失敗</span></h1>
+    <div id="buttons" class="onTitlebar">
+      <button id="runButton" class="notext primary" title="...">
+        <img src='./blockly/media/1x1.gif' class="run icon21">
+      </button>
+      <!--
+      <button id="stepButton">
+        ステップ実行
+      </button>
+      -->
+      <button id="linkButton" class="notext" title="...">
+        <img src='./blockly/media/1x1.gif' class="link icon21">
+      </button>
+      <button id="resetButton" class="notext" title="処理を停止します。">
+        <img src='./images/stop.png' class="myicon21">
+      </button>
+      <button id="loadButton" class="notext" title="ブロックを外部から読み込みます。">
+        <img src='./images/import.png' class="myicon21">
+      </button>
+      <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
+        <img src='./images/export.png' class="myicon21">
+      </button>
+      <button id="trashButton" class="notext" title="...">
+        <img src='./blockly/media/1x1.gif' class="trash icon21">
+      </button>
     </div>
-    <div id="settingButton" class="iconOnTitlebar">
-      <img src="images/setting.png">
+    <div id="settingButton" class="onTitlebar">
+      <img src="images/setting.png" class="myicon25">
     </div>
+    <table id="tabtable">
+      <tr>
+        <td class="farSide">
+          <select id="languageMenu"></select>
+        </td>
+      </tr>
+    </table>
     <div id="settingMenu">
-      <form id="varForm" name="varForm" action="" class="checkboxOnSettingMenu">
+      <form id="varForm" name="varForm" action="" class="onSettingMenu checkboxOnSettingMenu">
         <input id="isDeclarationNecessary" type="checkbox">
         <p>変数宣言を必須にする<br>※チェック推奨</p>
       </form>
-      <form name="learnerLevelForm" class="radiobuttonOnSettingMenu">
+      <form name="learnerLevelForm" class="onSettingMenu radiobuttonOnSettingMenu">
         <p>【学習者レベル】</p>
         <div>
           <input name="level" type="radio" value="debugger">デバッグ<br>
@@ -107,80 +127,28 @@
           <input name="level" type="radio" value="intermediate">中級者レベル<br>
         </div>
       </form>
+      <div id="link2Help" class="onSettingMenu">
+        <a href="./help.html" target="_blank">
+          <img src="images/question.svg" class="myicon21"><span>BlocklyPENについて</span>
+        </a>
+      </div>
     </div>
   </div>
   <div id="IDE">
     <div id="editor">
-      <table id="tabtable">
-        <tr>
-          <td class="farSide">
-            <select id="languageMenu"></select>
-          </td>
-        </tr>
-        <tr>
-          <td colspan=2>
-            <table width="100%">
-              <tr id="tabRow" height="1em">
-                <td id="tab_blocks" class="tabon">...</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_javascript" class="taboff">JavaScript</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_python" class="taboff">Python</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_php" class="taboff">PHP</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_lua" class="taboff">Lua</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_dart" class="taboff">Dart</td>
-                <!--<td class="tabmin">&nbsp;</td>-->
-                <td id="tab_xml" class="taboff">XML</td>
-                <td class="tabmin">&nbsp;</td>
-                <td id="tab_dncl" class="taboff">DNCL</td>
-                <td class="tabmax">
-                  <button id="runButton" class="notext primary" title="...">
-                    <img src='./google/blockly/media/1x1.gif' class="run icon21">
-                  </button>
-                  <!--
-                  <button id="stepButton">
-                    ステップ実行
-                  </button>
-                  -->
-                  <button id="linkButton" class="notext" title="...">
-                    <img src='./google/blockly/media/1x1.gif' class="link icon21">
-                  </button>
-                  <button id="loadButton" class="notext" title="ブロックを外部から読み込みます。">
-                    <img src='./google/blockly/media/import.gif' class="newicon">
-                  </button>
-                  <button id="saveButton" class="notext" title="ブロックを外部に保存します。">
-                    <img src='./google/blockly/media/export.gif' class="newicon">
-                  </button>
-                  <button id="trashButton" class="notext" title="...">
-                    <img src='./google/blockly/media/1x1.gif' class="trash icon21">
-                  </button>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <!--
-        <tr>
-          <td id="content_area" colspan=2>
-          </td>
-        </tr>
-        -->
-      </table>
       <div id="content_area">
         <canvas id="line4F2FCanvas"></canvas>
       </div>
     </div>
-    <div id="result">
-      <div id="resultTitle">
-        実行結果
-        <button id="resetButton" class="notext" title="実行結果をリセットします。">
-          <img src='./google/blockly/media/reset.gif' class="newicon">
-        </button>
+    <div id="sidebar">
+      <div id="result" class="onSidebar">
+        <p class="titleOnSidebar">実行結果</p>
+        <textarea id="resultTextarea" class="displayOnSidebar" rows="20" cols="50" readonly></textarea>
       </div>
-      <textarea id="resultTextarea" rows="20" cols="50" readonly></textarea>
+      <div id="dncl" class="onSidebar">
+        <p class="titleOnSidebar">DNCL</p>
+        <pre id="contentDncl"class="displayOnSidebar"></pre>
+      </div>
     </div>
   </div>
   <div id="canvasDiv">
@@ -190,14 +158,7 @@
     <canvas id="canvas"></canvas>
   </div>
 
-  <div id="content_blocks" class="content"></div>
-  <pre id="content_javascript" class="content"></pre>
-  <pre id="content_python" class="content"></pre>
-  <pre id="content_php" class="content"></pre>
-  <pre id="content_lua" class="content"></pre>
-  <pre id="content_dart" class="content"></pre>
-  <pre id="content_dncl" class="content"></pre>
-  <textarea id="content_xml" class="content" wrap="off"></textarea>
+  <div id="content_blocks"></div>
 
   <!--block内容-->
   <xml id="toolbox0" style="display: none">
@@ -399,7 +360,9 @@
       <block type="math_number"></block>
       <block type="penvar"></block>
       -->
+      <label text="入力ブロック"></label>
       <block type="input"></block>
+      <label text="出力ブロック"></label>
       <block type="print_string"></block>
       <block type="print_v">
         <value name="VALUE1"><shadow type="variable"></shadow></value>
@@ -798,7 +761,9 @@
     <sep></sep>
     <category name="{catInoutput}" colour="65">
       <!-- 入出力カテゴリ -->
+      <label text="入力ブロック"></label>
       <block type="input"></block>
+      <label text="出力ブロック"></label>
       <block type="print_string"></block>
       <block type="print_v">
         <value name="VALUE1"><shadow type="variable"></shadow></value>
@@ -921,7 +886,9 @@
     <sep></sep>
     <category name="{catInoutput}" colour="65">
       <!-- 入出力カテゴリ -->
+      <label text="入力ブロック"></label>
       <block type="input"></block>
+      <label text="出力ブロック"></label>
       <block type="print_string"></block>
       <block type="print_v">
         <value name="VALUE1"><shadow type="variable"></shadow></value>
@@ -1364,8 +1331,6 @@
   </div>
   <div id="input-overlay"></div>
 
-  <!--追加-->
-  <script src="./code/my.js"></script>
   <script type="text/javascript">
     let onResizeCanvas = function(e) {
       let canvas = document.getElementById("line4F2FCanvas");

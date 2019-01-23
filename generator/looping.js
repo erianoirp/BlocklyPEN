@@ -1,6 +1,6 @@
 Blockly.Pen['while'] = function(block) {
-  var condition = Blockly.Pen.valueToCode(block, 'condition', Blockly.Pen.ORDER_ATOMIC) || '《条件式》';
-  var statements1 = Blockly.Pen.adjustIndent(Blockly.Pen.statementToCode(block, 'exe'));
+  var condition = Blockly.Pen.valueToCode(block, 'CONDITION', Blockly.Pen.ORDER_ATOMIC) || '《条件式》';
+  var statements1 = Blockly.Pen.adjustIndent(Blockly.Pen.statementToCode(block, 'STATEMENTS1'));
   var code = condition + ' の間，\n' + statements1 +'を繰り返す\n';
   return code;
 };

@@ -374,3 +374,16 @@ document.addEventListener('click', function(event) {
   }
 });
 hide4SettingMenu();
+
+/**
+ * DNCLを表示するモジュール
+ */
+function showDNCL() {
+  const content = document.getElementById('contentDncl');
+  let code = Blockly.Pen.workspaceToCode(Code.workspace);
+  content.textContent = code;
+}
+window.addEventListener('load', function() {
+  Code.workspace.addChangeListener(showDNCL);
+});
+
