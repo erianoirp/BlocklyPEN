@@ -1,2 +1,8 @@
+images/IdeDescription.pptx
+images/screenLayout.png
 node_modules/
+.babelrc
+index.js
+Makefile
+package.json
 package-lock.json
