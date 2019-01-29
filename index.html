@@ -169,26 +169,16 @@
       <block type="declare_array1"></block>
       <block type="declare_array2"></block>
       <label text="代入ブロック"></label>
-      <block type="assign">
-        <value name="VALUE1"><shadow type="integer"></shadow></value>
-      </block>
+      <block type="assign"></block>
       <label text="変数ブロック"></label>
       <block type="variable"></block>
-      <block type="array1">
-        <value name="INDEX1"><shadow type="nonnegative_integer"></shadow></value>
-      </block>
-      <block type="array2">
-        <value name="INDEX1"><shadow type="nonnegative_integer"></shadow></value>
-        <value name="INDEX2"><shadow type="nonnegative_integer"></shadow></value>
+      <block type="array1"></block>
+      <block type="array2"></value>
       </block>
       <label text="その他"></label>
-      <block type="increment_decrement">
-        <value name="VALUE1"><shadow type="integer"><field name="value">1</field></shadow></value>
-      </block>
+      <block type="increment_decrement"></block>
       <block type="postfix_increment_decrement"></block>
-      <block type="compound_assignment">
-        <value name="VALUE1"><shadow type="integer"></shadow></value>
-      </block>
+      <block type="compound_assignment"></block>
     </category>
     <sep></sep>
     <category name="{catValue}" colour="290">
@@ -202,17 +192,9 @@
     </category>
     <category name="{catCalc}" colour="230">
       <!-- 計算カテゴリ -->
-      <block type="calculation">
-        <value name="val1"><shadow type="float"></shadow></value>
-        <value name="val2"><shadow type="float"></shadow></value>
-      </block>
-      <block type="calculation_with_parentheses">
-        <value name="VALUE1"><shadow type="float"></shadow></value>
-        <value name="VALUE2"><shadow type="float"></shadow></value>
-      </block>
-      <block type="random">
-        <value name="val"><shadow type="natural_number"></shadow></value>
-      </block>
+      <block type="calculation"></block>
+      <block type="calculation_with_parentheses"></block>
+      <block type="random"></block>
       <!--
       <block type="decimal">
         <value name="val">
@@ -222,28 +204,13 @@
         </value>
       </block>
       -->
-      <block type="abs">
-        <value name="VALUE"><shadow type="float"></shadow></value>
-      </block>
-      <block type="round">
-        <value name="VALUE"><shadow type="float"></shadow></value>
-      </block>
-      <block type="trigonometric">
-        <value name="VALUE"><shadow type="float"></shadow></value>
-      </block>
-      <block type="sqrt">
-        <value name="VALUE"><shadow type="float"></shadow></value>
-      </block>
-      <block type="log">
-        <value name="VALUE"><shadow type="float"></shadow></value>
-      </block>
-      <block type="exp">
-        <value name="VALUE"><shadow type="float"></shadow></value>
-      </block>
-      <block type="pow">
-        <value name="VALUE1"><shadow type="float"></shadow></value>
-        <value name="VALUE2"><shadow type="float"></shadow></value>
-      </block>
+      <block type="abs"></block>
+      <block type="round"></block>
+      <block type="trigonometric"></block>
+      <block type="sqrt"></block>
+      <block type="log"></block>
+      <block type="exp"></block>
+      <block type="pow"></block>
       <block type="formula"></block>
       <!--
       <block type="other">
@@ -286,33 +253,11 @@
     </category>
     <category name="{catCompLogic}" colour="105">
       <!-- 比較・論理カテゴリ -->
-      <block type="comparison">
-        <value name="VALUE1"><shadow type="variable"></shadow></value>
-        <value name="VALUE2"><shadow type="integer"></shadow></value>
-      </block>
-      <block type="comparison">
-        <value name="VALUE1">
-          <block type="calculation">
-            <value name="val1"><shadow type="integer"></shadow></value>
-            <value name="val2"><shadow type="integer"></shadow></value>
-          </block>
-        </value>
-        <value name="VALUE2"><shadow type="integer"></shadow></value>
-      </block>
+      <block type="comparison"></block>
       <block type="and"></block>
       <block type="or"></block>
       <block type="not"></block>
-      <block type="even_odd">
-        <value name="VALUE1"><shadow type="variable"></shadow></value>
-      </block>
-      <block type="even_odd">
-        <value name="VALUE1">
-          <block type="calculation">
-            <value name="val1"><shadow type="integer"></shadow></value>
-            <value name="val2"><shadow type="integer"></shadow></value>
-          </block>
-        </value>
-      </block>
+      <block type="even_odd"></block>
       <!--<block type="logic_operation"></block>-->
       <!--<block type="logic_negate"></block>-->
       <!--<block type="logic_boolean"></block>-->
@@ -327,16 +272,10 @@
     </category>
     <category name="{catLooping}" colour="190">
       <!-- 繰り返しカテゴリ -->
-      <block type="while_simplified">
-        <value name="VALUE1"><shadow type="natural_number"></shadow></value>
-      </block>
+      <block type="while_simplified"></block>
       <block type="while"></block>
       <block type="repeat_until"></block>
-      <block type="for">
-        <value name="FROM"><shadow type="integer"></shadow></value>
-        <value name="TO"><shadow type="integer"><field name="value">10</field></shadow></value>
-        <value name="BY"><shadow type="integer"><field name="value">1</field></shadow></value>
-      </block>
+      <block type="for"></block>
       <!--
       <block type="controls_repeat_ext">
         <value name="TIMES"><shadow type="math_number"><field name="NUM">10</field></shadow></value>
@@ -352,22 +291,18 @@
       -->
     </category>
     <sep></sep>
-    <category name="{catInoutput}" colour="65">
-      <!-- 入出力カテゴリ -->
+    <category name="{catInput}" colour="65">
+      <!-- 入力カテゴリ -->
+      <block type="input"></block>
+    </category>
+    <category name="{catPrint}" colour="65">
+      <!-- 表示カテゴリ -->
       <!--
       <block type="math_number"></block>
       <block type="penvar"></block>
       -->
-      <label text="入力ブロック"></label>
-      <block type="input"></block>
-      <label text="出力ブロック"></label>
       <block type="print_string"></block>
-      <block type="print_v">
-        <value name="VALUE1"><shadow type="variable"></shadow></value>
-      </block>
-      <block type="print_v">
-        <value name="VALUE1"><block type="calculation"></block></value>
-      </block>
+      <block type="print_v"></block>
       <block type="newline"></block>
     </category>
     <sep></sep>
@@ -655,23 +590,25 @@
     <!--<category name="{catVariable}" colour="330" custom="MYVARIABLE"></category>-->
     <category name="{catVariable}" colour="330">
       <!-- 変数カテゴリ -->
-      <label text="変数を作るブロック"></label>
+      <label text="変数を作る（宣言）ブロック"></label>
       <block type="declare_variable"></block>
-      <label text="配列を作るブロック"></label>
       <block type="declare_array1"></block>
-      <label text="変数に値を入れるブロック"></label>
+      <label text="変数に値を入れる（代入）ブロック"></label>
       <block type="assign">
         <value name="VALUE1"><shadow type="integer"></shadow></value>
       </block>
+      <block type="assign">
+        <value name="VALUE1">
+          <block type="calculation">
+            <value name="VALUE1"><shadow type="variable"></shadow></value>
+            <value name="VALUE2"><shadow type="integer"><field name="value">1</field></shadow></value>
+          </block>
+        </value>
+      </block>
       <label text="変数を使うためのブロック"></label>
       <block type="variable"></block>
-      <label text="配列を使うためのブロック"></label>
       <block type="array1">
-        <value name="INDEX1"><shadow type="nonnegative_integer"></shadow></value>
-      </block>
-      <label text="その他"></label>
-      <block type="increment_decrement">
-        <value name="VALUE1"><shadow type="natural_number"></shadow></value>
+        <value name="INDEX1"><shadow type="nonnegative_integer"><field name="VALUE1">5</field></shadow></value>
       </block>
     </category>
     <sep></sep>
@@ -686,16 +623,10 @@
     </category>
     <category name="{catCalc}" colour="230">
       <!-- 計算カテゴリ -->
-      <block type="calculation">
-        <value name="val1"><shadow type="integer"></shadow></value>
-        <value name="val2"><shadow type="integer"></shadow></value>
-      </block>
-      <block type="calculation_with_parentheses">
-        <value name="VALUE1"><shadow type="integer"></shadow></value>
-        <value name="VALUE2"><shadow type="integer"></shadow></value>
-      </block>
+      <block type="calculation"></block>
+      <block type="calculation_with_parentheses"></block>
       <block type="random">
-        <value name="val"><shadow type="natural_number"></shadow></value>
+        <value name="val"><shadow type="natural_number"><field name="VALUE1">10</field></shadow></value>
       </block>
       <block type="abs">
         <value name="VALUE"><shadow type="integer"></shadow></value>
@@ -722,33 +653,21 @@
     </category>
     <category name="{catCompLogic}" colour="105">
       <!-- 比較・論理カテゴリ -->
-      <block type="comparison">
-        <value name="VALUE1"><shadow type="variable"></shadow></value>
-        <value name="VALUE2"><shadow type="integer"></shadow></value>
-      </block>
-      <block type="comparison">
-        <value name="VALUE1">
-          <block type="calculation">
-            <value name="val1"><shadow type="integer"></shadow></value>
-            <value name="val2"><shadow type="integer"></shadow></value>
-          </block>
-        </value>
-        <value name="VALUE2"><shadow type="integer"></shadow></value>
-      </block>
+      <block type="comparison"></block>
       <block type="and"></block>
       <block type="or"></block>
       <block type="not"></block>
     </category>
     <category name="{catBranching}" colour="260">
       <!-- 条件分岐カテゴリ -->
+      <block type="if2"></block>
+      <!--
       <block type="if"></block>
       <block type="ifelse"></block>
+      -->
     </category>
     <category name="{catLooping}" colour="190">
       <!-- 繰り返しカテゴリ -->
-      <block type="while_simplified">
-        <value name="VALUE1"><shadow type="natural_number"></shadow></value>
-      </block>
       <block type="while"></block>
       <block type="for">
         <value name="FROM"><shadow type="nonnegative_integer"></shadow></value>
@@ -757,18 +676,14 @@
       </block>
     </category>
     <sep></sep>
-    <category name="{catInoutput}" colour="65">
-      <!-- 入出力カテゴリ -->
-      <label text="入力ブロック"></label>
+    <category name="{catInput}" colour="65">
+      <!-- 入力カテゴリ -->
       <block type="input"></block>
-      <label text="出力ブロック"></label>
+    </category>
+    <category name="{catPrint}" colour="65">
+      <!-- 表示カテゴリ -->
       <block type="print_string"></block>
-      <block type="print_v">
-        <value name="VALUE1"><shadow type="variable"></shadow></value>
-      </block>
-      <block type="print_v">
-        <value name="VALUE1"><block type="calculation"></block></value>
-      </block>
+      <block type="print_v"></block>
       <block type="newline"></block>
     </category>
   </xml>
@@ -813,8 +728,8 @@
     <category name="{catCalc}" colour="230">
       <!-- 計算カテゴリ -->
       <block type="calculation">
-        <value name="val1"><shadow type="integer"></shadow></value>
-        <value name="val2"><shadow type="integer"></shadow></value>
+        <value name="VALUE1"><shadow type="integer"></shadow></value>
+        <value name="VALUE2"><shadow type="integer"></shadow></value>
       </block>
       <block type="calculation_with_parentheses">
         <value name="VALUE1"><shadow type="integer"></shadow></value>
@@ -856,8 +771,8 @@
       <block type="comparison">
         <value name="VALUE1">
           <block type="calculation">
-            <value name="val1"><shadow type="integer"></shadow></value>
-            <value name="val2"><shadow type="integer"></shadow></value>
+            <value name="VALUE1"><shadow type="integer"></shadow></value>
+            <value name="VALUE2"><shadow type="integer"></shadow></value>
           </block>
         </value>
         <value name="VALUE2"><shadow type="integer"></shadow></value>
@@ -958,8 +873,8 @@
                       <field name="OPERATOR">=</field>
                       <value name="VALUE1">
                         <block type="calculation">
-                          <field name="calculation">%</field>
-                          <value name="val1">
+                          <field name="OPERATOR1">%</field>
+                          <value name="VALUE1">
                             <shadow type="integer">
                               <field name="value">0</field>
                             </shadow>
@@ -967,7 +882,7 @@
                               <field name="VARIABLE">num</field>
                             </block>
                           </value>
-                          <value name="val2">
+                          <value name="VALUE2">
                             <shadow type="integer">
                               <field name="value">2</field>
                             </shadow>
@@ -986,13 +901,13 @@
                       <field name="NEWLINE">true</field>
                       <value name="VALUE1">
                         <block type="calculation">
-                          <field name="calculation">+</field>
-                          <value name="val1">
+                          <field name="OPERATOR1">+</field>
+                          <value name="VALUE1">
                             <block type="variable">
                               <field name="VARIABLE">num</field>
                             </block>
                           </value>
-                          <value name="val2">
+                          <value name="VALUE2">
                             <block type="string">
                               <field name="value">は偶数です。</field>
                             </block>
@@ -1006,13 +921,13 @@
                       <field name="NEWLINE">true</field>
                       <value name="VALUE1">
                         <block type="calculation">
-                          <field name="calculation">+</field>
-                          <value name="val1">
+                          <field name="OPERATOR1">+</field>
+                          <value name="VALUE1">
                             <block type="variable">
                               <field name="VARIABLE">num</field>
                             </block>
                           </value>
-                          <value name="val2">
+                          <value name="VALUE2">
                             <block type="string">
                               <field name="value">は奇数です。</field>
                             </block>
@@ -1061,9 +976,9 @@
                                         <block type="comparison">
                                           <value name="VALUE1">
                                             <block type="calculation">
-                                              <value name="val1"><block type="variable"><field name="VARIABLE">i</field></block></value>
-                                              <field name="calculation">%</field>
-                                              <value name="val2"><block type="variable"><field name="VARIABLE">j</field></block></value>
+                                              <value name="VALUE1"><block type="variable"><field name="VARIABLE">i</field></block></value>
+                                              <field name="OPERATOR1">%</field>
+                                              <value name="VALUE2"><block type="variable"><field name="VARIABLE">j</field></block></value>
                                             </block>
                                           </value>
                                           <value name="VALUE2"><shadow type="integer"></shadow></value>
@@ -1089,8 +1004,8 @@
                                         <block type="print_v">
                                           <value name="VALUE1">
                                             <block type="calculation">
-                                              <value name="val1"><block type="variable"><field name="VARIABLE">i</field></block></value>
-                                              <value name="val2"><block type="string"><field name="value"> </field></block></value>
+                                              <value name="VALUE1"><block type="variable"><field name="VARIABLE">i</field></block></value>
+                                              <value name="VALUE2"><block type="string"><field name="value"> </field></block></value>
                                             </block>
                                           </value>
                                           <field name="NEWLINE">false</field>
@@ -1139,9 +1054,9 @@
                           <value name="VALUE1">
                             <shadow type="variable"><field name="VARIABLE">x</field></shadow>
                             <block type="calculation">
-                              <field name="calculation">+</field>
-                              <value name="val1"><block type="string"><field name="value">  </field></block></value>
-                              <value name="val2"> <block type="variable"><field name="VARIABLE">x</field></block></value>
+                              <field name="OPERATOR1">+</field>
+                              <value name="VALUE1"><block type="string"><field name="value">  </field></block></value>
+                              <value name="VALUE2"> <block type="variable"><field name="VARIABLE">x</field></block></value>
                             </block>
                           </value>
                           <field name="NEWLINE">false</field>
@@ -1164,9 +1079,9 @@
                                     <value name="VALUE1">
                                       <shadow type="variable"><field name="VARIABLE">x</field></shadow>
                                       <block type="calculation">
-                                        <field name="calculation">+</field>
-                                        <value name="val1"><block type="variable"><field name="VARIABLE">y</field></block></value>
-                                        <value name="val2"><block type="string"><field name="value"> |</field></block></value>
+                                        <field name="OPERATOR1">+</field>
+                                        <value name="VALUE1"><block type="variable"><field name="VARIABLE">y</field></block></value>
+                                        <value name="VALUE2"><block type="string"><field name="value"> |</field></block></value>
                                       </block>
                                     </value>
                                     <field name="NEWLINE">false</field>
@@ -1185,9 +1100,9 @@
                                                 <value name="VALUE1">
                                                   <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
                                                   <block type="calculation">
-                                                    <field name="calculation">*</field>
-                                                    <value name="val1"><block type="variable"><field name="VARIABLE">x</field></block></value>
-                                                    <value name="val2"><block type="variable"><field name="VARIABLE">y</field></block></value>
+                                                    <field name="OPERATOR1">*</field>
+                                                    <value name="VALUE1"><block type="variable"><field name="VARIABLE">x</field></block></value>
+                                                    <value name="VALUE2"><block type="variable"><field name="VARIABLE">y</field></block></value>
                                                   </block>
                                                 </value>
                                                 <value name="VALUE2"><shadow type="integer"><field name="value">10</field></shadow></value>
@@ -1208,9 +1123,9 @@
                                                     <value name="VALUE1">
                                                       <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
                                                       <block type="calculation">
-                                                        <field name="calculation">*</field>
-                                                        <value name="val1"><block type="variable"><field name="VARIABLE">x</field></block></value>
-                                                        <value name="val2"><block type="variable"><field name="VARIABLE">y</field></block></value>
+                                                        <field name="OPERATOR1">*</field>
+                                                        <value name="VALUE1"><block type="variable"><field name="VARIABLE">x</field></block></value>
+                                                        <value name="VALUE2"><block type="variable"><field name="VARIABLE">y</field></block></value>
                                                       </block>
                                                     </value>
                                                     <field name="NEWLINE">false</field>
@@ -1256,9 +1171,9 @@
                       <value name="VALUE1">
                         <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
                         <block type="calculation">
-                          <field name="calculation">%</field>
-                          <value name="val1"><block type="variable"><field name="VARIABLE">year</field></block></value>
-                          <value name="val2"><block type="integer"><field name="value">4</field></block></value>
+                          <field name="OPERATOR1">%</field>
+                          <value name="VALUE1"><block type="variable"><field name="VARIABLE">year</field></block></value>
+                          <value name="VALUE2"><block type="integer"><field name="value">4</field></block></value>
                         </block>
                       </value>
                       <value name="VALUE2"><shadow type="integer"><field name="value">0</field></shadow></value>
@@ -1274,9 +1189,9 @@
                               <value name="VALUE1">
                                 <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
                                 <block type="calculation">
-                                  <field name="calculation">%</field>
-                                  <value name="val1"><block type="variable"><field name="VARIABLE">year</field></block></value>
-                                  <value name="val2"><block type="integer"><field name="value">100</field></block></value>
+                                  <field name="OPERATOR1">%</field>
+                                  <value name="VALUE1"><block type="variable"><field name="VARIABLE">year</field></block></value>
+                                  <value name="VALUE2"><block type="integer"><field name="value">100</field></block></value>
                                 </block>
                               </value>
                               <value name="VALUE2"><shadow type="integer"><field name="value">0</field></shadow></value>
@@ -1288,9 +1203,9 @@
                               <value name="VALUE1">
                                 <shadow type="variable"><field name="VARIABLE">≪変数≫</field></shadow>
                                 <block type="calculation">
-                                  <field name="calculation">%</field>
-                                  <value name="val1"><block type="variable"><field name="VARIABLE">year</field></block></value>
-                                  <value name="val2"><block type="integer"><field name="value">400</field></block></value>
+                                  <field name="OPERATOR1">%</field>
+                                  <value name="VALUE1"><block type="variable"><field name="VARIABLE">year</field></block></value>
+                                  <value name="VALUE2"><block type="integer"><field name="value">400</field></block></value>
                                 </block>
                               </value>
                               <value name="VALUE2"><shadow type="integer"><field name="value">0</field></shadow></value>
