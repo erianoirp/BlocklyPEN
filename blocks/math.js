@@ -1,14 +1,28 @@
 Blockly.Blocks['calculation'] = {
   init: function() {
-    this.appendValueInput("val1")
-        .setCheck(null);
-    this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["＋", "+"], ["－", "-"], ["×", "*"], ["÷", "/"], ["%", "%"]]), "calculation");
-    this.appendValueInput("val2")
-        .setCheck(null);
-    this.setOutput(true, null);
-    this.setColour(230);
-    this.setTooltip('');
+    this.jsonInit({
+      "message0": "%1 %2 %3",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE1"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "OPERATOR1",
+          "options": [["＋", "+"],["－", "-"],["×", "*"],["÷", "/"],["%", "%"]]
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE2"
+        }
+      ],
+      "inputsInline": true,
+      "output": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    });
   }
 };
 
