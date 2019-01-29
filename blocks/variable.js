@@ -1,7 +1,7 @@
 Blockly.Blocks['declare_variable'] = {
   init: function() {
     this.jsonInit({
-      "message0": "%1 %2 の変数を宣言",
+      "message0": "%1 %2",
       "args0": [
         {
           "type": "field_dropdown",
@@ -27,7 +27,7 @@ Blockly.Blocks['declare_variable'] = {
 Blockly.Blocks['declare_array1'] = {
   init: function() {
     this.jsonInit({
-      "message0": "%1 %2 大きさ %3 の配列を宣言",
+      "message0": "%1 %2 [ %3 ]",
       "args0": [
         {
           "type": "field_dropdown",
@@ -43,7 +43,7 @@ Blockly.Blocks['declare_array1'] = {
           "type": "field_number",
           "name": "SIZE1",
           "check": "Number",
-          "value": 1,
+          "value": 5,
           "min": 1,
           "precision": 1
         }
@@ -61,7 +61,7 @@ Blockly.Blocks['declare_array1'] = {
 Blockly.Blocks['declare_array2'] = {
   init: function() {
     this.jsonInit({
-      "message0": "%1 %2 大きさ %3, %4 の配列を宣言",
+      "message0": "%1 %2 [ %3 , %4 ]",
       "args0": [
         {
           "type": "field_dropdown",
@@ -77,7 +77,7 @@ Blockly.Blocks['declare_array2'] = {
           "type": "field_number",
           "name": "SIZE1",
           "check": "Number",
-          "value": 1,
+          "value": 5,
           "min": 1,
           "precision": 1
         },
@@ -85,7 +85,7 @@ Blockly.Blocks['declare_array2'] = {
           "type": "field_number",
           "name": "SIZE2",
           "check": "Number",
-          "value": 1,
+          "value": 5,
           "min": 1,
           "precision": 1
         }
@@ -103,7 +103,7 @@ Blockly.Blocks['declare_array2'] = {
 Blockly.Blocks['assign'] = {
   init: function() {
     this.jsonInit({
-      "message0": "%1 の値を %2 にする",
+      "message0": "%1 ← %2",
       "args0": [
         {
           "type": "field_input",
@@ -115,7 +115,7 @@ Blockly.Blocks['assign'] = {
           "name": "VALUE1"
         }
       ],
-      "inputsInline": true,
+      "inputsInline": false,
       "previousStatement": null,
       "nextStatement": null,
       "colour": 330,
@@ -147,7 +147,7 @@ Blockly.Blocks['variable'] = {
 Blockly.Blocks['array1'] = {
   init: function() {
     this.jsonInit({
-      "message0": "%1 の %2 番目",
+      "message0": "%1 [ %2 ]",
       "args0": [
         {
           "type": "field_input",
@@ -172,7 +172,7 @@ Blockly.Blocks['array1'] = {
 Blockly.Blocks['array2'] = {
   init: function() {
     this.jsonInit({
-      "message0": "%1 の %2 %3 番目",
+      "message0": "%1 [ %2 , %3 ]",
       "args0": [
         {
           "type": "field_input",
@@ -346,7 +346,7 @@ Blockly.Blocks['compound_assignment'] = {
           "name": "VALUE1"
         }
       ],
-      "inputsInline": true,
+      "inputsInline": false,
       "previousStatement": null,
       "nextStatement": null,
       "colour": 330,
